@@ -118,6 +118,8 @@ public class TalkActivity extends ActionBarActivity {
         // Add a view for each speaker in the talk.
 
         LinearLayout scrollView = (LinearLayout) findViewById(R.id.scroll_view);
+        
+        //note: getspeakers might fail here
         for (Speaker speaker : talk.getSpeakers()) {
           View speakerView = View.inflate(TalkActivity.this, R.layout.list_item_speaker, null);
 

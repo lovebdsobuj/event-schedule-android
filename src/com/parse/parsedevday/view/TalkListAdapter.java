@@ -92,7 +92,7 @@ public class TalkListAdapter extends ArrayAdapter<Talk> {
             speakerimage.loadInBackground(new GetDataCallback() {
                 @Override
                 public void done(byte[] data, ParseException e) {
-                    if (data != null && e == null) {
+                    if (data != null) {
                         Log.i("ParseImageView", "Fetched! Data length: " + data.length);
                     }else if(e!=null && e.getMessage()!=null){
                         Log.e("ParseImageView", "exception: " + e.getMessage());

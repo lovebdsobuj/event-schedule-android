@@ -16,7 +16,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -93,8 +92,10 @@ public class TalkListAdapter extends ArrayAdapter<Talk> {
             speakerimage.loadInBackground(new GetDataCallback() {
                 @Override
                 public void done(byte[] data, ParseException e) {
-                    if (data != null && e != null && e.getMessage() != null) {
-                        Log.i("ParseImageView", "Fetched! Data length: " + data.length + ", or exception: " + e.getMessage());
+                    if (data != null && e == null) {
+                        Log.i("ParseImageView", "Fetched! Data length: " + data.length);
+                    }else if(e!=null && e.getMessage()!=null){
+                        Log.e("ParseImageView", "exception: " + e.getMessage());
                     }
                 }
             });

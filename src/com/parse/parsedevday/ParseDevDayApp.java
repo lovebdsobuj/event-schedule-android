@@ -25,8 +25,8 @@ public class ParseDevDayApp extends Application {
     ParseObject.registerSubclass(Talk.class);
 
     // Initialize Parse with the application ID and client key.
-    Parse.initialize(this, "Ke5a4QgPnSzej2ULCJKYdCwYQ7FMSBMNcWsAFFSk",
-        "h2lFRhRDuYWBkICAB4hhjc0DEFyj7ti3fOjkVFTa");
+    Parse.initialize(this, "XqChc4Nc3GZOhsXOOHYyFRx6PKkmzv37xA6MPR9H",
+        "TuJcLr9R9DrF1OHl3R7NPJs2zSZvthysnPK8dfEJ");
 
     // Enable the Parse push notification service for remote pushes.
     PushService.setDefaultPushCallback(this, MainActivity.class);

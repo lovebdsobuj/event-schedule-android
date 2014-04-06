@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.9+'
+    }
+}
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 'android-19'
+    buildToolsVersion '19.0.3'
+
+    defaultConfig {
+        versionCode 100
+        versionName "1.0.0"
+        minSdkVersion 10
+        targetSdkVersion 19
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFile getDefaultProguardFile('proguard-android.txt')
+        }
+    }
+}
+dependencies {
+    compile 'com.android.support:appcompat-v7:19.+'
+    compile files('libs/Parse-1.4.3.jar')
+}

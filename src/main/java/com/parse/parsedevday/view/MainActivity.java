@@ -4,17 +4,18 @@ import java.util.Locale;
 
 import com.parse.ParseAnalytics;
 import com.parse.parsedevday.R;
+import com.parse.parsedevday.util.TypefaceSpan;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBar.TabListener;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.text.SpannableString;
 import android.view.Menu;
 
 /**
@@ -66,13 +67,18 @@ public class MainActivity extends CalligraphyActivity implements TabListener {
       }
     });
 
-    // Create the tabs for each section.
-    for (int i = 0; i < sectionsPagerAdapter.getCount(); i++) {
-      Tab tab = actionBar.newTab();
-      tab.setText(sectionsPagerAdapter.getPageTitle(i));
-      tab.setTabListener(this);
-      actionBar.addTab(tab);
-    }
+      // Create the tabs for each section.
+      for (int i = 0; i < sectionsPagerAdapter.getCount(); i++) {
+          Tab tab = actionBar.newTab();
+          CharSequence pageTitle = sectionsPagerAdapter.getPageTitle(i);
+          SpannableString tabTitle = new SpannableString(pageTitle);
+          String fontFamily = "FuturaStd-Book.otf";
+          int textColor = getResources().getColor(R.color.actionbar_text);
+          tabTitle.setSpan(new TypefaceSpan(this, fontFamily, textColor), 0, pageTitle.length(), 0);
+          tab.setText(tabTitle);
+          tab.setTabListener(this);
+          actionBar.addTab(tab);
+      }
   }
 
   @Override

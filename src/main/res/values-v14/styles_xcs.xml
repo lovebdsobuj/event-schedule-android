@@ -25,7 +25,7 @@
         <item name="android:actionBarTabStyle">@style/ActionBarTabStyle.Xcs</item>
         <item name="android:actionBarTabTextStyle">@style/ActionBarTabTextStyle.Xcs</item>
         <item name="android:actionDropDownStyle">@style/DropDownNav.Xcs</item>
-        <item name="android:actionBarStyle">@style/ActionBar.Solid.Xcs</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Transparent.Xcs</item>
         <item name="android:actionModeBackground">@drawable/cab_background_top_xcs</item>
         <item name="android:actionModeSplitBackground">@drawable/cab_background_bottom_xcs</item>
         <item name="android:actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Xcs</item>

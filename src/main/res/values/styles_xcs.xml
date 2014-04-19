@@ -25,7 +25,7 @@
         <item name="actionBarTabStyle">@style/ActionBarTabStyle.Xcs</item>
         <item name="actionBarTabTextStyle">@style/ActionBarTabTextStyle.Xcs</item>
         <item name="actionDropDownStyle">@style/DropDownNav.Xcs</item>
-        <item name="actionBarStyle">@style/ActionBar.Solid.Xcs</item>
+        <item name="actionBarStyle">@style/ActionBar.Transparent.Xcs</item>
         <item name="actionModeBackground">@drawable/cab_background_top_xcs</item>
         <item name="actionModeSplitBackground">@drawable/cab_background_bottom_xcs</item>
         <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Xcs</item>

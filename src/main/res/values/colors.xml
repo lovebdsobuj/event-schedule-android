@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="xcs_gray_dark">#76828C</color>
+    <color name="xcs_gray_light">#EEE7EE</color>
+    <color name="xcs_purple">#6D2463</color>
+    <color name="xcs_orange">#FF9300</color>
+    <color name="xcs_yellow">#FFDF00</color>
+</resources>

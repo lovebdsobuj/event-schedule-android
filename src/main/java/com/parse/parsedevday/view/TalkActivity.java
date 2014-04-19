@@ -22,7 +22,7 @@ import android.widget.Toast;
 /**
  * An Activity to display information about a particular talk.
  */
-public class TalkActivity extends ActionBarActivity {
+public class TalkActivity extends CalligraphyActivity {
   /**
    * Adds a click listener to toggle between text truncated with ellipses and the full text.
    * @param view the view the user can click to toggle.

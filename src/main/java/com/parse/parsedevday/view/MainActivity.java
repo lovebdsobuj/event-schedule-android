@@ -21,7 +21,7 @@ import android.view.Menu;
  * An Activity with a tabs for the complete schedule and the list of favorited talks. This was
  * originally created from an ADT wizard.
  */
-public class MainActivity extends ActionBarActivity implements TabListener {
+public class MainActivity extends CalligraphyActivity implements TabListener {
   private static final int TAB_SCHEDULE = 0;
   private static final int TAB_FAVORITES = 1;
   private static final int TAB_COUNT = 2;

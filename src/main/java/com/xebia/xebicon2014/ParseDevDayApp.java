@@ -1,17 +1,17 @@
-package com.parse.parsedevday;
+package com.xebia.xebicon2014;
 
 import android.app.Application;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.PushService;
-import com.parse.parsedevday.model.Favorites;
-import com.parse.parsedevday.model.Room;
-import com.parse.parsedevday.model.Slot;
-import com.parse.parsedevday.model.Speaker;
-import com.parse.parsedevday.model.Talk;
-import com.parse.parsedevday.util.FavoritesNotificationScheduler;
-import com.parse.parsedevday.view.MainActivity;
+import com.xebia.xebicon2014.model.Favorites;
+import com.xebia.xebicon2014.model.Room;
+import com.xebia.xebicon2014.model.Slot;
+import com.xebia.xebicon2014.model.Speaker;
+import com.xebia.xebicon2014.model.Talk;
+import com.xebia.xebicon2014.util.FavoritesNotificationScheduler;
+import com.xebia.xebicon2014.view.MainActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 

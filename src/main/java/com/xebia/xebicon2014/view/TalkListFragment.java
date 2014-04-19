@@ -1,13 +1,4 @@
-package com.parse.parsedevday.view;
-
-import java.util.List;
-
-import com.parse.FindCallback;
-import com.parse.ParseException;
-import com.parse.parsedevday.R;
-import com.parse.parsedevday.model.Favorites;
-import com.parse.parsedevday.model.Talk;
-import com.parse.parsedevday.model.TalkComparator;
+package com.xebia.xebicon2014.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,6 +10,15 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.xebia.xebicon2014.R;
+import com.xebia.xebicon2014.model.Favorites;
+import com.xebia.xebicon2014.model.Talk;
+import com.xebia.xebicon2014.model.TalkComparator;
+
+import java.util.List;
 
 /**
  * A fragment that just contains a list of talks. If the "favoritesOnly" boolean argument is

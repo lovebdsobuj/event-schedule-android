@@ -1,4 +1,4 @@
-package com.parse.parsedevday.model;
+package com.xebia.xebicon2014.model;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;

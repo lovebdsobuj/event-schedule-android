@@ -1,7 +1,4 @@
-package com.parse.parsedevday.model;
-
-import java.util.Collections;
-import java.util.List;
+package com.xebia.xebicon2014.model;
 
 import android.net.Uri;
 
@@ -12,6 +9,9 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQuery.CachePolicy;
+
+import java.util.Collections;
+import java.util.List;
 
 /**
  * A talk being given at Parse Developer Day.

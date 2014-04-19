@@ -1,4 +1,4 @@
-package com.parse.parsedevday.util;
+package com.xebia.xebicon2014.util;
 
 /*
  * Copyright 2013 Simple Finance Corporation. All rights reserved.

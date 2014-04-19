@@ -1,11 +1,4 @@
-package com.parse.parsedevday.view;
-
-import com.parse.GetDataCallback;
-import com.parse.ParseException;
-import com.parse.ParseImageView;
-import com.parse.parsedevday.R;
-import com.parse.parsedevday.model.Favorites;
-import com.parse.parsedevday.model.Talk;
+package com.xebia.xebicon2014.view;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -17,6 +10,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.parse.GetDataCallback;
+import com.parse.ParseException;
+import com.parse.ParseImageView;
+import com.xebia.xebicon2014.R;
+import com.xebia.xebicon2014.model.Favorites;
+import com.xebia.xebicon2014.model.Talk;
 
 /**
  * An ArrayAdapter to handle a list of Talks.
@@ -86,8 +86,8 @@ public class TalkListAdapter extends ArrayAdapter<Talk> {
             view.setBackgroundColor(Color.rgb(245, 245, 245));
         }
         speakerimage.setPlaceholder(this.getContext().getResources().getDrawable(R.drawable.ic_launcher));
-        if (talk != null && talk.getSpeakers() != null && !talk.getSpeakers().isEmpty()
-                        && talk.getSpeakers().get(0).getPhoto() != null) {
+        if (talk.getSpeakers() != null && !talk.getSpeakers().isEmpty()
+                && talk.getSpeakers().get(0).getPhoto() != null) {
             speakerimage.setParseFile(talk.getSpeakers().get(0).getPhoto());
             speakerimage.loadInBackground(new GetDataCallback() {
                 @Override

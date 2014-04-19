@@ -1,16 +1,7 @@
-package com.parse.parsedevday.view;
-
-import com.parse.GetCallback;
-import com.parse.ParseException;
-import com.parse.ParseImageView;
-import com.parse.parsedevday.R;
-import com.parse.parsedevday.model.Favorites;
-import com.parse.parsedevday.model.Speaker;
-import com.parse.parsedevday.model.Talk;
+package com.xebia.xebicon2014.view;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBar.LayoutParams;
-import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils.TruncateAt;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,6 +9,14 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.parse.ParseImageView;
+import com.xebia.xebicon2014.R;
+import com.xebia.xebicon2014.model.Favorites;
+import com.xebia.xebicon2014.model.Speaker;
+import com.xebia.xebicon2014.model.Talk;
 
 /**
  * An Activity to display information about a particular talk.

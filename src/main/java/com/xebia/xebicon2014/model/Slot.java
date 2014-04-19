@@ -1,12 +1,12 @@
-package com.parse.parsedevday.model;
+package com.xebia.xebicon2014.model;
 
-import java.util.Date;
+import android.content.Context;
+import android.text.format.DateFormat;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
-import android.content.Context;
-import android.text.format.DateFormat;
+import java.util.Date;
 
 /**
  * A time slot that a talk could be held in.

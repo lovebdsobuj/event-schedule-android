@@ -1,4 +1,4 @@
-package com.parse.parsedevday.view;
+package com.xebia.xebicon2014.view;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
 
-import com.parse.parsedevday.R;
-import com.parse.parsedevday.util.TypefaceSpan;
+import com.xebia.xebicon2014.R;
+import com.xebia.xebicon2014.util.TypefaceSpan;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 

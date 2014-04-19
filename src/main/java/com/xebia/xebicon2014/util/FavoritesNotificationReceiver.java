@@ -1,10 +1,4 @@
-package com.parse.parsedevday.util;
-
-import com.parse.GetCallback;
-import com.parse.ParseException;
-import com.parse.parsedevday.R;
-import com.parse.parsedevday.model.Talk;
-import com.parse.parsedevday.view.TalkActivity;
+package com.xebia.xebicon2014.util;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -14,6 +8,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.xebia.xebicon2014.R;
+import com.xebia.xebicon2014.model.Talk;
+import com.xebia.xebicon2014.view.TalkActivity;
 
 /**
  * A BroadcastReceiver to handle Intents sent by the AlarmManager for local notifications.

@@ -1,4 +1,4 @@
-package com.parse.parsedevday.util;
+package com.xebia.xebicon2014.util;
 
 import java.util.Date;
 import java.util.logging.Level;
@@ -11,8 +11,8 @@ import android.content.Intent;
 
 import com.parse.GetCallback;
 import com.parse.ParseException;
-import com.parse.parsedevday.model.Talk;
-import com.parse.parsedevday.model.Favorites;
+import com.xebia.xebicon2014.model.Favorites;
+import com.xebia.xebicon2014.model.Talk;
 
 /**
  * Listens for changes to the set of favorite talks and sets up alarms to send out notifications a

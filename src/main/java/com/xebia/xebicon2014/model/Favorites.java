@@ -1,18 +1,18 @@
-package com.parse.parsedevday.model;
-
-import java.util.ArrayList;
-import java.util.HashSet;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.parse.ParseInstallation;
+package com.xebia.xebicon2014.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.widget.Toast;
+
+import com.parse.ParseInstallation;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.HashSet;
 
 /**
  * The set of talks that have been starred in the app.

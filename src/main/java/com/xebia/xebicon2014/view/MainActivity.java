@@ -1,22 +1,22 @@
-package com.parse.parsedevday.view;
-
-import java.util.Locale;
-
-import com.parse.ParseAnalytics;
-import com.parse.parsedevday.R;
-import com.parse.parsedevday.util.TypefaceSpan;
+package com.xebia.xebicon2014.view;
 
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBar.Tab;
-import android.support.v7.app.ActionBar.TabListener;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar.Tab;
+import android.support.v7.app.ActionBar.TabListener;
 import android.text.SpannableString;
 import android.view.Menu;
+
+import com.parse.ParseAnalytics;
+import com.xebia.xebicon2014.R;
+import com.xebia.xebicon2014.util.TypefaceSpan;
+
+import java.util.Locale;
 
 /**
  * An Activity with a tabs for the complete schedule and the list of favorited talks. This was

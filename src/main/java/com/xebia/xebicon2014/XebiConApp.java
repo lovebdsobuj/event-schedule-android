@@ -18,7 +18,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 /**
  * The main app class mostly handles setting up global state, such as Parse keys.
  */
-public class ParseDevDayApp extends Application {
+public class XebiConApp extends Application {
 
     @Override
     public void onCreate() {

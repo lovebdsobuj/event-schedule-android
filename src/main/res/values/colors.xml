@@ -5,4 +5,5 @@
     <color name="xcs_purple">#6D2463</color>
     <color name="xcs_orange">#FF9300</color>
     <color name="xcs_yellow">#FFDF00</color>
+    <color name="actionbar_text">@color/xcs_purple</color>
 </resources>

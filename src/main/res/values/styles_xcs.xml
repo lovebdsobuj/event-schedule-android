@@ -23,11 +23,13 @@
         <item name="popupMenuStyle">@style/PopupMenu.Xcs</item>
         <item name="dropDownListViewStyle">@style/DropDownListView.Xcs</item>
         <item name="actionBarTabStyle">@style/ActionBarTabStyle.Xcs</item>
+        <item name="actionBarTabTextStyle">@style/ActionBarTabTextStyle.Xcs</item>
         <item name="actionDropDownStyle">@style/DropDownNav.Xcs</item>
         <item name="actionBarStyle">@style/ActionBar.Solid.Xcs</item>
         <item name="actionModeBackground">@drawable/cab_background_top_xcs</item>
         <item name="actionModeSplitBackground">@drawable/cab_background_bottom_xcs</item>
         <item name="actionModeCloseButtonStyle">@style/ActionButton.CloseMode.Xcs</item>
+        <item name="actionMenuTextColor">@color/actionbar_text</item>
     </style>
 
     <style name="ActionBar.Solid.Xcs" parent="@style/Widget.AppCompat.Light.ActionBar.Solid">
@@ -35,6 +37,7 @@
         <item name="backgroundStacked">@drawable/ab_stacked_solid_xcs</item>
         <item name="backgroundSplit">@drawable/ab_bottom_solid_xcs</item>
         <item name="progressBarStyle">@style/ProgressBar.Xcs</item>
+        <item name="titleTextStyle">@style/ActionBarTitleText.Xcs</item>
     </style>
 
     <style name="ActionBar.Transparent.Xcs" parent="@style/Widget.AppCompat.Light.ActionBar">
@@ -66,6 +69,14 @@
 
     <style name="ActionButton.CloseMode.Xcs" parent="@style/Widget.AppCompat.Light.ActionButton.CloseMode">
         <item name="android:background">@drawable/btn_cab_done_xcs</item>
+    </style>
+
+    <style name="ActionBarTitleText.Xcs" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/actionbar_text</item>
+    </style>
+
+    <style name="ActionBarTabTextStyle.Xcs" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/actionbar_text</item>
     </style>
 
     <!-- this style is only referenced in a Light.DarkActionBar based theme -->

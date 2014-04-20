@@ -76,8 +76,10 @@ public class TalkListAdapter extends ArrayAdapter<Talk> {
 
         if (talk.isAlwaysFavorite()) {
             favoriteButton.setVisibility(View.GONE);
+            speakerimage.setVisibility(View.INVISIBLE);
         } else {
             favoriteButton.setVisibility(View.VISIBLE);
+            speakerimage.setVisibility(View.VISIBLE);
         }
 
         if (talk.isAlwaysFavorite()) {

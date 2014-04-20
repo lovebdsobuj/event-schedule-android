@@ -85,7 +85,6 @@ public class TalkDetailsFragment extends Fragment {
         mTimeView.setText(talk.getSlot().format(getActivity()));
         mRoomView.setText(talk.getRoom().getName());
         mAbstractView.setText(talk.getAbstract());
-        enableTextCollapsing(mAbstractView, mAbstractView, 10);
 
         if (Favorites.get().contains(talk)) {
             mFavoriteButton.setImageResource(R.drawable.light_rating_important);

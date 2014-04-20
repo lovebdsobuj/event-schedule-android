@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <attr name="calligraphy"/>
+
+    <declare-styleable name="CircularParseImageView">
+        <attr name="border" format="boolean"></attr>
+        <attr name="border_width" format="integer"></attr>
+        <attr name="border_color" format="color"></attr>
+        <attr name="shadow" format="boolean"></attr>
+    </declare-styleable>
+
+    <declare-styleable name="Theme.Xcs">
+        <attr name="circularParseImageViewStyle" format="reference"></attr>
+    </declare-styleable>
 </resources>

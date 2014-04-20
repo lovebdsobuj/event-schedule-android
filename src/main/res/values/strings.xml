@@ -8,5 +8,7 @@
     <string name="photo">Photo</string>
     <string name="favorite">Favorite</string>
     <string name="add_to_schedule">Add to Schedule</string>
-    
+    <string name="start_date_label">Time:</string>
+    <string name="room_label">Location:</string>
+
 </resources>

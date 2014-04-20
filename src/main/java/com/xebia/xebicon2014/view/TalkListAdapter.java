@@ -39,9 +39,6 @@ public class TalkListAdapter extends ArrayAdapter<Talk> {
         TextView startDateView = (TextView) view.findViewById(R.id.start_date);
         startDateView.setText(DateFormat.getTimeFormat(getContext()).format(talk.getSlot().getStartTime()));
 
-        TextView endDateView = (TextView) view.findViewById(R.id.end_date);
-        endDateView.setText(DateFormat.getTimeFormat(getContext()).format(talk.getSlot().getEndTime()));
-
         TextView titleView = (TextView) view.findViewById(R.id.title);
         TextView roomView = (TextView) view.findViewById(R.id.room);
 

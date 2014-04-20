@@ -101,6 +101,8 @@ public class TalkListAdapter extends ArrayAdapter<Talk> {
                     }
                 }
             });
+        } else {
+            speakerimage.setParseFile(null);
         }
         return view;
     }

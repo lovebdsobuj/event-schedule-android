@@ -1,42 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal" >
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    tools:ignore="MissingPrefix">
 
     <com.xebia.xebicon2014.util.CircularParseImageView
         android:id="@+id/photo"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:contentDescription="@string/photo"
-        android:paddingBottom="5dp"
-        app:border="false"/>
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        app:border="false" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/name"
+        calligraphy="fonts/FuturaStd-Heavy.otf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/photo"
+        android:layout_marginTop="8dp"
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+        android:id="@+id/title_company"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:singleLine="true"
+        android:layout_toRightOf="@+id/photo"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/bio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="10dp"
-        android:paddingTop="10dp" >
+        android:layout_below="@id/photo"
+        android:paddingBottom="16dp" />
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/title_company"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <TextView
-            android:id="@+id/bio"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp" />
-    </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

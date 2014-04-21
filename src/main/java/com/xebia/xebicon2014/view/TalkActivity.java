@@ -18,10 +18,6 @@ public class TalkActivity extends CalligraphyActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_talk);
 
-        final TalkDetailsFragment detailsFragment = TalkDetailsFragment.newInstance();
-        getSupportFragmentManager().beginTransaction().add(R.id.container,
-                detailsFragment).commit();
-
         // Fetch the data about this talk from Parse.
         String talkId = Talk.getTalkId(getIntent().getData());
         Talk.getInBackground(talkId, new GetCallback<Talk>() {
@@ -38,7 +34,8 @@ public class TalkActivity extends CalligraphyActivity {
                     throw new RuntimeException("Somehow the talk was null.");
                 }
 
-                detailsFragment.setTalk(talk);
+                TalkDetailsFragment fragment = (TalkDetailsFragment) getSupportFragmentManager().findFragmentById(R.id.talk_details);
+                fragment.setTalk(talk);
             }
         });
     }

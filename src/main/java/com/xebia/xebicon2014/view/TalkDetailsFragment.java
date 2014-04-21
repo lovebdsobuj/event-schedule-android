@@ -37,13 +37,6 @@ public class TalkDetailsFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * @return A new instance of fragment TalkDetailsFragment.
-     */
-    public static TalkDetailsFragment newInstance() {
-        return new TalkDetailsFragment();
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

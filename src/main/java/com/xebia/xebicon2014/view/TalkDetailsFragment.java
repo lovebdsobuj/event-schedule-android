@@ -1,11 +1,8 @@
 package com.xebia.xebicon2014.view;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +59,10 @@ public class TalkDetailsFragment extends Fragment {
     }
 
     private void onFavoriteClick() {
+        if (null == mTalk) {
+            return;
+        }
+
         if (Favorites.get().contains(mTalk)) {
             Favorites.get().remove(mTalk);
             mFavoriteButton.setImageResource(R.drawable.light_rating_not_important);
@@ -112,17 +113,6 @@ public class TalkDetailsFragment extends Fragment {
                 final TextView bioView = (TextView) view.findViewById(R.id.bio);
                 bioView.setText(speaker.getBio());
 
-                // Put in some heuristics for how much text we can show for each speaker.
-                if (talk.getSpeakers().size() > 1) {
-                    enableTextCollapsing(view, bioView, 2);
-                } else {
-                    if (talk.getAbstract().length() > 2) {
-                        enableTextCollapsing(view, bioView, 8);
-                    } else {
-                        enableTextCollapsing(view, bioView, 20);
-                    }
-                }
-
                 ActionBar.LayoutParams layout = new ActionBar.LayoutParams(ActionBar.LayoutParams
                         .MATCH_PARENT,
                         ActionBar.LayoutParams.WRAP_CONTENT
@@ -135,43 +125,5 @@ public class TalkDetailsFragment extends Fragment {
         } else {
             mAboutHeader.setVisibility(View.GONE);
         }
-    }
-
-    /**
-     * Adds a click listener to toggle between text truncated with ellipses and the full text.
-     *
-     * @param view     the view the user can click to toggle.
-     * @param textView the text view to collapse.
-     * @param maxLines the maximum number of lines to show when collapsed.
-     */
-    private void enableTextCollapsing(final View view, final TextView textView,
-                                      final int maxLines) {
-        if (android.os.Build.VERSION.SDK_INT <= android.os.Build.VERSION_CODES.GINGERBREAD_MR1) {
-            /*
-             * There is a bug in Gingerbread at least where ellipsized text does not wrap before
-             * it gets ellipsized, so the layout turns out all wrong. So let's just have long
-             * screens of text in old versions of Android.
-             */
-            return;
-        }
-
-        textView.setEllipsize(TextUtils.TruncateAt.END);
-        textView.setMaxLines(maxLines);
-        view.setOnClickListener(new View.OnClickListener() {
-            boolean expanded = false;
-
-            @Override
-            public void onClick(View v) {
-                // In newer versions of Android, we could use getMaxLines to know if it was
-                // expanded.
-                if (expanded) {
-                    textView.setMaxLines(maxLines);
-                    expanded = false;
-                } else {
-                    textView.setMaxLines(Integer.MAX_VALUE);
-                    expanded = true;
-                }
-            }
-        });
     }
 }

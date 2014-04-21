@@ -89,6 +89,6 @@
         android:contentDescription="@string/favorite"
         android:focusable="false"
         android:padding="8dp"
-        android:src="@drawable/light_rating_not_important" />
+        android:src="@drawable/rating_not_important_dark" />
 
 </RelativeLayout>

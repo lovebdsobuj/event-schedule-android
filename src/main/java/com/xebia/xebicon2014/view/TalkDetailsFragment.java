@@ -28,7 +28,7 @@ public class TalkDetailsFragment extends Fragment {
     private TextView mAbstractView;
     private ImageButton mFavoriteButton;
     private LinearLayout mScrollView;
-    private View mAboutHeader;
+    private TextView mSpeakersHeader;
 
     public TalkDetailsFragment() {
         // Required empty public constructor
@@ -46,7 +46,7 @@ public class TalkDetailsFragment extends Fragment {
             mAbstractView = (TextView) root.findViewById(R.id.talk_abstract);
             mFavoriteButton = (ImageButton) root.findViewById(R.id.favorite_button);
             mScrollView = (LinearLayout) root.findViewById(R.id.scroll_view);
-            mAboutHeader = root.findViewById(R.id.about_header);
+            mSpeakersHeader = (TextView) root.findViewById(R.id.speakers_header);
 
             mFavoriteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -65,10 +65,10 @@ public class TalkDetailsFragment extends Fragment {
 
         if (Favorites.get().contains(mTalk)) {
             Favorites.get().remove(mTalk);
-            mFavoriteButton.setImageResource(R.drawable.light_rating_not_important);
+            mFavoriteButton.setImageResource(R.drawable.rating_not_important_light);
         } else {
             Favorites.get().add(mTalk);
-            mFavoriteButton.setImageResource(R.drawable.light_rating_important);
+            mFavoriteButton.setImageResource(R.drawable.rating_important_light);
         }
         Favorites.get().save(getActivity());
     }
@@ -81,51 +81,54 @@ public class TalkDetailsFragment extends Fragment {
         mAbstractView.setText(talk.getAbstract());
 
         if (Favorites.get().contains(talk)) {
-            mFavoriteButton.setImageResource(R.drawable.light_rating_important);
+            mFavoriteButton.setImageResource(R.drawable.rating_important_light);
         } else {
-            mFavoriteButton.setImageResource(R.drawable.light_rating_not_important);
+            mFavoriteButton.setImageResource(R.drawable.rating_not_important_light);
         }
-        if (talk.isAlwaysFavorite()) {
-            mFavoriteButton.setVisibility(View.INVISIBLE);
+        if (!talk.isAlwaysFavorite()) {
+            mFavoriteButton.setVisibility(View.VISIBLE);
         }
 
-        showSpeakers(talk);
+        showSpeakers(talk.getSpeakers());
     }
 
-    private void showSpeakers(Talk talk) {
-        List<Speaker> speakers = talk.getSpeakers();
-        if (null != speakers && speakers.size() > 0) {
-            // Add a view for each speaker in the talk.
-            for (Speaker speaker : talk.getSpeakers()) {
-                View view = View.inflate(getActivity(), R.layout.list_item_speaker, null);
+    private void showSpeakers(List<Speaker> speakers) {
 
-                ParseImageView photo = (ParseImageView) view.findViewById(R.id.photo);
-                photo.setParseFile(speaker.getPhoto());
-                photo.loadInBackground();
+        if (null == speakers) {
+            return;
+        }
 
-                TextView nameView = (TextView) view.findViewById(R.id.name);
-                nameView.setText(speaker.getName());
+        if (speakers.size() == 1) {
+            // special singular form of the label
+            mSpeakersHeader.setText(R.string.speaker_label);
+        }
+        mSpeakersHeader.setVisibility(View.VISIBLE);
 
-                TextView title = (TextView) view.findViewById(R.id.title);
-                title.setText(speaker.getTitle());
+        // Add a view for each speaker in the talk.
+        for (Speaker speaker : speakers) {
+            View view = View.inflate(getActivity(), R.layout.list_item_speaker, null);
 
-                TextView company = (TextView) view.findViewById(R.id.company);
-                company.setText(speaker.getCompany());
+            ParseImageView photo = (ParseImageView) view.findViewById(R.id.photo);
+            photo.setParseFile(speaker.getPhoto());
+            photo.loadInBackground();
 
-                final TextView bioView = (TextView) view.findViewById(R.id.bio);
-                bioView.setText(speaker.getBio());
+            TextView nameView = (TextView) view.findViewById(R.id.name);
+            nameView.setText(speaker.getName());
 
-                ActionBar.LayoutParams layout = new ActionBar.LayoutParams(ActionBar.LayoutParams
-                        .MATCH_PARENT,
-                        ActionBar.LayoutParams.WRAP_CONTENT
-                );
-                view.setLayoutParams(layout);
+            TextView title = (TextView) view.findViewById(R.id.title);
+            title.setText(speaker.getTitle());
 
-                mScrollView.addView(view);
-            }
+            TextView company = (TextView) view.findViewById(R.id.company);
+            company.setText(speaker.getCompany());
 
-        } else {
-            mAboutHeader.setVisibility(View.GONE);
+            final TextView bioView = (TextView) view.findViewById(R.id.bio);
+            bioView.setText(speaker.getBio());
+
+            ActionBar.LayoutParams layout = new ActionBar.LayoutParams(ActionBar.LayoutParams
+                    .MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT);
+            view.setLayoutParams(layout);
+
+            mScrollView.addView(view);
         }
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.xebia.xebicon2014.view.TalkListItemView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -14,7 +15,7 @@
         android:layout_height="48dp"
         android:layout_centerVertical="true"
         android:layout_marginRight="8dp"
-        app:border="false" />
+        app:border="false"/>
 
     <!-- TALK TITLE: between speaker image and favorite button -->
     <!-- 2dp top margin to center the two info lines in the layout -->
@@ -27,7 +28,8 @@
         android:layout_toLeftOf="@+id/favorite_button"
         android:layout_toRightOf="@+id/speakerimage"
         android:singleLine="true"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/header_text"/>
 
     <!-- TIME LABEL: next to speaker image, below title -->
     <TextView
@@ -38,7 +40,8 @@
         android:layout_marginRight="4dp"
         android:layout_toRightOf="@+id/speakerimage"
         android:text="@string/start_date_label"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/header_text"/>
 
     <!-- ROOM LABEL: next to time label, below title -->
     <!-- 64dp left margin save space for time value -->
@@ -51,7 +54,8 @@
         android:layout_marginRight="4dp"
         android:layout_toRightOf="@+id/start_date_label"
         android:text="@string/room_label"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/header_text"/>
 
     <!-- TIME VALUE: next to time label -->
     <!-- max 60dp wide so it does not overlap room label -->
@@ -63,7 +67,8 @@
         android:layout_below="@+id/title"
         android:layout_toRightOf="@+id/start_date_label"
         android:singleLine="true"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/header_text"/>
 
     <!-- ROOM VALUE: next to room label -->
     <!-- left aligned with favorite button to prevent overlap -->
@@ -76,7 +81,8 @@
         android:layout_toLeftOf="@+id/favorite_button"
         android:layout_toRightOf="@+id/room_label"
         android:singleLine="true"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/header_text"/>
 
     <!-- FAVORITE BUTTON: left aligned, centered vertically -->
     <ImageButton
@@ -89,6 +95,6 @@
         android:contentDescription="@string/favorite"
         android:focusable="false"
         android:padding="8dp"
-        android:src="@drawable/rating_not_important_dark" />
+        android:src="@drawable/rating_not_important_dark"/>
 
-</RelativeLayout>
+</com.xebia.xebicon2014.view.TalkListItemView>

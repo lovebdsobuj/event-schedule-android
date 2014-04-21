@@ -126,18 +126,13 @@ public class MainActivity extends CalligraphyActivity implements TabListener {
       switch (position) {
         case TAB_SCHEDULE: {
           if (scheduleFragment == null) {
-            scheduleFragment = new TalkListFragment();
-            Bundle args = new Bundle();
-            scheduleFragment.setArguments(args);
+            scheduleFragment = TalkListFragment.newInstance(false);
           }
           return scheduleFragment;
         }
         case TAB_FAVORITES: {
           if (favoritesFragment == null) {
-            favoritesFragment = new TalkListFragment();
-            Bundle args = new Bundle();
-            args.putBoolean("favoritesOnly", true);
-            favoritesFragment.setArguments(args);
+            favoritesFragment = TalkListFragment.newInstance(true);
           }
           return favoritesFragment;
         }

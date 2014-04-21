@@ -36,6 +36,17 @@ android {
         }
     }
 }
+
+// Import code signing configuration from a separate file, outside version control.
+def extraConf = file('signing-config.gradle');
+if (extraConf.exists()) {
+    apply from: 'signing-config.gradle'
+}
+
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     compile 'com.android.support:appcompat-v7:19.+'
     compile 'com.android.support:support-v4:19.+'

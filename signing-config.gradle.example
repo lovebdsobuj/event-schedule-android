@@ -1,0 +1,23 @@
+/*
+   Copy this file to "signing-config.gradle" and customise the
+   configuration values to match what's on your system.
+
+   The signing config itself is gitignored to prevent it going
+   public. Nevertheless, it contains cleartext passwords, so
+   best to delete it when not working on a release.
+*/
+android {
+    signingConfigs {
+        release {
+            storeFile file('sign/release.keystore')
+            storePassword '********'
+            keyAlias 'releasekey'
+            keyPassword '********'
+        }
+    }
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+        }
+    }
+}

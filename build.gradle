@@ -29,6 +29,12 @@ android {
             proguardFile getDefaultProguardFile('proguard-android.txt')
         }
     }
+
+    signingConfigs {
+        debug {
+            storeFile file("sign/debug.keystore")
+        }
+    }
 }
 dependencies {
     compile 'com.android.support:appcompat-v7:19.+'

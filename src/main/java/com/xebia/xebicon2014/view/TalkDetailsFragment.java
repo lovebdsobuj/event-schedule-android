@@ -106,9 +106,11 @@ public class TalkDetailsFragment extends Fragment {
                 TextView nameView = (TextView) view.findViewById(R.id.name);
                 nameView.setText(speaker.getName());
 
-                TextView titleAndCompany = (TextView) view.findViewById(R.id.title_company);
-                titleAndCompany.setText(String.format("%s @ %s", speaker.getTitle(),
-                        speaker.getCompany()));
+                TextView title = (TextView) view.findViewById(R.id.title);
+                title.setText(speaker.getTitle());
+
+                TextView company = (TextView) view.findViewById(R.id.company);
+                company.setText(speaker.getCompany());
 
                 final TextView bioView = (TextView) view.findViewById(R.id.bio);
                 bioView.setText(speaker.getBio());

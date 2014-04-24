@@ -1,17 +1,6 @@
 # XebiCon app #
 
-This is the entire source code of the official [XebiCon](http://www.xebicon.com) apps. 
-
-## iOS Quick Setup ##
-
-The iOS XebiCon app is ready to be used without further modifications as it is already configured with the actual app keys required to connect to it's Parse.com backend. To run a local build of the XebiCon app:
-
-1. Clone this repo locally.
-2. Run pod install
-2. Open `ios/Xebicon.xcworkspace` in Xcode 5.
-3. Build and Run.
-
-The iOS Xebicon app can be built with both the iOS 6 and iOS 7 SDKs. It has a minimum target OS version of 6.1, and will degrade gracefully when run on iOS 6 devices.
+This is the Android source code of the official [XebiCon](http://www.xebicon.com) apps. 
 
 ## Android Quick Setup ##
 
@@ -31,15 +20,6 @@ As mentioned earlier, both versions of the XebiCon app are already configured to
 6. Build and Run.
 
 Confirm that everything is working correctly. You may now modify the list of Talks, Speakers, and Rooms to suit your conference.
-
-### iOS Custom App Setup ###
-
-Open the `PDDAppDelegate.m` file and modify the following two lines to use your actual Parse application id and client key, as noted in step 2 above:
-
-```
-[Parse setApplicationId:@"YOUR_APPLICATION_ID"
-              clientKey:@"YOUR_CLIENT_KEY"];
-```
 
 ### Android Custom App Setup ###
 

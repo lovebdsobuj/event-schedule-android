@@ -34,8 +34,11 @@ public class TalkActivity extends CalligraphyActivity {
                     throw new RuntimeException("Somehow the talk was null.");
                 }
 
-                TalkDetailsFragment fragment = (TalkDetailsFragment) getSupportFragmentManager().findFragmentById(R.id.talk_details);
-                fragment.setTalk(talk);
+                TalkDetailsFragment fragment = (TalkDetailsFragment) getSupportFragmentManager()
+                        .findFragmentById(R.id.talk_details);
+                if (null != fragment) {
+                    fragment.setTalk(talk);
+                }
             }
         });
     }

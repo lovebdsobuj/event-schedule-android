@@ -44,3 +44,7 @@ android-appcompat/
 .metadata/
 .project
 .settings
+
+# release signing files
+signing-config.gradle
+release.keystore

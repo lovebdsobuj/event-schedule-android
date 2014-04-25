@@ -9,6 +9,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQuery.CachePolicy;
+import com.xebia.xebicon2014.util.LocaleUtils;
 
 import java.util.Collections;
 import java.util.List;
@@ -124,11 +125,11 @@ public class Talk extends ParseObject {
   }
 
   public String getTitle() {
-    return getString("title");
+      return getString(LocaleUtils.isDutch() ? "title_nl" : "title");
   }
 
   public String getAbstract() {
-    String talkAbstract = getString("abstract");
+    String talkAbstract = getString(LocaleUtils.isDutch() ? "abstract_nl" : "abstract");
     if (talkAbstract == null) {
       talkAbstract = "";
     }

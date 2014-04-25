@@ -93,12 +93,10 @@ public class MainActivity extends CalligraphyActivity implements TabListener {
     // When the given tab is selected, switch to the corresponding page in the ViewPager.
     viewPager.setCurrentItem(tab.getPosition());
 
-    // If the favorites tab is selected, remove any items that have been unfavorited.
-    if (tab.getPosition() == TAB_FAVORITES) {
-      SectionsPagerAdapter adapter = (SectionsPagerAdapter) viewPager.getAdapter();
-      TalkListFragment fragment = (TalkListFragment) adapter.getItem(TAB_FAVORITES);
-      fragment.removeUnfavoritedItems();
-    }
+    // remove any items that have been unfavorited.
+    SectionsPagerAdapter adapter = (SectionsPagerAdapter) viewPager.getAdapter();
+    TalkListFragment fragment = (TalkListFragment) adapter.getItem(TAB_FAVORITES);
+    fragment.removeUnfavoritedItems();
   }
 
   @Override

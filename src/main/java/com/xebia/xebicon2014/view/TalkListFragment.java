@@ -13,6 +13,7 @@ import com.xebia.xebicon2014.model.Favorites;
 import com.xebia.xebicon2014.model.Talk;
 import com.xebia.xebicon2014.model.TalkComparator;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,6 +28,9 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
 
     // Whether or not to show only favorites.
     private boolean favoritesOnly = false;
+
+    // talks that have been unfavorited without removing them from the list of favorites
+    private List<Talk> mQuietlyUnfavorited = new ArrayList<Talk>();
 
     public static TalkListFragment newInstance(boolean favoritesOnly) {
         TalkListFragment fragment = new TalkListFragment();
@@ -97,7 +101,8 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
     public void onFavoriteAdded(Talk talk) {
         // If a new talk becomes favorited, automatically add it to this list.
         if (adapter != null) {
-            if (favoritesOnly) {
+            // make sure we do not add recently unfavorited talks twice
+            if (favoritesOnly && !mQuietlyUnfavorited.contains(talk)) {
                 adapter.add(talk);
                 adapter.sort(TalkComparator.get());
             }
@@ -109,8 +114,8 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
     public void onFavoriteRemoved(Talk talk) {
         if (adapter != null) {
             if (favoritesOnly) {
-                // This is commented out because we do not want favorites to disappear immediately.
-                // adapter.remove(talk);
+                // do not remove the talk from the list yet, but keep track of it
+                mQuietlyUnfavorited.add(talk);
             } else {
                 adapter.notifyDataSetChanged();
             }
@@ -118,18 +123,12 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
     }
 
     /**
-     * Removes any talks from the list that have not been favorited, if favoritesOnly is true.
+     * Removes any talks from the list that have not been favorited.
      */
     public void removeUnfavoritedItems() {
-        if (!favoritesOnly) {
-            return;
+        for (Talk talk : mQuietlyUnfavorited) {
+            adapter.remove(talk);
         }
-        for (int i = 0; adapter != null && i < adapter.getCount(); ++i) {
-            Talk talk = adapter.getItem(i);
-            if (!talk.isAlwaysFavorite() && !Favorites.get().contains(talk)) {
-                adapter.remove(talk);
-                i--;
-            }
-        }
+        mQuietlyUnfavorited.clear();
     }
 }

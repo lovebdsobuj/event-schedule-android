@@ -1,8 +1,8 @@
 # XebiCon app #
 
-This is the Android source code of the official [XebiCon](http://www.xebicon.com) apps.
+This is the Android source code of the official [XebiCon](http://www.xebicon.com) app.
 
-Please note that this app is based off of the Parse.com Dev Day App: https://github.com/ParsePlatform/ParseDeveloperDay Since that code was made available under a CC0 license it is not strictly required to do any attribution, but it is still the proper thing to do. Also all code in these repositories is made available under a CC0 license as well. Do note that all image images clearly branding the name "XebiCon" are still copyrighted by Xebia B.V. Netherlands.
+Please note that this app is based off of the [Parse.com Dev Day App](https://github.com/ParsePlatform/ParseDeveloperDay) Since that code was made available under a CC0 license it is not strictly required to do any attribution, but it is still the proper thing to do. Also all code in these repositories is made available under a CC0 license as well. Do note that all image images clearly branding the name "XebiCon" are still copyrighted by Xebia B.V. Netherlands.
 
 
 ## Android Quick Setup ##

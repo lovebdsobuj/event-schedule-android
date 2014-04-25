@@ -45,7 +45,7 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
         super.onCreate(savedInstanceState);
 
         Bundle args = getArguments();
-        favoritesOnly = args.getBoolean("favoritesOnly", false);
+        favoritesOnly = args.getBoolean(ARG_FAVORITES_ONLY, false);
 
         adapter = new TalkListAdapter(getActivity());
         setListAdapter(adapter);

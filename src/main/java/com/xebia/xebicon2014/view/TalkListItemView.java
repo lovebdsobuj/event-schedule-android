@@ -33,7 +33,9 @@ public class TalkListItemView extends RelativeLayout {
     private ParseImageView mSpeakerImage;
     private ImageButton mFavoriteButton;
 
-    private int mPurple;
+    private int mBreakBgColor;
+    private int mKeynoteBgColor;
+
     private java.text.DateFormat mTimeFormat;
 
     private Talk mTalk;
@@ -68,20 +70,33 @@ public class TalkListItemView extends RelativeLayout {
         });
 
         // load some context-related things
-        mPurple = getContext().getResources().getColor(R.color.xcs_purple);
+        mBreakBgColor = getContext().getResources().getColor(R.color.xcs_purple);
+        mKeynoteBgColor = getContext().getResources().getColor(R.color.xcs_yellow);
         mTimeFormat = DateFormat.getTimeFormat(getContext());
     }
 
     public void showTalk(final Talk talk) {
         mTalk = talk;
-        this.setBackgroundColor(talk.isAlwaysFavorite() ? mPurple : Color.TRANSPARENT);
+        updateBackground(talk);
         updateTextViews(talk);
         updateFavoriteButton(talk);
         updateSpeakerImage(talk);
     }
 
+    private void updateBackground(final Talk talk) {
+        int color;
+        if (talk.isBreak()) {
+            color = mBreakBgColor;
+        } else if (talk.isKeynote()) {
+            color = mKeynoteBgColor;
+        } else {
+            color = Color.TRANSPARENT;
+        }
+        this.setBackgroundColor(color);
+    }
+
     private void updateSpeakerImage(final Talk talk) {
-        if (talk.isAlwaysFavorite()) {
+        if (talk.isBreak()) {
             mSpeakerImage.setVisibility(View.INVISIBLE);
         } else {
             mSpeakerImage.setVisibility(View.VISIBLE);
@@ -121,7 +136,7 @@ public class TalkListItemView extends RelativeLayout {
         mStartDateView.setText(mTimeFormat.format(talk.getSlot().getStartTime()));
         mRoomView.setText(talk.getRoom().getName());
 
-        int textColor = talk.isAlwaysFavorite() ? Color.WHITE : mPurple;
+        int textColor = talk.isBreak() ? Color.WHITE : mBreakBgColor;
         mTitleView.setTextColor(textColor);
         mStartDateLabel.setTextColor(textColor);
         mStartDateView.setTextColor(textColor);

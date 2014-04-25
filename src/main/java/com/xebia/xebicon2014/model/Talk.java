@@ -154,6 +154,15 @@ public class Talk extends ParseObject {
    * prettier.
    */
   public boolean isAlwaysFavorite() {
+    return isBreak() || isKeynote();
+  }
+
+  public boolean isBreak() {
     return getBoolean("alwaysFavorite");
+  }
+
+  public boolean isKeynote() {
+    // TODO: use more robust solution to determine if a talk is a meal or a keynote or what
+    return "Keynote".equalsIgnoreCase(getRoom().getName());
   }
 }

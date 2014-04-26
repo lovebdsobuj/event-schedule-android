@@ -26,7 +26,7 @@ Confirm that everything is working correctly. You may now modify the list of Tal
 
 ### Android Custom App Setup ###
 
-Open the `ParseDevDayApp.java` file and modify the following two lines to use your actual Parse application id and client key, as noted in step 2 above:
+Open the `XebiConApp.java` file and modify the following two lines to use your actual Parse application id and client key, as noted in step 2 above:
 
 ```
 Parse.initialize(this, "YOUR_APPLICATION_ID",

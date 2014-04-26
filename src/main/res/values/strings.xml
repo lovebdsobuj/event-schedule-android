@@ -20,5 +20,6 @@
     <string name="descr_header">header</string>
     <string name="descr_maps">maps icon</string>
     <string name="descr_contact">contact icon</string>
+    <string name="activity_not_found">Could not open corresponding app!</string>
 
 </resources>

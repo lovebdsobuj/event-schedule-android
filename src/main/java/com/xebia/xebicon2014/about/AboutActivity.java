@@ -1,7 +1,12 @@
 package com.xebia.xebicon2014.about;
 
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import com.xebia.xebicon2014.R;
 import com.xebia.xebicon2014.view.CalligraphyActivity;
@@ -13,10 +18,28 @@ import com.xebia.xebicon2014.view.CalligraphyActivity;
  */
 public class AboutActivity extends CalligraphyActivity {
 
+    private static final String MAPS_ACTION = "geo:0,0?q=SS%20Rotterdam," +
+            "%203e%20Katendrechtsehoofd%2025,%203072AM%20Rotterdam";
+    private static final String DIALER_ACTION = "tel:+31355381921";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.about);
+
+        findViewById(R.id.location_img).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMap();
+            }
+        });
+
+        findViewById(R.id.contact_img).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openDialer();
+            }
+        });
     }
 
     @Override
@@ -28,5 +51,23 @@ public class AboutActivity extends CalligraphyActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openDialer() {
+        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(DIALER_ACTION));
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, getString(R.string.activity_not_found), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    private void openMap() {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(MAPS_ACTION));
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Toast.makeText(this, getString(R.string.activity_not_found), Toast.LENGTH_LONG).show();
+        }
     }
 }

@@ -18,5 +18,6 @@
     <string name="descr_header">header</string>
     <string name="descr_maps">icoon kaart</string>
     <string name="descr_contact">icoon contact</string>
+    <string name="activity_not_found">Bijbehorende app niet gevonden!</string>
 
 </resources>

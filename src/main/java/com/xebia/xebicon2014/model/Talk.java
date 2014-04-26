@@ -149,7 +149,7 @@ public class Talk extends ParseObject {
   }
 
   /**
-   * Items like breaks and the after party are marked as "alwaysFavorite" so they always show up on
+   * Items like breaks and keynotes are marked as "alwaysFavorite" so they always show up on
    * the Favorites tab of the schedule. We also color them slightly differently to make the UI
    * prettier.
    */
@@ -158,11 +158,10 @@ public class Talk extends ParseObject {
   }
 
   public boolean isBreak() {
-    return getBoolean("alwaysFavorite");
+    return "break".equalsIgnoreCase(getString("type"));
   }
 
   public boolean isKeynote() {
-    // TODO: use more robust solution to determine if a talk is a meal or a keynote or what
-    return "Keynote".equalsIgnoreCase(getRoom().getName());
+    return "keynote".equalsIgnoreCase(getString("type"));
   }
 }

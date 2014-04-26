@@ -1,0 +1,438 @@
+%!Adobe-FontList 1.16
+%Locale:0x409
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:ArialMT
+FamilyName:Arial
+StyleName:Regular
+MenuName:Arial
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Arial
+WritingScript:Roman
+OutlineFileName:\Arial
+DataFormat:sfntResource
+ResourceID:4096
+FileLength:1038477
+FileModTime:1245142800
+NameArray:0,Mac,4,Arial
+NameArray:0,Win,1,Arial
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Arial-BoldMT
+FamilyName:Arial
+StyleName:Bold
+MenuName:Arial
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Arial Bold
+WritingScript:Roman
+OutlineFileName:\Arial
+DataFormat:sfntResource
+ResourceID:4097
+FileLength:1038477
+FileModTime:1245142800
+NameArray:0,Mac,4,Arial Bold
+NameArray:0,Win,1,Arial
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Arial-ItalicMT
+FamilyName:Arial
+StyleName:Italic
+MenuName:Arial
+StyleBits:1
+WeightClass:400
+WidthClass:5
+AngleClass:1
+FullName:Arial Italic
+WritingScript:Roman
+OutlineFileName:\Arial
+DataFormat:sfntResource
+ResourceID:4098
+FileLength:1038477
+FileModTime:1245142800
+NameArray:0,Mac,4,Arial Italic
+NameArray:0,Win,1,Arial
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Arial-BoldItalicMT
+FamilyName:Arial
+StyleName:Bold Italic
+MenuName:Arial
+StyleBits:3
+WeightClass:700
+WidthClass:5
+AngleClass:1
+FullName:Arial Bold Italic
+WritingScript:Roman
+OutlineFileName:\Arial
+DataFormat:sfntResource
+ResourceID:4099
+FileLength:1038477
+FileModTime:1245142800
+NameArray:0,Mac,4,Arial Bold Italic
+NameArray:0,Win,1,Arial
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Suitcase
+FontName:ArialMT
+OutlineFileName:\Arial
+ResourceID:15456
+MacStyle:0
+FileLength:1038477
+FileModTime:1245142800
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Suitcase
+FontName:Arial-BoldMT
+OutlineFileName:\Arial
+ResourceID:15456
+MacStyle:1
+FileLength:1038477
+FileModTime:1245142800
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Suitcase
+FontName:Arial-ItalicMT
+OutlineFileName:\Arial
+ResourceID:15456
+MacStyle:2
+FileLength:1038477
+FileModTime:1245142800
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Suitcase
+FontName:Arial-BoldItalicMT
+OutlineFileName:\Arial
+ResourceID:15456
+MacStyle:3
+FileLength:1038477
+FileModTime:1245142800
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FuturaStd-Bold
+FamilyName:Futura Std
+StyleName:Bold
+MenuName:Futura Std Book
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Futura Std Bold
+WritingScript:Roman
+OutlineFileName:\FuturaStd-Bold.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:26900
+FileModTime:1052785056
+NameArray:0,Mac,4,Futura Std Bold
+NameArray:0,Win,1,Futura Std Book
+NameArray:0,Win,16,Futura Std
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FuturaStd-Book
+FamilyName:Futura Std
+StyleName:Book
+MenuName:Futura Std Book
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Futura Std Book
+WritingScript:Roman
+OutlineFileName:\FuturaStd-Book.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:25708
+FileModTime:1052785056
+NameArray:0,Mac,4,Futura Std Book
+NameArray:0,Win,1,Futura Std Book
+NameArray:0,Win,16,Futura Std
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FuturaStd-CondensedLight
+FamilyName:Futura Std
+StyleName:Light Condensed
+MenuName:Futura Std Condensed Light
+StyleBits:0
+WeightClass:300
+WidthClass:3
+AngleClass:0
+FullName:Futura Std Light Condensed
+WritingScript:Roman
+OutlineFileName:\FuturaStd-CondensedLight.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:26464
+FileModTime:1052785056
+NameArray:0,Mac,18,Futura Std Condensed Light
+NameArray:0,Mac,4,Futura Std Light Condensed
+NameArray:0,Win,1,Futura Std Condensed Light
+NameArray:0,Win,16,Futura Std
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FuturaStd-Heavy
+FamilyName:Futura Std
+StyleName:Heavy
+MenuName:Futura Std Medium
+StyleBits:2
+WeightClass:650
+WidthClass:5
+AngleClass:0
+FullName:Futura Std Heavy
+WritingScript:Roman
+OutlineFileName:\FuturaStd-Heavy.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:26380
+FileModTime:1052785056
+NameArray:0,Mac,4,Futura Std Heavy
+NameArray:0,Win,1,Futura Std Medium
+NameArray:0,Win,16,Futura Std
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:FuturaStd-Light
+FamilyName:Futura Std
+StyleName:Light
+MenuName:Futura Std Light
+StyleBits:0
+WeightClass:300
+WidthClass:5
+AngleClass:0
+FullName:Futura Std Light
+WritingScript:Roman
+OutlineFileName:\FuturaStd-Light.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:26172
+FileModTime:1052785056
+NameArray:0,Mac,4,Futura Std Light
+NameArray:0,Win,1,Futura Std Light
+NameArray:0,Win,16,Futura Std
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Type1
+FontName:MinionPro-Regular
+FamilyName:Minion Pro
+StyleName:Regular
+MenuName:Minion Pro
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Minion Pro
+WritingScript:Roman
+OutlineFileName:\MinionPro-Regular.otf
+DataFormat:sfntData
+UsesStandardEncoding:yes
+isCFF:yes
+FileLength:231312
+FileModTime:1281009920
+DesignSize:110
+NameArray:0,Mac,4,Minion Pro
+NameArray:0,Win,1,Minion Pro
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Times-Roman
+FamilyName:Times
+StyleName:Regular
+MenuName:Times
+StyleBits:0
+WeightClass:400
+WidthClass:5
+AngleClass:0
+FullName:Times Roman
+WritingScript:Roman
+OutlineFileName:\Times.dfont
+DataFormat:sfntResource
+ResourceID:13494
+FileLength:1750051
+FileModTime:1254725993
+NameArray:0,Mac,4,Times Roman
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Times-Bold
+FamilyName:Times
+StyleName:Bold
+MenuName:Times
+StyleBits:2
+WeightClass:700
+WidthClass:5
+AngleClass:0
+FullName:Times Bold
+WritingScript:Roman
+OutlineFileName:\Times.dfont
+DataFormat:sfntResource
+ResourceID:16697
+FileLength:1750051
+FileModTime:1254725993
+NameArray:0,Mac,4,Times Bold
+NameArray:0,Mac,4,Times Gras
+NameArray:0,Mac,4,Times Fett
+NameArray:0,Mac,4,Times grassetto
+NameArray:0,Mac,4,Times vet
+NameArray:0,Mac,4,Times Fet
+NameArray:0,Mac,4,Times Negrita
+NameArray:0,Mac,4,Times Fed
+NameArray:0,Mac,4,Times Carregado
+NameArray:0,Mac,4,Times Halvfet
+NameArray:0,Mac,4,Times lihava
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Times-Italic
+FamilyName:Times
+StyleName:Italic
+MenuName:Times
+StyleBits:1
+WeightClass:400
+WidthClass:5
+AngleClass:1
+FullName:Times Italic
+WritingScript:Roman
+OutlineFileName:\Times.dfont
+DataFormat:sfntResource
+ResourceID:21585
+FileLength:1750051
+FileModTime:1254725993
+NameArray:0,Mac,4,Times Italic
+NameArray:0,Mac,4,Times Italique
+NameArray:0,Mac,4,Times Kursiv
+NameArray:0,Mac,4,Times corsivo
+NameArray:0,Mac,4,Times cursief
+NameArray:0,Mac,4,Times Kursiv
+NameArray:0,Mac,4,Times Cursiva
+NameArray:0,Mac,4,Times kursiv
+NameArray:0,Mac,4,Times Itálico
+NameArray:0,Mac,4,Times kursiv
+NameArray:0,Mac,4,Times kursiivi
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:TrueType
+FontName:Times-BoldItalic
+FamilyName:Times
+StyleName:Bold Italic
+MenuName:Times
+StyleBits:3
+WeightClass:700
+WidthClass:5
+AngleClass:1
+FullName:Times Bold Italic
+WritingScript:Roman
+OutlineFileName:\Times.dfont
+DataFormat:sfntResource
+ResourceID:22219
+FileLength:1750051
+FileModTime:1254725993
+NameArray:0,Mac,4,Times Bold Italic
+NameArray:0,Mac,4,Times Gras italique
+NameArray:0,Mac,4,Times Fett Kursiv
+NameArray:0,Mac,4,Times grassetto corsivo
+NameArray:0,Mac,4,Times vet-cursief
+NameArray:0,Mac,4,Times Fet Kursiv
+NameArray:0,Mac,4,Times Negrita Cursiva
+NameArray:0,Mac,4,Times Fed kursiv
+NameArray:0,Mac,4,Times Carregado Itálico
+NameArray:0,Mac,4,Times Halvfet kursiv
+NameArray:0,Mac,4,Times lihava kursiivi
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Suitcase
+FontName:Times-Roman
+OutlineFileName:\Times.dfont
+ResourceID:20
+MacStyle:0
+FileLength:1750051
+FileModTime:1254725993
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Suitcase
+FontName:Times-Bold
+OutlineFileName:\Times.dfont
+ResourceID:20
+MacStyle:1
+FileLength:1750051
+FileModTime:1254725993
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Suitcase
+FontName:Times-Italic
+OutlineFileName:\Times.dfont
+ResourceID:20
+MacStyle:2
+FileLength:1750051
+FileModTime:1254725993
+%EndFont
+
+%BeginFont
+Handler:DirectoryHandler
+FontType:Suitcase
+FontName:Times-BoldItalic
+OutlineFileName:\Times.dfont
+ResourceID:20
+MacStyle:3
+FileLength:1750051
+FileModTime:1254725993
+%EndFont
+

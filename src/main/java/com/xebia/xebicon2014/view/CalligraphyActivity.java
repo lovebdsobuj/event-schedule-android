@@ -17,7 +17,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  * <p/>
  * Created by steven on 19-4-14.
  */
-public class CalligraphyActivity extends ActionBarActivity {
+public abstract class CalligraphyActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

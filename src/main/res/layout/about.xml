@@ -1,7 +1,152 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.xebia.xebicon2014.view.ContactFragment">
+    tools:context="com.xebia.xebicon2014.view.ContactFragment"
+    tools:ignore="MissingPrefix">
 
-</FrameLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="0dp"
+            android:layout_marginTop="0dp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/descr_header"
+            android:src="@drawable/xebicon_header"/>
+
+        <TextView
+            android:id="@+id/about_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/header"
+            android:background="@color/xcs_purple"
+            android:paddingBottom="4dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="4dp"
+            android:text="@string/header_about"
+            android:textAppearance="?android:attr/textAppearanceMediumInverse"/>
+
+        <TextView
+            android:id="@+id/about_content"
+            calligraphy="fonts/arial.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/about_header"
+            android:layout_marginLeft="0dp"
+            android:lineSpacingExtra="2sp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:text="@string/date_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/running_text"/>
+
+        <!-- LOCATION -->
+        <TextView
+            android:id="@+id/location_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/about_content"
+            android:layout_marginLeft="0dp"
+            android:background="@color/xcs_gray_light"
+            android:paddingBottom="4dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="4dp"
+            android:text="@string/header_location"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/xcs_purple"/>
+
+        <TextView
+            android:id="@+id/location_content"
+            calligraphy="fonts/arial.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/location_header"
+            android:layout_toLeftOf="@+id/location_img"
+            android:lineSpacingExtra="2sp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:text="@string/location_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/running_text"
+            android:textIsSelectable="true"/>
+
+        <ImageButton
+            android:id="@+id/location_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/location_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/location_content"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/descr_maps"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/ic_location"/>
+
+        <!-- CONTACT -->
+        <TextView
+            android:id="@+id/contact_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/location_content"
+            android:background="@color/xcs_gray_light"
+            android:paddingBottom="4dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="4dp"
+            android:text="@string/header_contact"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/xcs_purple"/>
+
+        <TextView
+            android:id="@+id/contact_content"
+            calligraphy="fonts/arial.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/contact_header"
+            android:layout_toLeftOf="@+id/contact_img"
+            android:lineSpacingExtra="2sp"
+            android:paddingBottom="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="8dp"
+            android:text="@string/contact_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/running_text"
+            android:textIsSelectable="true"/>
+
+        <ImageButton
+            android:id="@+id/contact_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/contact_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@id/contact_content"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/descr_contact"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:src="@drawable/ic_call"/>
+    </RelativeLayout>
+</ScrollView>

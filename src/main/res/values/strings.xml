@@ -11,5 +11,14 @@
     <string name="speakers_label">SPEAKERS:</string>
     <string name="speaker_label">SPEAKER:</string>
     <string name="menu_about">About</string>
+    <string name="header_about">ABOUT XEBICON</string>
+    <string name="date_content">Date: June 5, 2014\nTime: 15:00 – 21:00</string>
+    <string name="header_location">LOCATION</string>
+    <string name="location_content">SS Rotterdam,\n3e Katendrechtsehoofd 25,\n3072AM  Rotterdam</string>
+    <string name="header_contact">CONTACT</string>
+    <string name="contact_content">Petra Kiers\nLotte Schram\nmarketing@xebia.com\nTel.: 035–538–1921</string>
+    <string name="descr_header">header</string>
+    <string name="descr_maps">maps icon</string>
+    <string name="descr_contact">contact icon</string>
 
 </resources>

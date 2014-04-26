@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">XebiCon</string>
     <string name="title_schedule">Programma</string>
     <string name="title_favorites">Favorieten</string>
@@ -10,4 +11,12 @@
     <string name="speakers_label">SPREKERS:</string>
     <string name="speaker_label">SPREKER:</string>
     <string name="menu_about">Informatie</string>
+    <string name="header_about">OVER XEBICON</string>
+    <string name="date_content">Datum: 5 juni 2014\nTijd: 15:00 – 21:00</string>
+    <string name="header_location">LOCATIE</string>
+    <string name="header_contact">CONTACT</string>
+    <string name="descr_header">header</string>
+    <string name="descr_maps">icoon kaart</string>
+    <string name="descr_contact">icoon contact</string>
+
 </resources>

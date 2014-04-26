@@ -10,5 +10,6 @@
     <string name="room_label">Location:</string>
     <string name="speakers_label">SPEAKERS:</string>
     <string name="speaker_label">SPEAKER:</string>
+    <string name="menu_about">About</string>
 
 </resources>

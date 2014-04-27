@@ -1,5 +1,6 @@
 package com.xebia.xebicon2014.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,9 +12,11 @@ import android.support.v7.app.ActionBar.Tab;
 import android.support.v7.app.ActionBar.TabListener;
 import android.text.SpannableString;
 import android.view.Menu;
+import android.view.MenuItem;
 
 import com.parse.ParseAnalytics;
 import com.xebia.xebicon2014.R;
+import com.xebia.xebicon2014.legal.LegalActivity;
 import com.xebia.xebicon2014.util.TypefaceSpan;
 
 import java.util.Locale;
@@ -87,6 +90,16 @@ public class MainActivity extends CalligraphyActivity implements TabListener {
     getMenuInflater().inflate(R.menu.main, menu);
     return true;
   }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.legal) {
+            startActivity(new Intent(this, LegalActivity.class));
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
+        }
+    }
 
   @Override
   public void onTabSelected(Tab tab, FragmentTransaction fragmentTransaction) {

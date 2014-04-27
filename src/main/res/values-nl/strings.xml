@@ -9,4 +9,6 @@
     <string name="room_label">Locatie:</string>
     <string name="speakers_label">SPREKERS:</string>
     <string name="speaker_label">SPREKER:</string>
+    <string name="menu_legal">Wettelijk</string>
+    <string name="attribution">De XebiCon app is gebouwd met hulp van de volgende third party software:</string>
 </resources>

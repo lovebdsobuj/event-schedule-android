@@ -1,0 +1,68 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:orientation="vertical"
+    tools:context="com.xebia.xebicon2014.legal.LegalActivity"
+    tools:ignore="MissingPrefix">
+
+    <TextView
+        android:text="@string/app_name_full"
+        calligraphy="fonts/arial.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/running_text" />
+
+    <TextView
+        android:text="@string/copyright"
+        calligraphy="fonts/arial.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/running_text" />
+
+    <TextView
+        android:text="@string/attribution"
+        calligraphy="fonts/arial.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/running_text" />
+
+    <TextView
+        android:text="@string/attribution_parse"
+        calligraphy="fonts/arial.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:paddingLeft="16dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/running_text" />
+
+    <TextView
+        android:text="@string/attribution_calligraphy"
+        calligraphy="fonts/arial.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/running_text" />
+
+    <TextView
+        android:text="@string/attribution_circular"
+        calligraphy="fonts/arial.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/running_text" />
+
+</LinearLayout>

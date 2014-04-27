@@ -10,5 +10,12 @@
     <string name="room_label">Location:</string>
     <string name="speakers_label">SPEAKERS:</string>
     <string name="speaker_label">SPEAKER:</string>
+    <string name="menu_legal">Legal</string>
+    <string name="app_name_full">XebiCon 2014 for Android.</string>
+    <string name="copyright">Copyright &#169; 2014 Xebia Nederland B.V.</string>
+    <string name="attribution">The XebiCon app is built using the following third party software:</string>
+    <string name="attribution_parse">&#8226; Parse.com</string>
+    <string name="attribution_calligraphy">&#8226; Android Calligraphy</string>
+    <string name="attribution_circular">&#8226; CircularImageView</string>
 
 </resources>

@@ -25,7 +25,7 @@ public class AboutActivity extends CalligraphyActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.about);
+        setContentView(R.layout.activity_about);
 
         findViewById(R.id.location_img).setOnClickListener(new View.OnClickListener() {
             @Override

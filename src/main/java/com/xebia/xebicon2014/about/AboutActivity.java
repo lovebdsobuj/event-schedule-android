@@ -27,6 +27,8 @@ public class AboutActivity extends CalligraphyActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
+        getSupportActionBar().hide();
+
         findViewById(R.id.location_img).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -73,7 +73,7 @@ public class MainActivity extends CalligraphyActivity implements TabListener {
           CharSequence pageTitle = sectionsPagerAdapter.getPageTitle(i);
           SpannableString tabTitle = new SpannableString(pageTitle);
           String fontFamily = "FuturaStd-Book.otf";
-          int textColor = getResources().getColor(R.color.actionbar_text);
+          int textColor = getResources().getColor(R.color.tabs_text);
           tabTitle.setSpan(new TypefaceSpan(this, fontFamily, textColor), 0, pageTitle.length(), 0);
           tab.setText(tabTitle);
           tab.setTabListener(this);

@@ -42,7 +42,9 @@
 
     <style name="ActionBar.Transparent.Xcs" parent="@style/Widget.AppCompat.Light.ActionBar">
         <item name="background">@drawable/ab_transparent_xcs</item>
+        <item name="backgroundStacked">@drawable/ab_stacked_solid_xcs</item>
         <item name="progressBarStyle">@style/ProgressBar.Xcs</item>
+        <item name="titleTextStyle">@style/ActionBarTitleText.Xcs</item>
     </style>
 
     <style name="PopupMenu.Xcs" parent="@style/Widget.AppCompat.Light.PopupMenu">

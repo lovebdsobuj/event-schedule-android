@@ -15,6 +15,11 @@
     <string name="date_content">Datum: 5 juni 2014\nTijd: 15:00 – 21:00</string>
     <string name="header_location">LOCATIE</string>
     <string name="header_contact">CONTACT</string>
+    <string name="header_credits">MET DANK AAN</string>
+    <string name="credits_content">Met liefde gebouwd door Xebia.</string>
+    <string name="credits_android">Android: Steven Mulder, met hulp van Barend Garvelink en Jeroen Willemsen.</string>
+    <string name="credits_ios">iOS: Jeroen Leenarts, met hulp van Lammert Westerhoff.</string>
+    <string name="credits_misc">Tests en snedige opmerkingen door Joshua Appelman.</string>
     <string name="descr_header">header</string>
     <string name="descr_maps">icoon kaart</string>
     <string name="descr_contact">icoon contact</string>

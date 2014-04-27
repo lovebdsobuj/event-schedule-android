@@ -131,4 +131,80 @@
         android:paddingLeft="8dp"
         android:paddingRight="8dp"
         android:src="@drawable/ic_call"/>
+
+    <!-- CREDITS -->
+    <TextView
+        android:id="@+id/credits_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/contact_content"
+        android:background="@color/xcs_gray_light"
+        android:paddingBottom="4dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="4dp"
+        android:text="@string/header_credits"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/xcs_purple"/>
+
+    <TextView
+        android:id="@+id/credits_content"
+        calligraphy="fonts/arial.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/credits_header"
+        android:lineSpacingExtra="2sp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:text="@string/credits_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/running_text"/>
+
+    <TextView
+        android:id="@+id/credits_android"
+        calligraphy="fonts/arial.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/credits_content"
+        android:lineSpacingExtra="2sp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:text="@string/credits_android"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/running_text"/>
+
+    <TextView
+        android:id="@+id/credits_ios"
+        calligraphy="fonts/arial.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/credits_android"
+        android:lineSpacingExtra="2sp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:text="@string/credits_ios"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/running_text"/>
+
+    <TextView
+        android:id="@+id/credits_misc"
+        calligraphy="fonts/arial.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/credits_ios"
+        android:lineSpacingExtra="2sp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="8dp"
+        android:text="@string/credits_misc"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/running_text"/>
 </RelativeLayout>

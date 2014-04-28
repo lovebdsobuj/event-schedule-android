@@ -16,6 +16,7 @@ import android.view.MenuItem;
 
 import com.parse.ParseAnalytics;
 import com.xebia.xebicon2014.R;
+import com.xebia.xebicon2014.legal.LegalActivity;
 import com.xebia.xebicon2014.about.AboutActivity;
 import com.xebia.xebicon2014.util.TypefaceSpan;
 
@@ -93,7 +94,10 @@ public class MainActivity extends CalligraphyActivity implements TabListener {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == R.id.about) {
+        if (item.getItemId() == R.id.legal) {
+            startActivity(new Intent(this, LegalActivity.class));
+            return true;
+        } else if (item.getItemId() == R.id.about) {
             startActivity(new Intent(this, AboutActivity.class));
             return true;
         } else {

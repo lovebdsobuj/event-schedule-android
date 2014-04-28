@@ -24,5 +24,9 @@
     <string name="descr_maps">icoon kaart</string>
     <string name="descr_contact">icoon contact</string>
     <string name="activity_not_found">Bijbehorende app niet gevonden!</string>
+    <string name="menu_legal">Wettelijk</string>
+    <string name="attribution_header">TOEWIJZINGEN</string>
+    <string name="attribution">De XebiCon app is gebouwd met hulp van de volgende third party software:</string>
+    <string name="terms_header">BEPALINGEN &amp; CONDITIES</string>
 
 </resources>

@@ -35,6 +35,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.xebia.xebicon2014.view.MainActivity" />
         </activity>
+        <activity
+            android:name=".about.AboutActivity"
+            android:parentActivityName="com.xebia.xebicon2014.view.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.xebia.xebicon2014.view.MainActivity" />
+        </activity>
 
         <service android:name="com.parse.PushService" />
 

@@ -1,21 +1,24 @@
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp"
-    android:orientation="vertical"
     tools:context="com.xebia.xebicon2014.legal.LegalActivity"
     tools:ignore="MissingPrefix">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    android:orientation="vertical">
 
     <TextView
         android:text="@string/app_name_full"
         calligraphy="fonts/arial.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/running_text" />
@@ -25,15 +28,33 @@
         calligraphy="fonts/arial.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/running_text" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/xcs_gray_light"
+        android:paddingBottom="4dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="4dp"
+        android:text="@string/attribution_header"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/header_text"/>
 
     <TextView
         android:text="@string/attribution"
         calligraphy="fonts/arial.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/running_text" />
 
@@ -42,8 +63,9 @@
         calligraphy="fonts/arial.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="4dp"
-        android:paddingLeft="16dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="8dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/running_text" />
 
@@ -52,7 +74,9 @@
         calligraphy="fonts/arial.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="4dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/running_text" />
 
@@ -61,8 +85,57 @@
         calligraphy="fonts/arial.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="16dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="4dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/running_text" />
 
+    <TextView
+        android:text="@string/attribution_commons"
+        calligraphy="fonts/arial.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="4dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/running_text" />
+
+    <TextView
+        android:text="@string/attribution_signpost"
+        calligraphy="fonts/arial.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="4dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/running_text" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/xcs_gray_light"
+        android:paddingBottom="4dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:paddingTop="4dp"
+        android:text="@string/terms_header"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/header_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        calligraphy="fonts/arial.ttf"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_height="wrap_content"
+        android:text="@string/apache_license"
+        android:autoLink="web"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/running_text"/>
 </LinearLayout>
+</ScrollView>

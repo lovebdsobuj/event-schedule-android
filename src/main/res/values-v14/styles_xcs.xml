@@ -42,7 +42,6 @@
 
     <style name="ActionBar.Transparent.Xcs" parent="@style/Widget.AppCompat.Light.ActionBar">
         <item name="android:background">@drawable/ab_transparent_xcs</item>
-        <item name="android:backgroundStacked">@drawable/ab_stacked_solid_xcs</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Xcs</item>
         <item name="android:titleTextStyle">@style/ActionBarTitleText.Xcs</item>
     </style>

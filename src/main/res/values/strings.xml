@@ -8,8 +8,6 @@
     <string name="favorite">Favorite</string>
     <string name="start_date_label">Time:</string>
     <string name="room_label">Location:</string>
-    <string name="speakers_label">SPEAKERS:</string>
-    <string name="speaker_label">SPEAKER:</string>
     <string name="menu_about">About</string>
     <string name="header_about">ABOUT XEBICON</string>
     <string name="date_content">Date: June 5, 2014\nTime: 15:00 – 21:00</string>

@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.view;
+package com.xebia.xebicon2014;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +18,9 @@ import com.parse.ParseAnalytics;
 import com.xebia.xebicon2014.R;
 import com.xebia.xebicon2014.legal.LegalActivity;
 import com.xebia.xebicon2014.about.AboutActivity;
+import com.xebia.xebicon2014.list.TalkListFragment;
 import com.xebia.xebicon2014.util.TypefaceSpan;
+import com.xebia.xebicon2014.util.CalligraphyActivity;
 
 import java.util.Locale;
 

@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.view;
+package com.xebia.xebicon2014.list;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import com.parse.ParseException;
 import com.xebia.xebicon2014.model.Favorites;
 import com.xebia.xebicon2014.model.Talk;
 import com.xebia.xebicon2014.model.TalkComparator;
+import com.xebia.xebicon2014.details.TalkActivity;
 
 import java.util.ArrayList;
 import java.util.List;

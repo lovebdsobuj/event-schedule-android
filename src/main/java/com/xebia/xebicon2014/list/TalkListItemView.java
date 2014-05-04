@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.view;
+package com.xebia.xebicon2014.list;
 
 import android.annotation.SuppressLint;
 import android.content.Context;

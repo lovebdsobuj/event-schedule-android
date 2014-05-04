@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.view;
+package com.xebia.xebicon2014.details;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -8,6 +8,7 @@ import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.xebia.xebicon2014.R;
 import com.xebia.xebicon2014.model.Talk;
+import com.xebia.xebicon2014.util.CalligraphyActivity;
 
 /**
  * An Activity to display information about a particular talk.

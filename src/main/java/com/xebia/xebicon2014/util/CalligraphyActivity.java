@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.view;
+package com.xebia.xebicon2014.util;
 
 import android.content.Context;
 import android.os.Bundle;

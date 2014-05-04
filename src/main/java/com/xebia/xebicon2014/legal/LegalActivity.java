@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.xebia.xebicon2014.R;
-import com.xebia.xebicon2014.view.CalligraphyActivity;
+import com.xebia.xebicon2014.util.CalligraphyActivity;
 
 public class LegalActivity extends CalligraphyActivity {
 

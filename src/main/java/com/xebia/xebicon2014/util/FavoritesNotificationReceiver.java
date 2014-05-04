@@ -13,7 +13,7 @@ import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.xebia.xebicon2014.R;
 import com.xebia.xebicon2014.model.Talk;
-import com.xebia.xebicon2014.view.TalkActivity;
+import com.xebia.xebicon2014.details.TalkActivity;
 
 /**
  * A BroadcastReceiver to handle Intents sent by the AlarmManager for local notifications.

@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.view;
+package com.xebia.xebicon2014.details;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

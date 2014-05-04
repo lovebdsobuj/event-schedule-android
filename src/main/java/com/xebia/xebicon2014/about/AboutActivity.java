@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.xebia.xebicon2014.R;
-import com.xebia.xebicon2014.view.CalligraphyActivity;
+import com.xebia.xebicon2014.util.CalligraphyActivity;
 
 /**
  * Displays static information about XebiCon. What? When? Where?

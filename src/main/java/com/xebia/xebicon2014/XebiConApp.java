@@ -11,7 +11,6 @@ import com.xebia.xebicon2014.model.Slot;
 import com.xebia.xebicon2014.model.Speaker;
 import com.xebia.xebicon2014.model.Talk;
 import com.xebia.xebicon2014.util.FavoritesNotificationScheduler;
-import com.xebia.xebicon2014.view.MainActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 

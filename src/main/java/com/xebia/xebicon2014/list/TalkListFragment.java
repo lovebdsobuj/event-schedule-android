@@ -1,6 +1,6 @@
 package com.xebia.xebicon2014.list;
 
-import android.content.Intent;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
@@ -12,7 +12,6 @@ import com.parse.ParseException;
 import com.xebia.xebicon2014.model.Favorites;
 import com.xebia.xebicon2014.model.Talk;
 import com.xebia.xebicon2014.model.TalkComparator;
-import com.xebia.xebicon2014.details.TalkActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +31,7 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
 
     // talks that have been unfavorited without removing them from the list of favorites
     private List<Talk> mQuietlyUnfavorited = new ArrayList<Talk>();
+    private Listener mListener;
 
     public static TalkListFragment newInstance(boolean favoritesOnly) {
         TalkListFragment fragment = new TalkListFragment();
@@ -92,9 +92,9 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Talk talk = adapter.getItem(position);
-        Intent intent = new Intent(getActivity(), TalkActivity.class);
-        intent.setData(talk.getUri());
-        startActivity(intent);
+        if (null != mListener) {
+            mListener.onTalkClick(talk);
+        }
     }
 
     @Override
@@ -136,5 +136,26 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
             adapter.remove(talk);
         }
         mQuietlyUnfavorited.clear();
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        try {
+            mListener = (Listener) activity;
+        } catch (Exception e) {
+            throw new ClassCastException("Parent activity should implement TalkListFragment" +
+                    ".Listener");
+        }
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        mListener = null;
+    }
+
+    public static interface Listener {
+        public abstract void onTalkClick(Talk talk);
     }
 }

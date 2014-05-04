@@ -2,7 +2,6 @@ package com.xebia.xebicon2014.details;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,6 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.parse.ParseImageView;
 import com.xebia.xebicon2014.R;
 import com.xebia.xebicon2014.model.Favorites;
 import com.xebia.xebicon2014.model.Speaker;
@@ -71,8 +69,20 @@ public class TalkDetailsFragment extends Fragment {
         Favorites.get().save(getActivity());
     }
 
-    public void setTalk(Talk talk) {
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (null != mTalk) {
+            showTalk(mTalk);
+        }
+    }
+
+    public void showTalk(Talk talk) {
         mTalk = talk;
+        if (null == mTitleView) {
+            // view not ready yet
+            return;
+        }
         mTitleView.setText(talk.getTitle());
         mTimeView.setText(talk.getSlot().format(getActivity()));
         mRoomView.setText(talk.getRoom().getName());
@@ -98,7 +108,8 @@ public class TalkDetailsFragment extends Fragment {
 
         // Add a view for each speaker in the talk.
         for (Speaker speaker : speakers) {
-            SpeakerDetailsView view = (SpeakerDetailsView) View.inflate(getActivity(), R.layout.list_item_speaker, null);
+            SpeakerDetailsView view = (SpeakerDetailsView) View.inflate(getActivity(),
+                    R.layout.list_item_speaker, null);
             view.showSpeaker(speaker);
             mScrollView.addView(view);
         }

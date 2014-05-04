@@ -2,6 +2,7 @@ package com.xebia.xebicon2014.details;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.parse.GetCallback;
@@ -26,6 +27,8 @@ public class TalkActivity extends CalligraphyActivity {
             @Override
             public void done(final Talk talk, ParseException e) {
 
+                findViewById(R.id.loading_indicator).setVisibility(View.GONE);
+
                 // if we cannot get the data right now, the best we can do is show a toast.
                 if (e != null) {
                     Toast.makeText(TalkActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
@@ -36,11 +39,9 @@ public class TalkActivity extends CalligraphyActivity {
                     throw new RuntimeException("Somehow the talk was null.");
                 }
 
-                TalkDetailsFragment fragment = (TalkDetailsFragment) getSupportFragmentManager()
-                        .findFragmentById(R.id.talk_details);
-                if (null != fragment) {
-                    fragment.setTalk(talk);
-                }
+                TalkDetailsFragment fragment = new TalkDetailsFragment();
+                getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();
+                fragment.showTalk(talk);
             }
         });
     }

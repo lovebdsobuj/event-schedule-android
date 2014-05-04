@@ -28,5 +28,6 @@
     <string name="attribution_header">ATTRIBUTIONS</string>
     <string name="attribution">The XebiCon app is built using the following third party software:</string>
     <string name="terms_header">TERMS &amp; CONDITIONS</string>
+    <string name="loading">Loading…</string>
 
 </resources>

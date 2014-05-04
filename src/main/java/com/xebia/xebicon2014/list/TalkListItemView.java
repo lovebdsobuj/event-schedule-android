@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -38,6 +39,7 @@ public class TalkListItemView extends RelativeLayout {
     private java.text.DateFormat mTimeFormat;
 
     private Talk mTalk;
+    private boolean mMasterDetailMode;
 
     public TalkListItemView(Context context) {
         super(context);
@@ -71,6 +73,7 @@ public class TalkListItemView extends RelativeLayout {
         // load some context-related things
         mHeaderTextColor = getContext().getResources().getColor(R.color.header_text);
         mTimeFormat = DateFormat.getTimeFormat(getContext());
+        mMasterDetailMode = isXlargeScreen();
     }
 
     public void showTalk(final Talk talk) {
@@ -119,7 +122,7 @@ public class TalkListItemView extends RelativeLayout {
     }
 
     private void updateFavoriteButton(final Talk talk) {
-        if (talk.isAlwaysFavorite()) {
+        if (mMasterDetailMode || talk.isAlwaysFavorite()) {
             mFavoriteButton.setVisibility(View.GONE);
         } else {
             mFavoriteButton.setVisibility(View.VISIBLE);
@@ -156,5 +159,10 @@ public class TalkListItemView extends RelativeLayout {
             mFavoriteButton.setImageResource(R.drawable.ic_rating_important);
         }
         favorites.save(getContext());
+    }
+
+    private boolean isXlargeScreen() {
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
+        return metrics.widthPixels / metrics.density > 600;
     }
 }

@@ -14,7 +14,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginLeft="16dp"
         android:layout_marginRight="8dp"
         app:border="false"/>
 
@@ -25,6 +25,7 @@
         calligraphy="fonts/FuturaStd-Heavy.otf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="10dp"
         android:layout_toLeftOf="@+id/favorite_button"
         android:layout_toRightOf="@+id/speakerimage"
@@ -81,24 +82,24 @@
         android:layout_below="@+id/title"
         android:layout_toLeftOf="@+id/favorite_button"
         android:layout_toRightOf="@+id/room_label"
+        android:layout_marginRight="8dp"
         android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/header_text"/>
 
-    <!-- FAVORITE BUTTON: left aligned, centered vertically -->
+    <!-- FAVORITE BUTTON: right aligned, centered vertically -->
     <ImageButton
         android:id="@+id/favorite_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:background="#00000000"
+        android:background="@android:color/transparent"
         android:contentDescription="@string/favorite"
         android:focusable="false"
         android:paddingTop="8dp"
-        android:paddingLeft="8dp"
         android:paddingBottom="8dp"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:paddingRight="16dp"
         android:src="@drawable/ic_rating_not_important"/>
 
 </com.xebia.xebicon2014.list.TalkListItemView>

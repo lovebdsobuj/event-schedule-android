@@ -57,6 +57,9 @@ public class TalkDetailsFragment extends Fragment {
                 }
             });
         }
+
+        setRetainInstance(true);
+
         return root;
     }
 

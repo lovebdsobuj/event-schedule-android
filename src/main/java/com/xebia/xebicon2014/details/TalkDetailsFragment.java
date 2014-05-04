@@ -106,6 +106,11 @@ public class TalkDetailsFragment extends Fragment {
             return;
         }
 
+        // remove any speaker views that are already displayed
+        for (int childIndex = mScrollView.getChildCount() - 1; childIndex > 0; childIndex--) {
+            mScrollView.removeViewAt(childIndex);
+        }
+
         // Add a view for each speaker in the talk.
         for (Speaker speaker : speakers) {
             SpeakerDetailsView view = (SpeakerDetailsView) View.inflate(getActivity(),

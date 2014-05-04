@@ -126,7 +126,7 @@ public class TalkListItemView extends RelativeLayout {
         } else {
             mFavoriteButton.setVisibility(View.VISIBLE);
             mFavoriteButton.setImageResource(Favorites.get().contains(talk) ? R.drawable
-                    .light_rating_important : R.drawable.light_rating_not_important);
+                    .ic_rating_important : R.drawable.ic_rating_not_important);
             mFavoriteButton.setFocusable(false);
         }
     }
@@ -152,10 +152,10 @@ public class TalkListItemView extends RelativeLayout {
         Favorites favorites = Favorites.get();
         if (favorites.contains(mTalk)) {
             favorites.remove(mTalk);
-            mFavoriteButton.setImageResource(R.drawable.light_rating_not_important);
+            mFavoriteButton.setImageResource(R.drawable.ic_rating_not_important);
         } else {
             favorites.add(mTalk);
-            mFavoriteButton.setImageResource(R.drawable.light_rating_important);
+            mFavoriteButton.setImageResource(R.drawable.ic_rating_important);
         }
         favorites.save(getContext());
     }

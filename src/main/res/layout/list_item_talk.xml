@@ -99,6 +99,6 @@
         android:paddingLeft="8dp"
         android:paddingBottom="8dp"
         android:layout_marginRight="@dimen/activity_horizontal_margin"
-        android:src="@drawable/rating_not_important_dark"/>
+        android:src="@drawable/ic_rating_not_important"/>
 
 </com.xebia.xebicon2014.view.TalkListItemView>

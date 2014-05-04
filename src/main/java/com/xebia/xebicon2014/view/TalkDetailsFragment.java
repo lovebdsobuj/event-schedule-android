@@ -65,10 +65,10 @@ public class TalkDetailsFragment extends Fragment {
 
         if (Favorites.get().contains(mTalk)) {
             Favorites.get().remove(mTalk);
-            mFavoriteButton.setImageResource(R.drawable.rating_not_important_light);
+            mFavoriteButton.setImageResource(R.drawable.ic_rating_not_important_light);
         } else {
             Favorites.get().add(mTalk);
-            mFavoriteButton.setImageResource(R.drawable.rating_important_light);
+            mFavoriteButton.setImageResource(R.drawable.ic_rating_important_light);
         }
         Favorites.get().save(getActivity());
     }
@@ -81,9 +81,9 @@ public class TalkDetailsFragment extends Fragment {
         mAbstractView.setText(talk.getAbstract());
 
         if (Favorites.get().contains(talk)) {
-            mFavoriteButton.setImageResource(R.drawable.rating_important_light);
+            mFavoriteButton.setImageResource(R.drawable.ic_rating_important_light);
         } else {
-            mFavoriteButton.setImageResource(R.drawable.rating_not_important_light);
+            mFavoriteButton.setImageResource(R.drawable.ic_rating_not_important_light);
         }
         if (!talk.isAlwaysFavorite()) {
             mFavoriteButton.setVisibility(View.VISIBLE);

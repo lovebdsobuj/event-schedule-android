@@ -43,7 +43,7 @@ public class FavoritesNotificationReceiver extends BroadcastReceiver {
 
     // Build the UI for the notification.
     NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
-    builder.setSmallIcon(R.drawable.light_rating_important);
+    builder.setSmallIcon(R.drawable.ic_rating_important);
     builder.setContentTitle(talk.getTitle());
     builder.setContentText("Starts in 5 minutes in " + talk.getRoom().getName());
     builder.setContentIntent(talkPendingIntent);

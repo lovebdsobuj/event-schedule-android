@@ -26,6 +26,9 @@ public class TalkDetailsFragment extends Fragment {
     private TextView mAbstractView;
     private ImageButton mFavoriteButton;
     private LinearLayout mScrollView;
+    private View mHeaderView;
+    private View mLogisticsView;
+    private View mPlaceholderView;
 
     public TalkDetailsFragment() {
         // Required empty public constructor
@@ -43,6 +46,9 @@ public class TalkDetailsFragment extends Fragment {
             mAbstractView = (TextView) root.findViewById(R.id.talk_abstract);
             mFavoriteButton = (ImageButton) root.findViewById(R.id.favorite_button);
             mScrollView = (LinearLayout) root.findViewById(R.id.scroll_view);
+            mHeaderView = root.findViewById(R.id.header);
+            mLogisticsView = root.findViewById(R.id.logistics);
+            mPlaceholderView = root.findViewById(R.id.placeholder);
 
             mFavoriteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -74,7 +80,16 @@ public class TalkDetailsFragment extends Fragment {
         super.onResume();
         if (null != mTalk) {
             showTalk(mTalk);
+        } else {
+            showPlaceholder(true);
         }
+    }
+
+    private void showPlaceholder(boolean show) {
+        mHeaderView.setVisibility(show ? View.GONE : View.VISIBLE);
+        mLogisticsView.setVisibility(show ? View.GONE : View.VISIBLE);
+        mScrollView.setVisibility(show ? View.GONE : View.VISIBLE);
+        mPlaceholderView.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
     public void showTalk(Talk talk) {
@@ -83,6 +98,7 @@ public class TalkDetailsFragment extends Fragment {
             // view not ready yet
             return;
         }
+        showPlaceholder(false);
         mTitleView.setText(talk.getTitle());
         mTimeView.setText(talk.getSlot().format(getActivity()));
         mRoomView.setText(talk.getRoom().getName());

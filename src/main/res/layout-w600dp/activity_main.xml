@@ -11,7 +11,7 @@
         android:id="@+id/talk_list"
         android:name="com.xebia.xebicon2014.list.TalkListPagerFragment"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="233"
         tools:layout="@layout/talk_list_pager"/>
 
@@ -19,7 +19,7 @@
         android:id="@+id/talk_details"
         android:name="com.xebia.xebicon2014.details.TalkDetailsFragment"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="377"
         tools:layout="@layout/talk_details"/>
 </LinearLayout>

@@ -33,8 +33,7 @@ public class TalkListItemView extends RelativeLayout {
     private ParseImageView mSpeakerImage;
     private ImageButton mFavoriteButton;
 
-    private int mBreakBgColor;
-    private int mKeynoteBgColor;
+    private int mHeaderTextColor;
 
     private java.text.DateFormat mTimeFormat;
 
@@ -70,8 +69,7 @@ public class TalkListItemView extends RelativeLayout {
         });
 
         // load some context-related things
-        mBreakBgColor = getContext().getResources().getColor(R.color.xcs_purple);
-        mKeynoteBgColor = getContext().getResources().getColor(R.color.xcs_yellow);
+        mHeaderTextColor = getContext().getResources().getColor(R.color.header_text);
         mTimeFormat = DateFormat.getTimeFormat(getContext());
     }
 
@@ -84,15 +82,15 @@ public class TalkListItemView extends RelativeLayout {
     }
 
     private void updateBackground(final Talk talk) {
-        int color;
+        int resId;
         if (talk.isBreak()) {
-            color = mBreakBgColor;
+            resId = R.drawable.bg_purple;
         } else if (talk.isKeynote()) {
-            color = mKeynoteBgColor;
+            resId = R.drawable.bg_yellow;
         } else {
-            color = Color.TRANSPARENT;
+            resId = android.R.color.transparent;
         }
-        this.setBackgroundColor(color);
+        this.setBackgroundResource(resId);
     }
 
     private void updateSpeakerImage(final Talk talk) {
@@ -136,7 +134,7 @@ public class TalkListItemView extends RelativeLayout {
         mStartDateView.setText(mTimeFormat.format(talk.getSlot().getStartTime()));
         mRoomView.setText(talk.getRoom().getName());
 
-        int textColor = talk.isBreak() ? Color.WHITE : mBreakBgColor;
+        int textColor = talk.isBreak() ? Color.WHITE : mHeaderTextColor;
         mTitleView.setTextColor(textColor);
         mStartDateLabel.setTextColor(textColor);
         mStartDateView.setTextColor(textColor);

@@ -16,7 +16,7 @@
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
         android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:background="@color/xcs_purple">
+        android:background="@drawable/bg_purple">
 
         <TextView
             android:id="@+id/title"
@@ -34,7 +34,7 @@
             android:contentDescription="@string/favorite"
             android:focusable="false"
             android:padding="8dp"
-            android:background="@color/xcs_purple"
+            android:background="@android:color/transparent"
             android:visibility="gone"
             android:src="@drawable/ic_rating_not_important_light"/>
 

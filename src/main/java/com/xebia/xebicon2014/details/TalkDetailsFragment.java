@@ -106,28 +106,8 @@ public class TalkDetailsFragment extends Fragment {
 
         // Add a view for each speaker in the talk.
         for (Speaker speaker : speakers) {
-            View view = View.inflate(getActivity(), R.layout.list_item_speaker, null);
-
-            ParseImageView photo = (ParseImageView) view.findViewById(R.id.photo);
-            photo.setParseFile(speaker.getPhoto());
-            photo.loadInBackground();
-
-            TextView nameView = (TextView) view.findViewById(R.id.name);
-            nameView.setText(speaker.getName());
-
-            TextView title = (TextView) view.findViewById(R.id.title);
-            title.setText(speaker.getTitle());
-
-            TextView company = (TextView) view.findViewById(R.id.company);
-            company.setText(speaker.getCompany());
-
-            final TextView bioView = (TextView) view.findViewById(R.id.bio);
-            bioView.setText(speaker.getBio());
-
-            ActionBar.LayoutParams layout = new ActionBar.LayoutParams(ActionBar.LayoutParams
-                    .MATCH_PARENT, ActionBar.LayoutParams.WRAP_CONTENT);
-            view.setLayoutParams(layout);
-
+            SpeakerDetailsView view = (SpeakerDetailsView) View.inflate(getActivity(), R.layout.list_item_speaker, null);
+            view.showSpeaker(speaker);
             mScrollView.addView(view);
         }
     }

@@ -52,9 +52,6 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
         Bundle args = getArguments();
         favoritesOnly = args.getBoolean(ARG_FAVORITES_ONLY, false);
 
-        adapter = new TalkListAdapter(getActivity());
-        setListAdapter(adapter);
-
         // Fetch the list of all talks from Parse or the query cache.
         Talk.findInBackground(new FindCallback<Talk>() {
             @Override
@@ -72,16 +69,24 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
                     throw new RuntimeException("Somehow the list of talks was null.");
                 }
 
-                // Add all of the talks to the adapter, skipping any that were not favorited,
-                // if favoritesOnly is true.
-                for (Talk talk : talks) {
-                    if (!favoritesOnly || talk.isAlwaysFavorite() || Favorites.get().contains
-                            (talk)) {
-                        adapter.add(talk);
-                    }
-                }
+                onTalksLoaded(talks);
             }
         });
+    }
+
+    private void onTalksLoaded(List<Talk> talks) {
+
+        adapter = new TalkListAdapter(getActivity());
+
+        // Add all of the talks to the adapter, skipping any that were not favorited,
+        // if favoritesOnly is true.
+        for (Talk talk : talks) {
+            if (!favoritesOnly || talk.isAlwaysFavorite() || Favorites.get().contains(talk)) {
+                adapter.add(talk);
+            }
+        }
+
+        setListAdapter(adapter);
     }
 
     @Override

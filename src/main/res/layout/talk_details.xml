@@ -112,20 +112,6 @@
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/running_text"/>
 
-            <TextView
-                android:id="@+id/speakers_header"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:background="@color/xcs_gray_light"
-                android:paddingBottom="4dp"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin"
-                android:paddingTop="4dp"
-                android:text="@string/speakers_label"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/header_text"
-                android:visibility="gone"/>
         </LinearLayout>
     </ScrollView>
 

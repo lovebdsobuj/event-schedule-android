@@ -28,7 +28,6 @@ public class TalkDetailsFragment extends Fragment {
     private TextView mAbstractView;
     private ImageButton mFavoriteButton;
     private LinearLayout mScrollView;
-    private TextView mSpeakersHeader;
 
     public TalkDetailsFragment() {
         // Required empty public constructor
@@ -46,7 +45,6 @@ public class TalkDetailsFragment extends Fragment {
             mAbstractView = (TextView) root.findViewById(R.id.talk_abstract);
             mFavoriteButton = (ImageButton) root.findViewById(R.id.favorite_button);
             mScrollView = (LinearLayout) root.findViewById(R.id.scroll_view);
-            mSpeakersHeader = (TextView) root.findViewById(R.id.speakers_header);
 
             mFavoriteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -97,12 +95,6 @@ public class TalkDetailsFragment extends Fragment {
         if (null == speakers) {
             return;
         }
-
-        if (speakers.size() == 1) {
-            // special singular form of the label
-            mSpeakersHeader.setText(R.string.speaker_label);
-        }
-        mSpeakersHeader.setVisibility(View.VISIBLE);
 
         // Add a view for each speaker in the talk.
         for (Speaker speaker : speakers) {

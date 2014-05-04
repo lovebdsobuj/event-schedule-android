@@ -4,10 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="?android:attr/listPreferredItemHeight"
     android:minHeight="?android:attr/listPreferredItemHeight"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp"
     tools:ignore="MissingPrefix">
 
     <!-- SPEAKER IMAGE: left aligned, centered vertically -->
@@ -21,13 +19,13 @@
         app:border="false"/>
 
     <!-- TALK TITLE: between speaker image and favorite button -->
-    <!-- 2dp top margin to center the two info lines in the layout -->
+    <!-- 10dp top margin to center the two info lines in the layout -->
     <TextView
         android:id="@+id/title"
         calligraphy="fonts/FuturaStd-Heavy.otf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="10dp"
         android:layout_toLeftOf="@+id/favorite_button"
         android:layout_toRightOf="@+id/speakerimage"
         android:singleLine="true"

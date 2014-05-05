@@ -55,6 +55,7 @@
         android:layout_marginLeft="64dp"
         android:layout_marginRight="4dp"
         android:layout_toRightOf="@+id/start_date_label"
+        android:singleLine="true"
         android:text="@string/room_label"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/header_text"/>

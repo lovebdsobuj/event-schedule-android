@@ -25,13 +25,16 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
 
     private static final String ARG_FAVORITES_ONLY = "favoritesOnly";
     private TalkListAdapter adapter = null;
+    private Listener mListener;
 
     // Whether or not to show only favorites.
     private boolean favoritesOnly = false;
 
     // talks that have been unfavorited without removing them from the list of favorites
     private List<Talk> mQuietlyUnfavorited = new ArrayList<Talk>();
-    private Listener mListener;
+
+    // currently selected item, for highlighting the selection in master-detail mode
+    private TalkListItemView mSelectedView;
 
     public static TalkListFragment newInstance(boolean favoritesOnly) {
         TalkListFragment fragment = new TalkListFragment();
@@ -92,6 +95,11 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Talk talk = adapter.getItem(position);
+
+        if (null != mSelectedView && !v.equals(mSelectedView)) mSelectedView.setHighlighted(false);
+        mSelectedView = (TalkListItemView) v;
+        mSelectedView.setHighlighted(true);
+
         if (null != mListener) {
             mListener.onTalkClick(talk);
         }

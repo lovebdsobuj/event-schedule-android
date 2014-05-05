@@ -33,13 +33,13 @@ public class TalkListItemView extends RelativeLayout {
     private TextView mRoomView;
     private ParseImageView mSpeakerImage;
     private ImageButton mFavoriteButton;
+    private View mHighlightMarker;
 
     private int mHeaderTextColor;
-
     private java.text.DateFormat mTimeFormat;
+    private boolean mMasterDetailMode;
 
     private Talk mTalk;
-    private boolean mMasterDetailMode;
 
     public TalkListItemView(Context context) {
         super(context);
@@ -69,6 +69,7 @@ public class TalkListItemView extends RelativeLayout {
                 toggleFavorite();
             }
         });
+        mHighlightMarker = findViewById(R.id.highlight);
 
         // load some context-related things
         mHeaderTextColor = getContext().getResources().getColor(R.color.header_text);
@@ -84,16 +85,25 @@ public class TalkListItemView extends RelativeLayout {
         updateSpeakerImage(talk);
     }
 
+    public void setHighlighted(boolean selected) {
+        mHighlightMarker.setVisibility(selected ? View.VISIBLE : View.GONE);
+    }
+
     private void updateBackground(final Talk talk) {
-        int resId;
+        int bgResId;
+        int highlightResId;
         if (talk.isBreak()) {
-            resId = R.drawable.bg_purple;
+            bgResId = R.drawable.bg_purple;
+            highlightResId = R.drawable.bg_yellow;
         } else if (talk.isKeynote()) {
-            resId = R.drawable.bg_yellow;
+            bgResId = R.drawable.bg_yellow;
+            highlightResId = R.drawable.bg_purple;
         } else {
-            resId = android.R.color.transparent;
+            bgResId = android.R.color.transparent;
+            highlightResId = R.drawable.bg_yellow;
         }
-        this.setBackgroundResource(resId);
+        this.setBackgroundResource(bgResId);
+        mHighlightMarker.setBackgroundResource(highlightResId);
     }
 
     private void updateSpeakerImage(final Talk talk) {
@@ -108,10 +118,9 @@ public class TalkListItemView extends RelativeLayout {
                 mSpeakerImage.loadInBackground(new GetDataCallback() {
                     @Override
                     public void done(byte[] data, ParseException e) {
-                        if (data != null && e == null) {
-                            Log.i("ParseImageView", "Fetched! Data length: " + data.length);
-                        } else if (e != null && e.getMessage() != null) {
-                            Log.e("ParseImageView", "exception: " + e.getMessage());
+                        if (e != null && e.getMessage() != null) {
+                            Log.w(TalkListItemView.class.getSimpleName(),
+                                    "Failed to load speaker image: " + e.getMessage());
                         }
                     }
                 });

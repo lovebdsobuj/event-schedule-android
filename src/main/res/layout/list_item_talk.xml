@@ -102,4 +102,12 @@
         android:paddingRight="16dp"
         android:src="@drawable/ic_rating_not_important"/>
 
+    <View
+        android:id="@+id/highlight"
+        android:layout_width="8dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/bg_yellow"
+        android:visibility="gone"/>
+
 </com.xebia.xebicon2014.list.TalkListItemView>

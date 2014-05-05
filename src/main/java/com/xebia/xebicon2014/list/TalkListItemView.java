@@ -18,6 +18,7 @@ import com.parse.ParseImageView;
 import com.xebia.xebicon2014.R;
 import com.xebia.xebicon2014.model.Favorites;
 import com.xebia.xebicon2014.model.Talk;
+import com.xebia.xebicon2014.util.LayoutUtils;
 
 /**
  * View group for talk list items. Lets me have my cake and eat it too.
@@ -74,7 +75,7 @@ public class TalkListItemView extends RelativeLayout {
         // load some context-related things
         mHeaderTextColor = getContext().getResources().getColor(R.color.header_text);
         mTimeFormat = DateFormat.getTimeFormat(getContext());
-        mMasterDetailMode = isXlargeScreen();
+        mMasterDetailMode = LayoutUtils.isDualPane(getContext());
     }
 
     public void showTalk(final Talk talk) {
@@ -83,10 +84,17 @@ public class TalkListItemView extends RelativeLayout {
         updateTextViews(talk);
         updateFavoriteButton(talk);
         updateSpeakerImage(talk);
+        updateHighlight();
     }
 
     public void setHighlighted(boolean selected) {
-        mHighlightMarker.setVisibility(selected ? View.VISIBLE : View.GONE);
+        mTalk.setHighlighted(selected);
+        updateHighlight();
+    }
+
+    private void updateHighlight() {
+        mHighlightMarker.setVisibility(mMasterDetailMode && mTalk.isHighlighted() ? View.VISIBLE
+                : View.GONE);
     }
 
     private void updateBackground(final Talk talk) {
@@ -168,10 +176,5 @@ public class TalkListItemView extends RelativeLayout {
             mFavoriteButton.setImageResource(R.drawable.ic_rating_important);
         }
         favorites.save(getContext());
-    }
-
-    private boolean isXlargeScreen() {
-        DisplayMetrics metrics = getResources().getDisplayMetrics();
-        return metrics.widthPixels / metrics.density > 600;
     }
 }

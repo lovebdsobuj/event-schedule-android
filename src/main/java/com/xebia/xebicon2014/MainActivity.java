@@ -15,6 +15,7 @@ import com.xebia.xebicon2014.legal.LegalActivity;
 import com.xebia.xebicon2014.list.TalkListFragment;
 import com.xebia.xebicon2014.model.Talk;
 import com.xebia.xebicon2014.util.CalligraphyActivity;
+import com.xebia.xebicon2014.util.LayoutUtils;
 
 /**
  * An Activity with a tabs for the complete schedule and the list of favorited talks. This was
@@ -58,8 +59,8 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
     @Override
     public void onTalkClick(Talk talk) {
 
-        Fragment f = getSupportFragmentManager().findFragmentById(R.id.talk_details);
-        if (null != f) {
+        if (LayoutUtils.isDualPane(this)) {
+            Fragment f = getSupportFragmentManager().findFragmentById(R.id.talk_details);
             ((TalkDetailsFragment) f).showTalk(talk);
         } else {
             Intent intent = new Intent(this, TalkActivity.class);

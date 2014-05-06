@@ -121,13 +121,13 @@ public class TalkDetailsFragment extends Fragment {
 
     private void showSpeakers(List<Speaker> speakers) {
 
-        if (null == speakers) {
-            return;
-        }
-
         // remove any speaker views that are already displayed
         for (int childIndex = mScrollView.getChildCount() - 1; childIndex > 0; childIndex--) {
             mScrollView.removeViewAt(childIndex);
+        }
+
+        if (null == speakers) {
+            return;
         }
 
         // Add a view for each speaker in the talk.

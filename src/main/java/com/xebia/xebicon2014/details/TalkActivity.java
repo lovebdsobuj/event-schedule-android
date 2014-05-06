@@ -40,7 +40,7 @@ public class TalkActivity extends CalligraphyActivity {
                 }
 
                 TalkDetailsFragment fragment = new TalkDetailsFragment();
-                getSupportFragmentManager().beginTransaction().add(R.id.container, fragment).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commit();
                 fragment.showTalk(talk);
             }
         });

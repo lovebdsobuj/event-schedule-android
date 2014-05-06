@@ -19,6 +19,9 @@ import java.util.List;
  */
 @ParseClassName("Talk")
 public class Talk extends ParseObject {
+
+  private boolean mHighlighted;
+
   /**
    * Wraps a FindCallback so that we can use the CACHE_THEN_NETWORK caching policy, but only call
    * the callback once, with the first data available.
@@ -163,5 +166,13 @@ public class Talk extends ParseObject {
 
   public boolean isKeynote() {
     return "keynote".equalsIgnoreCase(getString("type"));
+  }
+
+  public void setHighlighted(boolean highlighted) {
+    mHighlighted = highlighted;
+  }
+
+  public boolean isHighlighted() {
+    return mHighlighted;
   }
 }

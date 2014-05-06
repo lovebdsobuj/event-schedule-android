@@ -27,5 +27,6 @@
     <string name="attribution">De XebiCon app is gebouwd met hulp van de volgende third party software:</string>
     <string name="terms_header">BEPALINGEN &amp; CONDITIES</string>
     <string name="loading">Bezig met laden…</string>
+    <string name="details_placeholder">Kies een presentatie uit de lijst om de details te bekijken</string>
 
 </resources>

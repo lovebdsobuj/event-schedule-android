@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Color;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -17,6 +18,7 @@ import com.parse.ParseImageView;
 import com.xebia.xebicon2014.R;
 import com.xebia.xebicon2014.model.Favorites;
 import com.xebia.xebicon2014.model.Talk;
+import com.xebia.xebicon2014.util.LayoutUtils;
 
 /**
  * View group for talk list items. Lets me have my cake and eat it too.
@@ -32,10 +34,11 @@ public class TalkListItemView extends RelativeLayout {
     private TextView mRoomView;
     private ParseImageView mSpeakerImage;
     private ImageButton mFavoriteButton;
+    private View mHighlightMarker;
 
     private int mHeaderTextColor;
-
     private java.text.DateFormat mTimeFormat;
+    private boolean mMasterDetailMode;
 
     private Talk mTalk;
 
@@ -67,10 +70,12 @@ public class TalkListItemView extends RelativeLayout {
                 toggleFavorite();
             }
         });
+        mHighlightMarker = findViewById(R.id.highlight);
 
         // load some context-related things
         mHeaderTextColor = getContext().getResources().getColor(R.color.header_text);
         mTimeFormat = DateFormat.getTimeFormat(getContext());
+        mMasterDetailMode = LayoutUtils.isDualPane(getContext());
     }
 
     public void showTalk(final Talk talk) {
@@ -79,18 +84,34 @@ public class TalkListItemView extends RelativeLayout {
         updateTextViews(talk);
         updateFavoriteButton(talk);
         updateSpeakerImage(talk);
+        updateHighlight();
+    }
+
+    public void setHighlighted(boolean selected) {
+        mTalk.setHighlighted(selected);
+        updateHighlight();
+    }
+
+    private void updateHighlight() {
+        mHighlightMarker.setVisibility(mMasterDetailMode && mTalk.isHighlighted() ? View.VISIBLE
+                : View.GONE);
     }
 
     private void updateBackground(final Talk talk) {
-        int resId;
+        int bgResId;
+        int highlightResId;
         if (talk.isBreak()) {
-            resId = R.drawable.bg_purple;
+            bgResId = R.drawable.bg_purple;
+            highlightResId = R.drawable.bg_yellow;
         } else if (talk.isKeynote()) {
-            resId = R.drawable.bg_yellow;
+            bgResId = R.drawable.bg_yellow;
+            highlightResId = R.drawable.bg_purple;
         } else {
-            resId = android.R.color.transparent;
+            bgResId = android.R.color.transparent;
+            highlightResId = R.drawable.bg_yellow;
         }
-        this.setBackgroundResource(resId);
+        this.setBackgroundResource(bgResId);
+        mHighlightMarker.setBackgroundResource(highlightResId);
     }
 
     private void updateSpeakerImage(final Talk talk) {
@@ -105,10 +126,9 @@ public class TalkListItemView extends RelativeLayout {
                 mSpeakerImage.loadInBackground(new GetDataCallback() {
                     @Override
                     public void done(byte[] data, ParseException e) {
-                        if (data != null && e == null) {
-                            Log.i("ParseImageView", "Fetched! Data length: " + data.length);
-                        } else if (e != null && e.getMessage() != null) {
-                            Log.e("ParseImageView", "exception: " + e.getMessage());
+                        if (e != null && e.getMessage() != null) {
+                            Log.w(TalkListItemView.class.getSimpleName(),
+                                    "Failed to load speaker image: " + e.getMessage());
                         }
                     }
                 });
@@ -119,7 +139,7 @@ public class TalkListItemView extends RelativeLayout {
     }
 
     private void updateFavoriteButton(final Talk talk) {
-        if (talk.isAlwaysFavorite()) {
+        if (mMasterDetailMode || talk.isAlwaysFavorite()) {
             mFavoriteButton.setVisibility(View.GONE);
         } else {
             mFavoriteButton.setVisibility(View.VISIBLE);

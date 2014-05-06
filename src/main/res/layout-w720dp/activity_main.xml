@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:baselineAligned="false"
     tools:context=".MainActivity">
 
     <fragment
         android:id="@+id/talk_list"
         android:name="com.xebia.xebicon2014.list.TalkListPagerFragment"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_weight="233"
         tools:layout="@layout/talk_list_pager"/>
-</FrameLayout>
+
+    <fragment
+        android:id="@+id/talk_details"
+        android:name="com.xebia.xebicon2014.details.TalkDetailsFragment"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="377"
+        tools:layout="@layout/talk_details"/>
+</LinearLayout>

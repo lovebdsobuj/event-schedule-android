@@ -23,6 +23,8 @@ public class XebiConApp extends Application {
     public void onCreate() {
         initParse();
         initCalligraphy();
+
+        if (!BuildConfig.DEBUG) Parse.setLogLevel(Parse.LOG_LEVEL_NONE);
     }
 
     private void initCalligraphy() {

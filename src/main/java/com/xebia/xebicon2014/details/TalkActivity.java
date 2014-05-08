@@ -32,6 +32,7 @@ public class TalkActivity extends CalligraphyActivity {
                 // if we cannot get the data right now, the best we can do is show a toast.
                 if (e != null) {
                     Toast.makeText(TalkActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                    finish();
                     return;
                 }
 

@@ -29,6 +29,7 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
 
     // Whether or not to show only favorites.
     private boolean favoritesOnly = false;
+    private boolean destroyed = false;
 
     // talks that have been unfavorited without removing them from the list of favorites
     private List<Talk> mQuietlyUnfavorited = new ArrayList<Talk>();
@@ -59,6 +60,11 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
         Talk.findInBackground(new FindCallback<Talk>() {
             @Override
             public void done(List<Talk> talks, ParseException e) {
+
+                if (destroyed) {
+                    // do not perform fragment transaction on destroyed activity
+                    return;
+                }
                 // When the set of favorites changes, update this UI.
                 Favorites.get().addListener(TalkListFragment.this);
 
@@ -106,8 +112,15 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
     }
 
     @Override
+    public void onDestroy() {
+        super.onDestroy();
+        destroyed = true;
+    }
+
+    @Override
     public void onDestroyView() {
         Favorites.get().removeListener(this);
+        destroyed = true;
         super.onDestroyView();
     }
 

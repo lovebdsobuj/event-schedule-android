@@ -16,6 +16,8 @@ import com.xebia.xebicon2014.util.CalligraphyActivity;
  */
 public class TalkActivity extends CalligraphyActivity {
 
+    private boolean destroyed = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +28,11 @@ public class TalkActivity extends CalligraphyActivity {
         Talk.getInBackground(talkId, new GetCallback<Talk>() {
             @Override
             public void done(final Talk talk, ParseException e) {
+
+                if (destroyed) {
+                    // do not perform fragment transaction on destroyed activity
+                    return;
+                }
 
                 findViewById(R.id.loading_indicator).setVisibility(View.GONE);
 
@@ -56,5 +63,11 @@ public class TalkActivity extends CalligraphyActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        destroyed = true;
     }
 }

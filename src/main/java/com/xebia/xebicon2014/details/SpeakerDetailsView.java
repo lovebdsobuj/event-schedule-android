@@ -46,6 +46,8 @@ public class SpeakerDetailsView extends LinearLayout {
         mTitleView = (TextView) findViewById(R.id.title);
         mCompanyView = (TextView) findViewById(R.id.company);
         mBioView = (TextView) findViewById(R.id.bio);
+
+        mPhotoView.setPlaceholder(getResources().getDrawable(R.drawable.ic_speaker));
     }
 
     public void showSpeaker(Speaker speaker) {

@@ -73,7 +73,8 @@ public class TalkListItemView extends RelativeLayout {
         mHighlightMarker = findViewById(R.id.highlight);
 
         // load some context-related things
-        mHeaderTextColor = getContext().getResources().getColor(R.color.header_text);
+        mSpeakerImage.setPlaceholder(getResources().getDrawable(R.drawable.ic_speaker));
+        mHeaderTextColor = getResources().getColor(R.color.header_text);
         mTimeFormat = DateFormat.getTimeFormat(getContext());
         mMasterDetailMode = LayoutUtils.isDualPane(getContext());
     }
@@ -119,7 +120,6 @@ public class TalkListItemView extends RelativeLayout {
             mSpeakerImage.setVisibility(View.INVISIBLE);
         } else {
             mSpeakerImage.setVisibility(View.VISIBLE);
-
             if (talk.getSpeakers() != null && !talk.getSpeakers().isEmpty()
                     && talk.getSpeakers().get(0).getPhoto() != null) {
                 mSpeakerImage.setParseFile(talk.getSpeakers().get(0).getPhoto());
@@ -132,8 +132,6 @@ public class TalkListItemView extends RelativeLayout {
                         }
                     }
                 });
-            } else {
-                mSpeakerImage.setParseFile(null);
             }
         }
     }

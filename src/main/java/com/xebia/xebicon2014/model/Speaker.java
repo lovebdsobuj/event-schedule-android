@@ -33,4 +33,8 @@ public class Speaker extends ParseObject {
   public ParseFile getPhoto() {
     return getParseFile("photo");
   }
+
+  public String getTwitter() {
+    return getString("twitter");
+  }
 }

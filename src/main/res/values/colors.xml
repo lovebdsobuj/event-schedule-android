@@ -10,4 +10,5 @@
     <color name="tabs_text">@color/xcs_purple</color>
     <color name="header_text">@color/xcs_purple</color>
     <color name="running_text">@color/xcs_gray_dark</color>
+    <color name="twitter_link">#292F33</color>
 </resources>

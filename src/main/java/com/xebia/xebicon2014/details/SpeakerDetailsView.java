@@ -5,6 +5,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,6 +25,9 @@ public class SpeakerDetailsView extends LinearLayout {
     private TextView mTitleView;
     private TextView mCompanyView;
     private TextView mBioView;
+    private TextView mTwitterView;
+
+    private OnClickListener mTwitterListener;
 
     public SpeakerDetailsView(Context context) {
         super(context);
@@ -45,9 +49,19 @@ public class SpeakerDetailsView extends LinearLayout {
         mNameView = (TextView) findViewById(R.id.name);
         mTitleView = (TextView) findViewById(R.id.title);
         mCompanyView = (TextView) findViewById(R.id.company);
+        mTwitterView = (TextView) findViewById(R.id.twitter);
         mBioView = (TextView) findViewById(R.id.bio);
 
         mPhotoView.setPlaceholder(getResources().getDrawable(R.drawable.ic_speaker));
+
+        mTwitterView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (null != mTwitterListener) {
+                    mTwitterListener.onClick(view);
+                }
+            }
+        });
     }
 
     public void showSpeaker(Speaker speaker) {
@@ -57,6 +71,14 @@ public class SpeakerDetailsView extends LinearLayout {
         mTitleView.setText(speaker.getTitle());
         mCompanyView.setText(speaker.getCompany());
 
+        if (TextUtils.isEmpty(speaker.getTwitter())) {
+            mTwitterView.setVisibility(View.GONE);
+        } else {
+            String twitter = getResources().getString(R.string.twitter_handle, speaker.getTwitter());
+            mTwitterView.setVisibility(View.VISIBLE);
+            mTwitterView.setText(twitter);
+        }
+
         String bio = speaker.getBio();
         if (TextUtils.isEmpty(bio)) {
             mBioView.setVisibility(View.GONE);
@@ -64,5 +86,9 @@ public class SpeakerDetailsView extends LinearLayout {
             mBioView.setVisibility(View.VISIBLE);
             mBioView.setText(speaker.getBio());
         }
+    }
+
+    public void setOnTwitterClickListener(OnClickListener listener) {
+        mTwitterListener = listener;
     }
 }

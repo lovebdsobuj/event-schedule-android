@@ -1,7 +1,10 @@
 package com.xebia.xebicon2014.details;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -131,11 +134,29 @@ public class TalkDetailsFragment extends Fragment {
         }
 
         // Add a view for each speaker in the talk.
-        for (Speaker speaker : speakers) {
+        for (final Speaker speaker : speakers) {
             SpeakerDetailsView view = (SpeakerDetailsView) View.inflate(getActivity(),
                     R.layout.list_item_speaker, null);
             view.showSpeaker(speaker);
             mScrollView.addView(view);
+
+            if (!TextUtils.isEmpty(speaker.getTwitter())) {
+                view.setOnTwitterClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        showTwitterProfile(speaker);
+                    }
+                });
+            }
+        }
+    }
+
+    private void showTwitterProfile(Speaker speaker) {
+        String twitter = speaker.getTwitter();
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=" + twitter)));
+        } catch (Exception e) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/intent/user?screen_name=" + twitter)));
         }
     }
 }

@@ -8,11 +8,13 @@
     android:orientation="vertical"
     tools:ignore="MissingPrefix">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/xcs_gray_light"
         android:layout_marginBottom="1dp"
+        android:background="@color/xcs_gray_light"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
         android:paddingBottom="8dp"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
@@ -20,43 +22,54 @@
 
         <com.xebia.xebicon2014.util.CircularParseImageView
             android:id="@+id/photo"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
             android:layout_marginRight="8dp"
             android:contentDescription="@string/photo"
             app:border="false"/>
 
-        <TextView
-            android:id="@+id/name"
-            calligraphy="fonts/FuturaStd-Heavy.otf"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="2dp"
-            android:layout_toRightOf="@id/photo"
-            android:maxLines="2"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/header_text"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/name"
-            android:layout_toRightOf="@+id/photo"
-            android:maxLines="2"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/header_text"/>
+            <TextView
+                android:id="@+id/name"
+                calligraphy="fonts/FuturaStd-Heavy.otf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/header_text"/>
 
-        <TextView
-            android:id="@+id/company"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/title"
-            android:layout_toRightOf="@+id/photo"
-            android:singleLine="true"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/header_text"/>
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/header_text"/>
+
+            <TextView
+                android:id="@+id/company"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/header_text"/>
+
+            <TextView
+                android:id="@+id/twitter"
+                calligraphy="fonts/arial.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_twitter"
+                android:drawablePadding="2dp"
+                android:singleLine="true"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/twitter_link"/>
+        </LinearLayout>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/bio"

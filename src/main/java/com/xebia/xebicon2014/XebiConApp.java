@@ -39,8 +39,8 @@ public class XebiConApp extends Application {
         ParseObject.registerSubclass(Talk.class);
 
         // Initialize Parse with the application ID and client key.
-        Parse.initialize(this, "XqChc4Nc3GZOhsXOOHYyFRx6PKkmzv37xA6MPR9H",
-                "TuJcLr9R9DrF1OHl3R7NPJs2zSZvthysnPK8dfEJ");
+        Parse.initialize(this, "egcq81G2Yxf1C8yhAFtW5aOf7UkO5BsNB2mOyj2t",
+                "skKIoBIE59IwNSzN6q1vrFRVn72TofyIkVGNlHLp");
 
         // Enable the Parse push notification service for remote pushes.
         PushService.setDefaultPushCallback(this, MainActivity.class);

@@ -9,14 +9,14 @@ buildscript {
 apply plugin: 'android'
 
 android {
-    compileSdkVersion 'android-19'
-    buildToolsVersion '19.1.0'
+    compileSdkVersion 'android-20'
+    buildToolsVersion '20'
 
     defaultConfig {
         versionCode 1405181340 // yyMMddhhmm
         versionName "1.0.4"
         minSdkVersion 10
-        targetSdkVersion 19
+        targetSdkVersion 20
     }
 
     buildTypes {

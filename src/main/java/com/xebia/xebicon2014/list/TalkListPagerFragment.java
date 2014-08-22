@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.xebia.xebicon2014.R;
+import com.xebia.xebicon2014.XebiConApp;
 import com.xebia.xebicon2014.util.TypefaceSpan;
 
 import java.util.Locale;
@@ -45,9 +46,10 @@ public class TalkListPagerFragment extends Fragment implements ActionBar.TabList
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        String eventId = ((XebiConApp)getActivity().getApplicationContext()).getDataStore().getEventId();
 
         // This adapter will return a fragment for each of the primary sections of the app.
-        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(getFragmentManager());
+        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(eventId, getFragmentManager());
         viewPager.setAdapter(sectionsPagerAdapter);
 
         // When swiping between different sections, select the corresponding tab.
@@ -85,6 +87,7 @@ public class TalkListPagerFragment extends Fragment implements ActionBar.TabList
         // remove any items that have been unfavorited.
         SectionsPagerAdapter adapter = (SectionsPagerAdapter) viewPager.getAdapter();
         TalkListFragment fragment = (TalkListFragment) adapter.getItem(TAB_FAVORITES);
+
         fragment.removeUnfavoritedItems();
     }
 
@@ -102,11 +105,13 @@ public class TalkListPagerFragment extends Fragment implements ActionBar.TabList
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to one of the sections.
      */
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
+        private final String eventId;
         private TalkListFragment scheduleFragment = null;
         private TalkListFragment favoritesFragment = null;
 
-        public SectionsPagerAdapter(FragmentManager fm) {
+        public SectionsPagerAdapter(String eventId, FragmentManager fm) {
             super(fm);
+            this.eventId = eventId;
         }
 
         @Override
@@ -115,13 +120,13 @@ public class TalkListPagerFragment extends Fragment implements ActionBar.TabList
             switch (position) {
                 case TAB_SCHEDULE: {
                     if (scheduleFragment == null) {
-                        scheduleFragment = TalkListFragment.newInstance(false);
+                        scheduleFragment = TalkListFragment.newInstance(eventId, false);
                     }
                     return scheduleFragment;
                 }
                 case TAB_FAVORITES: {
                     if (favoritesFragment == null) {
-                        favoritesFragment = TalkListFragment.newInstance(true);
+                        favoritesFragment = TalkListFragment.newInstance(eventId, true);
                     }
                     return favoritesFragment;
                 }

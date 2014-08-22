@@ -1,5 +1,6 @@
 package com.xebia.xebicon2014;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -24,15 +25,18 @@ import com.xebia.xebicon2014.util.LayoutUtils;
  * An Activity with a tabs for the complete schedule and the list of favorited talks. This was
  * originally created from an ADT wizard.
  */
-public class MainActivity extends CalligraphyActivity implements TalkListFragment.Listener, EventListFragment.Listener {
+public class MainActivity extends CalligraphyActivity implements TalkListFragment.Listener {
+
+    public static Intent createIntent(Context context){
+        Intent intent = new Intent(context, MainActivity.class);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Tracks app-open metrics using Parse.
-        ParseAnalytics.trackAppOpened(getIntent());
 
         // Set up the action bar.
         final ActionBar actionBar = getSupportActionBar();
@@ -72,8 +76,4 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
         }
     }
 
-    @Override
-    public void onEventClick(Event event) {
-        Log.d("mainactivity", event.getId());
-    }
 }

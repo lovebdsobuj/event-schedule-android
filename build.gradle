@@ -15,7 +15,7 @@ android {
     defaultConfig {
         versionCode 1405181340 // yyMMddhhmm
         versionName "1.0.4"
-        minSdkVersion 10
+        minSdkVersion 11
         targetSdkVersion 20
     }
 
@@ -45,8 +45,8 @@ repositories {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:19.+'
-    compile 'com.android.support:support-v4:19.+'
+    compile 'com.android.support:appcompat-v7:20.+'
+    compile 'com.android.support:support-v4:20.+'
     compile 'uk.co.chrisjenx:calligraphy:0.7.+'
     compile files('libs/Parse-1.5.0.jar')
 }

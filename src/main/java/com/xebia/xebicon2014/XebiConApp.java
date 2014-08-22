@@ -64,7 +64,7 @@ public class XebiConApp extends Application {
     }
 
     private void initDataStore(){
-        dataStore = new DataStore(getSharedPreferences(PREFERENCES_FILE, Application.MODE_PRIVATE);
+        dataStore = new DataStore(getSharedPreferences(PREFERENCES_FILE, Application.MODE_PRIVATE));
     }
 
 }

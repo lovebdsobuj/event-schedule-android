@@ -59,6 +59,7 @@ public class Talk extends ParseObject {
     query.include("speakers");
     query.include("room");
     query.include("slot");
+    //query.include("event");
     query.setCachePolicy(CachePolicy.CACHE_THEN_NETWORK);
     return query;
   }
@@ -88,9 +89,13 @@ public class Talk extends ParseObject {
   /**
    * Retrieves the set of all talks, ordered by time. Uses the cache if possible.
    */
-  public static void findInBackground(final FindCallback<Talk> callback) {
+  public static void findInBackground(String eventId, final FindCallback<Talk> callback) {
     ParseQuery<Talk> query = Talk.createQuery();
-    query.findInBackground(new TalkFindCallback() {
+    ParseQuery innerQuery = new ParseQuery("Event");
+    innerQuery.whereEqualTo("objectId", eventId);
+
+      query.whereMatchesQuery("event", innerQuery);
+      query.findInBackground(new TalkFindCallback() {
       @Override
       protected void doneOnce(List<Talk> objects, ParseException e) {
         if (objects != null) {

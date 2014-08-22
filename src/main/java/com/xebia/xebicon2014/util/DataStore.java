@@ -3,16 +3,18 @@ package com.xebia.xebicon2014.util;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-
 import com.xebia.xebicon2014.model.Event;
 
 public class DataStore {
 
     private String selectedEventID;
+    private Event event;
+
     private static final String TAG = "DataStore";
     private static final String EVENT_ID = "event_id";
     private static final String NONE = "NONE";
     private SharedPreferences sharedPrefs;
+
 
     public DataStore(SharedPreferences preferences) {
         this.sharedPrefs = preferences;
@@ -32,6 +34,7 @@ public class DataStore {
 
     public void setNewSelectedEvent(Event newEvent) {
         selectedEventID = newEvent.getId();
+        this.event = newEvent;
         sharedPrefs.edit().putString(EVENT_ID, selectedEventID).apply();
     }
 
@@ -41,5 +44,9 @@ public class DataStore {
 
     public String getEventId() {
         return selectedEventID;
+    }
+
+    public Event getEvent() {
+        return event;
     }
 }

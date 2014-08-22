@@ -149,6 +149,7 @@ public class TalkListItemView extends RelativeLayout {
 
     private void updateTextViews(final Talk talk) {
         mTitleView.setText(talk.getTitle());
+
         mStartDateView.setText(mTimeFormat.format(talk.getSlot().getStartTime()));
         mRoomView.setText(talk.getRoom().getName());
 

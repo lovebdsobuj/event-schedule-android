@@ -11,6 +11,7 @@ import com.xebia.xebicon2014.model.Room;
 import com.xebia.xebicon2014.model.Slot;
 import com.xebia.xebicon2014.model.Speaker;
 import com.xebia.xebicon2014.model.Talk;
+import com.xebia.xebicon2014.util.DataStore;
 import com.xebia.xebicon2014.util.FavoritesNotificationScheduler;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -20,11 +21,13 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
  */
 public class XebiConApp extends Application {
 
+    private static final String PREFERENCES_FILE = "event_shared_pref";
+    private DataStore dataStore;
     @Override
     public void onCreate() {
         initParse();
         initCalligraphy();
-
+        initDataStore();
         if (!BuildConfig.DEBUG) Parse.setLogLevel(Parse.LOG_LEVEL_NONE);
     }
 
@@ -40,7 +43,6 @@ public class XebiConApp extends Application {
         ParseObject.registerSubclass(Talk.class);
         ParseObject.registerSubclass(Event.class);
 
-        Parse.enableLocalDatastore(this);
         // Initialize Parse with the application ID and client key.
         Parse.initialize(this, "egcq81G2Yxf1C8yhAFtW5aOf7UkO5BsNB2mOyj2t",
                 "skKIoBIE59IwNSzN6q1vrFRVn72TofyIkVGNlHLp");
@@ -57,5 +59,12 @@ public class XebiConApp extends Application {
 
     }
 
+    public DataStore getDataStore(){
+        return dataStore;
+    }
+
+    private void initDataStore(){
+        dataStore = new DataStore(getSharedPreferences(PREFERENCES_FILE, Application.MODE_PRIVATE);
+    }
 
 }

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,7 +13,9 @@ import com.xebia.xebicon2014.about.AboutActivity;
 import com.xebia.xebicon2014.details.TalkActivity;
 import com.xebia.xebicon2014.details.TalkDetailsFragment;
 import com.xebia.xebicon2014.legal.LegalActivity;
+import com.xebia.xebicon2014.list.EventListFragment;
 import com.xebia.xebicon2014.list.TalkListFragment;
+import com.xebia.xebicon2014.model.Event;
 import com.xebia.xebicon2014.model.Talk;
 import com.xebia.xebicon2014.util.CalligraphyActivity;
 import com.xebia.xebicon2014.util.LayoutUtils;
@@ -21,7 +24,7 @@ import com.xebia.xebicon2014.util.LayoutUtils;
  * An Activity with a tabs for the complete schedule and the list of favorited talks. This was
  * originally created from an ADT wizard.
  */
-public class MainActivity extends CalligraphyActivity implements TalkListFragment.Listener {
+public class MainActivity extends CalligraphyActivity implements TalkListFragment.Listener, EventListFragment.Listener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,5 +70,10 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
             intent.setData(talk.getUri());
             startActivity(intent);
         }
+    }
+
+    @Override
+    public void onEventClick(Event event) {
+        Log.d("mainactivity", event.getId());
     }
 }

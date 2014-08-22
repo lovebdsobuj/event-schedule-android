@@ -10,6 +10,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import java.io.Serializable;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.List;
  * the Event class in which talks are grouped
  */
 @ParseClassName("Event")
-public class Event extends ParseObject {
+public class Event extends ParseObject implements Serializable {
 
     /**
      * Wraps a FindCallback so that we can use the CACHE_THEN_NETWORK caching policy, but only call
@@ -83,7 +84,7 @@ public class Event extends ParseObject {
                     Collections.sort(objects, new Comparator<Event>() {
                         @Override
                         public int compare(Event event1, Event event2) {
-                            return event1.getName().compareToIgnoreCase(event2.getName());
+                            return event1.getDate("startDate").compareTo(event2.getDate("startDate"));
                         }
                     });
                 }

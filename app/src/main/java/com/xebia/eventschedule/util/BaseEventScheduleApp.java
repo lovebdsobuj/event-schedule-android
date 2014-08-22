@@ -40,6 +40,7 @@ public abstract class BaseEventScheduleApp extends Application {
         ParseObject.registerSubclass(Slot.class);
         ParseObject.registerSubclass(Speaker.class);
         ParseObject.registerSubclass(Talk.class);
+        ParseObject.registerSubclass(Event.class);
 
         // Initialize Parse with the application ID and client key.
         Parse.initialize(this, getParseApplicationId(), getParseClientKey());

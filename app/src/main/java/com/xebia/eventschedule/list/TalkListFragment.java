@@ -3,12 +3,15 @@ package com.xebia.eventschedule.list;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
+import com.parse.ParseQuery;
+import com.xebia.eventschedule.EventScheduleApplication;
 import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Talk;
 import com.xebia.eventschedule.model.TalkComparator;
@@ -24,6 +27,7 @@ import java.util.List;
 public class TalkListFragment extends ListFragment implements Favorites.Listener {
 
     private static final String ARG_FAVORITES_ONLY = "favoritesOnly";
+    private static final String ARG_EVENT_ID = "eventId";
     private TalkListAdapter adapter = null;
     private Listener mListener;
 
@@ -37,13 +41,15 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
     // currently selected item, for highlighting the selection in master-detail mode
     private TalkListItemView mSelectedView;
 
-    public static TalkListFragment newInstance(boolean favoritesOnly) {
+    public static TalkListFragment newInstance(String eventId, boolean favoritesOnly) {
         TalkListFragment fragment = new TalkListFragment();
         Bundle args = new Bundle();
         args.putBoolean(ARG_FAVORITES_ONLY, favoritesOnly);
+        args.putString(ARG_EVENT_ID, eventId);
         fragment.setArguments(args);
         return fragment;
     }
+
 
     public TalkListFragment() {
         // Required empty public constructor
@@ -56,8 +62,8 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
         Bundle args = getArguments();
         favoritesOnly = args.getBoolean(ARG_FAVORITES_ONLY, false);
 
-        // Fetch the list of all talks from Parse or the query cache.
-        Talk.findInBackground(new FindCallback<Talk>() {
+        String eventId = getArguments().getString(ARG_EVENT_ID);
+        Talk.findInBackground(eventId, new FindCallback<Talk>() {
             @Override
             public void done(List<Talk> talks, ParseException e) {
 
@@ -81,6 +87,7 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
                 onTalksLoaded(talks);
             }
         });
+
     }
 
     private void onTalksLoaded(List<Talk> talks) {

@@ -3,10 +3,15 @@ package com.xebia.xebicon2014.list;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
+import com.xebia.xebicon2014.R;
 import com.xebia.xebicon2014.model.Event;
 
 /**
@@ -31,17 +36,22 @@ public class EventListFragment extends ListFragment {
         super.onActivityCreated(savedInstanceState);
         adapter = new ParseQueryAdapter<Event>(getActivity(), "Event");
         adapter.setTextKey("name");
-        adapter.setImageKey("photo");
+        adapter.setImageKey("logo");
+        setListAdapter(adapter);
 
     }
 
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.event_list, null);
+    }
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
         Event event = adapter.getItem(position);
 
         if (null != mListener) {
-            mListener.onEventClick(event);
+           mListener.onEventClick((Event)event);
         }
     }
 

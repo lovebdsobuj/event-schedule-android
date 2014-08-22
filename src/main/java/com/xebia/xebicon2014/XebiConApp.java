@@ -5,6 +5,7 @@ import android.app.Application;
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.PushService;
+import com.xebia.xebicon2014.model.Event;
 import com.xebia.xebicon2014.model.Favorites;
 import com.xebia.xebicon2014.model.Room;
 import com.xebia.xebicon2014.model.Slot;
@@ -37,6 +38,7 @@ public class XebiConApp extends Application {
         ParseObject.registerSubclass(Slot.class);
         ParseObject.registerSubclass(Speaker.class);
         ParseObject.registerSubclass(Talk.class);
+        ParseObject.registerSubclass(Event.class);
 
         // Initialize Parse with the application ID and client key.
         Parse.initialize(this, "egcq81G2Yxf1C8yhAFtW5aOf7UkO5BsNB2mOyj2t",

@@ -40,6 +40,7 @@ public class XebiConApp extends Application {
         ParseObject.registerSubclass(Talk.class);
         ParseObject.registerSubclass(Event.class);
 
+        Parse.enableLocalDatastore(this);
         // Initialize Parse with the application ID and client key.
         Parse.initialize(this, "egcq81G2Yxf1C8yhAFtW5aOf7UkO5BsNB2mOyj2t",
                 "skKIoBIE59IwNSzN6q1vrFRVn72TofyIkVGNlHLp");
@@ -52,5 +53,9 @@ public class XebiConApp extends Application {
 
         // Read in the favorites from the local disk on this device.
         Favorites.get().findLocally(this);
+
+
     }
+
+
 }

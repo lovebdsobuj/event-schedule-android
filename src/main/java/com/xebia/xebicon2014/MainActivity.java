@@ -2,12 +2,18 @@ package com.xebia.xebicon2014;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.parse.ParseAnalytics;
 import com.xebia.xebicon2014.about.AboutActivity;
@@ -37,10 +43,19 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         // Set up the action bar.
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+
+        Event event = ((XebiConApp) getApplicationContext()).getDataStore().getEvent();
+        int color = Color.parseColor(event.getBaseColor());
+        Drawable logoDrawable = new BitmapDrawable(getResources(), event.getLogo());
+        actionBar.setLogo(logoDrawable);
+        actionBar.setTitle(event.getName());
+        actionBar.setBackgroundDrawable(new ColorDrawable(color));
+        actionBar.setDisplayUseLogoEnabled(true);
+        setTitleColor(color); //no effect?
+
     }
 
     @Override

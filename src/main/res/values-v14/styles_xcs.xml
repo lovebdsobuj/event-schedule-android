@@ -37,7 +37,7 @@
         <item name="android:backgroundStacked">@drawable/ab_stacked_solid_xcs</item>
         <item name="android:backgroundSplit">@drawable/ab_bottom_solid_xcs</item>
         <item name="android:progressBarStyle">@style/ProgressBar.Xcs</item>
-        <item name="android:titleTextStyle">@style/ActionBarTitleText.Xcs</item>
+        <item name="android:titleTextowetStyle">@style/ActionBarTitleText.Xcs</item>
     </style>
 
     <style name="ActionBar.Transparent.Xcs" parent="@style/Widget.AppCompat.Light.ActionBar">

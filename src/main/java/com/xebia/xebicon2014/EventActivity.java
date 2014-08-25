@@ -1,6 +1,7 @@
 package com.xebia.xebicon2014;
 
 import android.content.res.Configuration;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -31,7 +32,7 @@ public class EventActivity extends CalligraphyActivity implements EventListFragm
         ParseAnalytics.trackAppOpened(getIntent());
 
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawerLayout.openDrawer(Gravity.LEFT);
+        //drawerLayout.openDrawer(Gravity.LEFT);
         drawerToggle = new ActionBarDrawerToggle(
                 this,                  /* host Activity */
                 drawerLayout,         /* DrawerLayout object */
@@ -55,9 +56,11 @@ public class EventActivity extends CalligraphyActivity implements EventListFragm
 
         // Set the drawer toggle as the DrawerListener
         drawerLayout.setDrawerListener(drawerToggle);
-
+        //getActionBar().setBackgroundDrawable(new BitmapDrawable() {);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
+
+            //ab_transparent_xcs.9.png
 
         String selectedEventId = ((XebiConApp) getApplicationContext()).getDataStore().getEventId();
         if (selectedEventId != null) {

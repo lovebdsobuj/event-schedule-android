@@ -1,6 +1,7 @@
 package com.xebia.xebicon2014.model;
 
 
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 
 import com.parse.FindCallback;
@@ -9,7 +10,6 @@ import com.parse.ParseClassName;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import com.xebia.xebicon2014.util.LocaleUtils;
 
 import java.io.Serializable;
 import java.util.Collections;
@@ -127,16 +127,27 @@ public class Event extends ParseObject implements Serializable {
         return getString("location");
     }
 
-    public String getTintColor(){
+    public String getTintColor() {
         return getString("tintColor");
     }
 
-    public String getBaseColor(){
+    public String getBaseColor() {
         return getString("baseColor");
     }
 
+    public android.graphics.Bitmap getLogo() {
+        byte[] data = new byte[0];
+        try {
+            data = getParseFile("logo").getData();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
-    public String getId(){
+        return BitmapFactory.decodeByteArray(data, 0, data.length);
+    }
+
+
+    public String getId() {
         return getObjectId();
     }
 

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.graphics.Color;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -41,6 +40,7 @@ public class TalkListItemView extends RelativeLayout {
     private boolean mMasterDetailMode;
 
     private Talk mTalk;
+    private int color;
 
     public TalkListItemView(Context context) {
         super(context);
@@ -74,7 +74,7 @@ public class TalkListItemView extends RelativeLayout {
 
         // load some context-related things
         mSpeakerImage.setPlaceholder(getResources().getDrawable(R.drawable.ic_speaker));
-        mHeaderTextColor = getResources().getColor(R.color.header_text);
+        //mHeaderTextColor = getResources().getColor(R.color.header_text);
         mTimeFormat = DateFormat.getTimeFormat(getContext());
         mMasterDetailMode = LayoutUtils.isDualPane(getContext());
     }
@@ -93,6 +93,10 @@ public class TalkListItemView extends RelativeLayout {
         updateHighlight();
     }
 
+    public void setTintColor(int color) {
+        this.color = color;
+    }
+
     private void updateHighlight() {
         mHighlightMarker.setVisibility(mMasterDetailMode && mTalk.isHighlighted() ? View.VISIBLE
                 : View.GONE);
@@ -102,7 +106,7 @@ public class TalkListItemView extends RelativeLayout {
         int bgResId;
         int highlightResId;
         if (talk.isBreak()) {
-            bgResId = R.drawable.bg_purple;
+            bgResId = color;//R.drawable.bg_purple;
             highlightResId = R.drawable.bg_yellow;
         } else if (talk.isKeynote()) {
             bgResId = R.drawable.bg_yellow;
@@ -111,7 +115,7 @@ public class TalkListItemView extends RelativeLayout {
             bgResId = android.R.color.transparent;
             highlightResId = R.drawable.bg_yellow;
         }
-        this.setBackgroundResource(bgResId);
+        this.setBackgroundColor(bgResId);
         mHighlightMarker.setBackgroundResource(highlightResId);
     }
 
@@ -151,9 +155,12 @@ public class TalkListItemView extends RelativeLayout {
         mTitleView.setText(talk.getTitle());
 
         mStartDateView.setText(mTimeFormat.format(talk.getSlot().getStartTime()));
-        mRoomView.setText(talk.getRoom().getName());
+        if (talk.getRoom()!=null) {
+            mRoomView.setText(talk.getRoom().getName());
+        }
 
-        int textColor = talk.isBreak() ? Color.WHITE : mHeaderTextColor;
+
+        int textColor = talk.isBreak() ? Color.WHITE : this.color;
         mTitleView.setTextColor(textColor);
         mStartDateLabel.setTextColor(textColor);
         mStartDateView.setTextColor(textColor);

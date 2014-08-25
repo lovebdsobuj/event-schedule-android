@@ -2,6 +2,7 @@ package com.xebia.xebicon2014.details;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import com.parse.ParseImageView;
 import com.xebia.xebicon2014.R;
+import com.xebia.xebicon2014.XebiConApp;
 import com.xebia.xebicon2014.model.Speaker;
 
 /**
@@ -28,6 +30,7 @@ public class SpeakerDetailsView extends LinearLayout {
     private TextView mTwitterView;
 
     private OnClickListener mTwitterListener;
+    private int color;
 
     public SpeakerDetailsView(Context context) {
         super(context);
@@ -45,6 +48,10 @@ public class SpeakerDetailsView extends LinearLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+
+        String color = ((XebiConApp) getContext().getApplicationContext()).getDataStore().getEvent().getBaseColor();
+        this.color = Color.parseColor(color);
+
         mPhotoView = (ParseImageView) findViewById(R.id.photo);
         mNameView = (TextView) findViewById(R.id.name);
         mTitleView = (TextView) findViewById(R.id.title);
@@ -67,9 +74,13 @@ public class SpeakerDetailsView extends LinearLayout {
     public void showSpeaker(Speaker speaker) {
         mPhotoView.setParseFile(speaker.getPhoto());
         mPhotoView.loadInBackground();
+
         mNameView.setText(speaker.getName());
+        mNameView.setTextColor(color);
         mTitleView.setText(speaker.getTitle());
+        mTitleView.setTextColor(color);
         mCompanyView.setText(speaker.getCompany());
+        mCompanyView.setTextColor(color);
 
         if (TextUtils.isEmpty(speaker.getTwitter())) {
             mTwitterView.setVisibility(View.GONE);

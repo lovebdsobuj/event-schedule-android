@@ -12,9 +12,11 @@ import android.text.SpannableString;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.xebia.xebicon2014.R;
 import com.xebia.xebicon2014.XebiConApp;
+import com.xebia.xebicon2014.model.Favorites;
 import com.xebia.xebicon2014.util.TypefaceSpan;
 
 import java.util.Locale;

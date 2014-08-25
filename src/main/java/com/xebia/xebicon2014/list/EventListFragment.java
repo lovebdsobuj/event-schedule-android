@@ -12,6 +12,7 @@ import android.widget.ListView;
 import com.parse.ParseObject;
 import com.parse.ParseQueryAdapter;
 import com.xebia.xebicon2014.R;
+import com.xebia.xebicon2014.details.EventListAdapter;
 import com.xebia.xebicon2014.model.Event;
 
 /**
@@ -34,9 +35,13 @@ public class EventListFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        adapter = new ParseQueryAdapter<Event>(getActivity(), "Event");
-        adapter.setTextKey("name");
-        adapter.setImageKey("logo");
+        //adapter = new ParseQueryAdapter<Event>(getActivity(), "Event");
+        //adapter.setTextKey("name");
+        //adapter.setImageKey("logo");
+
+        adapter = new EventListAdapter(getActivity(), "Event");
+        //adapter.setTextKey("name");
+        //adapter.setImageKey("logo");
         setListAdapter(adapter);
 
     }

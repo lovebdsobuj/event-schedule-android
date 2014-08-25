@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    tools:ignore="MissingPrefix">
+
+    <!-- SPEAKER IMAGE: left aligned, centered vertically -->
+    <com.parse.ParseImageView
+        android:id="@+id/speakerimage"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        app:border="false"/>
+
+    <!-- TALK TITLE: between speaker image and favorite button -->
+    <!-- 10dp top margin to center the two info lines in the layout -->
+    <TextView
+        android:id="@+id/title"
+        calligraphy="fonts/FuturaStd-Heavy.otf"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="8dp"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@+id/speakerimage"
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/header_text"/>
+
+
+</RelativeLayout>

@@ -6,16 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!-- The main content view -->
-    <RelativeLayout
+    <fragment
+        android:id="@+id/content"
+        android:name="com.xebia.xebicon2014.list.EventListFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Welkom" />
-
-    </RelativeLayout>
+        android:layout_height="match_parent"
+        />
     <!-- The navigation drawer -->
     <fragment
         android:id="@+id/left_drawer"

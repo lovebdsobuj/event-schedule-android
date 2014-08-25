@@ -17,9 +17,10 @@ public class TalkComparator implements Comparator<Talk> {
   @Override
   public int compare(Talk lhs, Talk rhs) {
     int startCompare = lhs.getSlot().getStartTime().compareTo(rhs.getSlot().getStartTime());
-    if (startCompare != 0) {
+    //if (startCompare != 0) {
       return startCompare;
-    }
-    return lhs.getRoom().getName().compareTo(rhs.getRoom().getName());
+    //}
+//if (lhs.getRoom()!=nu)
+   // return lhs.getRoom().getName().compareTo(rhs.getRoom().getName());
   }
 }

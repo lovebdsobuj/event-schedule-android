@@ -1,6 +1,7 @@
 package com.xebia.xebicon2014.details;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.xebia.xebicon2014.R;
+import com.xebia.xebicon2014.XebiConApp;
 import com.xebia.xebicon2014.model.Favorites;
 import com.xebia.xebicon2014.model.Speaker;
 import com.xebia.xebicon2014.model.Talk;
@@ -32,15 +34,21 @@ public class TalkDetailsFragment extends Fragment {
     private View mHeaderView;
     private View mLogisticsView;
     private View mPlaceholderView;
+    private int color;
 
     public TalkDetailsFragment() {
-        // Required empty public constructor
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View root = inflater.inflate(R.layout.talk_details, container, false);
+        String color = ((XebiConApp) getActivity().getApplicationContext()).getDataStore().getEvent().getBaseColor();
+        this.color = Color.parseColor(color);
+
+
         if (null != root) {
             // bind to views
             mTitleView = (TextView) root.findViewById(R.id.title);
@@ -60,6 +68,9 @@ public class TalkDetailsFragment extends Fragment {
                 }
             });
         }
+
+
+        //mHeaderView.setBackgroundColor(color);
 
         setRetainInstance(true);
 
@@ -105,9 +116,13 @@ public class TalkDetailsFragment extends Fragment {
             return;
         }
         showPlaceholder(false);
+
+
         mTitleView.setText(talk.getTitle());
         mTimeView.setText(talk.getSlot().format(getActivity()));
-        mRoomView.setText(talk.getRoom().getName());
+        if (talk.getRoom() != null) {
+            mRoomView.setText(talk.getRoom().getName());
+        }
         mAbstractView.setText(talk.getAbstract());
 
         if (Favorites.get().contains(talk)) {

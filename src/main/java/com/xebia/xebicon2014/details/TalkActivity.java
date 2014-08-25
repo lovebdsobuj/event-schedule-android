@@ -1,6 +1,11 @@
 package com.xebia.xebicon2014.details;
 
+import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -8,6 +13,8 @@ import android.widget.Toast;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.xebia.xebicon2014.R;
+import com.xebia.xebicon2014.XebiConApp;
+import com.xebia.xebicon2014.model.Event;
 import com.xebia.xebicon2014.model.Talk;
 import com.xebia.xebicon2014.util.CalligraphyActivity;
 
@@ -22,6 +29,18 @@ public class TalkActivity extends CalligraphyActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_talk);
+        Event event = ((XebiConApp) getApplicationContext()).getDataStore().getEvent();
+
+        final ActionBar actionBar = getSupportActionBar();
+        int color = Color.parseColor(event.getBaseColor());
+        Drawable logoDrawable = new BitmapDrawable(getResources(), event.getLogo());
+        actionBar.setLogo(logoDrawable);
+        actionBar.setBackgroundDrawable(new ColorDrawable(color));
+        actionBar.setTitle(event.getName());
+        actionBar.setDisplayUseLogoEnabled(true);
+        setTitleColor(color); //no effect?
+
+
 
         // Fetch the data about this talk from Parse.
         String talkId = Talk.getTalkId(getIntent().getData());

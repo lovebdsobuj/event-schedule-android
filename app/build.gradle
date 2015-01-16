@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion '21.1.2'
+
+    defaultConfig {
+        applicationId 'com.xebia.eventschedule'
+        versionCode 1405181340 // yyMMddhhmm
+        versionName '1.0.4'
+        minSdkVersion 10
+        targetSdkVersion 21
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFile "${project.projectDir}/config/proguard-project.txt"
+            proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
+        }
+    }
+
+    signingConfigs {
+        debug {
+            storeFile file("${project.projectDir}/config/sign/debug.keystore")
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:support-v4:21.0.3'
+    compile 'uk.co.chrisjenx:calligraphy:1.2.0'
+    compile 'com.parse.bolts:bolts-android:1.1.4'
+    compile fileTree(dir: 'libs', include: 'Parse-*.jar')
+}
+
+// Import code signing configuration from a separate file, outside version control.
+def extraConf = file("${project.projectDir}/signing-config.gradle");
+if (extraConf.exists()) {
+    apply from: "${project.projectDir}/signing-config.gradle"
+}

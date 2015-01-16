@@ -1,53 +1,19 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:1.0.0'
-    }
-}
-apply plugin: 'com.android.application'
 
-android {
-    compileSdkVersion 21
-    buildToolsVersion '21.1.2'
-
-    defaultConfig {
-        versionCode 1405181340 // yyMMddhhmm
-        versionName "1.0.4"
-        minSdkVersion 10
-        targetSdkVersion 21
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFile 'proguard-project.txt'
-            proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
-        }
-    }
-
-    signingConfigs {
-        debug {
-            storeFile file("sign/debug.keystore")
-        }
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
     }
 }
 
-// Import code signing configuration from a separate file, outside version control.
-def extraConf = file('signing-config.gradle');
-if (extraConf.exists()) {
-    apply from: 'signing-config.gradle'
-}
-
-repositories {
-    mavenCentral()
-}
-
-dependencies {
-    compile 'com.android.support:appcompat-v7:21.0.3'
-    compile 'com.android.support:support-v4:21.0.3'
-    compile 'uk.co.chrisjenx:calligraphy:1.2.0'
-    compile 'com.parse.bolts:bolts-android:1.1.4'
-    compile fileTree(dir: 'libs', include: 'Parse-*.jar')
+allprojects {
+    repositories {
+        jcenter()
+    }
 }

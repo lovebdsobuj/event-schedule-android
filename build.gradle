@@ -3,25 +3,25 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.12+'
+        classpath 'com.android.tools.build:gradle:1.0.0'
     }
 }
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 'android-20'
-    buildToolsVersion '20'
+    compileSdkVersion 21
+    buildToolsVersion '21.1.2'
 
     defaultConfig {
         versionCode 1405181340 // yyMMddhhmm
         versionName "1.0.4"
         minSdkVersion 10
-        targetSdkVersion 20
+        targetSdkVersion 21
     }
 
     buildTypes {
         release {
-            runProguard true
+            minifyEnabled true
             proguardFile 'proguard-project.txt'
             proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
         }
@@ -45,8 +45,8 @@ repositories {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:19.+'
-    compile 'com.android.support:support-v4:19.+'
-    compile 'uk.co.chrisjenx:calligraphy:0.7.+'
+    compile 'com.android.support:appcompat-v7:21.0.3'
+    compile 'com.android.support:support-v4:21.0.3'
+    compile 'uk.co.chrisjenx:calligraphy:1.2.0'
     compile files('libs/Parse-1.5.0.jar')
 }

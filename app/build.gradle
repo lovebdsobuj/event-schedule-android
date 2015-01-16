@@ -20,6 +20,15 @@ android {
         }
     }
 
+    productFlavors {
+        xebicon2014 {
+            applicationId 'com.xebia.xebicon2014'
+        }
+        ngNl2015 {
+            applicationId 'com.xebia.ngnl'
+        }
+    }
+
     signingConfigs {
         debug {
             storeFile file("${project.projectDir}/config/sign/debug.keystore")

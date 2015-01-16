@@ -1,10 +1,12 @@
-package com.xebia.eventschedule;
+package com.xebia.eventschedule.util;
 
 import android.app.Application;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.PushService;
+import com.xebia.eventschedule.BuildConfig;
+import com.xebia.eventschedule.MainActivity;
 import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Room;
 import com.xebia.eventschedule.model.Slot;
@@ -15,9 +17,10 @@ import com.xebia.eventschedule.util.FavoritesNotificationScheduler;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
- * The main app class mostly handles setting up global state, such as Parse keys.
+ * The base application class mostly handles setting up global configuration. This abstract class has to be extended
+ * by a class called {@code EventScheduleApplication} in each different product flavor implementation.
  */
-public class EventScheduleApp extends Application {
+public abstract class BaseEventScheduleApp extends Application {
 
     @Override
     public void onCreate() {
@@ -39,8 +42,7 @@ public class EventScheduleApp extends Application {
         ParseObject.registerSubclass(Talk.class);
 
         // Initialize Parse with the application ID and client key.
-        Parse.initialize(this, "XqChc4Nc3GZOhsXOOHYyFRx6PKkmzv37xA6MPR9H",
-                "TuJcLr9R9DrF1OHl3R7NPJs2zSZvthysnPK8dfEJ");
+        Parse.initialize(this, getParseApplicationId(), getParseClientKey());
 
         // Enable the Parse push notification service for remote pushes.
         PushService.setDefaultPushCallback(this, MainActivity.class);
@@ -51,4 +53,8 @@ public class EventScheduleApp extends Application {
         // Read in the favorites from the local disk on this device.
         Favorites.get().findLocally(this);
     }
+
+    protected abstract String getParseClientKey();
+
+    protected abstract String getParseApplicationId();
 }

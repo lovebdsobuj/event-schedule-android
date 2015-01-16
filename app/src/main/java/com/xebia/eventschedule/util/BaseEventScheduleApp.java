@@ -7,12 +7,12 @@ import com.parse.ParseObject;
 import com.parse.PushService;
 import com.xebia.eventschedule.BuildConfig;
 import com.xebia.eventschedule.MainActivity;
+import com.xebia.eventschedule.model.Event;
 import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Room;
 import com.xebia.eventschedule.model.Slot;
 import com.xebia.eventschedule.model.Speaker;
 import com.xebia.eventschedule.model.Talk;
-import com.xebia.eventschedule.util.FavoritesNotificationScheduler;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
@@ -58,4 +58,6 @@ public abstract class BaseEventScheduleApp extends Application {
     protected abstract String getParseClientKey();
 
     protected abstract String getParseApplicationId();
+
+    public abstract String getParseEventId();
 }

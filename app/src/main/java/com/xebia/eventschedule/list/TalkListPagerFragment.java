@@ -46,7 +46,7 @@ public class TalkListPagerFragment extends Fragment implements ActionBar.TabList
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        String eventId = ((XebiConApp)getActivity().getApplicationContext()).getDataStore().getEventId();
+        String eventId = ((EventScheduleApplication) getActivity().getApplicationContext()).getParseEventId();
 
         // This adapter will return a fragment for each of the primary sections of the app.
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(eventId, getFragmentManager());

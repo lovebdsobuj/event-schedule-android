@@ -19,7 +19,10 @@ public class TalkComparator implements Comparator<Talk> {
     int startCompare = lhs.getSlot().getStartTime().compareTo(rhs.getSlot().getStartTime());
     if (startCompare != 0) {
       return startCompare;
+    } else if (null != lhs.getRoom() && null != rhs.getRoom()) {
+        return lhs.getRoom().getName().compareTo(rhs.getRoom().getName());
+    } else {
+        return startCompare;
     }
-    return lhs.getRoom().getName().compareTo(rhs.getRoom().getName());
   }
 }

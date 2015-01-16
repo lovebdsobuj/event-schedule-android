@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:name="com.xebia.xebicon2014.XebiConApp"
@@ -26,21 +27,21 @@
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.xebia.xebicon2014.view.MainActivity" />
+                android:value="com.xebia.xebicon2014.MainActivity" />
         </activity>
         <activity
             android:name="com.xebia.xebicon2014.legal.LegalActivity"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.xebia.xebicon2014.view.MainActivity" />
+                android:value="com.xebia.xebicon2014.MainActivity" />
         </activity>
         <activity
             android:name=".about.AboutActivity"
             android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.xebia.xebicon2014.view.MainActivity" />
+                android:value="com.xebia.xebicon2014.MainActivity" />
         </activity>
 
         <service android:name="com.parse.PushService" />

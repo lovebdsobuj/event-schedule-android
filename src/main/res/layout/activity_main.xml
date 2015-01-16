@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/talk_list"
-        android:name="com.xebia.xebicon2014.list.TalkListPagerFragment"
+        android:name="com.xebia.eventschedule.list.TalkListPagerFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout="@layout/talk_list_pager"/>

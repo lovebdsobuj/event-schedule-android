@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.about;
+package com.xebia.eventschedule.about;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -8,8 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import com.xebia.xebicon2014.R;
-import com.xebia.xebicon2014.util.CalligraphyActivity;
+import com.xebia.eventschedule.R;
+import com.xebia.eventschedule.util.CalligraphyActivity;
 
 /**
  * Displays static information about XebiCon. What? When? Where?

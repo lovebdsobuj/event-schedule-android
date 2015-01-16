@@ -1,17 +1,16 @@
-package com.xebia.xebicon2014.details;
+package com.xebia.eventschedule.details;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.parse.ParseImageView;
-import com.xebia.xebicon2014.R;
-import com.xebia.xebicon2014.model.Speaker;
+import com.xebia.eventschedule.R;
+import com.xebia.eventschedule.model.Speaker;
 
 /**
  * View group for speaker details.

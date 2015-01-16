@@ -1,23 +1,23 @@
-package com.xebia.xebicon2014;
+package com.xebia.eventschedule;
 
 import android.app.Application;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.PushService;
-import com.xebia.xebicon2014.model.Favorites;
-import com.xebia.xebicon2014.model.Room;
-import com.xebia.xebicon2014.model.Slot;
-import com.xebia.xebicon2014.model.Speaker;
-import com.xebia.xebicon2014.model.Talk;
-import com.xebia.xebicon2014.util.FavoritesNotificationScheduler;
+import com.xebia.eventschedule.model.Favorites;
+import com.xebia.eventschedule.model.Room;
+import com.xebia.eventschedule.model.Slot;
+import com.xebia.eventschedule.model.Speaker;
+import com.xebia.eventschedule.model.Talk;
+import com.xebia.eventschedule.util.FavoritesNotificationScheduler;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
  * The main app class mostly handles setting up global state, such as Parse keys.
  */
-public class XebiConApp extends Application {
+public class EventScheduleApp extends Application {
 
     @Override
     public void onCreate() {

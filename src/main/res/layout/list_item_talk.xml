@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.xebia.xebicon2014.list.TalkListItemView
+<com.xebia.eventschedule.list.TalkListItemView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,7 +9,7 @@
     tools:ignore="MissingPrefix">
 
     <!-- SPEAKER IMAGE: left aligned, centered vertically -->
-    <com.xebia.xebicon2014.util.CircularParseImageView
+    <com.xebia.eventschedule.util.CircularParseImageView
         android:id="@+id/speakerimage"
         android:layout_width="48dp"
         android:layout_height="48dp"
@@ -111,4 +111,4 @@
         android:background="@drawable/bg_yellow"
         android:visibility="gone"/>
 
-</com.xebia.xebicon2014.list.TalkListItemView>
+</com.xebia.eventschedule.list.TalkListItemView>

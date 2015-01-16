@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014;
+package com.xebia.eventschedule;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,14 +8,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.parse.ParseAnalytics;
-import com.xebia.xebicon2014.about.AboutActivity;
-import com.xebia.xebicon2014.details.TalkActivity;
-import com.xebia.xebicon2014.details.TalkDetailsFragment;
-import com.xebia.xebicon2014.legal.LegalActivity;
-import com.xebia.xebicon2014.list.TalkListFragment;
-import com.xebia.xebicon2014.model.Talk;
-import com.xebia.xebicon2014.util.CalligraphyActivity;
-import com.xebia.xebicon2014.util.LayoutUtils;
+import com.xebia.eventschedule.about.AboutActivity;
+import com.xebia.eventschedule.details.TalkActivity;
+import com.xebia.eventschedule.details.TalkDetailsFragment;
+import com.xebia.eventschedule.legal.LegalActivity;
+import com.xebia.eventschedule.list.TalkListFragment;
+import com.xebia.eventschedule.model.Talk;
+import com.xebia.eventschedule.util.CalligraphyActivity;
+import com.xebia.eventschedule.util.LayoutUtils;
 
 /**
  * An Activity with a tabs for the complete schedule and the list of favorited talks. This was

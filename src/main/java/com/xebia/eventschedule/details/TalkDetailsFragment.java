@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.details;
+package com.xebia.eventschedule.details;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -12,10 +12,10 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.xebia.xebicon2014.R;
-import com.xebia.xebicon2014.model.Favorites;
-import com.xebia.xebicon2014.model.Speaker;
-import com.xebia.xebicon2014.model.Talk;
+import com.xebia.eventschedule.R;
+import com.xebia.eventschedule.model.Favorites;
+import com.xebia.eventschedule.model.Speaker;
+import com.xebia.eventschedule.model.Talk;
 
 import java.util.List;
 

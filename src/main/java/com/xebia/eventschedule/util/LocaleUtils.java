@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.util;
+package com.xebia.eventschedule.util;
 
 import java.util.Locale;
 

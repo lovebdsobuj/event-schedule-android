@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.util;
+package com.xebia.eventschedule.util;
 
 import java.util.Date;
 import java.util.logging.Level;
@@ -11,8 +11,8 @@ import android.content.Intent;
 
 import com.parse.GetCallback;
 import com.parse.ParseException;
-import com.xebia.xebicon2014.model.Favorites;
-import com.xebia.xebicon2014.model.Talk;
+import com.xebia.eventschedule.model.Favorites;
+import com.xebia.eventschedule.model.Talk;
 
 /**
  * Listens for changes to the set of favorite talks and sets up alarms to send out notifications a

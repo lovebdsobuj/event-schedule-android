@@ -1,10 +1,10 @@
-package com.xebia.xebicon2014.legal;
+package com.xebia.eventschedule.legal;
 
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.xebia.xebicon2014.R;
-import com.xebia.xebicon2014.util.CalligraphyActivity;
+import com.xebia.eventschedule.R;
+import com.xebia.eventschedule.util.CalligraphyActivity;
 
 public class LegalActivity extends CalligraphyActivity {
 

@@ -1,11 +1,10 @@
-package com.xebia.xebicon2014.list;
+package com.xebia.eventschedule.list;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -15,10 +14,10 @@ import android.widget.TextView;
 import com.parse.GetDataCallback;
 import com.parse.ParseException;
 import com.parse.ParseImageView;
-import com.xebia.xebicon2014.R;
-import com.xebia.xebicon2014.model.Favorites;
-import com.xebia.xebicon2014.model.Talk;
-import com.xebia.xebicon2014.util.LayoutUtils;
+import com.xebia.eventschedule.R;
+import com.xebia.eventschedule.model.Favorites;
+import com.xebia.eventschedule.model.Talk;
+import com.xebia.eventschedule.util.LayoutUtils;
 
 /**
  * View group for talk list items. Lets me have my cake and eat it too.

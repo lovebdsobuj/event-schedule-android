@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.xebia.xebicon2014.details.SpeakerDetailsView
+<com.xebia.eventschedule.details.SpeakerDetailsView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -20,7 +20,7 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="8dp">
 
-        <com.xebia.xebicon2014.util.CircularParseImageView
+        <com.xebia.eventschedule.util.CircularParseImageView
             android:id="@+id/photo"
             android:layout_width="72dp"
             android:layout_height="72dp"
@@ -85,4 +85,4 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@color/running_text"/>
 
-</com.xebia.xebicon2014.details.SpeakerDetailsView>
+</com.xebia.eventschedule.details.SpeakerDetailsView>

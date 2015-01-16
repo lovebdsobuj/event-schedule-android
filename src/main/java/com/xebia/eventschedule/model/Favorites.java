@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.model;
+package com.xebia.eventschedule.model;
 
 import android.content.Context;
 import android.content.SharedPreferences;

@@ -1,9 +1,9 @@
-package com.xebia.xebicon2014.model;
+package com.xebia.eventschedule.model;
 
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
-import com.xebia.xebicon2014.util.LocaleUtils;
+import com.xebia.eventschedule.util.LocaleUtils;
 
 /**
  * A person speaking in a talk.

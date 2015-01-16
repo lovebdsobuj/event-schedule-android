@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.model;
+package com.xebia.eventschedule.model;
 
 import android.net.Uri;
 
@@ -9,7 +9,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQuery.CachePolicy;
-import com.xebia.xebicon2014.util.LocaleUtils;
+import com.xebia.eventschedule.util.LocaleUtils;
 
 import java.util.Collections;
 import java.util.List;

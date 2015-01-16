@@ -1,12 +1,12 @@
-package com.xebia.xebicon2014.list;
+package com.xebia.eventschedule.list;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 
-import com.xebia.xebicon2014.R;
-import com.xebia.xebicon2014.model.Talk;
+import com.xebia.eventschedule.R;
+import com.xebia.eventschedule.model.Talk;
 
 /**
  * An ArrayAdapter to handle a list of Talks.

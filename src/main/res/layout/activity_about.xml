@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.xebia.xebicon2014.about.AboutActivity">
+    tools:context="com.xebia.eventschedule.about.AboutActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

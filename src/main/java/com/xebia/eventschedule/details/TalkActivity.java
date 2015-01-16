@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.details;
+package com.xebia.eventschedule.details;
 
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -7,9 +7,9 @@ import android.widget.Toast;
 
 import com.parse.GetCallback;
 import com.parse.ParseException;
-import com.xebia.xebicon2014.R;
-import com.xebia.xebicon2014.model.Talk;
-import com.xebia.xebicon2014.util.CalligraphyActivity;
+import com.xebia.eventschedule.R;
+import com.xebia.eventschedule.model.Talk;
+import com.xebia.eventschedule.util.CalligraphyActivity;
 
 /**
  * An Activity to display information about a particular talk.

@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.util;
+package com.xebia.eventschedule.util;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,8 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.text.Spannable;
 import android.text.SpannableString;
 
-import com.xebia.xebicon2014.R;
-import com.xebia.xebicon2014.util.TypefaceSpan;
+import com.xebia.eventschedule.R;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 

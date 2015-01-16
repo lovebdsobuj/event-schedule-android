@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.list;
+package com.xebia.eventschedule.list;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,9 +9,9 @@ import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
-import com.xebia.xebicon2014.model.Favorites;
-import com.xebia.xebicon2014.model.Talk;
-import com.xebia.xebicon2014.model.TalkComparator;
+import com.xebia.eventschedule.model.Favorites;
+import com.xebia.eventschedule.model.Talk;
+import com.xebia.eventschedule.model.TalkComparator;
 
 import java.util.ArrayList;
 import java.util.List;

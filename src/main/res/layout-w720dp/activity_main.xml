@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/talk_list"
-        android:name="com.xebia.xebicon2014.list.TalkListPagerFragment"
+        android:name="com.xebia.eventschedule.list.TalkListPagerFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="233"
@@ -17,7 +17,7 @@
 
     <fragment
         android:id="@+id/talk_details"
-        android:name="com.xebia.xebicon2014.details.TalkDetailsFragment"
+        android:name="com.xebia.eventschedule.details.TalkDetailsFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="377"

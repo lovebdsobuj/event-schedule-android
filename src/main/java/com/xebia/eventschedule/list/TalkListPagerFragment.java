@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.list;
+package com.xebia.eventschedule.list;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,8 +13,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.xebia.xebicon2014.R;
-import com.xebia.xebicon2014.util.TypefaceSpan;
+import com.xebia.eventschedule.R;
+import com.xebia.eventschedule.util.TypefaceSpan;
 
 import java.util.Locale;
 

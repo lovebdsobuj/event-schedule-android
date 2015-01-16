@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.util;
+package com.xebia.eventschedule.util;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -11,9 +11,9 @@ import android.support.v4.app.TaskStackBuilder;
 
 import com.parse.GetCallback;
 import com.parse.ParseException;
-import com.xebia.xebicon2014.R;
-import com.xebia.xebicon2014.model.Talk;
-import com.xebia.xebicon2014.details.TalkActivity;
+import com.xebia.eventschedule.R;
+import com.xebia.eventschedule.model.Talk;
+import com.xebia.eventschedule.details.TalkActivity;
 
 /**
  * A BroadcastReceiver to handle Intents sent by the AlarmManager for local notifications.

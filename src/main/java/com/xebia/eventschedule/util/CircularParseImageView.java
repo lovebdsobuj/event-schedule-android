@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.util;
+package com.xebia.eventschedule.util;
 
 import android.annotation.TargetApi;
 import android.content.Context;
@@ -14,7 +14,7 @@ import android.os.Build;
 import android.util.AttributeSet;
 
 import com.parse.ParseImageView;
-import com.xebia.xebicon2014.R;
+import com.xebia.eventschedule.R;
 
 /**
  * ImageView for creating circular images from Parse.com.

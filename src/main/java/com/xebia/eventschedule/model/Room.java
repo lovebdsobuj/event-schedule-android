@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.model;
+package com.xebia.eventschedule.model;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;

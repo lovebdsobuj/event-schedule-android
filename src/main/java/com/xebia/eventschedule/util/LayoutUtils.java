@@ -1,4 +1,4 @@
-package com.xebia.xebicon2014.util;
+package com.xebia.eventschedule.util;
 
 import android.content.Context;
 import android.util.DisplayMetrics;

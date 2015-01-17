@@ -107,7 +107,7 @@ public class TalkDetailsFragment extends Fragment {
         showPlaceholder(false);
         mTitleView.setText(talk.getTitle());
         mTimeView.setText(talk.getSlot().format(getActivity()));
-        mRoomView.setText(talk.getRoom().getName());
+        mRoomView.setText(null != talk.getRoom() ? talk.getRoom().getName() : null);
         mAbstractView.setText(talk.getAbstract());
 
         if (Favorites.get().contains(talk)) {

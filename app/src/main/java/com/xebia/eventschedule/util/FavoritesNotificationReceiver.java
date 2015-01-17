@@ -45,7 +45,8 @@ public class FavoritesNotificationReceiver extends BroadcastReceiver {
     NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
     builder.setSmallIcon(R.drawable.ic_rating_important);
     builder.setContentTitle(talk.getTitle());
-    builder.setContentText("Starts in 5 minutes in " + talk.getRoom().getName());
+    builder.setContentText(null != talk.getRoom() ? "Starts in 5 minutes in " + talk.getRoom().getName()
+            : "Starts in 5 minutes");
     builder.setContentIntent(talkPendingIntent);
     builder.setAutoCancel(true);
     builder.setVibrate(VIBRATION);

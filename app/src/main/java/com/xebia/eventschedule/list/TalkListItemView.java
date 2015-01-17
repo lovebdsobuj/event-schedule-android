@@ -150,7 +150,7 @@ public class TalkListItemView extends RelativeLayout {
         mTitleView.setText(talk.getTitle());
 
         mStartDateView.setText(mTimeFormat.format(talk.getSlot().getStartTime()));
-        mRoomView.setText(talk.getRoom().getName());
+        mRoomView.setText(null != talk.getRoom() ? talk.getRoom().getName() : null);
 
         int textColor = talk.isBreak() ? Color.WHITE : mHeaderTextColor;
         mTitleView.setTextColor(textColor);

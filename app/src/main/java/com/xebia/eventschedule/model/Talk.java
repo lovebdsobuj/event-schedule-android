@@ -13,6 +13,7 @@ import com.xebia.eventschedule.util.LocaleUtils;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A talk being given at Parse Developer Day.
@@ -132,17 +133,23 @@ public class Talk extends ParseObject {
     });
   }
 
-  public String getTitle() {
-      return getString(LocaleUtils.isDutch() ? "title_nl" : "title");
-  }
-
-  public String getAbstract() {
-    String talkAbstract = getString(LocaleUtils.isDutch() ? "abstract_nl" : "abstract");
-    if (talkAbstract == null) {
-      talkAbstract = "";
+    public String getTitle() {
+        Map<String, String> titleMap = getMap("title");
+        String localizedTitle = LocaleUtils.isDutch() ? titleMap.get("nl") : titleMap.get("en");
+        if (null == localizedTitle) {
+            localizedTitle = "";
+        }
+        return localizedTitle;
     }
-    return talkAbstract;
-  }
+
+    public String getAbstract() {
+        Map<String, String> abstractMap = getMap("abstract");
+        String localizedAbstract = LocaleUtils.isDutch() ? abstractMap.get("nl") : abstractMap.get("en");
+        if (null == localizedAbstract) {
+            localizedAbstract = "";
+        }
+        return localizedAbstract;
+    }
 
   public List<Speaker> getSpeakers() {
     return getList("speakers");

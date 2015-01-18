@@ -1,6 +1,5 @@
 package com.xebia.eventschedule;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,9 +7,9 @@ import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.xebia.eventschedule.eventdetails.EventDetailsActivity;
 import com.xebia.eventschedule.details.TalkActivity;
 import com.xebia.eventschedule.details.TalkDetailsFragment;
+import com.xebia.eventschedule.eventdetails.EventDetailsActivity;
 import com.xebia.eventschedule.legal.LegalActivity;
 import com.xebia.eventschedule.list.TalkListFragment;
 import com.xebia.eventschedule.model.Talk;
@@ -23,16 +22,10 @@ import com.xebia.eventschedule.util.LayoutUtils;
  */
 public class MainActivity extends CalligraphyActivity implements TalkListFragment.Listener {
 
-    public static Intent createIntent(Context context){
-        Intent intent = new Intent(context, MainActivity.class);
-        return intent;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
 
         // Set up the action bar.
         final ActionBar actionBar = getSupportActionBar();

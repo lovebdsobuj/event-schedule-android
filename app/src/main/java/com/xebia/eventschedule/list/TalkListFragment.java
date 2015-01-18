@@ -3,15 +3,12 @@ package com.xebia.eventschedule.list;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
-import com.parse.ParseQuery;
-import com.xebia.eventschedule.EventScheduleApplication;
 import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Talk;
 import com.xebia.eventschedule.model.TalkComparator;

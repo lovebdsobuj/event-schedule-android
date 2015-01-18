@@ -112,7 +112,7 @@
         android:layout_width="8dp"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
-        android:background="@drawable/bg_yellow"
+        android:background="@color/base_color"
         android:visibility="gone"/>
 
 </com.xebia.eventschedule.list.TalkListItemView>

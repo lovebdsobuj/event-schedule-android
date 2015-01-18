@@ -20,7 +20,7 @@
     <string name="activity_not_found">Could not open corresponding app!</string>
     <string name="menu_legal">Legal</string>
     <string name="attribution_header">ATTRIBUTIONS</string>
-    <string name="attribution">The XebiCon app is built using the following third party software:</string>
+    <string name="attribution">This app is built using the following third party software:</string>
     <string name="terms_header">TERMS &amp; CONDITIONS</string>
     <string name="details_placeholder">Select a talk from the list to view the details</string>
 

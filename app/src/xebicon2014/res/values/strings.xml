@@ -2,5 +2,6 @@
 <resources>
 
     <string name="app_name">XebiCon</string>
+    <string name="app_name_full">XebiCon 2014 for Android.</string>
 
 </resources>

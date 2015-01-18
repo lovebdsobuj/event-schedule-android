@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">XebiCon</string>
     <string name="title_schedule">Programma</string>
     <string name="title_favorites">Favorieten</string>
     <string name="photo">Foto</string>
@@ -21,7 +20,7 @@
     <string name="activity_not_found">Bijbehorende app niet gevonden!</string>
     <string name="menu_legal">Wettelijk</string>
     <string name="attribution_header">TOEWIJZINGEN</string>
-    <string name="attribution">De XebiCon app is gebouwd met hulp van de volgende third party software:</string>
+    <string name="attribution">Deze app is gebouwd met hulp van de volgende third party software:</string>
     <string name="terms_header">BEPALINGEN &amp; CONDITIES</string>
     <string name="details_placeholder">Kies een presentatie uit de lijst om de details te bekijken</string>
 

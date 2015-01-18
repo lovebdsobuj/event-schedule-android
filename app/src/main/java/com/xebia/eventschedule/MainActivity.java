@@ -8,8 +8,7 @@ import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.parse.ParseAnalytics;
-import com.xebia.eventschedule.about.AboutActivity;
+import com.xebia.eventschedule.eventdetails.EventDetailsActivity;
 import com.xebia.eventschedule.details.TalkActivity;
 import com.xebia.eventschedule.details.TalkDetailsFragment;
 import com.xebia.eventschedule.legal.LegalActivity;
@@ -52,8 +51,8 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
         if (item.getItemId() == R.id.legal) {
             startActivity(new Intent(this, LegalActivity.class));
             return true;
-        } else if (item.getItemId() == R.id.about) {
-            startActivity(new Intent(this, AboutActivity.class));
+        } else if (item.getItemId() == R.id.event_details) {
+            startActivity(new Intent(this, EventDetailsActivity.class));
             return true;
         } else {
             return super.onOptionsItemSelected(item);

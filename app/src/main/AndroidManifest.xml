@@ -36,7 +36,7 @@
                 android:value="com.xebia.eventschedule.MainActivity" />
         </activity>
         <activity
-            android:name="com.xebia.eventschedule.about.AboutActivity"
+            android:name=".eventdetails.EventDetailsActivity"
             android:parentActivityName="com.xebia.eventschedule.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

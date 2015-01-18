@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingPrefix">
+
+    <TextView
+        android:id="@+id/contact_content"
+        fontPath="fonts/arial.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/contact_header"
+        android:layout_toLeftOf="@+id/contact_img"
+        android:layout_toStartOf="@+id/contact_img"
+        android:lineSpacingExtra="2sp"
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingTop="8dp"
+        android:text="@string/contact_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/running_text"
+        android:textIsSelectable="true"/>
+
+    <ImageButton
+        android:id="@+id/contact_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/contact_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/contact_content"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/descr_contact"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:src="@drawable/ic_call"/>
+</RelativeLayout>

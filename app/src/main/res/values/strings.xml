@@ -26,5 +26,8 @@
     <string name="attribution">The XebiCon app is built using the following third party software:</string>
     <string name="terms_header">TERMS &amp; CONDITIONS</string>
     <string name="details_placeholder">Select a talk from the list to view the details</string>
+    <string name="title_activity_event_details">EventDetailsActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>

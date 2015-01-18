@@ -1,4 +1,4 @@
-package com.xebia.eventschedule.about;
+package com.xebia.eventschedule.eventdetails;
 
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -16,7 +16,7 @@ import com.xebia.eventschedule.util.CalligraphyActivity;
  * <p/>
  * Created by steven on 26-4-14.
  */
-public class AboutActivity extends CalligraphyActivity {
+public class EventDetailsActivity extends CalligraphyActivity {
 
     private static final String MAPS_ACTION = "geo:0,0?q=SS%20Rotterdam," +
             "%203e%20Katendrechtsehoofd%2025,%203072AM%20Rotterdam";
@@ -25,9 +25,7 @@ public class AboutActivity extends CalligraphyActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_about);
-
-        getSupportActionBar().hide();
+        setContentView(R.layout.activity_event_details);
 
         findViewById(R.id.location_img).setOnClickListener(new View.OnClickListener() {
             @Override

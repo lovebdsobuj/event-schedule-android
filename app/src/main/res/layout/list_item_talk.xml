@@ -16,6 +16,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="8dp"
+        tools:src="@drawable/ic_speaker"
         app:border="false"/>
 
     <!-- TALK TITLE: between speaker image and favorite button -->
@@ -31,7 +32,8 @@
         android:layout_toRightOf="@+id/speakerimage"
         android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="@color/header_text"/>
+        android:textColor="@color/header_text"
+        tools:text="Five Things You Did Not Know About Event Schedules"/>
 
     <!-- TIME LABEL: next to speaker image, below title -->
     <TextView
@@ -71,7 +73,8 @@
         android:layout_toRightOf="@+id/start_date_label"
         android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/header_text"/>
+        android:textColor="@color/header_text"
+        tools:text="13:30"/>
 
     <!-- ROOM VALUE: next to room label -->
     <!-- left aligned with favorite button to prevent overlap -->
@@ -86,7 +89,8 @@
         android:layout_marginRight="8dp"
         android:singleLine="true"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/header_text"/>
+        android:textColor="@color/header_text"
+        tools:text="Grote zaal"/>
 
     <!-- FAVORITE BUTTON: right aligned, centered vertically -->
     <ImageButton

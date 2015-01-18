@@ -101,14 +101,14 @@ public class TalkListItemView extends RelativeLayout {
         int bgResId;
         int highlightResId;
         if (talk.isBreak()) {
-            bgResId = R.drawable.bg_purple;
-            highlightResId = R.drawable.bg_yellow;
+            bgResId = R.color.tint_color;
+            highlightResId = R.color.base_color;
         } else if (talk.isKeynote()) {
-            bgResId = R.drawable.bg_yellow;
-            highlightResId = R.drawable.bg_purple;
+            bgResId = R.color.base_color;
+            highlightResId = R.color.tint_color;
         } else {
             bgResId = android.R.color.transparent;
-            highlightResId = R.drawable.bg_yellow;
+            highlightResId = R.color.base_color;
         }
         this.setBackgroundResource(bgResId);
         mHighlightMarker.setBackgroundResource(highlightResId);

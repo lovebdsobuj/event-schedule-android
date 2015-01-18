@@ -7,6 +7,7 @@ import com.parse.ParseObject;
 import com.parse.PushService;
 import com.xebia.eventschedule.BuildConfig;
 import com.xebia.eventschedule.MainActivity;
+import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Event;
 import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Room;
@@ -31,7 +32,10 @@ public abstract class BaseEventScheduleApp extends Application {
     }
 
     private void initCalligraphy() {
-        CalligraphyConfig.initDefault("fonts/FuturaStd-Book.otf");
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/FuturaStd-Book.otf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
     }
 
     private void initParse() {

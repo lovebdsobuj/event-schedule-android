@@ -39,7 +39,7 @@ android {
 dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:support-v4:21.0.3'
-    compile 'uk.co.chrisjenx:calligraphy:1.2.0'
+    compile 'uk.co.chrisjenx:calligraphy:2.0.0'
     compile 'com.parse.bolts:bolts-android:1.1.4'
     compile fileTree(dir: 'libs', include: 'Parse-*.jar')
 }

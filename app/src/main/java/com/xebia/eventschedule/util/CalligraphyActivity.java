@@ -42,6 +42,6 @@ public abstract class CalligraphyActivity extends ActionBarActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {
-        super.attachBaseContext(new CalligraphyContextWrapper(newBase, R.attr.calligraphy));
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

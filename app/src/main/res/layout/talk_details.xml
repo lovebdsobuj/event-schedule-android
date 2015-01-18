@@ -67,7 +67,7 @@
 
         <TextView
             android:id="@+id/time"
-            calligraphy="fonts/FuturaStd-Heavy.otf"
+            fontPath="fonts/FuturaStd-Heavy.otf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/time_label"
@@ -87,7 +87,7 @@
 
         <TextView
             android:id="@+id/room"
-            calligraphy="fonts/FuturaStd-Heavy.otf"
+            fontPath="fonts/FuturaStd-Heavy.otf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/time_label"
@@ -111,7 +111,7 @@
 
             <TextView
                 android:id="@+id/talk_abstract"
-                calligraphy="fonts/arial.ttf"
+                fontPath="fonts/arial.ttf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"

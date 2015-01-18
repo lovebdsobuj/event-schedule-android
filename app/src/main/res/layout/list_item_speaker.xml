@@ -36,7 +36,7 @@
 
             <TextView
                 android:id="@+id/name"
-                calligraphy="fonts/FuturaStd-Heavy.otf"
+                fontPath="fonts/FuturaStd-Heavy.otf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
@@ -64,7 +64,7 @@
 
             <TextView
                 android:id="@+id/twitter"
-                calligraphy="fonts/arial.ttf"
+                fontPath="fonts/arial.ttf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_twitter"
@@ -78,7 +78,7 @@
 
     <TextView
         android:id="@+id/bio"
-        calligraphy="fonts/arial.ttf"
+        fontPath="fonts/arial.ttf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/activity_horizontal_margin"

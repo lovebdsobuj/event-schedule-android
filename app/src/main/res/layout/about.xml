@@ -23,7 +23,7 @@
 
     <TextView
         android:id="@+id/about_content"
-        calligraphy="fonts/arial.ttf"
+        fontPath="fonts/arial.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -55,7 +55,7 @@
 
     <TextView
         android:id="@+id/location_content"
-        calligraphy="fonts/arial.ttf"
+        fontPath="fonts/arial.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -101,7 +101,7 @@
 
     <TextView
         android:id="@+id/contact_content"
-        calligraphy="fonts/arial.ttf"
+        fontPath="fonts/arial.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -147,7 +147,7 @@
 
     <TextView
         android:id="@+id/credits_content"
-        calligraphy="fonts/arial.ttf"
+        fontPath="fonts/arial.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -162,7 +162,7 @@
 
     <TextView
         android:id="@+id/credits_android"
-        calligraphy="fonts/arial.ttf"
+        fontPath="fonts/arial.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -177,7 +177,7 @@
 
     <TextView
         android:id="@+id/credits_ios"
-        calligraphy="fonts/arial.ttf"
+        fontPath="fonts/arial.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -192,7 +192,7 @@
 
     <TextView
         android:id="@+id/credits_misc"
-        calligraphy="fonts/arial.ttf"
+        fontPath="fonts/arial.ttf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"

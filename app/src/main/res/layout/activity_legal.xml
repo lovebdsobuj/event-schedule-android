@@ -15,7 +15,7 @@
 
         <TextView
             android:text="@string/app_name_full"
-            calligraphy="fonts/arial.ttf"
+            fontPath="fonts/arial.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -26,7 +26,7 @@
 
         <TextView
             android:text="@string/copyright"
-            calligraphy="fonts/arial.ttf"
+            fontPath="fonts/arial.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -51,7 +51,7 @@
 
         <TextView
             android:text="@string/attribution"
-            calligraphy="fonts/arial.ttf"
+            fontPath="fonts/arial.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
@@ -61,7 +61,7 @@
 
         <TextView
             android:text="@string/attribution_parse"
-            calligraphy="fonts/arial.ttf"
+            fontPath="fonts/arial.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
@@ -73,7 +73,7 @@
 
         <TextView
             android:text="@string/attribution_calligraphy"
-            calligraphy="fonts/arial.ttf"
+            fontPath="fonts/arial.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
@@ -85,7 +85,7 @@
 
         <TextView
             android:text="@string/attribution_circular"
-            calligraphy="fonts/arial.ttf"
+            fontPath="fonts/arial.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
@@ -97,7 +97,7 @@
 
         <TextView
             android:text="@string/attribution_commons"
-            calligraphy="fonts/arial.ttf"
+            fontPath="fonts/arial.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
@@ -109,7 +109,7 @@
 
         <TextView
             android:text="@string/attribution_signpost"
-            calligraphy="fonts/arial.ttf"
+            fontPath="fonts/arial.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="16dp"
@@ -135,7 +135,7 @@
 
         <TextView
             android:layout_width="wrap_content"
-            calligraphy="fonts/arial.ttf"
+            fontPath="fonts/arial.ttf"
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_height="wrap_content"

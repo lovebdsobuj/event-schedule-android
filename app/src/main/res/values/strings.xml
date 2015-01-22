@@ -23,5 +23,13 @@
     <string name="attribution">This app is built using the following third party software:</string>
     <string name="terms_header">TERMS &amp; CONDITIONS</string>
     <string name="details_placeholder">Select a talk from the list to view the details</string>
+    <string name="drawer_open">open navigation drawer</string>
+    <string name="drawer_close">close navigation drawer</string>
+    <string-array name="nav_items">
+        <string>Talks</string>
+        <string>Favorites</string>
+        <string>Event Details</string>
+        <string>Legal</string>
+    </string-array>
 
 </resources>

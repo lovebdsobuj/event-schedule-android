@@ -8,13 +8,14 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="8dp"
-    tools:background="@android:color/background_dark">
+    tools:background="@color/menu_background">
 
     <TextView
         android:id="@+id/navdrawer_item_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:textAppearance="?android:attr/textAppearanceMediumInverse"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/menu_text"
         tools:text="Logout"/>
 </RelativeLayout>

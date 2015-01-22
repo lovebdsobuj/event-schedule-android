@@ -3,5 +3,7 @@
 
     <color name="base_color">#8C9EFF</color>
     <color name="tint_color">#a61824</color>
+    <color name="menu_background">@color/tint_color</color>
+    <color name="menu_text">@android:color/white</color>
 
 </resources>

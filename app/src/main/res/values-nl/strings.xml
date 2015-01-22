@@ -25,11 +25,12 @@
     <string name="details_placeholder">Kies een presentatie uit de lijst om de details te bekijken</string>
     <string name="drawer_open">open navigatie menu</string>
     <string name="drawer_close">sluit navigatie menu</string>
+    <string name="contentDescr_logo">logo</string>
     <string-array name="nav_items">
-        <string>Programma</string>
-        <string>Favorieten</string>
-        <string>Event Informatie</string>
-        <string>Wettelijk</string>
+        <item>Programma</item>
+        <item>Favorieten</item>
+        <item>Event Informatie</item>
+        <item>Wettelijk</item>
     </string-array>
 
 </resources>

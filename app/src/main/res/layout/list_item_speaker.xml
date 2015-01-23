@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
-        android:background="@color/xcs_gray_light"
+        android:background="@color/divider"
         android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingBottom="8dp"
@@ -25,6 +25,7 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_marginRight="8dp"
+            android:layout_marginEnd="8dp"
             android:contentDescription="@string/photo"
             tools:src="@drawable/ic_speaker"
             app:border="false"/>
@@ -36,12 +37,11 @@
 
             <TextView
                 android:id="@+id/name"
-                fontPath="fonts/FuturaStd-Heavy.otf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLines="2"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/header_text"
+                android:textColor="@color/text"
                 tools:text="John Doe"/>
 
             <TextView
@@ -50,7 +50,7 @@
                 android:layout_height="wrap_content"
                 android:maxLines="2"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/header_text"
+                android:textColor="@color/textSecondary"
                 tools:text="Chief Technical Guy"/>
 
             <TextView
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:singleLine="true"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/header_text"
+                android:textColor="@color/textSecondary"
                 tools:text="ACME Corp"/>
 
             <TextView
@@ -68,10 +68,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableLeft="@drawable/ic_twitter"
+                android:drawableStart="@drawable/ic_twitter"
                 android:drawablePadding="2dp"
                 android:singleLine="true"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/twitter_link"
+                android:textColor="@color/textSecondary"
                 tools:text="\@therealjohndoe"/>
         </LinearLayout>
     </LinearLayout>
@@ -88,6 +89,6 @@
         android:paddingBottom="8dp"
         android:paddingTop="8dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/running_text"/>
+        android:textColor="@color/text"/>
 
 </com.xebia.eventschedule.details.SpeakerDetailsView>

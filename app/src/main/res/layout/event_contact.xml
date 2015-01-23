@@ -23,7 +23,7 @@
         android:paddingTop="8dp"
         android:text="@string/contact_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="@color/running_text"
+        android:textColor="@color/text"
         android:textIsSelectable="true"/>
 
     <ImageButton

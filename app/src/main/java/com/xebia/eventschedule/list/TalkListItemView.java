@@ -2,7 +2,6 @@ package com.xebia.eventschedule.list;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Color;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -21,24 +20,24 @@ import com.xebia.eventschedule.util.LayoutUtils;
 
 /**
  * View group for talk list items. Lets me have my cake and eat it too.
- * <p/>
+ *
  * Created by steven on 21-4-14.
  */
 public class TalkListItemView extends RelativeLayout {
 
     private TextView mTitleView;
-    private TextView mStartDateLabel;
     private TextView mStartDateView;
-    private TextView mRoomLabel;
     private TextView mRoomView;
     private ParseImageView mSpeakerImage;
     private ImageButton mFavoriteButton;
     private View mHighlightMarker;
 
-    private int mHeaderTextColor;
+    private int mPrimaryColor;
+    private int mTextColor;
+    private int mSecondaryColor;
+
     private java.text.DateFormat mTimeFormat;
     private boolean mMasterDetailMode;
-
     private Talk mTalk;
 
     public TalkListItemView(Context context) {
@@ -58,9 +57,7 @@ public class TalkListItemView extends RelativeLayout {
     protected void onFinishInflate() {
         super.onFinishInflate();
         mTitleView = (TextView) findViewById(R.id.title);
-        mStartDateLabel = (TextView) findViewById(R.id.start_date_label);
         mStartDateView = (TextView) findViewById(R.id.start_date);
-        mRoomLabel = (TextView) findViewById(R.id.room_label);
         mRoomView = (TextView) findViewById(R.id.room);
         mSpeakerImage = (ParseImageView) findViewById(R.id.speakerimage);
         mFavoriteButton = (ImageButton) findViewById(R.id.favorite_button);
@@ -73,7 +70,9 @@ public class TalkListItemView extends RelativeLayout {
 
         // load some context-related things
         mSpeakerImage.setPlaceholder(getResources().getDrawable(R.drawable.ic_speaker));
-        mHeaderTextColor = getResources().getColor(R.color.header_text);
+        mPrimaryColor = getResources().getColor(R.color.primary);
+        mTextColor = getResources().getColor(R.color.text);
+        mSecondaryColor = getResources().getColor(R.color.textSecondary);
         mTimeFormat = DateFormat.getTimeFormat(getContext());
         mMasterDetailMode = LayoutUtils.isDualPane(getContext());
     }
@@ -93,25 +92,19 @@ public class TalkListItemView extends RelativeLayout {
     }
 
     private void updateHighlight() {
-        mHighlightMarker.setVisibility(mMasterDetailMode && mTalk.isHighlighted() ? View.VISIBLE
-                : View.GONE);
+        mHighlightMarker.setVisibility(mMasterDetailMode && mTalk.isHighlighted() ? View.VISIBLE : View.GONE);
     }
 
     private void updateBackground(final Talk talk) {
         int bgResId;
-        int highlightResId;
         if (talk.isBreak()) {
-            bgResId = R.color.tint_color;
-            highlightResId = R.color.base_color;
+            bgResId = R.color.divider;
         } else if (talk.isKeynote()) {
-            bgResId = R.color.base_color;
-            highlightResId = R.color.tint_color;
+            bgResId = android.R.color.transparent;
         } else {
             bgResId = android.R.color.transparent;
-            highlightResId = R.color.base_color;
         }
         this.setBackgroundResource(bgResId);
-        mHighlightMarker.setBackgroundResource(highlightResId);
     }
 
     private void updateSpeakerImage(final Talk talk) {
@@ -140,8 +133,8 @@ public class TalkListItemView extends RelativeLayout {
             mFavoriteButton.setVisibility(View.GONE);
         } else {
             mFavoriteButton.setVisibility(View.VISIBLE);
-            mFavoriteButton.setImageResource(Favorites.get().contains(talk) ? R.drawable
-                    .ic_rating_important : R.drawable.ic_rating_not_important);
+            mFavoriteButton.setImageResource(Favorites.get().contains(talk) ? R.drawable.ic_rating_important
+                    : R.drawable.ic_rating_not_important);
             mFavoriteButton.setFocusable(false);
         }
     }
@@ -152,12 +145,11 @@ public class TalkListItemView extends RelativeLayout {
         mStartDateView.setText(mTimeFormat.format(talk.getSlot().getStartTime()));
         mRoomView.setText(null != talk.getRoom() ? talk.getRoom().getName() : null);
 
-        int textColor = talk.isBreak() ? Color.WHITE : mHeaderTextColor;
+        int textColor = talk.isKeynote() ? mPrimaryColor : mTextColor;
+        int secondaryColor = talk.isKeynote() ? mPrimaryColor : mSecondaryColor;
         mTitleView.setTextColor(textColor);
-        mStartDateLabel.setTextColor(textColor);
-        mStartDateView.setTextColor(textColor);
-        mRoomLabel.setTextColor(textColor);
-        mRoomView.setTextColor(textColor);
+        mStartDateView.setTextColor(secondaryColor);
+        mRoomView.setTextColor(secondaryColor);
     }
 
     private void toggleFavorite() {

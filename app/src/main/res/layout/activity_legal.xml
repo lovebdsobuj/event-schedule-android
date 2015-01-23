@@ -22,7 +22,7 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginBottom="8dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/running_text"/>
+            android:textColor="@color/text"/>
 
         <TextView
             android:text="@string/copyright"
@@ -32,7 +32,7 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/running_text"/>
+            android:textColor="@color/text"/>
 
         <!-- CREDITS -->
 
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/tint_color"
+            android:background="@color/primary"
             android:paddingBottom="4dp"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
@@ -95,7 +95,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/tint_color"
+            android:background="@color/primary"
             android:paddingBottom="4dp"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
@@ -111,7 +111,7 @@
             android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/running_text"/>
+            android:textColor="@color/text"/>
 
         <TextView
             android:text="@string/attribution_parse"
@@ -123,7 +123,7 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="8dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/running_text"/>
+            android:textColor="@color/text"/>
 
         <TextView
             android:text="@string/attribution_calligraphy"
@@ -135,7 +135,7 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="4dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/running_text"/>
+            android:textColor="@color/text"/>
 
         <TextView
             android:text="@string/attribution_circular"
@@ -147,7 +147,7 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="4dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/running_text"/>
+            android:textColor="@color/text"/>
 
         <TextView
             android:text="@string/attribution_commons"
@@ -159,7 +159,7 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="4dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/running_text"/>
+            android:textColor="@color/text"/>
 
         <TextView
             android:text="@string/attribution_signpost"
@@ -171,7 +171,7 @@
             android:layout_marginRight="@dimen/activity_horizontal_margin"
             android:layout_marginTop="4dp"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/running_text"/>
+            android:textColor="@color/text"/>
 
         <!-- TERMS AND CONDITIONS -->
 
@@ -180,7 +180,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="8dp"
-            android:background="@color/tint_color"
+            android:background="@color/primary"
             android:paddingBottom="4dp"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingRight="@dimen/activity_horizontal_margin"
@@ -197,6 +197,6 @@
             android:text="@string/apache_license"
             android:autoLink="web"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:textColor="@color/running_text"/>
+            android:textColor="@color/text"/>
     </LinearLayout>
 </ScrollView>

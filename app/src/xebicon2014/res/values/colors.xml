@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="base_color">#FFDF00</color>
-    <color name="tint_color">#6D2463</color>
-    <color name="menu_background">@android:color/white</color>
-    <color name="menu_text">@color/tint_color</color>
+    <!-- XebiCon colors -->
+    <color name="xebicon_yellow">#FFDF00</color>
+    <color name="xebicon_purple">#6D2463</color>
+    <color name="xebicon_purpleLight">#9C27B0</color>
+
+    <!-- Material Theme colors -->
+    <color name="primary">@color/xebicon_purpleLight</color>
+    <color name="primaryDark">@color/xebicon_purple</color>
+    <color name="accent">@color/xebicon_yellow</color>
+
+    <color name="menu_background">@color/primary</color>
+    <color name="menu_text">@android:color/white</color>
 
 </resources>

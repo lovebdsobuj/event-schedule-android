@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="base_color">#8C9EFF</color>
-    <color name="tint_color">#a61824</color>
+    <!-- NG-NL logo colors -->
+    <color name="logo_blue">#161584</color>
+    <color name="logo_blueDark">#131270</color>
+    <color name="logo_red">#e5313b</color>
+    <color name="logo_redDark">#a61824</color>
+
+    <!-- Material Theme colors -->
+    <color name="primary">@color/logo_red</color>
+    <color name="primaryDark">@color/logo_redDark</color>
+    <color name="accent">@color/logo_blue</color>
+
+    <color name="menu_background">@color/primary</color>
+    <color name="menu_text">@android:color/white</color>
 
 </resources>

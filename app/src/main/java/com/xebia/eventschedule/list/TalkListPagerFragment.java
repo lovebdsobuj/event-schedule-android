@@ -66,8 +66,7 @@ public class TalkListPagerFragment extends Fragment implements ActionBar.TabList
             CharSequence pageTitle = sectionsPagerAdapter.getPageTitle(i);
             SpannableString tabTitle = new SpannableString(pageTitle);
             String fontFamily = "FuturaStd-Book.otf";
-            int textColor = getResources().getColor(R.color.tabs_text);
-            tabTitle.setSpan(new TypefaceSpan(getActivity(), fontFamily, textColor), 0,
+            tabTitle.setSpan(new TypefaceSpan(getActivity(), fontFamily, 0), 0,
                     pageTitle.length(), 0);
             tab.setText(tabTitle);
             tab.setTabListener(this);

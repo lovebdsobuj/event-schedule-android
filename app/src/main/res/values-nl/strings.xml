@@ -23,5 +23,14 @@
     <string name="attribution">Deze app is gebouwd met hulp van de volgende third party software:</string>
     <string name="terms_header">BEPALINGEN &amp; CONDITIES</string>
     <string name="details_placeholder">Kies een presentatie uit de lijst om de details te bekijken</string>
+    <string name="drawer_open">open navigatie menu</string>
+    <string name="drawer_close">sluit navigatie menu</string>
+    <string name="contentDescr_logo">logo</string>
+    <string-array name="nav_items">
+        <item>Programma</item>
+        <item>Favorieten</item>
+        <item>Event Informatie</item>
+        <item>Wettelijk</item>
+    </string-array>
 
 </resources>

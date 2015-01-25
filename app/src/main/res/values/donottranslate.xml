@@ -2,9 +2,7 @@
 <resources>
 
     <string name="twitter_handle">\@%1$s</string>
-    <string name="location_content">SS Rotterdam,\n3e Katendrechtsehoofd 25,\n3072AM  Rotterdam</string>
-    <string name="contact_content">Petra Kiers\nLotte Schram\nmarketing@xebia.com\nTel.: 035–538–1921</string>
-    <string name="copyright">Copyright &#169; 2014 Xebia Nederland B.V.</string>
+    <string name="copyright">Copyright &#169; 2015 Xebia Nederland B.V.</string>
     <string name="attribution_parse">&#8226; Parse Android SDK (Parse LLC)</string>
     <string name="attribution_calligraphy">&#8226; Android Calligraphy (Christopher Jenkins)</string>
     <string name="attribution_circular">&#8226; CircularImageView (Mikhael Lopez)</string>

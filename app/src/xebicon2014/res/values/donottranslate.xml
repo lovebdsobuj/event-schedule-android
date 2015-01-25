@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="contact_name">Petra Kiers &amp; Lotte Schram</string>
+    <string name="contact_email">marketing@xebia.com</string>
+    <string name="contact_phone" tools:ignore="TypographyDashes">+31-35-5381921</string>
+
+</resources>

@@ -1,43 +1,59 @@
 package com.xebia.eventschedule.eventdetails;
 
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.parse.GetCallback;
+import com.parse.ParseException;
+import com.xebia.eventschedule.EventScheduleApplication;
 import com.xebia.eventschedule.R;
+import com.xebia.eventschedule.model.Event;
 import com.xebia.eventschedule.util.CalligraphyActivity;
 
 /**
  * Displays static information about XebiCon. What? When? Where?
- * <p/>
+ *
  * Created by steven on 26-4-14.
  */
 public class EventDetailsActivity extends CalligraphyActivity {
 
-    private static final String MAPS_ACTION = "geo:0,0?q=SS%20Rotterdam," +
-            "%203e%20Katendrechtsehoofd%2025,%203072AM%20Rotterdam";
-    private static final String DIALER_ACTION = "tel:+31355381921";
+    private boolean mDestroyed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_event_details);
+        setContentView(R.layout.activity_loading);
 
-        findViewById(R.id.location_img).setOnClickListener(new View.OnClickListener() {
+        // Fetch the data about this talk from Parse.
+        String eventId = ((EventScheduleApplication) getApplicationContext()).getParseEventId();
+        Event.getInBackground(eventId, new GetCallback<Event>() {
             @Override
-            public void onClick(View view) {
-                openMap();
-            }
-        });
+            public void done(final Event event, ParseException e) {
 
-        findViewById(R.id.contact_img).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDialer();
+                if (mDestroyed) {
+                    // do not perform fragment transaction on destroyed activity
+                    return;
+                }
+
+                findViewById(R.id.loading_indicator).setVisibility(View.GONE);
+
+                // if we cannot get the data right now, the best we can do is show a toast.
+                if (e != null) {
+                    Toast.makeText(EventDetailsActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                    finish();
+                    return;
+                }
+
+                if (event == null) {
+                    throw new RuntimeException("Somehow the event was null.");
+                }
+
+                EventDetailsFragment fragment = EventDetailsFragment.newInstance(event);
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .commitAllowingStateLoss();
             }
         });
     }
@@ -53,21 +69,9 @@ public class EventDetailsActivity extends CalligraphyActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void openDialer() {
-        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(DIALER_ACTION));
-        try {
-            startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, getString(R.string.activity_not_found), Toast.LENGTH_LONG).show();
-        }
-    }
-
-    private void openMap() {
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(MAPS_ACTION));
-        try {
-            startActivity(intent);
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(this, getString(R.string.activity_not_found), Toast.LENGTH_LONG).show();
-        }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mDestroyed = true;
     }
 }

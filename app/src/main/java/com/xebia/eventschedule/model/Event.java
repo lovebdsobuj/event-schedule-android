@@ -1,8 +1,6 @@
 package com.xebia.eventschedule.model;
 
 
-import android.net.Uri;
-
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseClassName;
@@ -11,13 +9,8 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import java.io.Serializable;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
-/*
- * the Event class in which talks are grouped
- */
 @ParseClassName("Event")
 public class Event extends ParseObject implements Serializable {
 
@@ -50,47 +43,14 @@ public class Event extends ParseObject implements Serializable {
         protected abstract void doneOnce(List<Event> objects, ParseException e);
     }
 
-
     /**
      * Creates a query for talks with all the includes and cache policy set.
      */
     private static ParseQuery<Event> createQuery() {
         ParseQuery<Event> query = new ParseQuery<Event>(Event.class);
         query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
+        query.include("location");
         return query;
-    }
-
-    /**
-     * Returns a URI to use in Intents to represent this talk. The format is
-     * parsedevday://talk/theObjectId
-     */
-    public Uri getUri() {
-        Uri.Builder builder = new Uri.Builder();
-        builder.scheme("parsedevday");
-        builder.path("event/" + getObjectId());
-        return builder.build();
-    }
-
-    /**
-     * Retrieves the set of all talks, ordered by time. Uses the cache if possible.
-     */
-    public static void findInBackground(final FindCallback<Event> callback) {
-        ParseQuery<Event> query = Event.createQuery();
-        query.findInBackground(new EventFindCallback() {
-            @Override
-            protected void doneOnce(List<Event> objects, ParseException e) {
-                if (objects != null) {
-                    // Sort the events alphabetically.
-                    Collections.sort(objects, new Comparator<Event>() {
-                        @Override
-                        public int compare(Event event1, Event event2) {
-                            return event1.getDate("startDate").compareTo(event2.getDate("startDate"));
-                        }
-                    });
-                }
-                callback.done(objects, e);
-            }
-        });
     }
 
     /**
@@ -122,21 +82,19 @@ public class Event extends ParseObject implements Serializable {
         return getString("name");
     }
 
-    public String getLocation() {
-        return getString("location");
+    public Location getLocation() {
+        return (Location) getParseObject("location");
     }
 
-    public String getTintColor(){
+    public String getTintColor() {
         return getString("tintColor");
     }
 
-    public String getBaseColor(){
+    public String getBaseColor() {
         return getString("baseColor");
     }
 
-
-    public String getId(){
+    public String getId() {
         return getObjectId();
     }
-
 }

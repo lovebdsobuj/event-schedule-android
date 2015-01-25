@@ -21,7 +21,7 @@ public class TalkActivity extends CalligraphyActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_talk);
+        setContentView(R.layout.activity_loading);
 
         // Fetch the data about this talk from Parse.
         String talkId = Talk.getTalkId(getIntent().getData());

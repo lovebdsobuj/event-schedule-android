@@ -10,6 +10,7 @@ import com.xebia.eventschedule.MainActivity;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Event;
 import com.xebia.eventschedule.model.Favorites;
+import com.xebia.eventschedule.model.Location;
 import com.xebia.eventschedule.model.Room;
 import com.xebia.eventschedule.model.Slot;
 import com.xebia.eventschedule.model.Speaker;
@@ -45,6 +46,7 @@ public abstract class BaseEventScheduleApp extends Application {
         ParseObject.registerSubclass(Speaker.class);
         ParseObject.registerSubclass(Talk.class);
         ParseObject.registerSubclass(Event.class);
+        ParseObject.registerSubclass(Location.class);
 
         // Initialize Parse with the application ID and client key.
         Parse.initialize(this, getParseApplicationId(), getParseClientKey());

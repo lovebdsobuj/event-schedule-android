@@ -7,7 +7,6 @@
     <string name="favorite">Favoriet</string>
     <string name="start_date_label">Tijd:</string>
     <string name="room_label">Locatie:</string>
-    <string name="menu_about">Informatie</string>
     <string name="header_location">LOCATIE</string>
     <string name="header_contact">CONTACT</string>
     <string name="header_credits">MET DANK AAN</string>
@@ -18,11 +17,10 @@
     <string name="descr_maps">icoon kaart</string>
     <string name="descr_contact">icoon contact</string>
     <string name="activity_not_found">Bijbehorende app niet gevonden!</string>
-    <string name="menu_legal">Wettelijk</string>
     <string name="attribution_header">TOEWIJZINGEN</string>
     <string name="attribution">Deze app is gebouwd met hulp van de volgende third party software:</string>
     <string name="terms_header">BEPALINGEN &amp; CONDITIES</string>
-    <string name="details_placeholder">Kies een presentatie uit de lijst om de details te bekijken</string>
+    <string name="details_placeholder">Kies een sessie uit de lijst om de details te bekijken</string>
     <string name="drawer_open">open navigatie menu</string>
     <string name="drawer_close">sluit navigatie menu</string>
     <string name="contentDescr_logo">logo</string>

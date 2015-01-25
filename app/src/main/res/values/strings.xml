@@ -7,7 +7,6 @@
     <string name="favorite">Favorite</string>
     <string name="start_date_label">Time:</string>
     <string name="room_label">Location:</string>
-    <string name="menu_about">About</string>
     <string name="header_location">LOCATION</string>
     <string name="header_contact">CONTACT</string>
     <string name="header_credits">CREDITS</string>
@@ -18,20 +17,17 @@
     <string name="descr_maps">maps icon</string>
     <string name="descr_contact">contact icon</string>
     <string name="activity_not_found">Could not open corresponding app!</string>
-    <string name="menu_legal">Legal</string>
     <string name="attribution_header">ATTRIBUTIONS</string>
     <string name="attribution">This app is built using the following third party software:</string>
     <string name="terms_header">TERMS &amp; CONDITIONS</string>
-    <string name="details_placeholder">Select a talk from the list to view the details</string>
+    <string name="details_placeholder">Select a session from the list to view the details</string>
     <string name="drawer_open">open navigation drawer</string>
     <string name="drawer_close">close navigation drawer</string>
     <string name="contentDescr_logo">logo</string>
-    <string name="app_date">February 13, 2015</string>
-    <string name="event_time">9:00 – 17:00</string>
     <string-array name="nav_items">
         <item>Schedule</item>
         <item>Favorites</item>
-        <item>Event Details</item>
+        <item>Event Info</item>
         <item>Legal</item>
     </string-array>
 

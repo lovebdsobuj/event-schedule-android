@@ -94,14 +94,16 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
     private void navigate(final int position) {
         switch (position) {
             case NAV_ITEM_SCHEDULE:
-                Fragment sched = TalkListFragment.newInstance(((BaseEventScheduleApp)getApplicationContext())
-                                .getParseEventId(), false);
+                Fragment sched = TalkListFragment.newInstance(((BaseEventScheduleApp) getApplicationContext())
+                        .getParseEventId(), false);
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, sched, "sched").commit();
+                mNavPosition = position;
                 break;
             case NAV_ITEM_FAVORITES:
-                Fragment favs = TalkListFragment.newInstance(((BaseEventScheduleApp)getApplicationContext())
+                Fragment favs = TalkListFragment.newInstance(((BaseEventScheduleApp) getApplicationContext())
                         .getParseEventId(), true);
                 getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, favs, "favs").commit();
+                mNavPosition = position;
                 break;
             case NAV_ITEM_EVENT_DETAILS:
                 startActivity(new Intent(this, EventDetailsActivity.class));
@@ -112,7 +114,6 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
             default:
                 // ignore
         }
-        mNavPosition = position;
     }
 
     @Override

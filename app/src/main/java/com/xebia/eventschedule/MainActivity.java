@@ -95,13 +95,13 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
             case NAV_ITEM_SCHEDULE:
                 Fragment sched = TalkListFragment.newInstance(((BaseEventScheduleApp) getApplicationContext())
                         .getParseEventId(), false);
-                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, sched, "sched").commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.schedule_container, sched, "sched").commit();
                 mNavPosition = position;
                 break;
             case NAV_ITEM_FAVORITES:
                 Fragment favs = TalkListFragment.newInstance(((BaseEventScheduleApp) getApplicationContext())
                         .getParseEventId(), true);
-                getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, favs, "favs").commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.schedule_container, favs, "favs").commit();
                 mNavPosition = position;
                 break;
             case NAV_ITEM_EVENT_DETAILS:

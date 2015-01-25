@@ -12,7 +12,6 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.xebia.eventschedule.details.TalkActivity;
@@ -41,6 +40,7 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
     private DrawerLayout mDrawerLayout;
     private Handler mDrawerActionHandler;
     private int mNavPosition = 0;
+    private NavListAdapter<String> mNavListAdapter;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -65,17 +65,17 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
         String[] navItems = getResources().getStringArray(R.array.nav_items);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ListView drawerList = (ListView) findViewById(R.id.nav_list);
-        drawerList.setAdapter(new ArrayAdapter<>(this, R.layout.navdrawer_item,
-                R.id.navdrawer_item_label, navItems));
+        mNavListAdapter = new NavListAdapter<>(this, navItems);
+        drawerList.setAdapter(mNavListAdapter);
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(final AdapterView<?> parent, final View view,
                                     final int position, final long id) {
+                mDrawerLayout.closeDrawer(Gravity.START);
                 if (position == mNavPosition) {
-                    mDrawerLayout.closeDrawer(Gravity.START);
                     return;
                 }
-                mDrawerLayout.closeDrawer(Gravity.START);
+                mNavListAdapter.setHighlight(position);
                 mDrawerActionHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -84,7 +84,6 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
                 }, DRAWER_CLOSE_DELAY_MS);
             }
         });
-
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open,
                 R.string.drawer_close);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
@@ -157,5 +156,11 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mNavListAdapter.setHighlight(mNavPosition);
     }
 }

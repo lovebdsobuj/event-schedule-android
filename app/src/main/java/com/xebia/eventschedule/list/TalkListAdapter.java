@@ -19,13 +19,19 @@ public class TalkListAdapter extends ArrayAdapter<Talk> {
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
+        final Talk talk = getItem(position);
 
-        if (view == null) {
-            view = View.inflate(getContext(), R.layout.list_item_talk, null);
+        if (view == null || (view instanceof TalkListItemView && talk.isBreak())
+                || (view instanceof BreakListItemView && !talk.isBreak())) {
+            view = View.inflate(getContext(), talk.isBreak() ? R.layout.list_item_break : R.layout.list_item_talk,
+                    null);
         }
 
-        final Talk talk = getItem(position);
-        ((TalkListItemView) view).showTalk(talk);
+        if (view instanceof TalkListItemView) {
+            ((TalkListItemView) view).showTalk(talk);
+        } else if (view instanceof BreakListItemView) {
+            ((BreakListItemView) view).showTalk(talk);
+        }
 
         return view;
     }

@@ -23,7 +23,7 @@ import com.xebia.eventschedule.util.LayoutUtils;
  *
  * Created by steven on 21-4-14.
  */
-public class TalkListItemView extends RelativeLayout {
+public class TalkListItemView extends RelativeLayout implements ScheduleListItemView {
 
     private TextView mTitleView;
     private TextView mStartDateView;
@@ -48,9 +48,13 @@ public class TalkListItemView extends RelativeLayout {
         super(context, attrs);
     }
 
-    @SuppressLint("NewApi")
     public TalkListItemView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+    }
+
+    @SuppressLint("NewApi")
+    public TalkListItemView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
     }
 
     @Override
@@ -77,15 +81,16 @@ public class TalkListItemView extends RelativeLayout {
         mMasterDetailMode = LayoutUtils.isDualPane(getContext());
     }
 
+    @Override
     public void showTalk(final Talk talk) {
         mTalk = talk;
-        updateBackground(talk);
         updateTextViews(talk);
         updateFavoriteButton(talk);
         updateSpeakerImage(talk);
         updateHighlight();
     }
 
+    @Override
     public void setHighlighted(boolean selected) {
         mTalk.setHighlighted(selected);
         updateHighlight();
@@ -93,18 +98,6 @@ public class TalkListItemView extends RelativeLayout {
 
     private void updateHighlight() {
         mHighlightMarker.setVisibility(mMasterDetailMode && mTalk.isHighlighted() ? View.VISIBLE : View.GONE);
-    }
-
-    private void updateBackground(final Talk talk) {
-        int bgResId;
-        if (talk.isBreak()) {
-            bgResId = R.color.divider;
-        } else if (talk.isKeynote()) {
-            bgResId = android.R.color.transparent;
-        } else {
-            bgResId = android.R.color.transparent;
-        }
-        this.setBackgroundResource(bgResId);
     }
 
     private void updateSpeakerImage(final Talk talk) {

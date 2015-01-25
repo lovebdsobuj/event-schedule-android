@@ -36,7 +36,7 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
     private List<Talk> mQuietlyUnfavorited = new ArrayList<Talk>();
 
     // currently selected item, for highlighting the selection in master-detail mode
-    private TalkListItemView mSelectedView;
+    private ScheduleListItemView mSelectedView;
 
     public static TalkListFragment newInstance(String eventId, boolean favoritesOnly) {
         TalkListFragment fragment = new TalkListFragment();
@@ -107,7 +107,7 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
         Talk talk = adapter.getItem(position);
 
         if (null != mSelectedView && !v.equals(mSelectedView)) mSelectedView.setHighlighted(false);
-        mSelectedView = (TalkListItemView) v;
+        mSelectedView = (ScheduleListItemView) v;
         mSelectedView.setHighlighted(true);
 
         if (null != mListener) {

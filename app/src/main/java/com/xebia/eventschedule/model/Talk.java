@@ -137,7 +137,7 @@ public class Talk extends ParseObject {
         Map<String, String> titleMap = getMap("title");
         String localizedTitle = LocaleUtils.isDutch() ? titleMap.get("nl") : titleMap.get("en");
         if (null == localizedTitle) {
-            localizedTitle = "";
+            localizedTitle = titleMap.get("en") != null ? titleMap.get("en") : "";
         }
         return localizedTitle;
     }
@@ -146,7 +146,7 @@ public class Talk extends ParseObject {
         Map<String, String> abstractMap = getMap("abstract");
         String localizedAbstract = LocaleUtils.isDutch() ? abstractMap.get("nl") : abstractMap.get("en");
         if (null == localizedAbstract) {
-            localizedAbstract = "";
+            localizedAbstract = abstractMap.get("en") != null ? abstractMap.get("en") : "";
         }
         return localizedAbstract;
     }

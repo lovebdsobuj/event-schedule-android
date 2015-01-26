@@ -26,7 +26,7 @@ android {
         }
         ngNl2015 {
             applicationId 'com.xebia.ngnl'
-            versionCode 1501260949 // yyMMddhhmm
+            versionCode 1501261020 // yyMMddhhmm
             versionName '1.0.0'
         }
     }

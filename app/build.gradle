@@ -6,8 +6,6 @@ android {
 
     defaultConfig {
         applicationId 'com.xebia.eventschedule'
-        versionCode 1405181340 // yyMMddhhmm
-        versionName '1.0.4'
         minSdkVersion 10
         targetSdkVersion 21
     }
@@ -23,9 +21,13 @@ android {
     productFlavors {
         xebicon2014 {
             applicationId 'com.xebia.xebicon2014'
+            versionCode 1405181340 // yyMMddhhmm
+            versionName '1.0.4'
         }
         ngNl2015 {
             applicationId 'com.xebia.ngnl'
+            versionCode 1501260949 // yyMMddhhmm
+            versionName '1.0.0'
         }
     }
 

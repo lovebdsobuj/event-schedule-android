@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">XebiCon</string>
+    <string name="app_name_med">XebiCon 2014</string>
+    <string name="app_name_full">XebiCon 2014 for Android.</string>
+    <string name="app_date">June 5, 2014</string>
+    <string name="event_time">17:00 – 21:00</string>
+
+</resources>

@@ -2,9 +2,9 @@
 <resources>
 
     <string name="app_name">XebiCon</string>
-    <string name="app_name_med">XebiCon 2014</string>
-    <string name="app_name_full">XebiCon 2014 voor Android.</string>
-    <string name="app_date">15 juni, 2014</string>
-    <string name="event_time">17:00 – 21:00</string>
+    <string name="app_name_med">XebiCon \'15</string>
+    <string name="app_name_full">XebiCon 2015 voor Android.</string>
+    <string name="app_date">4 juni, 2015</string>
+    <string name="event_time">10:30 – 20:00</string>
 
 </resources>

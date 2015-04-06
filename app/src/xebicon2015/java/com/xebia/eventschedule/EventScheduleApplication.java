@@ -11,11 +11,11 @@ public class EventScheduleApplication extends BaseEventScheduleApp {
 
     @Override
     protected String getParseClientKey() {
-        return "skKIoBIE59IwNSzN6q1vrFRVn72TofyIkVGNlHLp";
+        return "u8UtLfkzgFbSegiOwT0me06A7tgUw7lyxQWQVihN";
     }
 
     @Override
     public String getParseEventId() {
-        return "HRnqaTA2cZ";
+        return "SykH4MNwTw";
     }
 }

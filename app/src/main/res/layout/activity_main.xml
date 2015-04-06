@@ -5,12 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
     <!-- The main content view -->
-    <FrameLayout
-        android:id="@+id/schedule_container"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_alignParentTop="true"
+            android:minHeight="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"/>
+        <FrameLayout
+            android:id="@+id/schedule_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
     <!-- The navigation drawer -->
     <include layout="@layout/navdrawer" />
 

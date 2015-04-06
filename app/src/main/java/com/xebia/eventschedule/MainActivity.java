@@ -2,12 +2,13 @@ package com.xebia.eventschedule;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
@@ -41,6 +42,7 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
     private Handler mDrawerActionHandler;
     private int mNavPosition = 0;
     private NavListAdapter<String> mNavListAdapter;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -48,10 +50,16 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
         setContentView(R.layout.activity_main);
 
         mDrawerActionHandler = new Handler();
-        ActionBar actionBar = getSupportActionBar();
-        if (null != actionBar) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar.setTitleTextColor(Color.WHITE);
+        setSupportActionBar(mToolbar);
+
+        // Now retrieve the DrawerLayout so that we can set the status bar color.
+        // This only takes effect on Lollipop, or when using translucentStatusBar
+        // on KitKat.
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.primary));
+
         navigate(NAV_ITEM_SCHEDULE);
     }
 
@@ -84,8 +92,8 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
                 }, DRAWER_CLOSE_DELAY_MS);
             }
         });
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open,
-                R.string.drawer_close);
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar,
+                R.string.drawer_open, R.string.drawer_close);
         mDrawerLayout.setDrawerListener(mDrawerToggle);
         mDrawerToggle.syncState();
     }

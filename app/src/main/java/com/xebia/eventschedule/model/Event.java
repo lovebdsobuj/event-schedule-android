@@ -18,7 +18,7 @@ public class Event extends ParseObject implements Serializable {
      * Wraps a FindCallback so that we can use the CACHE_THEN_NETWORK caching policy, but only call
      * the callback once, with the first data available.
      */
-    private abstract static class EventFindCallback extends FindCallback<Event> {
+    private abstract static class EventFindCallback implements FindCallback<Event> {
         private boolean isCachedResult = true;
         private boolean calledCallback = false;
 

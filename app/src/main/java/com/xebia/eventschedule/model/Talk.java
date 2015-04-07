@@ -27,7 +27,7 @@ public class Talk extends ParseObject {
    * Wraps a FindCallback so that we can use the CACHE_THEN_NETWORK caching policy, but only call
    * the callback once, with the first data available.
    */
-  private abstract static class TalkFindCallback extends FindCallback<Talk> {
+  private abstract static class TalkFindCallback implements FindCallback<Talk> {
     private boolean isCachedResult = true;
     private boolean calledCallback = false;
 

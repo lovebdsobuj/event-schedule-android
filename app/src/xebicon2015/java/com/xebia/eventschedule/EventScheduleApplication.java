@@ -11,7 +11,7 @@ public class EventScheduleApplication extends BaseEventScheduleApp {
 
     @Override
     protected String getParseClientKey() {
-        return "u8UtLfkzgFbSegiOwT0me06A7tgUw7lyxQWQVihN";
+        return "skKIoBIE59IwNSzN6q1vrFRVn72TofyIkVGNlHLp";
     }
 
     @Override

@@ -2,7 +2,6 @@ package com.xebia.eventschedule;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
@@ -51,7 +50,6 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
 
         mDrawerActionHandler = new Handler();
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
-        mToolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(mToolbar);
 
         // Now retrieve the DrawerLayout so that we can set the status bar color.

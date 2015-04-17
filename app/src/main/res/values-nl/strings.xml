@@ -30,5 +30,5 @@
         <item>Event Informatie</item>
         <item>Wettelijk</item>
     </string-array>
-
+    <string name="menu_filter">Filter</string>
 </resources>

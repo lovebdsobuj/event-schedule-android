@@ -1,0 +1,9 @@
+# Install "rename" from http://plasmasturm.org/code/rename
+brew install rename
+
+# Copy all the things
+DESTDIR="../app/src/main/res"
+for DENS in mdpi hdpi xhdpi xxhdpi
+do
+  rename -d "-$DENS" -s "export/" "$DESTDIR/drawable-$DENS/" export/*-$DENS.png
+done

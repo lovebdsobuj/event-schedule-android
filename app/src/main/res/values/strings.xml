@@ -30,5 +30,5 @@
         <item>Event Info</item>
         <item>Legal</item>
     </string-array>
-
+    <string name="menu_filter">Filter</string>
 </resources>

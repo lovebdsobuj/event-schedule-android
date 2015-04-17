@@ -9,10 +9,13 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.xebia.eventschedule.details.TalkActivity;
 import com.xebia.eventschedule.details.TalkDetailsFragment;
@@ -128,8 +131,22 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        return mDrawerToggle.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+        if (item.getItemId() == android.support.v7.appcompat.R.id.home) {
+            return mDrawerToggle.onOptionsItemSelected(item);
+        }
+        if (item.getItemId() == R.id.menu_filter) {
+            Toast t = Toast.makeText(this, "Soon…", Toast.LENGTH_SHORT);
+            t.setGravity(Gravity.CENTER, 0, 0);
+            t.show();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

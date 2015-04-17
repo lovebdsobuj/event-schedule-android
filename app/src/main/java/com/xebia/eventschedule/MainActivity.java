@@ -14,20 +14,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.parse.ParseObject;
 import com.xebia.eventschedule.details.TalkActivity;
 import com.xebia.eventschedule.details.TalkDetailsFragment;
 import com.xebia.eventschedule.eventdetails.EventDetailsActivity;
 import com.xebia.eventschedule.legal.LegalActivity;
 import com.xebia.eventschedule.list.TalkListFragment;
-import com.xebia.eventschedule.model.Slot;
 import com.xebia.eventschedule.model.Talk;
 import com.xebia.eventschedule.util.BaseEventScheduleApp;
 import com.xebia.eventschedule.util.CalligraphyActivity;
-import com.xebia.eventschedule.util.FavoritesNotificationScheduler;
 import com.xebia.eventschedule.util.LayoutUtils;
-
-import java.util.Date;
 
 /**
  * An Activity with a tabs for the complete schedule and the list of favorited talks. This was

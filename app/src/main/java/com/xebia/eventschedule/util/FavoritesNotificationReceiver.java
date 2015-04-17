@@ -50,15 +50,21 @@ public class FavoritesNotificationReceiver extends BroadcastReceiver {
     a.recycle();
 
     builder.setSmallIcon(attributeResourceId);
+
     builder.setColor(context.getResources().getColor(R.color.notificationIconBackground));
-    builder.setSubText("this is the subtext met een mooie lange abstract met dingetjes en noem maar op. Waarom is het van de weggehaald");
     builder.setContentTitle(talk.getTitle());
     builder.setContentText(null != talk.getRoom() ? "Starts in 5 minutes in " + talk.getRoom().getName()
             : "Starts in 5 minutes");
     builder.setContentIntent(talkPendingIntent);
     builder.setAutoCancel(true);
     builder.setVibrate(VIBRATION);
-    Notification notification = builder.build();
+    Notification notification = new NotificationCompat.BigTextStyle(builder)
+      .bigText("this is the subtext met een mooie lange abstract met dingetjes en noem maar op. Waarom is het van de weggehaald")
+      .setBigContentTitle(null != talk.getRoom() ? "Starts in 5 minutes in " + talk.getRoom().getName()
+              : "Starts in 5 minutes")
+      .build();
+
+
 
     /*
      * Display the notification. We use the label "start" to identify this kind of notification.

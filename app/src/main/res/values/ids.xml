@@ -2,5 +2,6 @@
 <resources>
     <item name="menu_filter_item_everything" type="id"/>
     <item name="menu_filter_item_favourites" type="id"/>
+    <item name="menu_filter_item_any_tag" type="id"/>
     <item name="menu_filter_group" type="id"/>
 </resources>

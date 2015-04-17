@@ -1,6 +1,8 @@
 package com.xebia.eventschedule.list;
 
+import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.ViewGroup;
@@ -18,6 +20,8 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
     private static final int BREAK_TYPE = 1;
     private static final int TALK_TYPE = 2;
     private static final String TAG = "TalkListAdapter";
+    private static final String INST_ST_FILTER_MODE = "FilterMode";
+    private static final String INST_ST_FILTER_TAG = "FilterTag";
     private final List<Talk> mAllData;
     private final List<Talk> mFilteredData;
     private final TalkListClickListener mListener;
@@ -121,6 +125,16 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
         } else {
             mFilteredData.addAll(mAllData);
         }
+    }
+
+    public void onSaveInstanceState(@NonNull final Bundle outState) {
+        outState.putInt(INST_ST_FILTER_MODE, mFilterMode.ordinal());
+        outState.putString(INST_ST_FILTER_TAG, mFilterTag);
+    }
+
+    public void onRestoreInstanceState(@NonNull final Bundle inState) {
+        mFilterMode = FilterMode.values()[inState.getInt(INST_ST_FILTER_MODE)];
+        mFilterTag = inState.getString(INST_ST_FILTER_TAG);
     }
 
     private enum FilterMode { NO_FILTERING, FAVOURITES, BY_TAG }

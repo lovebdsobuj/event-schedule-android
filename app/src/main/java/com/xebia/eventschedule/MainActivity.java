@@ -41,7 +41,8 @@ import java.util.Set;
  * the application.
  */
 public class MainActivity extends CalligraphyActivity implements TalkListClickListener {
-
+    private static final String INST_ST_FILTER_MENU_ID = "FilterMenuId";
+    private static final String INST_ST_FILTER_MENU_TAG = "FilterMenuTag";
     private static final int DRAWER_CLOSE_DELAY_MS = 250;
     public static final int NAV_ITEM_SCHEDULE = 0;
     public static final int NAV_ITEM_FAVORITES = 1;
@@ -57,6 +58,8 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     private Toolbar mToolbar;
     private MenuItem mFilterItemMenu;
     private SubMenu mFilterItemSubMenu;
+    private int mFilterMenuSelectedId;
+    private String mFilterMenuSelectedTag;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -79,8 +82,17 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             getSupportFragmentManager().beginTransaction().add(R.id.schedule_container, mTalkListFragment).commit();
         } else {
             mTalkListFragment = (TalkListFragment) getSupportFragmentManager().findFragmentById(R.id.schedule_container);
+            mFilterMenuSelectedId = savedInstanceState.getInt(INST_ST_FILTER_MENU_ID);
+            mFilterMenuSelectedTag = savedInstanceState.getString(INST_ST_FILTER_MENU_TAG);
         }
         navigate(NAV_ITEM_SCHEDULE);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt(INST_ST_FILTER_MENU_ID, mFilterMenuSelectedId);
+        outState.putString(INST_ST_FILTER_MENU_TAG, mFilterMenuSelectedTag);
     }
 
     @Override
@@ -159,6 +171,8 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             return mDrawerToggle.onOptionsItemSelected(item);
         }
         if (item.getGroupId() == R.id.menu_filter_group) {
+            mFilterMenuSelectedId = item.getItemId();
+            mFilterMenuSelectedTag = null;
             item.setChecked(true);
             if (item.getItemId() == R.id.menu_filter_item_everything) {
                 mTalkListFragment.setFilteringDisabled();
@@ -167,6 +181,8 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             } else {
                 final String chosenTag = String.valueOf(item.getTitle());
                 mTalkListFragment.setFilterByTag(chosenTag);
+                mFilterMenuSelectedId = R.id.menu_filter_item_any_tag;
+                mFilterMenuSelectedTag = chosenTag;
             }
             return true;
         }
@@ -175,21 +191,36 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
 
     @Override
     public void onTalksLoaded(@NonNull List<Talk> talks) {
+        if (mFilterItemSubMenu == null) {
+            // TODO aargh! We can NPE here when you rotate the screen. That's really awkward and we should fix it.
+            if (BuildConfig.DEBUG) {
+                Log.w("MainActivity", "onTalksLoaded() called before onCreateOptionsMenu()");
+            }
+            return;
+        }
         mFilterItemSubMenu.clear();
         if (talks.isEmpty()) {
             mFilterItemMenu.setVisible(false);
+            mFilterMenuSelectedId = 0;
+            mFilterMenuSelectedTag = null;
         } else {
             List<String> tagsOrdered = getUniqueTalkTagsSorted(talks);
             if (tagsOrdered.isEmpty()) {
+                mFilterMenuSelectedId = 0;
+                mFilterMenuSelectedTag = null;
                 return;
             }
             final MenuItem selectAll = mFilterItemSubMenu.add(R.id.menu_filter_group,
                     R.id.menu_filter_item_everything, 0, R.string.menu_filter_everything);
-            selectAll.setChecked(true);
-            mFilterItemSubMenu.add(R.id.menu_filter_group,
+            selectAll.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_everything
+                    || mFilterMenuSelectedId == 0);
+            final MenuItem selectFavs = mFilterItemSubMenu.add(R.id.menu_filter_group,
                     R.id.menu_filter_item_favourites, 0, R.string.menu_filter_favourites);
+            selectFavs.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_favourites);
             for (String title : tagsOrdered) {
-                mFilterItemSubMenu.add(R.id.menu_filter_group, 0, 0, title);
+                final MenuItem item = mFilterItemSubMenu.add(R.id.menu_filter_group, 0, 0, title);
+                item.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_any_tag
+                        && mFilterMenuSelectedTag != null && mFilterMenuSelectedTag.equals(title));
             }
             mFilterItemSubMenu.setGroupCheckable(R.id.menu_filter_group, true, true);
             mFilterItemMenu.setVisible(true);

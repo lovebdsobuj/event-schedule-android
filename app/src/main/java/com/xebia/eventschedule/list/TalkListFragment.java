@@ -82,7 +82,16 @@ public class TalkListFragment extends Fragment implements Favorites.Listener {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new TalkListAdapter(mListener);
         mRecyclerView.setAdapter(mAdapter);
+        if (savedInstanceState != null) {
+            mAdapter.onRestoreInstanceState(savedInstanceState);
+        }
         return rootView;
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mAdapter.onSaveInstanceState(outState);
     }
 
     /**

@@ -2,9 +2,11 @@
 <android.support.v4.widget.DrawerLayout
     android:id="@+id/drawer_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".MainActivity">
     <!-- The main content view -->
     <LinearLayout
@@ -12,11 +14,28 @@
         android:layout_height="match_parent"
         android:baselineAligned="false">
 
-        <FrameLayout
-            android:id="@+id/schedule_container"
+        <RelativeLayout
             android:layout_width="0dp"
-            android:layout_weight="233"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            android:layout_weight="233">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_alignParentTop="true"
+                android:minHeight="?attr/actionBarSize"
+                android:background="?attr/colorPrimary"
+                app:titleTextAppearance="@style/Theme.EventSchedule.Toolbar.Title"
+                app:theme="@style/Theme.EventSchedule.Toolbar"/>
+
+            <FrameLayout
+                android:id="@+id/schedule_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/toolbar"
+                android:layout_alignParentBottom="true"/>
+        </RelativeLayout>
 
         <fragment
             android:id="@+id/talk_details"

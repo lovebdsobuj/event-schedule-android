@@ -38,3 +38,9 @@ client key, as noted in step 2 above:
 ```java
 Parse.initialize(this, "YOUR_APPLICATION_ID", "YOUR_CLIENT_KEY");
 ```
+### Customizing your notifications
+
+When a user marks a talk as a favorite, then `FavoritesNotificationScheduler`'s `onFavoriteAdded` is called, which in turn
+uses the `FavoritesNotificationReceiver` to schedule a notification via the NotificationManager.
+You can override the NotificationManager to fully customize the notification. You can now use the styles.xml,
+colors.xml and attrs.xml to override the color and the backgroundcolor of the notificaiton icon.

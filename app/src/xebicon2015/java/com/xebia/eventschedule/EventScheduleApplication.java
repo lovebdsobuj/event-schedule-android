@@ -16,6 +16,6 @@ public class EventScheduleApplication extends BaseEventScheduleApp {
 
     @Override
     public String getParseEventId() {
-        return "SykH4MNwTw";
+        return "UwsCBpc2AM";
     }
 }

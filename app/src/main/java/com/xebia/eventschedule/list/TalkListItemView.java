@@ -2,6 +2,7 @@ package com.xebia.eventschedule.list;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -39,6 +40,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     private java.text.DateFormat mTimeFormat;
     private boolean mMasterDetailMode;
     private Talk mTalk;
+    private Drawable mSpeakerPlaceholder;
 
     public TalkListItemView(Context context) {
         super(context);
@@ -73,7 +75,8 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         mHighlightMarker = findViewById(R.id.highlight);
 
         // load some context-related things
-        mSpeakerImage.setPlaceholder(getResources().getDrawable(R.drawable.ic_speaker));
+        mSpeakerPlaceholder = getResources().getDrawable(R.drawable.ic_speaker);
+        mSpeakerImage.setPlaceholder(mSpeakerPlaceholder);
         mPrimaryColor = getResources().getColor(R.color.primary);
         mTextColor = getResources().getColor(R.color.text);
         mSecondaryColor = getResources().getColor(R.color.textSecondary);
@@ -105,18 +108,22 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
             mSpeakerImage.setVisibility(View.INVISIBLE);
         } else {
             mSpeakerImage.setVisibility(View.VISIBLE);
-            if (talk.getSpeakers() != null && !talk.getSpeakers().isEmpty()
+            if (talk.getSpeakers() != null
+                    && !talk.getSpeakers().isEmpty()
                     && talk.getSpeakers().get(0).getPhoto() != null) {
                 mSpeakerImage.setParseFile(talk.getSpeakers().get(0).getPhoto());
                 mSpeakerImage.loadInBackground(new GetDataCallback() {
                     @Override
                     public void done(byte[] data, ParseException e) {
                         if (e != null && e.getMessage() != null) {
+                            mSpeakerImage.setImageDrawable(mSpeakerPlaceholder);
                             Log.w(TalkListItemView.class.getSimpleName(),
                                     "Failed to load speaker image: " + e.getMessage());
                         }
                     }
                 });
+            } else {
+                mSpeakerImage.setImageDrawable(mSpeakerPlaceholder);
             }
         }
     }

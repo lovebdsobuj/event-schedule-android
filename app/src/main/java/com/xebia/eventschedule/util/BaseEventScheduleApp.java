@@ -3,6 +3,7 @@ package com.xebia.eventschedule.util;
 import android.app.Application;
 
 import com.parse.Parse;
+import com.parse.ParseCrashReporting;
 import com.parse.ParseObject;
 import com.parse.PushService;
 import com.xebia.eventschedule.BuildConfig;
@@ -49,6 +50,7 @@ public abstract class BaseEventScheduleApp extends Application {
         ParseObject.registerSubclass(Location.class);
 
         // Initialize Parse with the application ID and client key.
+        ParseCrashReporting.enable(this);
         Parse.initialize(this, getParseApplicationId(), getParseClientKey());
 
         // Enable the Parse push notification service for remote pushes.

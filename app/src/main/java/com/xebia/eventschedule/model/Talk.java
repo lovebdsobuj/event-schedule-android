@@ -1,6 +1,7 @@
 package com.xebia.eventschedule.model;
 
 import android.net.Uri;
+import android.util.Log;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
@@ -11,6 +12,11 @@ import com.parse.ParseQuery;
 import com.parse.ParseQuery.CachePolicy;
 import com.xebia.eventschedule.util.LocaleUtils;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -21,117 +27,89 @@ import java.util.Map;
 @ParseClassName("Talk")
 public class Talk extends ParseObject {
 
-  private boolean mHighlighted;
+    private static final String TAG = "Talk";
+    private boolean mHighlighted;
 
-  /**
-   * Wraps a FindCallback so that we can use the CACHE_THEN_NETWORK caching policy, but only call
-   * the callback once, with the first data available.
-   */
-  private abstract static class TalkFindCallback implements FindCallback<Talk> {
-    private boolean isCachedResult = true;
-    private boolean calledCallback = false;
-
-    @Override
-    public void done(List<Talk> objects, ParseException e) {
-      if (!calledCallback) {
-        if (objects != null) {
-          // We got a result, use it.
-          calledCallback = true;
-          doneOnce(objects, null);
-        } else if (!isCachedResult) {
-          // We got called back twice, but got a null result both times. Pass on the latest error.
-          doneOnce(null, e);
-        }
-      }
-      isCachedResult = false;
+    /**
+     * Creates a query for talks with all the includes and cache policy set.
+     */
+    private static ParseQuery<Talk> createQuery() {
+        ParseQuery<Talk> query = new ParseQuery<Talk>(Talk.class);
+        query.include("speakers");
+        query.include("room");
+        query.include("slot");
+        //query.include("event");
+        query.setCachePolicy(CachePolicy.CACHE_THEN_NETWORK);
+        return query;
     }
 
     /**
-     * Override this method with the callback that should only be called once.
+     * Gets the objectId of the Talk associated with the given URI.
      */
-    protected abstract void doneOnce(List<Talk> objects, ParseException e);
-  }
-
-  /**
-   * Creates a query for talks with all the includes and cache policy set.
-   */
-  private static ParseQuery<Talk> createQuery() {
-    ParseQuery<Talk> query = new ParseQuery<Talk>(Talk.class);
-    query.include("speakers");
-    query.include("room");
-    query.include("slot");
-    //query.include("event");
-    query.setCachePolicy(CachePolicy.CACHE_THEN_NETWORK);
-    return query;
-  }
-
-  /**
-   * Gets the objectId of the Talk associated with the given URI.
-   */
-  public static String getTalkId(Uri uri) {
-    List<String> path = uri.getPathSegments();
-    if (path.size() != 2 || !"talk".equals(path.get(0))) {
-      throw new RuntimeException("Invalid URI for talk: " + uri);
+    public static String getTalkId(Uri uri) {
+        List<String> path = uri.getPathSegments();
+        if (path.size() != 2 || !"talk".equals(path.get(0))) {
+            throw new RuntimeException("Invalid URI for talk: " + uri);
+        }
+        return path.get(1);
     }
-    return path.get(1);
-  }
 
-  /**
-   * Returns a URI to use in Intents to represent this talk. The format is
-   * parsedevday://talk/theObjectId
-   */
-  public Uri getUri() {
-    Uri.Builder builder = new Uri.Builder();
-    builder.scheme("parsedevday");
-    builder.path("talk/" + getObjectId());
-    return builder.build();
-  }
+    /**
+     * Retrieves the set of all talks, ordered by time. Uses the cache if possible.
+     */
+    public static void findInBackground(String eventId, final FindCallback<Talk> callback) {
+        ParseQuery<Talk> query = Talk.createQuery();
+        ParseQuery innerQuery = new ParseQuery("Event");
+        innerQuery.whereEqualTo("objectId", eventId);
 
-  /**
-   * Retrieves the set of all talks, ordered by time. Uses the cache if possible.
-   */
-  public static void findInBackground(String eventId, final FindCallback<Talk> callback) {
-    ParseQuery<Talk> query = Talk.createQuery();
-    ParseQuery innerQuery = new ParseQuery("Event");
-    innerQuery.whereEqualTo("objectId", eventId);
+        query.whereMatchesQuery("event", innerQuery);
+        query.findInBackground(new TalkFindCallback() {
+            @Override
+            protected void doneOnce(List<Talk> objects, ParseException e) {
+                if (objects != null) {
+                    // Sort the talks by start time.
+                    Collections.sort(objects, TalkComparator.get());
+                }
+                callback.done(objects, e);
+            }
+        });
+    }
 
-      query.whereMatchesQuery("event", innerQuery);
-      query.findInBackground(new TalkFindCallback() {
-      @Override
-      protected void doneOnce(List<Talk> objects, ParseException e) {
-        if (objects != null) {
-          // Sort the talks by start time.
-          Collections.sort(objects, TalkComparator.get());
-        }
-        callback.done(objects, e);
-      }
-    });
-  }
+    /**
+     * Gets the data for a single talk. We use this instead of calling fetch on a ParseObject so that
+     * we can use query cache if possible.
+     */
+    public static void getInBackground(final String objectId, final GetCallback<Talk> callback) {
+        ParseQuery<Talk> query = Talk.createQuery();
+        query.whereEqualTo("objectId", objectId);
+        query.findInBackground(new TalkFindCallback() {
+            @Override
+            protected void doneOnce(List<Talk> objects, ParseException e) {
+                if (objects != null) {
+                    // Emulate the behavior of getFirstInBackground by using only the first result.
+                    if (objects.size() < 1) {
+                        callback.done(null, new ParseException(ParseException.OBJECT_NOT_FOUND,
+                                "No talk with id " + objectId + " was found."));
+                    } else {
+                        callback.done(objects.get(0), e);
+                    }
+                } else {
+                    callback.done(null, e);
+                }
+            }
+        });
+    }
 
-  /**
-   * Gets the data for a single talk. We use this instead of calling fetch on a ParseObject so that
-   * we can use query cache if possible.
-   */
-  public static void getInBackground(final String objectId, final GetCallback<Talk> callback) {
-    ParseQuery<Talk> query = Talk.createQuery();
-    query.whereEqualTo("objectId", objectId);
-    query.findInBackground(new TalkFindCallback() {
-      @Override
-      protected void doneOnce(List<Talk> objects, ParseException e) {
-        if (objects != null) {
-          // Emulate the behavior of getFirstInBackground by using only the first result.
-          if (objects.size() < 1) {
-            callback.done(null, new ParseException(ParseException.OBJECT_NOT_FOUND,
-                "No talk with id " + objectId + " was found."));
-          } else {
-            callback.done(objects.get(0), e);
-          }
-        } else {
-          callback.done(null, e);
-        }
-      }
-    });
-  }
+    /**
+     * Returns a URI to use in Intents to represent this talk. The format is
+     * parsedevday://talk/theObjectId
+     */
+    public Uri getUri() {
+        Uri.Builder builder = new Uri.Builder();
+        builder.scheme("parsedevday");
+        builder.path("talk/" + getObjectId());
+        return builder.build();
+    }
 
     public String getTitle() {
         Map<String, String> titleMap = getMap("title");
@@ -151,40 +129,86 @@ public class Talk extends ParseObject {
         return localizedAbstract;
     }
 
-  public List<Speaker> getSpeakers() {
-    return getList("speakers");
-  }
+    public List<Speaker> getSpeakers() {
+        return getList("speakers");
+    }
 
-  public Slot getSlot() {
-    return (Slot) get("slot");
-  }
+    public Slot getSlot() {
+        return (Slot) get("slot");
+    }
 
-  public Room getRoom() {
-    return (Room) get("room");
-  }
+    public Room getRoom() {
+        return (Room) get("room");
+    }
 
-  /**
-   * Items like breaks and keynotes are marked as "alwaysFavorite" so they always show up on
-   * the Favorites tab of the schedule. We also color them slightly differently to make the UI
-   * prettier.
-   */
-  public boolean isAlwaysFavorite() {
-    return isBreak() || isKeynote();
-  }
+    public List<String> getTags() {
+        List<String> results = new ArrayList<>();
+        try {
+            JSONObject tags = getJSONObject("tags");
+            if (null != tags) {
+                JSONArray localizedTags = LocaleUtils.isDutch()
+                        ? tags.getJSONArray("nl") : tags.getJSONArray("en");
+                for (int i = 0; i < localizedTags.length(); i++) {
+                    results.add(localizedTags.getString(i));
+                }
+            }
+        } catch (JSONException e) {
+            Log.d(TAG, "Could not parse list of tags", e);
+        }
+        return results;
+    }
 
-  public boolean isBreak() {
-    return "break".equalsIgnoreCase(getString("type"));
-  }
+    /**
+     * Items like breaks and keynotes are marked as "alwaysFavorite" so they always show up on
+     * the Favorites tab of the schedule. We also color them slightly differently to make the UI
+     * prettier.
+     */
+    public boolean isAlwaysFavorite() {
+        return isBreak() || isKeynote();
+    }
 
-  public boolean isKeynote() {
-    return "keynote".equalsIgnoreCase(getString("type"));
-  }
+    public boolean isBreak() {
+        return "break".equalsIgnoreCase(getString("type"));
+    }
 
-  public void setHighlighted(boolean highlighted) {
-    mHighlighted = highlighted;
-  }
+    public boolean isKeynote() {
+        return "keynote".equalsIgnoreCase(getString("type"));
+    }
 
-  public boolean isHighlighted() {
-    return mHighlighted;
-  }
+    public boolean isHighlighted() {
+        return mHighlighted;
+    }
+
+    public void setHighlighted(boolean highlighted) {
+        mHighlighted = highlighted;
+    }
+
+    /**
+     * Wraps a FindCallback so that we can use the CACHE_THEN_NETWORK caching policy, but only call
+     * the callback once, with the first data available.
+     */
+    private abstract static class TalkFindCallback implements FindCallback<Talk> {
+        private boolean isCachedResult = true;
+        private boolean calledCallback = false;
+
+        @Override
+        public void done(List<Talk> objects, ParseException e) {
+            if (!calledCallback) {
+                if (objects != null) {
+                    // We got a result, use it.
+                    calledCallback = true;
+                    doneOnce(objects, null);
+                } else if (!isCachedResult) {
+                    // We got called back twice, but got a null result both times. Pass on the latest error.
+                    doneOnce(null, e);
+                }
+            }
+            isCachedResult = false;
+        }
+
+        /**
+         * Override this method with the callback that should only be called once.
+         */
+        protected abstract void doneOnce(List<Talk> objects, ParseException e);
+    }
 }

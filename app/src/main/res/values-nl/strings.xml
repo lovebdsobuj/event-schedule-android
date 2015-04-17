@@ -30,5 +30,7 @@
         <item>Event Informatie</item>
         <item>Wettelijk</item>
     </string-array>
-
+    <string name="menu_filter">Filter</string>
+    <string name="menu_filter_everything">Alle tags</string>
+    <string name="menu_filter_favourites">Favoriten</string>
 </resources>

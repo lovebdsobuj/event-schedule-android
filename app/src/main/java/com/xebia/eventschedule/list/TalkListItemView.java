@@ -1,11 +1,10 @@
 package com.xebia.eventschedule.list;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.text.format.DateFormat;
-import android.util.AttributeSet;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
@@ -26,6 +25,7 @@ import com.xebia.eventschedule.util.LayoutUtils;
  */
 public class TalkListItemView extends RelativeLayout implements ScheduleListItemView {
 
+    private final TalkListClickListener mListener;
     private TextView mTitleView;
     private TextView mStartDateView;
     private TextView mRoomView;
@@ -42,21 +42,11 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     private Talk mTalk;
     private Drawable mSpeakerPlaceholder;
 
-    public TalkListItemView(Context context) {
+    public TalkListItemView(final Context context, final TalkListClickListener listener) {
         super(context);
-    }
-
-    public TalkListItemView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-    }
-
-    public TalkListItemView(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-    }
-
-    @SuppressLint("NewApi")
-    public TalkListItemView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
+        mListener = listener;
+        LayoutInflater.from(context).inflate(R.layout.list_item_talk, this);
+        onFinishInflate();
     }
 
     @Override
@@ -82,6 +72,13 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         mSecondaryColor = getResources().getColor(R.color.textSecondary);
         mTimeFormat = DateFormat.getTimeFormat(getContext());
         mMasterDetailMode = LayoutUtils.isDualPane(getContext());
+
+        setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onItemClick();
+            }
+        });
     }
 
     @Override
@@ -140,7 +137,9 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     }
 
     private void updateTextViews(final Talk talk) {
-        mTitleView.setText(talk.getTitle());
+        mTitleView.setText(talk.getTags().size() > 0
+                ? talk.getTitle() + " " + talk.getTags().get(0)
+                : talk.getTitle());
 
         mStartDateView.setText(mTimeFormat.format(talk.getSlot().getStartTime()));
         mRoomView.setText(null != talk.getRoom() ? talk.getRoom().getName() : null);
@@ -166,5 +165,12 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
             mFavoriteButton.setImageResource(R.drawable.ic_rating_important);
         }
         favorites.save(getContext());
+    }
+
+    public void onItemClick() {
+        setHighlighted(true);
+        if (null != mListener) {
+            mListener.onTalkClick(mTalk);
+        }
     }
 }

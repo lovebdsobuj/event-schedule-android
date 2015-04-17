@@ -133,7 +133,9 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     }
 
     private void updateTextViews(final Talk talk) {
-        mTitleView.setText(talk.getTitle());
+        mTitleView.setText(talk.getTags().size() > 0
+                ? talk.getTitle() + " " + talk.getTags().get(0)
+                : talk.getTitle());
 
         mStartDateView.setText(mTimeFormat.format(talk.getSlot().getStartTime()));
         mRoomView.setText(null != talk.getRoom() ? talk.getRoom().getName() : null);

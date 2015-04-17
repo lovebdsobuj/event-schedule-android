@@ -1,3 +1,4 @@
+// vi: set et sw=4 ts=4:
 apply plugin: 'com.android.application'
 
 android {
@@ -6,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId 'com.xebia.eventschedule'
-        minSdkVersion 10
+        minSdkVersion 14
         targetSdkVersion 22
     }
 
@@ -41,11 +42,16 @@ android {
             storeFile file("${project.projectDir}/config/sign/debug.keystore")
         }
     }
+
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
     compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'com.android.support:support-v4:22.0.0'
+    compile 'com.android.support:recyclerview-v7:22.0.0'
     compile 'uk.co.chrisjenx:calligraphy:2.0.2'
     compile 'com.parse.bolts:bolts-android:1.2.0'
     compile fileTree(dir: 'libs', include: 'Parse-1.9.0.jar')

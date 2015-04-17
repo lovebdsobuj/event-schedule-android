@@ -22,6 +22,7 @@ import com.xebia.eventschedule.details.TalkActivity;
 import com.xebia.eventschedule.details.TalkDetailsFragment;
 import com.xebia.eventschedule.eventdetails.EventDetailsActivity;
 import com.xebia.eventschedule.legal.LegalActivity;
+import com.xebia.eventschedule.list.TalkListClickListener;
 import com.xebia.eventschedule.list.TalkListFragment;
 import com.xebia.eventschedule.model.Talk;
 import com.xebia.eventschedule.util.BaseEventScheduleApp;
@@ -39,7 +40,7 @@ import java.util.Set;
  * An Activity with a tabs for the complete schedule and the list of favorited talks. This was
  * originally created from an ADT wizard.
  */
-public class MainActivity extends CalligraphyActivity implements TalkListFragment.Listener {
+public class MainActivity extends CalligraphyActivity implements TalkListClickListener {
 
     private static final int DRAWER_CLOSE_DELAY_MS = 250;
     public static final int NAV_ITEM_SCHEDULE = 0;

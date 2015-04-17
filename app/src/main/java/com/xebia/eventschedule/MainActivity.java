@@ -158,6 +158,8 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             item.setChecked(true);
             if (item.getItemId() == R.id.menu_filter_item_everything) {
                 // TODO tell the TalkListAdapter to show everything
+            } else if (item.getItemId() == R.id.menu_filter_item_favourites) {
+                // TODO tell the TalkListAdapter to show favourites
             } else {
                 final String chosenTag = String.valueOf(item.getTitle());
                 // TODO tell the TalkListAdapter to show the given tag
@@ -180,6 +182,8 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             final MenuItem selectAll = filterItemSubMenu.add(R.id.menu_filter_group,
                     R.id.menu_filter_item_everything, 0, R.string.menu_filter_everything);
             selectAll.setChecked(true);
+            filterItemSubMenu.add(R.id.menu_filter_group,
+                    R.id.menu_filter_item_favourites, 0, R.string.menu_filter_favourites);
             for (String title : tagsOrdered) {
                 filterItemSubMenu.add(R.id.menu_filter_group, 0, 0, title);
             }

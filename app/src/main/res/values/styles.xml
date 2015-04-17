@@ -13,4 +13,15 @@
         <item name="colorAccent">@color/accent</item>
     </style>
 
+    <style name="Theme.EventSchedule.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!-- Customize color of navigation drawer icon and back arrow -->
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
+    <style name="Theme.EventSchedule.Toolbar.Title" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <!-- Set proper title size -->
+        <!-- Set title color -->
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
 </resources>

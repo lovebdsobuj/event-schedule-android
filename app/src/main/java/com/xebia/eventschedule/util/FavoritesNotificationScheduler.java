@@ -56,9 +56,9 @@ public class FavoritesNotificationScheduler implements Favorites.Listener {
     Date talkStart = talk.getSlot().getStartTime();
     Logger.getLogger(getClass().getName()).log(Level.INFO, "Registering alarm for " + talkStart);
     long fiveMinutesBefore = talkStart.getTime() - (5000 * 60);
-//    if (fiveMinutesBefore < System.currentTimeMillis()) {
-//      return;
-//    }
+    if (fiveMinutesBefore < System.currentTimeMillis()) {
+      return;
+    }
 
     // Register the actual alarm.
     AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);

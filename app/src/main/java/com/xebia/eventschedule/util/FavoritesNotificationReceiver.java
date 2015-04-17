@@ -45,6 +45,7 @@ public class FavoritesNotificationReceiver extends BroadcastReceiver {
 
     // Build the UI for the notification.
     NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+
     TypedArray a = context.getTheme().obtainStyledAttributes(R.style.Theme_EventSchedule, new int[]{R.attr.notificationIconId});
     int attributeResourceId = a.getResourceId(0, 0);
     a.recycle();
@@ -58,11 +59,13 @@ public class FavoritesNotificationReceiver extends BroadcastReceiver {
     builder.setContentIntent(talkPendingIntent);
     builder.setAutoCancel(true);
     builder.setVibrate(VIBRATION);
+    String talkAbstract = null != talk.getAbstract() ? "\nAbstract: "+ talk.getAbstract() : "" ;
     Notification notification = new NotificationCompat.BigTextStyle(builder)
-      .bigText("this is the subtext met een mooie lange abstract met dingetjes en noem maar op. Waarom is het van de weggehaald")
-      .setBigContentTitle(null != talk.getRoom() ? "Starts in 5 minutes in " + talk.getRoom().getName()
-              : "Starts in 5 minutes")
-      .build();
+            .setBigContentTitle(talk.getTitle())
+            .bigText(null != talk.getRoom() ? "Starts in 5 minutes in " + talk.getRoom().getName() + talkAbstract
+              : "Starts in 5 minutes" + talkAbstract)
+
+            .build();
 
 
 

@@ -63,18 +63,6 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.primary));
 
-        //todo: testcode, please remove after notification testing
-        Talk testTalk = ParseObject.create(Talk.class);
-        testTalk.put("title", "{\"en\":\"Event-Sourcing your AngularJS applications\"}");
-        testTalk.put("room", "cSlZkzHpnm");
-        testTalk.put("objectId", "lEb2mtuWWc");
-        Slot testSlot = ParseObject.create(Slot.class);
-        testSlot.put("startTime", new Date(System.currentTimeMillis()+10000));
-        testSlot.put("objectId", "lEb2mtuWWc");
-        testTalk.put("slot", testSlot);
-        FavoritesNotificationScheduler favoritesNotificationScheduler = new FavoritesNotificationScheduler(getApplicationContext());
-        favoritesNotificationScheduler.onFavoriteAdded(testTalk);
-        //endof testcode, please remove after notification testing
         navigate(NAV_ITEM_SCHEDULE);
     }
 

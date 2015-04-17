@@ -16,34 +16,22 @@ import com.parse.ParseException;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Talk;
-import com.xebia.eventschedule.model.TalkComparator;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A fragment that just contains a list of talks. If the "favoritesOnly" boolean argument is
- * included and set to true, then the list of talks will be filtered to only show those which have
- * been favorited, plus the ones marked as "alwaysFavorite", such as meals.
+ * A fragment that just contains a list of talks.
  */
 public class TalkListFragment extends Fragment implements Favorites.Listener {
 
-    private static final String ARG_FAVORITES_ONLY = "favoritesOnly";
     private static final String ARG_EVENT_ID = "eventId";
     private TalkListAdapter mAdapter = null;
     private TalkListClickListener mListener;
-
-    // Whether or not to show only favorites.
-    private boolean favoritesOnly = false;
     private boolean destroyed = false;
 
-    // talks that have been unfavorited without removing them from the list of favorites
-    private List<Talk> mQuietlyUnfavorited = new ArrayList<>();
-
-    public static TalkListFragment newInstance(String eventId, boolean favoritesOnly) {
+    public static TalkListFragment newInstance(String eventId) {
         TalkListFragment fragment = new TalkListFragment();
         Bundle args = new Bundle();
-        args.putBoolean(ARG_FAVORITES_ONLY, favoritesOnly);
         args.putString(ARG_EVENT_ID, eventId);
         fragment.setArguments(args);
         return fragment;
@@ -58,9 +46,7 @@ public class TalkListFragment extends Fragment implements Favorites.Listener {
         super.onCreate(savedInstanceState);
 
         Bundle args = getArguments();
-        favoritesOnly = args.getBoolean(ARG_FAVORITES_ONLY, false);
-
-        String eventId = getArguments().getString(ARG_EVENT_ID);
+        String eventId = args.getString(ARG_EVENT_ID);
         Talk.findInBackground(eventId, new FindCallback<Talk>() {
 
             @Override
@@ -105,11 +91,8 @@ public class TalkListFragment extends Fragment implements Favorites.Listener {
      * @param talks List of loaded talks
      */
     private void onTalksLoaded(@NonNull List<Talk> talks) {
-        for (Talk talk : talks) {
-            if (!favoritesOnly || talk.isAlwaysFavorite() || Favorites.get().contains(talk)) {
-                mAdapter.add(talk);
-            }
-        }
+        mAdapter.clear();
+        mAdapter.addAll(talks);
         mListener.onTalksLoaded(talks);
         mAdapter.notifyDataSetChanged();
     }
@@ -129,13 +112,8 @@ public class TalkListFragment extends Fragment implements Favorites.Listener {
 
     @Override
     public void onFavoriteAdded(Talk talk) {
-        // If a new talk becomes favorited, automatically add it to this list.
         if (mAdapter != null) {
-            // make sure we do not add recently unfavorited talks twice
-            if (favoritesOnly && !mQuietlyUnfavorited.contains(talk)) {
-                mAdapter.add(talk);
-                mAdapter.sort(TalkComparator.get());
-            }
+            mAdapter.setFilterFavourites();
             mAdapter.notifyDataSetChanged();
         }
     }
@@ -143,23 +121,9 @@ public class TalkListFragment extends Fragment implements Favorites.Listener {
     @Override
     public void onFavoriteRemoved(Talk talk) {
         if (mAdapter != null) {
-            if (favoritesOnly) {
-                // do not remove the talk from the list yet, but keep track of it
-                mQuietlyUnfavorited.add(talk);
-            } else {
-                mAdapter.notifyDataSetChanged();
-            }
+            mAdapter.setFilterFavourites();
+            mAdapter.notifyDataSetChanged();
         }
-    }
-
-    /**
-     * Removes any talks from the list that have not been favorited.
-     */
-    public void removeUnfavoritedItems() {
-        for (Talk talk : mQuietlyUnfavorited) {
-            mAdapter.remove(talk);
-        }
-        mQuietlyUnfavorited.clear();
     }
 
     @Override
@@ -176,5 +140,26 @@ public class TalkListFragment extends Fragment implements Favorites.Listener {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    public void setFilterByTag(@NonNull String tag) {
+        if (mAdapter != null) {
+            mAdapter.setFilterByTag(tag);
+            mAdapter.notifyDataSetChanged();
+        }
+    }
+
+    public void setFilterFavourites() {
+        if (mAdapter != null) {
+            mAdapter.setFilterFavourites();
+            mAdapter.notifyDataSetChanged();
+        }
+    }
+
+    public void setFilteringDisabled() {
+        if (mAdapter != null) {
+            mAdapter.setFilteringDisabled();
+            mAdapter.notifyDataSetChanged();
+        }
     }
 }

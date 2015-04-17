@@ -37,8 +37,8 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * An Activity with a tabs for the complete schedule and the list of favorited talks. This was
- * originally created from an ADT wizard.
+ * The main activity shows the list of talks, and gives access to the supplementary activities of
+ * the application.
  */
 public class MainActivity extends CalligraphyActivity implements TalkListClickListener {
 
@@ -49,13 +49,14 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     public static final int NAV_ITEM_LEGAL = 3;
 
     private ActionBarDrawerToggle mDrawerToggle;
+    private TalkListFragment mTalkListFragment;
     private DrawerLayout mDrawerLayout;
     private Handler mDrawerActionHandler;
     private int mNavPosition = 0;
     private NavListAdapter<String> mNavListAdapter;
     private Toolbar mToolbar;
-    private MenuItem filterItemMenu;
-    private SubMenu filterItemSubMenu;
+    private MenuItem mFilterItemMenu;
+    private SubMenu mFilterItemSubMenu;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -72,6 +73,13 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.primary));
 
+        if (savedInstanceState == null) {
+            final BaseEventScheduleApp app = (BaseEventScheduleApp) getApplicationContext();
+            mTalkListFragment = TalkListFragment.newInstance(app.getParseEventId());
+            getSupportFragmentManager().beginTransaction().add(R.id.schedule_container, mTalkListFragment).commit();
+        } else {
+            mTalkListFragment = (TalkListFragment) getSupportFragmentManager().findFragmentById(R.id.schedule_container);
+        }
         navigate(NAV_ITEM_SCHEDULE);
     }
 
@@ -113,15 +121,11 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     private void navigate(final int position) {
         switch (position) {
             case NAV_ITEM_SCHEDULE:
-                Fragment sched = TalkListFragment.newInstance(((BaseEventScheduleApp) getApplicationContext())
-                        .getParseEventId(), false);
-                getSupportFragmentManager().beginTransaction().replace(R.id.schedule_container, sched, "sched").commit();
+                mTalkListFragment.setFilteringDisabled();
                 mNavPosition = position;
                 break;
             case NAV_ITEM_FAVORITES:
-                Fragment favs = TalkListFragment.newInstance(((BaseEventScheduleApp) getApplicationContext())
-                        .getParseEventId(), true);
-                getSupportFragmentManager().beginTransaction().replace(R.id.schedule_container, favs, "favs").commit();
+                mTalkListFragment.setFilterFavourites();
                 mNavPosition = position;
                 break;
             case NAV_ITEM_EVENT_DETAILS:
@@ -144,8 +148,8 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_main, menu);
-        filterItemMenu = menu.findItem(R.id.menu_filter);
-        filterItemSubMenu = filterItemMenu.getSubMenu();
+        mFilterItemMenu = menu.findItem(R.id.menu_filter);
+        mFilterItemSubMenu = mFilterItemMenu.getSubMenu();
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -157,12 +161,12 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
         if (item.getGroupId() == R.id.menu_filter_group) {
             item.setChecked(true);
             if (item.getItemId() == R.id.menu_filter_item_everything) {
-                // TODO tell the TalkListAdapter to show everything
+                mTalkListFragment.setFilteringDisabled();
             } else if (item.getItemId() == R.id.menu_filter_item_favourites) {
-                // TODO tell the TalkListAdapter to show favourites
+                mTalkListFragment.setFilterFavourites();
             } else {
                 final String chosenTag = String.valueOf(item.getTitle());
-                // TODO tell the TalkListAdapter to show the given tag
+                mTalkListFragment.setFilterByTag(chosenTag);
             }
             return true;
         }
@@ -171,24 +175,24 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
 
     @Override
     public void onTalksLoaded(@NonNull List<Talk> talks) {
-        filterItemSubMenu.clear();
+        mFilterItemSubMenu.clear();
         if (talks.isEmpty()) {
-            filterItemMenu.setVisible(false);
+            mFilterItemMenu.setVisible(false);
         } else {
             List<String> tagsOrdered = getUniqueTalkTagsSorted(talks);
             if (tagsOrdered.isEmpty()) {
                 return;
             }
-            final MenuItem selectAll = filterItemSubMenu.add(R.id.menu_filter_group,
+            final MenuItem selectAll = mFilterItemSubMenu.add(R.id.menu_filter_group,
                     R.id.menu_filter_item_everything, 0, R.string.menu_filter_everything);
             selectAll.setChecked(true);
-            filterItemSubMenu.add(R.id.menu_filter_group,
+            mFilterItemSubMenu.add(R.id.menu_filter_group,
                     R.id.menu_filter_item_favourites, 0, R.string.menu_filter_favourites);
             for (String title : tagsOrdered) {
-                filterItemSubMenu.add(R.id.menu_filter_group, 0, 0, title);
+                mFilterItemSubMenu.add(R.id.menu_filter_group, 0, 0, title);
             }
-            filterItemSubMenu.setGroupCheckable(R.id.menu_filter_group, true, true);
-            filterItemMenu.setVisible(true);
+            mFilterItemSubMenu.setGroupCheckable(R.id.menu_filter_group, true, true);
+            mFilterItemMenu.setVisible(true);
         }
     }
 

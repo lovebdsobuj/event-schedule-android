@@ -1,14 +1,13 @@
 package com.xebia.eventschedule.list;
 
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.ViewGroup;
 
 import com.xebia.eventschedule.model.Talk;
-import com.xebia.eventschedule.model.TalkComparator;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
@@ -19,12 +18,16 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
     private static final int BREAK_TYPE = 1;
     private static final int TALK_TYPE = 2;
     private static final String TAG = "TalkListAdapter";
-    private final List<Talk> mData;
+    private final List<Talk> mAllData;
+    private final List<Talk> mFilteredData;
     private final TalkListClickListener mListener;
+    private FilterMode mFilterMode = FilterMode.NO_FILTERING;
+    private String mFilterTag;
 
     public TalkListAdapter(final TalkListClickListener listener) {
         mListener = listener;
-        mData = new ArrayList<>();
+        mAllData = new ArrayList<>();
+        mFilteredData = new ArrayList<>();
     }
 
     @Override
@@ -44,29 +47,81 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
 
     @Override
     public void onBindViewHolder(final TalkViewHolder holder, final int position) {
-        holder.setTalk(mData.get(position));
+        holder.setTalk(mFilteredData.get(position));
     }
 
     @Override
     public int getItemViewType(final int position) {
-        Talk talk = mData.get(position);
+        Talk talk = mFilteredData.get(position);
         return null != talk && talk.isBreak() ? BREAK_TYPE : TALK_TYPE;
     }
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return mFilteredData.size();
     }
 
-    public void add(final Talk talk) {
-        mData.add(talk);
+    /**
+     * After invoking this method, you must manually notify dataset changed to the RecyclerView.
+     */
+    public void clear() {
+        mAllData.clear();
+        mFilteredData.clear();
     }
 
-    public void sort(final TalkComparator talkComparator) {
-        Collections.sort(mData, talkComparator);
+    /**
+     * After invoking this method, you must manually notify dataset changed to the RecyclerView.
+     */
+    public void addAll(final List<Talk> talks) {
+        mAllData.addAll(talks);
+        updateFilteredData();
     }
 
-    public void remove(final Talk talk) {
-        mData.remove(talk);
+    /**
+     * After invoking this method, you must manually notify dataset changed to the RecyclerView.
+     */
+    public void setFilterByTag(@NonNull final String tag) {
+        this.mFilterMode = FilterMode.BY_TAG;
+        this.mFilterTag = tag;
+        updateFilteredData();
     }
+
+    /**
+     * After invoking this method, you must manually notify dataset changed to the RecyclerView.
+     */
+    public void setFilterFavourites() {
+        this.mFilterMode = FilterMode.FAVOURITES;
+        this.mFilterTag = null;
+        updateFilteredData();
+    }
+
+    /**
+     * After invoking this method, you must manually notify dataset changed to the RecyclerView.
+     */
+    public void setFilteringDisabled() {
+        this.mFilterMode = FilterMode.NO_FILTERING;
+        this.mFilterTag = null;
+        updateFilteredData();
+    }
+
+    private void updateFilteredData() {
+        mFilteredData.clear();
+        if (mFilterMode == FilterMode.BY_TAG) {
+            for (Talk talk : mAllData) {
+                if (talk.getTags().contains(mFilterTag)) {
+                    mFilteredData.add(talk);
+                }
+            }
+        } else if (mFilterMode == FilterMode.FAVOURITES) {
+            for (Talk talk : mAllData) {
+                if (talk.isAlwaysFavorite() || talk.isHighlighted()) {
+                    mFilteredData.add(talk);
+                }
+            }
+        } else {
+            mFilteredData.addAll(mAllData);
+        }
+    }
+
+    private enum FilterMode { NO_FILTERING, FAVOURITES, BY_TAG }
 }

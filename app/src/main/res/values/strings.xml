@@ -31,4 +31,5 @@
         <item>Legal</item>
     </string-array>
     <string name="menu_filter">Filter</string>
+    <string name="menu_filter_everything">All tags</string>
 </resources>

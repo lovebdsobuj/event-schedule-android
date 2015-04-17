@@ -2,6 +2,7 @@ package com.xebia.eventschedule.list;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ListView;
@@ -61,6 +62,7 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
 
         String eventId = getArguments().getString(ARG_EVENT_ID);
         Talk.findInBackground(eventId, new FindCallback<Talk>() {
+
             @Override
             public void done(List<Talk> talks, ParseException e) {
 
@@ -87,7 +89,7 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
 
     }
 
-    private void onTalksLoaded(List<Talk> talks) {
+    private void onTalksLoaded(@NonNull List<Talk> talks) {
 
         adapter = new TalkListAdapter(getActivity());
 
@@ -100,6 +102,7 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
         }
 
         setListAdapter(adapter);
+        mListener.onTalksLoaded(talks);
     }
 
     @Override
@@ -181,6 +184,7 @@ public class TalkListFragment extends ListFragment implements Favorites.Listener
     }
 
     public static interface Listener {
+        public abstract void onTalksLoaded(@NonNull List<Talk> talks);
         public abstract void onTalkClick(Talk talk);
     }
 }

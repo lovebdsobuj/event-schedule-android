@@ -4,18 +4,19 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.xebia.eventschedule.details.TalkActivity;
 import com.xebia.eventschedule.details.TalkDetailsFragment;
@@ -26,6 +27,13 @@ import com.xebia.eventschedule.model.Talk;
 import com.xebia.eventschedule.util.BaseEventScheduleApp;
 import com.xebia.eventschedule.util.CalligraphyActivity;
 import com.xebia.eventschedule.util.LayoutUtils;
+
+import java.text.Collator;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * An Activity with a tabs for the complete schedule and the list of favorited talks. This was
@@ -45,6 +53,8 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
     private int mNavPosition = 0;
     private NavListAdapter<String> mNavListAdapter;
     private Toolbar mToolbar;
+    private MenuItem filterItemMenu;
+    private SubMenu filterItemSubMenu;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -133,6 +143,8 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_main, menu);
+        filterItemMenu = menu.findItem(R.id.menu_filter);
+        filterItemSubMenu = filterItemMenu.getSubMenu();
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -141,17 +153,42 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
         if (item.getItemId() == android.support.v7.appcompat.R.id.home) {
             return mDrawerToggle.onOptionsItemSelected(item);
         }
-        if (item.getItemId() == R.id.menu_filter) {
-            Toast t = Toast.makeText(this, "Soon…", Toast.LENGTH_SHORT);
-            t.setGravity(Gravity.CENTER, 0, 0);
-            t.show();
+        if (item.getGroupId() == R.id.menu_filter_group) {
+            item.setChecked(true);
+            if (item.getItemId() == R.id.menu_filter_item_everything) {
+                // TODO tell the TalkListAdapter to show everything
+            } else {
+                final String chosenTag = String.valueOf(item.getTitle());
+                // TODO tell the TalkListAdapter to show the given tag
+            }
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
-    public void onTalkClick(Talk talk) {
+    public void onTalksLoaded(@NonNull List<Talk> talks) {
+        filterItemSubMenu.clear();
+        if (talks.isEmpty()) {
+            filterItemMenu.setVisible(false);
+        } else {
+            List<String> tagsOrdered = getUniqueTalkTagsSorted(talks);
+            if (tagsOrdered.isEmpty()) {
+                return;
+            }
+            final MenuItem selectAll = filterItemSubMenu.add(R.id.menu_filter_group,
+                    R.id.menu_filter_item_everything, 0, R.string.menu_filter_everything);
+            selectAll.setChecked(true);
+            for (String title : tagsOrdered) {
+                filterItemSubMenu.add(R.id.menu_filter_group, 0, 0, title);
+            }
+            filterItemSubMenu.setGroupCheckable(R.id.menu_filter_group, true, true);
+            filterItemMenu.setVisible(true);
+        }
+    }
 
+    @Override
+    public void onTalkClick(Talk talk) {
         if (LayoutUtils.isDualPane(this)) {
             Fragment f = getSupportFragmentManager().findFragmentById(R.id.talk_details);
             ((TalkDetailsFragment) f).showTalk(talk);
@@ -185,5 +222,26 @@ public class MainActivity extends CalligraphyActivity implements TalkListFragmen
     protected void onResume() {
         super.onResume();
         mNavListAdapter.setHighlight(mNavPosition);
+    }
+
+    /**
+     * Obtains the unique tags of the given Talks and returns them in lexical ordering by the default locale.
+     *
+     * @param talks the talks from which to obtain the tags.
+     * @return the unique tags in lexical order. This list may be the immutable.
+     */
+    @NonNull
+    private static List<String> getUniqueTalkTagsSorted(@NonNull List<Talk> talks) {
+        final Set<String> tagsUnique = new HashSet<>();
+        for (Talk talk : talks) {
+            tagsUnique.addAll(talk.getTags());
+        }
+        if (tagsUnique.isEmpty()) {
+            Log.d("TagFilterMenuBuilder", "There were no tags on any talk");
+            return Collections.emptyList();
+        }
+        final List<String> tagsOrdered = new ArrayList<>(tagsUnique);
+        Collections.sort(tagsOrdered, Collator.getInstance());
+        return tagsOrdered;
     }
 }

@@ -59,7 +59,7 @@ public class FavoritesNotificationScheduler implements Favorites.Listener {
     if (fiveMinutesBefore < System.currentTimeMillis()) {
       return;
     }
-    
+
     // Register the actual alarm.
     AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
     PendingIntent pendingIntent = getPendingIntent(talk);

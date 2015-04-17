@@ -92,7 +92,14 @@ public class EventDetailsFragment extends Fragment {
         try {
             startActivity(intent);
         } catch (ActivityNotFoundException e) {
-            Toast.makeText(getActivity(), getString(R.string.activity_not_found), Toast.LENGTH_LONG).show();
+            try {
+                String geoUri = "http://maps.google.com/maps?q=loc:" + lat + "," + lon + " (" + mEvent.getLocation().getName() + ")";
+                Intent webIntent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse(geoUri));
+                startActivity(webIntent);
+            }catch (ActivityNotFoundException e2){
+                Toast.makeText(getActivity(), getString(R.string.activity_not_found), Toast.LENGTH_LONG).show();
+            }
         }
     }
 }

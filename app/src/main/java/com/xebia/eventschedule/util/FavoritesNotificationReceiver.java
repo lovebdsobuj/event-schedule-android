@@ -6,6 +6,8 @@ import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 
@@ -43,7 +45,13 @@ public class FavoritesNotificationReceiver extends BroadcastReceiver {
 
     // Build the UI for the notification.
     NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
-    builder.setSmallIcon(R.drawable.ic_rating_important);
+    TypedArray a = context.getTheme().obtainStyledAttributes(R.style.Theme_EventSchedule, new int[]{R.attr.notificationIconId});
+    int attributeResourceId = a.getResourceId(0, 0);
+    a.recycle();
+
+    builder.setSmallIcon(attributeResourceId);
+    builder.setColor(context.getResources().getColor(R.color.notificationIconBackground));
+    builder.setSubText("this is the subtext met een mooie lange abstract met dingetjes en noem maar op. Waarom is het van de weggehaald");
     builder.setContentTitle(talk.getTitle());
     builder.setContentText(null != talk.getRoom() ? "Starts in 5 minutes in " + talk.getRoom().getName()
             : "Starts in 5 minutes");

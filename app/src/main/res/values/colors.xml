@@ -7,5 +7,5 @@
     <color name="divider">#1f000000</color>
     <color name="header_text">@color/primary</color>
     <color name="twitter_link">#292F33</color>
-
+    <color name="notificationIconBackground">@android:color/white</color>
 </resources>

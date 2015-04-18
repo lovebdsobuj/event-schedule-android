@@ -135,8 +135,7 @@ public class TalkDetailsFragment extends Fragment {
 
         // Add a view for each speaker in the talk.
         for (final Speaker speaker : speakers) {
-            SpeakerDetailsView view = (SpeakerDetailsView) View.inflate(getActivity(),
-                    R.layout.list_item_speaker, null);
+            SpeakerDetailsView view = new SpeakerDetailsView(getActivity());
             view.showSpeaker(speaker);
             mScrollView.addView(view);
 

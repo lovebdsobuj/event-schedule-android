@@ -4,7 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -17,7 +19,7 @@ import com.xebia.eventschedule.model.Speaker;
  * <p/>
  * Created by steven on 4-5-14.
  */
-public class SpeakerDetailsView extends LinearLayout {
+public class SpeakerDetailsView extends FrameLayout {
 
     private ParseImageView mPhotoView;
     private TextView mNameView;
@@ -30,15 +32,23 @@ public class SpeakerDetailsView extends LinearLayout {
 
     public SpeakerDetailsView(Context context) {
         super(context);
+        init();
     }
 
     public SpeakerDetailsView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        init();
     }
 
     @SuppressLint("NewApi")
     public SpeakerDetailsView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
+        init();
+    }
+
+    private void init() {
+        LayoutInflater.from(getContext()).inflate(R.layout.list_item_speaker, this);
+        onFinishInflate();
     }
 
     @Override

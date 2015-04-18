@@ -39,7 +39,7 @@
             android:paddingBottom="8dp"
             android:paddingLeft="8dp"
             android:paddingTop="8dp"
-            android:src="@drawable/ic_rating_not_important_light"
+            android:src="@drawable/ic_ab_favorite_unselected"
             android:visibility="gone"/>
 
     </LinearLayout>

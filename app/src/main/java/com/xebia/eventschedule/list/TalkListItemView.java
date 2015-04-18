@@ -6,7 +6,6 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -61,7 +60,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         mHighlightMarker = findViewById(R.id.highlight);
 
         // load some context-related things
-        mSpeakerPlaceholder = getResources().getDrawable(R.drawable.ic_speaker);
+        mSpeakerPlaceholder = getResources().getDrawable(R.drawable.speaker_placeholder);
         mSpeakerImage.setPlaceholder(mSpeakerPlaceholder);
         mPrimaryColor = getResources().getColor(R.color.primary);
         mTextColor = getResources().getColor(R.color.text);

@@ -7,7 +7,6 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.parse.ParseImageView;
@@ -61,7 +60,7 @@ public class SpeakerDetailsView extends FrameLayout {
         mTwitterView = (TextView) findViewById(R.id.twitter);
         mBioView = (TextView) findViewById(R.id.bio);
 
-        mPhotoView.setPlaceholder(getResources().getDrawable(R.drawable.ic_speaker));
+        mPhotoView.setPlaceholder(getResources().getDrawable(R.drawable.speaker_placeholder));
 
         mTwitterView.setOnClickListener(new OnClickListener() {
             @Override

@@ -8,7 +8,7 @@
     <android.support.v7.widget.CardView
         android:id="@+id/card_view"
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:layout_height="96dp"
         android:layout_gravity="center"
         android:layout_marginBottom="4dp"
         android:layout_marginEnd="8dp"
@@ -26,82 +26,70 @@
             <!-- SPEAKER IMAGE: left aligned, centered vertically -->
             <com.parse.ParseImageView
                 android:id="@+id/speakerimage"
-                android:layout_width="?android:attr/listPreferredItemHeight"
-                android:layout_height="?android:attr/listPreferredItemHeight"
-                android:layout_centerVertical="true"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
                 app:border="false"
                 tools:src="@drawable/ic_speaker"/>
 
-            <!-- TALK TITLE: between speaker image and favorite button -->
-            <!-- 10dp top margin to center the two info lines in the layout -->
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="10dp"
-                android:layout_toEndOf="@+id/speakerimage"
-                android:layout_toLeftOf="@+id/favorite_button"
-                android:layout_toRightOf="@+id/speakerimage"
-                android:layout_toStartOf="@+id/favorite_button"
-                android:singleLine="true"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="@color/text"
-                tools:text="Five Things You Did Not Know About Event Schedules"/>
-
-            <!-- TIME VALUE: next to time label -->
-            <!-- max 60dp wide so it does not overlap room label -->
-            <TextView
-                android:id="@+id/start_date"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/title"
-                android:layout_marginLeft="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_toEndOf="@+id/speakerimage"
-                android:layout_toRightOf="@+id/speakerimage"
-                android:singleLine="true"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/textSecondary"
-                tools:text="13:30"/>
-
-            <!-- ROOM VALUE: next to room label -->
-            <!-- left aligned with favorite button to prevent overlap -->
-            <TextView
-                android:id="@+id/room"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/title"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_toEndOf="@+id/start_date"
-                android:layout_toLeftOf="@+id/favorite_button"
-                android:layout_toRightOf="@+id/start_date"
-                android:layout_toStartOf="@+id/favorite_button"
-                android:singleLine="true"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/textSecondary"
-                tools:text="Grote zaal"/>
-
-            <!-- FAVORITE BUTTON: right aligned, centered vertically -->
-            <ImageButton
-                android:id="@+id/favorite_button"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:background="@android:color/transparent"
+                android:layout_marginEnd="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/speakerimage"
+                android:layout_toRightOf="@id/speakerimage"
+                android:layout_centerInParent="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text"
+                    tools:text="Five Things You Didn't Know About Event Scheduling"/>
+
+                <!-- TIME VALUE: next to time label -->
+                <!-- max 60dp wide so it does not overlap room label -->
+                <TextView
+                    android:id="@+id/start_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/textSecondary"
+                    tools:text="13:30"/>
+
+                <!-- ROOM VALUE: next to room label -->
+                <!-- left aligned with favorite button to prevent overlap -->
+                <TextView
+                    android:id="@+id/room"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:singleLine="true"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/textSecondary"
+                    tools:text="Grote zaal"/>
+            </LinearLayout>
+            <!-- FAVORITE BUTTON: right aligned, centered vertically -->
+            <ImageView
+                android:id="@+id/favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
                 android:contentDescription="@string/favorite"
                 android:focusable="false"
-                android:paddingBottom="8dp"
-                android:paddingEnd="16dp"
-                android:paddingRight="16dp"
-                android:paddingTop="8dp"
-                android:src="@drawable/ic_rating_not_important"/>
+                android:src="@drawable/ic_favorite_selected"/>
 
             <View
                 android:id="@+id/highlight"

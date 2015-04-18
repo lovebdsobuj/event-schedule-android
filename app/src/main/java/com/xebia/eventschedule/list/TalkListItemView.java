@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -30,7 +31,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     private TextView mStartDateView;
     private TextView mRoomView;
     private ParseImageView mSpeakerImage;
-    private ImageButton mFavoriteButton;
+    private ImageView mFavoriteButton;
     private View mHighlightMarker;
 
     private int mPrimaryColor;
@@ -56,12 +57,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         mStartDateView = (TextView) findViewById(R.id.start_date);
         mRoomView = (TextView) findViewById(R.id.room);
         mSpeakerImage = (ParseImageView) findViewById(R.id.speakerimage);
-        mFavoriteButton = (ImageButton) findViewById(R.id.favorite_button);
-        mFavoriteButton.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                toggleFavorite();
-            }
-        });
+        mFavoriteButton = (ImageView) findViewById(R.id.favorite);
         mHighlightMarker = findViewById(R.id.highlight);
 
         // load some context-related things
@@ -127,19 +123,14 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
 
     private void updateFavoriteButton(final Talk talk) {
         if (mMasterDetailMode || talk.isAlwaysFavorite()) {
-            mFavoriteButton.setVisibility(View.GONE);
-        } else {
             mFavoriteButton.setVisibility(View.VISIBLE);
-            mFavoriteButton.setImageResource(Favorites.get().contains(talk) ? R.drawable.ic_rating_important
-                    : R.drawable.ic_rating_not_important);
-            mFavoriteButton.setFocusable(false);
+        } else {
+            mFavoriteButton.setVisibility(Favorites.get().contains(talk) ? View.VISIBLE : View.GONE);
         }
     }
 
     private void updateTextViews(final Talk talk) {
-        mTitleView.setText(talk.getTags().size() > 0
-                ? talk.getTitle() + " " + talk.getTags().get(0)
-                : talk.getTitle());
+        mTitleView.setText(talk.getTitle());
 
         mStartDateView.setText(mTimeFormat.format(talk.getSlot().getStartTime()));
         mRoomView.setText(null != talk.getRoom() ? talk.getRoom().getName() : null);
@@ -149,22 +140,6 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         mTitleView.setTextColor(textColor);
         mStartDateView.setTextColor(secondaryColor);
         mRoomView.setTextColor(secondaryColor);
-    }
-
-    private void toggleFavorite() {
-        if (null == mTalk) {
-            return;
-        }
-
-        Favorites favorites = Favorites.get();
-        if (favorites.contains(mTalk)) {
-            favorites.remove(mTalk);
-            mFavoriteButton.setImageResource(R.drawable.ic_rating_not_important);
-        } else {
-            favorites.add(mTalk);
-            mFavoriteButton.setImageResource(R.drawable.ic_rating_important);
-        }
-        favorites.save(getContext());
     }
 
     public void onItemClick() {

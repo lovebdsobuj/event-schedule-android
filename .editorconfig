@@ -10,7 +10,7 @@ trim_trailing_whitespace = true
 insert_final_newline = true
 indent_style = space
 
-[*.{java}]
+[*.{java,gradle}]
 indent_size = 4
 continuation_indent_size = 4
 max_line_length = 120

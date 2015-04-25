@@ -10,31 +10,36 @@ import com.xebia.eventschedule.util.LocaleUtils;
  */
 @ParseClassName("Speaker")
 public class Speaker extends ParseObject {
-  public String getName() {
-    return getString("name");
-  }
+    public String getName() {
+        return getString("name");
+    }
 
-  public String getTitle() {
-    return getString(LocaleUtils.isDutch() ? "title_nl" : "title");
-  }
+    public String getTitle() {
+        return getString(LocaleUtils.isDutch() ? "title_nl" : "title");
+    }
 
-  public String getCompany() {
-    return getString("company");
-  }
+    public String getCompany() {
+        return getString("company");
+    }
 
-  public String getBio() {
-    return getString(LocaleUtils.isDutch() ? "bio_nl" : "bio");
-  }
-  
-  public String getPhotoURL() {
-    return getString("photoURL");
-  }
+    public String getBio() {
+        return getString(LocaleUtils.isDutch() ? "bio_nl" : "bio");
+    }
 
-  public ParseFile getPhoto() {
-    return getParseFile("photo");
-  }
+    public String getPhotoURL() {
+        return getString("photoURL");
+    }
 
-  public String getTwitter() {
-    return getString("twitter");
-  }
+    public ParseFile getPhoto() {
+        return getParseFile("photo");
+    }
+
+    public String getTwitter() {
+        return getString("twitter");
+    }
+
+    @Override
+    public String toString() {
+        return null != getName() ? getName() : "Unknown Speaker";
+    }
 }

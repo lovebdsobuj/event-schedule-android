@@ -2,6 +2,7 @@ package com.xebia.eventschedule.list;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -41,6 +42,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     private boolean mMasterDetailMode;
     private Talk mTalk;
     private Drawable mSpeakerPlaceholder;
+    private TextView mSpeakersView;
 
     public TalkListItemView(final Context context, final TalkListClickListener listener) {
         super(context);
@@ -55,18 +57,20 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         mTitleView = (TextView) findViewById(R.id.title);
         mStartDateView = (TextView) findViewById(R.id.start_date);
         mRoomView = (TextView) findViewById(R.id.room);
+        mSpeakersView = (TextView) findViewById(R.id.speakers);
         mSpeakerImage = (ParseImageView) findViewById(R.id.speakerimage);
         mFavoriteButton = (ImageView) findViewById(R.id.favorite);
         mHighlightMarker = findViewById(R.id.highlight);
 
         // load some context-related things
-        mSpeakerPlaceholder = getResources().getDrawable(R.drawable.speaker_placeholder);
-        mSpeakerImage.setPlaceholder(mSpeakerPlaceholder);
         mPrimaryColor = getResources().getColor(R.color.primary);
         mTextColor = getResources().getColor(R.color.text);
         mSecondaryColor = getResources().getColor(R.color.textSecondary);
         mTimeFormat = DateFormat.getTimeFormat(getContext());
         mMasterDetailMode = LayoutUtils.isDualPane(getContext());
+
+        mSpeakerPlaceholder = getResources().getDrawable(R.drawable.speaker_placeholder);
+        mSpeakerImage.setPlaceholder(mSpeakerPlaceholder);
 
         setOnClickListener(new OnClickListener() {
             @Override
@@ -96,13 +100,10 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     }
 
     private void updateSpeakerImage(final Talk talk) {
-        if (talk.isBreak()) {
-            mSpeakerImage.setVisibility(View.INVISIBLE);
-        } else {
-            mSpeakerImage.setVisibility(View.VISIBLE);
-            if (talk.getSpeakers() != null
-                    && !talk.getSpeakers().isEmpty()
-                    && talk.getSpeakers().get(0).getPhoto() != null) {
+        if (talk.getSpeakers() != null && !talk.getSpeakers().isEmpty()) {
+            mSpeakersView.setText(TextUtils.join(",", talk.getSpeakers()));
+            mSpeakersView.setVisibility(View.VISIBLE);
+            if (talk.getSpeakers().get(0).getPhoto() != null) {
                 mSpeakerImage.setParseFile(talk.getSpeakers().get(0).getPhoto());
                 mSpeakerImage.loadInBackground(new GetDataCallback() {
                     @Override
@@ -110,13 +111,17 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
                         if (e != null && e.getMessage() != null) {
                             mSpeakerImage.setImageDrawable(mSpeakerPlaceholder);
                             Log.w(TalkListItemView.class.getSimpleName(),
-                                    "Failed to load speaker image: " + e.getMessage());
+                                "Failed to load speaker image: " + e.getMessage());
                         }
                     }
                 });
             } else {
                 mSpeakerImage.setImageDrawable(mSpeakerPlaceholder);
             }
+        } else {
+            mSpeakersView.setText(null);
+            mSpeakersView.setVisibility(View.GONE);
+            mSpeakerImage.setImageDrawable(mSpeakerPlaceholder);
         }
     }
 
@@ -137,6 +142,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         int textColor = talk.isKeynote() ? mPrimaryColor : mTextColor;
         int secondaryColor = talk.isKeynote() ? mPrimaryColor : mSecondaryColor;
         mTitleView.setTextColor(textColor);
+        mSpeakersView.setTextColor(textColor);
         mStartDateView.setTextColor(secondaryColor);
         mRoomView.setTextColor(secondaryColor);
     }

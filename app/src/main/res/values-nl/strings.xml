@@ -24,7 +24,6 @@
     <string name="contentDescr_logo">logo</string>
     <string-array name="nav_items">
         <item>Programma</item>
-        <item>Favorieten</item>
         <item>Event Informatie</item>
         <item>Wettelijk</item>
     </string-array>

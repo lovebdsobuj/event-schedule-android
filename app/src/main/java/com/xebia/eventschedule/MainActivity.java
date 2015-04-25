@@ -45,15 +45,14 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     private static final String INST_ST_FILTER_MENU_TAG = "FilterMenuTag";
     private static final int DRAWER_CLOSE_DELAY_MS = 250;
     public static final int NAV_ITEM_SCHEDULE = 0;
-    public static final int NAV_ITEM_FAVORITES = 1;
-    public static final int NAV_ITEM_EVENT_DETAILS = 2;
-    public static final int NAV_ITEM_LEGAL = 3;
+    public static final int NAV_ITEM_EVENT_DETAILS = 1;
+    public static final int NAV_ITEM_LEGAL = 2;
 
     private ActionBarDrawerToggle mDrawerToggle;
     private TalkListFragment mTalkListFragment;
     private DrawerLayout mDrawerLayout;
     private Handler mDrawerActionHandler;
-    private int mNavPosition = 0;
+    private int mNavPosition = NAV_ITEM_SCHEDULE;
     private NavListAdapter<String> mNavListAdapter;
     private Toolbar mToolbar;
     private MenuItem mFilterItemMenu;
@@ -133,12 +132,7 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     private void navigate(final int position) {
         switch (position) {
             case NAV_ITEM_SCHEDULE:
-                mTalkListFragment.setFilteringDisabled();
-                mNavPosition = position;
-                break;
-            case NAV_ITEM_FAVORITES:
-                mTalkListFragment.setFilterFavourites();
-                mNavPosition = position;
+                // nothing to do
                 break;
             case NAV_ITEM_EVENT_DETAILS:
                 startActivity(new Intent(this, EventDetailsActivity.class));

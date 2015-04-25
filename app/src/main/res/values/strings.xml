@@ -24,7 +24,6 @@
     <string name="contentDescr_logo">logo</string>
     <string-array name="nav_items">
         <item>Schedule</item>
-        <item>Favorites</item>
         <item>Event Info</item>
         <item>Legal</item>
     </string-array>

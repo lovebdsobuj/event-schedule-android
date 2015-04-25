@@ -199,11 +199,6 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             mFilterMenuSelectedTag = null;
         } else {
             List<String> tagsOrdered = getUniqueTalkTagsSorted(talks);
-            if (tagsOrdered.isEmpty()) {
-                mFilterMenuSelectedId = 0;
-                mFilterMenuSelectedTag = null;
-                return;
-            }
             final MenuItem selectAll = mFilterItemSubMenu.add(R.id.menu_filter_group,
                     R.id.menu_filter_item_everything, 0, R.string.menu_filter_everything);
             selectAll.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_everything

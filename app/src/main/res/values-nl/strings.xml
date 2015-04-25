@@ -28,6 +28,6 @@
         <item>Wettelijk</item>
     </string-array>
     <string name="menu_filter">Filter</string>
-    <string name="menu_filter_everything">Alle tags</string>
-    <string name="menu_filter_favourites">Favoriten</string>
+    <string name="menu_filter_everything">Alle Tracks</string>
+    <string name="menu_filter_favourites">Favorieten</string>
 </resources>

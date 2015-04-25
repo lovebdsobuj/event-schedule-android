@@ -122,7 +122,6 @@ public class TalkListFragment extends Fragment implements Favorites.Listener {
     @Override
     public void onFavoriteAdded(Talk talk) {
         if (mAdapter != null) {
-            mAdapter.setFilterFavourites();
             mAdapter.notifyDataSetChanged();
         }
     }
@@ -130,7 +129,6 @@ public class TalkListFragment extends Fragment implements Favorites.Listener {
     @Override
     public void onFavoriteRemoved(Talk talk) {
         if (mAdapter != null) {
-            mAdapter.setFilterFavourites();
             mAdapter.notifyDataSetChanged();
         }
     }

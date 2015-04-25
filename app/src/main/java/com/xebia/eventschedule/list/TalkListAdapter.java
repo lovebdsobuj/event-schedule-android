@@ -2,11 +2,11 @@ package com.xebia.eventschedule.list;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.ViewGroup;
 
+import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Talk;
 
 import java.util.ArrayList;
@@ -118,7 +118,7 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
             }
         } else if (mFilterMode == FilterMode.FAVOURITES) {
             for (Talk talk : mAllData) {
-                if (talk.isAlwaysFavorite() || talk.isHighlighted()) {
+                if (talk.isAlwaysFavorite() || Favorites.get().contains(talk)) {
                     mFilteredData.add(talk);
                 }
             }

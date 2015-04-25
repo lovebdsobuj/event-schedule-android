@@ -175,10 +175,18 @@ public class Talk extends ParseObject {
         return "keynote".equalsIgnoreCase(getString("type"));
     }
 
+    /**
+     * Keeps track of the selected talk in the list of talks. Only useful in tablets with master/detail layout.
+     *
+     * @return <code>true</code> if the talk is currently selected
+     */
     public boolean isHighlighted() {
         return mHighlighted;
     }
 
+    /**
+     * Marks the talk as currently selected in the list of talks. Only useful in tablets with master/detail layout.
+     */
     public void setHighlighted(boolean highlighted) {
         mHighlighted = highlighted;
     }

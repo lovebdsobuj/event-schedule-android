@@ -34,11 +34,11 @@ public class Talk extends ParseObject {
      * Creates a query for talks with all the includes and cache policy set.
      */
     private static ParseQuery<Talk> createQuery() {
-        ParseQuery<Talk> query = new ParseQuery<Talk>(Talk.class);
+        ParseQuery<Talk> query = new ParseQuery<>(Talk.class);
         query.include("speakers");
         query.include("room");
         query.include("slot");
-        //query.include("event");
+        query.include("event");
         query.setCachePolicy(CachePolicy.CACHE_THEN_NETWORK);
         return query;
     }
@@ -113,18 +113,18 @@ public class Talk extends ParseObject {
 
     public String getTitle() {
         Map<String, String> titleMap = getMap("title");
-        String localizedTitle = LocaleUtils.isDutch() ? titleMap.get("nl") : titleMap.get("en");
+        String localizedTitle = titleMap.get(LocaleUtils.getLocaleLabel(getEvent()));
         if (null == localizedTitle) {
-            localizedTitle = titleMap.get("en") != null ? titleMap.get("en") : "";
+            localizedTitle = "";
         }
         return localizedTitle;
     }
 
     public String getAbstract() {
         Map<String, String> abstractMap = getMap("abstract");
-        String localizedAbstract = LocaleUtils.isDutch() ? abstractMap.get("nl") : abstractMap.get("en");
+        String localizedAbstract = abstractMap.get(LocaleUtils.getLocaleLabel(getEvent()));
         if (null == localizedAbstract) {
-            localizedAbstract = abstractMap.get("en") != null ? abstractMap.get("en") : "";
+            localizedAbstract = "";
         }
         return localizedAbstract;
     }
@@ -146,8 +146,7 @@ public class Talk extends ParseObject {
         try {
             JSONObject tags = getJSONObject("tags");
             if (null != tags) {
-                JSONArray localizedTags = LocaleUtils.isDutch()
-                        ? tags.getJSONArray("nl") : tags.getJSONArray("en");
+                JSONArray localizedTags = tags.getJSONArray(LocaleUtils.getLocaleLabel(getEvent()));
                 for (int i = 0; i < localizedTags.length(); i++) {
                     results.add(localizedTags.getString(i));
                 }
@@ -156,6 +155,10 @@ public class Talk extends ParseObject {
             Log.d(TAG, "Could not parse list of tags", e);
         }
         return results;
+    }
+
+    public Event getEvent() {
+        return (Event) get("event");
     }
 
     /**

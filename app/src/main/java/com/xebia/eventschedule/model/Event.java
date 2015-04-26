@@ -1,6 +1,8 @@
 package com.xebia.eventschedule.model;
 
 
+import android.util.Log;
+
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseClassName;
@@ -8,9 +10,18 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Model for a conference event.
+ *
+ * Contains both information about the event itself (name, location) and about the event dataset (languages, colors).
+ */
 @ParseClassName("Event")
 public class Event extends ParseObject implements Serializable {
 
@@ -44,17 +55,17 @@ public class Event extends ParseObject implements Serializable {
     }
 
     /**
-     * Creates a query for talks with all the includes and cache policy set.
+     * Creates a query for event with all the includes and cache policy set.
      */
     private static ParseQuery<Event> createQuery() {
-        ParseQuery<Event> query = new ParseQuery<Event>(Event.class);
+        ParseQuery<Event> query = new ParseQuery<>(Event.class);
         query.setCachePolicy(ParseQuery.CachePolicy.CACHE_THEN_NETWORK);
         query.include("location");
         return query;
     }
 
     /**
-     * Gets the data for a single talk. We use this instead of calling fetch on a ParseObject so that
+     * Gets the data for a single event. We use this instead of calling fetch on a ParseObject so that
      * we can use query cache if possible.
      */
     public static void getInBackground(final String objectId, final GetCallback<Event> callback) {
@@ -67,7 +78,7 @@ public class Event extends ParseObject implements Serializable {
                     // Emulate the behavior of getFirstInBackground by using only the first result.
                     if (objects.size() < 1) {
                         callback.done(null, new ParseException(ParseException.OBJECT_NOT_FOUND,
-                                "No event with id " + objectId + " was found."));
+                            "No event with id " + objectId + " was found."));
                     } else {
                         callback.done(objects.get(0), e);
                     }
@@ -96,5 +107,20 @@ public class Event extends ParseObject implements Serializable {
 
     public String getId() {
         return getObjectId();
+    }
+
+    public List<String> getLanguages() {
+        List<String> results = new ArrayList<>();
+        try {
+            JSONArray languages = getJSONArray("languages");
+            if (null != languages) {
+                for (int i = 0; i < languages.length(); i++) {
+                    results.add(languages.getString(i));
+                }
+            }
+        } catch (JSONException e) {
+            Log.d("Event", "Could not parse list of languages", e);
+        }
+        return results;
     }
 }

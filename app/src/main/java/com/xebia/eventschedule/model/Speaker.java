@@ -3,7 +3,6 @@ package com.xebia.eventschedule.model;
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
-import com.xebia.eventschedule.util.LocaleUtils;
 
 /**
  * A person speaking in a talk.
@@ -15,7 +14,7 @@ public class Speaker extends ParseObject {
     }
 
     public String getTitle() {
-        return getString(LocaleUtils.isDutch() ? "title_nl" : "title");
+        return getString("title");
     }
 
     public String getCompany() {
@@ -23,7 +22,7 @@ public class Speaker extends ParseObject {
     }
 
     public String getBio() {
-        return getString(LocaleUtils.isDutch() ? "bio_nl" : "bio");
+        return getString("bio");
     }
 
     public String getPhotoURL() {

@@ -101,7 +101,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
 
     private void updateSpeakerImage(final Talk talk) {
         if (talk.getSpeakers() != null && !talk.getSpeakers().isEmpty()) {
-            mSpeakersView.setText(TextUtils.join(",", talk.getSpeakers()));
+            mSpeakersView.setText(TextUtils.join(", ", talk.getSpeakers()));
             mSpeakersView.setVisibility(View.VISIBLE);
             if (talk.getSpeakers().get(0).getPhoto() != null) {
                 mSpeakerImage.setParseFile(talk.getSpeakers().get(0).getPhoto());

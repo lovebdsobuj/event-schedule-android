@@ -77,11 +77,11 @@ public class TalkListFragment extends Fragment implements Favorites.Listener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.talk_list, container, false);
-        RecyclerView mRecyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
+        RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new TalkListAdapter(mListener);
-        mRecyclerView.setAdapter(mAdapter);
+        recyclerView.setAdapter(mAdapter);
         if (savedInstanceState != null) {
             mAdapter.onRestoreInstanceState(savedInstanceState);
         }

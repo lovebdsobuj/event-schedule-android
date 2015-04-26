@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.xebia.eventschedule.model.Favorites;
@@ -27,6 +28,7 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
     private final TalkListClickListener mListener;
     private FilterMode mFilterMode = FilterMode.NO_FILTERING;
     private String mFilterTag;
+    private int mHighlightPosition = 0;
 
     public TalkListAdapter(final TalkListClickListener listener) {
         mListener = listener;
@@ -38,10 +40,10 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
     public TalkViewHolder onCreateViewHolder(final ViewGroup parent, final int viewType) {
         switch (viewType) {
             case BREAK_TYPE:
-                BreakListItemView breakView = new BreakListItemView(parent.getContext(), mListener);
+                BreakListItemView breakView = new BreakListItemView(parent.getContext());
                 return new TalkViewHolder(breakView);
             case TALK_TYPE:
-                TalkListItemView talkView = new TalkListItemView(parent.getContext(), mListener);
+                TalkListItemView talkView = new TalkListItemView(parent.getContext());
                 return new TalkViewHolder(talkView);
             default:
                 Log.d(TAG, "Could not create view holder");
@@ -52,6 +54,19 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
     @Override
     public void onBindViewHolder(final TalkViewHolder holder, final int position) {
         holder.setTalk(mFilteredData.get(position));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mFilteredData.get(position).setHighlighted(true);
+                notifyItemChanged(position);
+
+                mFilteredData.get(mHighlightPosition).setHighlighted(false);
+                notifyItemChanged(mHighlightPosition);
+                mHighlightPosition = position;
+
+                mListener.onTalkClick(mFilteredData.get(position));
+            }
+        });
     }
 
     @Override

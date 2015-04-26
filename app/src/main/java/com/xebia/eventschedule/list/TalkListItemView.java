@@ -1,9 +1,13 @@
 package com.xebia.eventschedule.list;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.v4.content.res.ResourcesCompat;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +30,6 @@ import com.xebia.eventschedule.util.LayoutUtils;
  */
 public class TalkListItemView extends RelativeLayout implements ScheduleListItemView {
 
-    private final TalkListClickListener mListener;
     private TextView mTitleView;
     private TextView mStartDateView;
     private TextView mRoomView;
@@ -44,10 +47,30 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     private Drawable mSpeakerPlaceholder;
     private TextView mSpeakersView;
 
-    public TalkListItemView(final Context context, final TalkListClickListener listener) {
+    public TalkListItemView(final Context context) {
         super(context);
-        mListener = listener;
-        LayoutInflater.from(context).inflate(R.layout.list_item_talk, this);
+        initialize();
+    }
+
+    public TalkListItemView(final Context context, final AttributeSet attrs) {
+        super(context, attrs);
+        initialize();
+    }
+
+    public TalkListItemView(final Context context, final AttributeSet attrs, final int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        initialize();
+    }
+
+    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+    public TalkListItemView(final Context context, final AttributeSet attrs, final int defStyleAttr,
+                            final int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        initialize();
+    }
+
+    private void initialize() {
+        LayoutInflater.from(getContext()).inflate(R.layout.list_item_talk, this);
         onFinishInflate();
     }
 
@@ -69,15 +92,8 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         mTimeFormat = DateFormat.getTimeFormat(getContext());
         mMasterDetailMode = LayoutUtils.isDualPane(getContext());
 
-        mSpeakerPlaceholder = getResources().getDrawable(R.drawable.speaker_placeholder);
+        mSpeakerPlaceholder = ResourcesCompat.getDrawable(getResources(), R.drawable.speaker_placeholder, null);
         mSpeakerImage.setPlaceholder(mSpeakerPlaceholder);
-
-        setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onItemClick();
-            }
-        });
     }
 
     @Override
@@ -86,12 +102,6 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         updateTextViews(talk);
         updateFavoriteButton(talk);
         updateSpeakerImage(talk);
-        updateHighlight();
-    }
-
-    @Override
-    public void setHighlighted(boolean selected) {
-        mTalk.setHighlighted(selected);
         updateHighlight();
     }
 
@@ -145,12 +155,5 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         mSpeakersView.setTextColor(textColor);
         mStartDateView.setTextColor(secondaryColor);
         mRoomView.setTextColor(secondaryColor);
-    }
-
-    public void onItemClick() {
-        setHighlighted(true);
-        if (null != mListener) {
-            mListener.onTalkClick(mTalk);
-        }
     }
 }

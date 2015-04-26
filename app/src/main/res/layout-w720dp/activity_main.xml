@@ -21,20 +21,27 @@
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:minHeight="?attr/actionBarSize"
                 android:background="?attr/colorPrimary"
-                app:titleTextAppearance="@style/Theme.EventSchedule.Toolbar.Title"
-                app:theme="@style/Theme.EventSchedule.Toolbar"/>
+                android:minHeight="?attr/actionBarSize"
+                app:theme="@style/Theme.EventSchedule.Toolbar"
+                app:titleTextAppearance="@style/Theme.EventSchedule.Toolbar.Title"/>
 
             <FrameLayout
                 android:id="@+id/schedule_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/toolbar"
-                android:layout_alignParentBottom="true"/>
+                android:layout_alignParentBottom="true"
+                android:layout_below="@+id/toolbar"/>
+
+            <ProgressBar
+                android:id="@+id/loading_indicator"
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"/>
         </RelativeLayout>
 
         <fragment

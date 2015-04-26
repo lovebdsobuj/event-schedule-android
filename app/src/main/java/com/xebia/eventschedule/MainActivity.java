@@ -59,6 +59,7 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     private SubMenu mFilterItemSubMenu;
     private int mFilterMenuSelectedId;
     private String mFilterMenuSelectedTag;
+    private View mLoadingIndicator;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -85,6 +86,9 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             mFilterMenuSelectedTag = savedInstanceState.getString(INST_ST_FILTER_MENU_TAG);
         }
         navigate(NAV_ITEM_SCHEDULE);
+
+        mLoadingIndicator = findViewById(R.id.loading_indicator);
+        setLoadingIndicatorVisibility(true);
     }
 
     @Override
@@ -185,6 +189,8 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
 
     @Override
     public void onTalksLoaded(@NonNull List<Talk> talks) {
+        setLoadingIndicatorVisibility(false);
+
         if (mFilterItemSubMenu == null) {
             // TODO aargh! We can NPE here when you rotate the screen. That's really awkward and we should fix it.
             if (BuildConfig.DEBUG) {
@@ -251,6 +257,10 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     protected void onResume() {
         super.onResume();
         mNavListAdapter.setHighlight(mNavPosition);
+    }
+
+    private void setLoadingIndicatorVisibility(boolean visible) {
+        mLoadingIndicator.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
     /**

@@ -171,7 +171,9 @@ public class Talk extends ParseObject {
     }
 
     public boolean isBreak() {
-        return "break".equalsIgnoreCase(getString("type"));
+        return "break".equalsIgnoreCase(getString("type"))
+            || "lunch".equalsIgnoreCase(getString("type"))
+            || "registration".equalsIgnoreCase(getString("type"));
     }
 
     public boolean isKeynote() {

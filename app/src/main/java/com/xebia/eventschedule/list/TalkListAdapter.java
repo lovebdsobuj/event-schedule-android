@@ -8,10 +8,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.xebia.eventschedule.model.Favorites;
+import com.xebia.eventschedule.model.Slot;
 import com.xebia.eventschedule.model.Talk;
 
 import java.util.ArrayList;
+import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * An ArrayAdapter to handle a list of Talks.
@@ -125,6 +128,20 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
 
     private void updateFilteredData() {
         mFilteredData.clear();
+        Map<Slot, MutableInt> slotCount = new IdentityHashMap<>();
+        int maxTalksPerSlot = 0;
+        for (Talk talk : mAllData) {
+            Slot slot = talk.getSlot();
+            MutableInt mi = slotCount.get(slot);
+            if (mi == null) {
+                mi = new MutableInt(1);
+                slotCount.put(slot, mi);
+            } else {
+                mi.value += 1;
+            }
+            maxTalksPerSlot = Math.max(maxTalksPerSlot, mi.value);
+        }
+        android.util.Log.i("TalkListAdapter", "Biggest slot (#talks): " + maxTalksPerSlot);
         if (mFilterMode == FilterMode.BY_TAG) {
             for (Talk talk : mAllData) {
                 if (talk.getTags().contains(mFilterTag)) {
@@ -153,4 +170,12 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
     }
 
     private enum FilterMode { NO_FILTERING, FAVOURITES, BY_TAG }
+
+    public static final class MutableInt {
+        public int value;
+
+        public MutableInt(int value) {
+            this.value = value;
+        }
+    }
 }

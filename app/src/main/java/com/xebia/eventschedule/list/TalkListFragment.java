@@ -1,11 +1,14 @@
 package com.xebia.eventschedule.list;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,14 +81,26 @@ public class TalkListFragment extends Fragment implements Favorites.Listener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.talk_list, container, false);
         RecyclerView recyclerView = (RecyclerView) rootView.findViewById(R.id.my_recycler_view);
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this.getActivity());
-        recyclerView.setLayoutManager(mLayoutManager);
+        RecyclerView.LayoutManager layoutManager = createLayoutManager(getActivity(), recyclerView);
+        recyclerView.setLayoutManager(layoutManager);
         mAdapter = new TalkListAdapter(mListener);
         recyclerView.setAdapter(mAdapter);
         if (savedInstanceState != null) {
             mAdapter.onRestoreInstanceState(savedInstanceState);
         }
         return rootView;
+    }
+
+    private static RecyclerView.LayoutManager createLayoutManager(final Context context, final RecyclerView parent) {
+        final int numColumns = 4;//context.getResources().getInteger(R.integer.talk_list_max_columns);
+        android.util.Log.d("TalkListFragment", "numColumns: " + numColumns);
+        if (numColumns <= 1) {
+            return new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+        } else {
+            GridLayoutManager glm = new GridLayoutManager(context, numColumns, GridLayoutManager.VERTICAL, false);
+            glm.setSpanSizeLookup(new TrackListSpanSizeLookup(parent, numColumns));
+            return glm;
+        }
     }
 
     @Override

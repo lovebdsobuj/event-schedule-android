@@ -8,6 +8,7 @@ import com.xebia.eventschedule.model.Talk;
 public class TalkViewHolder extends RecyclerView.ViewHolder {
 
     private final ScheduleListItemView mItemView;
+    private Talk mTalk;
 
     public TalkViewHolder(final ScheduleListItemView itemView) {
         super((View) itemView);
@@ -15,6 +16,11 @@ public class TalkViewHolder extends RecyclerView.ViewHolder {
     }
 
     public void setTalk(final Talk talk) {
+        mTalk = talk;
         mItemView.showTalk(talk);
+    }
+
+    public boolean isPlenary() {
+        return mTalk.isBreak() || mTalk.isKeynote();
     }
 }

@@ -24,17 +24,13 @@ import com.xebia.eventschedule.eventdetails.EventDetailsActivity;
 import com.xebia.eventschedule.legal.LegalActivity;
 import com.xebia.eventschedule.list.TalkListClickListener;
 import com.xebia.eventschedule.list.TalkListFragment;
+import com.xebia.eventschedule.model.Tags;
 import com.xebia.eventschedule.model.Talk;
 import com.xebia.eventschedule.util.BaseEventScheduleApp;
 import com.xebia.eventschedule.util.CalligraphyActivity;
 import com.xebia.eventschedule.util.LayoutUtils;
 
-import java.text.Collator;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * The main activity shows the list of talks, and gives access to the supplementary activities of
@@ -204,7 +200,7 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             mFilterMenuSelectedId = 0;
             mFilterMenuSelectedTag = null;
         } else {
-            List<String> tagsOrdered = getUniqueTalkTagsSorted(talks);
+            List<String> tagsOrdered = Tags.init(this, talks).getTagLabels();
             final MenuItem selectAll = mFilterItemSubMenu.add(R.id.menu_filter_group,
                     R.id.menu_filter_item_everything, 0, R.string.menu_filter_everything);
             selectAll.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_everything
@@ -261,26 +257,5 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
 
     private void setLoadingIndicatorVisibility(boolean visible) {
         mLoadingIndicator.setVisibility(visible ? View.VISIBLE : View.GONE);
-    }
-
-    /**
-     * Obtains the unique tags of the given Talks and returns them in lexical ordering by the default locale.
-     *
-     * @param talks the talks from which to obtain the tags.
-     * @return the unique tags in lexical order. This list may be the immutable.
-     */
-    @NonNull
-    private static List<String> getUniqueTalkTagsSorted(@NonNull List<Talk> talks) {
-        final Set<String> tagsUnique = new HashSet<>();
-        for (Talk talk : talks) {
-            tagsUnique.addAll(talk.getTags());
-        }
-        if (tagsUnique.isEmpty()) {
-            Log.d("TagFilterMenuBuilder", "There were no tags on any talk");
-            return Collections.emptyList();
-        }
-        final List<String> tagsOrdered = new ArrayList<>(tagsUnique);
-        Collections.sort(tagsOrdered, Collator.getInstance());
-        return tagsOrdered;
     }
 }

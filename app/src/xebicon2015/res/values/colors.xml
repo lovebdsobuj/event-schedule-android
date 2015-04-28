@@ -5,6 +5,9 @@
     <color name="xebicon_yellow">#ffe3b008</color>
     <color name="xebicon_purple">#ff611c4b</color>
     <color name="xebicon_purpleLight">#ff752c5e</color>
+    <color name="xebicon_blue">#ff15a89c</color>
+    <color name="xebicon_grey">#ff3b3b3a</color>
+    <color name="xebicon_greyLight">#ffa6a7a6</color>
 
     <!-- Material Theme colors -->
     <color name="primary">@color/xebicon_purpleLight</color>

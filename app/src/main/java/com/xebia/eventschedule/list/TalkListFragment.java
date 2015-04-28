@@ -95,7 +95,7 @@ public class TalkListFragment extends Fragment implements Favorites.Listener {
     }
 
     /**
-     * Adds all of the talks to the adapter, skipping any that were not favorited, if favoritesOnly is true.
+     * Adds all of the talks to the adapter
      *
      * @param talks List of loaded talks
      */

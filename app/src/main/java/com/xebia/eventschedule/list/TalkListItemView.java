@@ -1,9 +1,7 @@
 package com.xebia.eventschedule.list;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
 import android.support.v4.content.res.ResourcesCompat;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
@@ -20,12 +18,13 @@ import com.parse.ParseException;
 import com.parse.ParseImageView;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Favorites;
+import com.xebia.eventschedule.model.Tags;
 import com.xebia.eventschedule.model.Talk;
 import com.xebia.eventschedule.util.LayoutUtils;
 
 /**
  * View group for talk list items. Lets me have my cake and eat it too.
- *
+ * <p/>
  * Created by steven on 21-4-14.
  */
 public class TalkListItemView extends RelativeLayout implements ScheduleListItemView {
@@ -33,6 +32,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     private TextView mTitleView;
     private TextView mStartDateView;
     private TextView mRoomView;
+    private View mTagView;
     private ParseImageView mSpeakerImage;
     private ImageView mFavoriteButton;
     private View mHighlightMarker;
@@ -62,13 +62,6 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         initialize();
     }
 
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public TalkListItemView(final Context context, final AttributeSet attrs, final int defStyleAttr,
-                            final int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        initialize();
-    }
-
     private void initialize() {
         LayoutInflater.from(getContext()).inflate(R.layout.list_item_talk, this);
         onFinishInflate();
@@ -81,6 +74,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         mStartDateView = (TextView) findViewById(R.id.start_date);
         mRoomView = (TextView) findViewById(R.id.room);
         mSpeakersView = (TextView) findViewById(R.id.speakers);
+        mTagView = findViewById(R.id.tag);
         mSpeakerImage = (ParseImageView) findViewById(R.id.speakerimage);
         mFavoriteButton = (ImageView) findViewById(R.id.favorite);
         mHighlightMarker = findViewById(R.id.highlight);
@@ -103,6 +97,13 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         updateFavoriteButton(talk);
         updateSpeakerImage(talk);
         updateHighlight();
+
+        if (null != talk.getTags() && talk.getTags().size() > 0) {
+            mTagView.setVisibility(View.VISIBLE);
+            mTagView.setBackgroundColor(Tags.get().getTagColor(talk.getTags().get(0)));
+        } else {
+            mTagView.setVisibility(View.GONE);
+        }
     }
 
     private void updateHighlight() {
@@ -136,7 +137,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     }
 
     private void updateFavoriteButton(final Talk talk) {
-        if (mMasterDetailMode || talk.isAlwaysFavorite()) {
+        if (talk.isAlwaysFavorite()) {
             mFavoriteButton.setVisibility(View.VISIBLE);
         } else {
             mFavoriteButton.setVisibility(Favorites.get().contains(talk) ? View.VISIBLE : View.GONE);

@@ -26,6 +26,7 @@
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:gravity="center_vertical"
+            android:lineSpacingMultiplier="1.2"
             android:textAppearance="?android:attr/textAppearanceLargeInverse"
             tools:text="Five Things You Did Not Know About Event Schedules"/>
 

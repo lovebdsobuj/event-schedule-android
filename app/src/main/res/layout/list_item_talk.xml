@@ -52,10 +52,12 @@
                     android:id="@+id/title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="-4dp"
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/text"
+                    android:lineSpacingMultiplier="1.2"
                     tools:text="Five Things You Didn't Know About Event Scheduling"/>
 
                 <TextView

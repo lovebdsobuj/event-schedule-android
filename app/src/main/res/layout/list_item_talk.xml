@@ -41,7 +41,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 app:elevation="2dp"
-                android:background="@color/xebicon_blue"/>
+                android:background="@color/grey_500"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"

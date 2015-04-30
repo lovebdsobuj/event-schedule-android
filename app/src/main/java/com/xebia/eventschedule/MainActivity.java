@@ -2,16 +2,15 @@ package com.xebia.eventschedule;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -29,6 +28,7 @@ import com.xebia.eventschedule.list.TalkListClickListener;
 import com.xebia.eventschedule.list.TalkListFragment;
 import com.xebia.eventschedule.model.Tags;
 import com.xebia.eventschedule.model.Talk;
+import com.xebia.eventschedule.util.AccentColorSpan;
 import com.xebia.eventschedule.util.BaseEventScheduleApp;
 import com.xebia.eventschedule.util.CalligraphyActivity;
 import com.xebia.eventschedule.util.LayoutUtils;
@@ -211,22 +211,16 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             final MenuItem selectFavs = mFilterItemSubMenu.add(R.id.menu_filter_group,
                     R.id.menu_filter_item_favourites, 0, R.string.menu_filter_favourites);
             selectFavs.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_favourites);
+            final int colorBlipMarginRight = getResources().getDimensionPixelSize(R.dimen.menu_colorbadge_marginRight);
+            final int colorBlipWidth = getResources().getDimensionPixelSize(R.dimen.menu_colorbadge_width);
             for (String title : tagsOrdered) {
-                final MenuItem item = mFilterItemSubMenu.add(R.id.menu_filter_group, 0, 0, title);
+                final int color = Tags.get().getTagColor(title);
+                final AccentColorSpan colorBlip = new AccentColorSpan(color, colorBlipWidth, colorBlipMarginRight);
+                final SpannableString menuTitle = new SpannableString(title);
+                menuTitle.setSpan(colorBlip, 0, title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                final MenuItem item = mFilterItemSubMenu.add(R.id.menu_filter_group, 0, 0, menuTitle);
                 item.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_any_tag
                     && mFilterMenuSelectedTag != null && mFilterMenuSelectedTag.equals(title));
-
-                // Use drawable tinting to correlate the filter entry to the card color.
-                //
-                // Sticking an icon on the menu item proves the concept, but it clearly does not
-                // work aesthetically. What we should do is create an ActionProvider class that
-                // creates a view widget for each menu item with a tasteful, tinted ribbon set
-                // along the left side.
-                Drawable icon = DrawableCompat.wrap(
-                    ResourcesCompat.getDrawable(getResources(), R.drawable.ic_ab_filter, null)
-                        .mutate());
-                DrawableCompat.setTint(icon, Tags.get().getTagColor(title));
-                item.setIcon(icon);
             }
             mFilterItemSubMenu.setGroupCheckable(R.id.menu_filter_group, true, true);
             mFilterItemMenu.setVisible(true);

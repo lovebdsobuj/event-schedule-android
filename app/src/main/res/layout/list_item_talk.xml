@@ -119,7 +119,7 @@
                 android:src="@drawable/ic_favorite_selected"/>
 
             <View
-                android:id="@+id/highlight"
+                android:id="@+id/selection_indicator"
                 android:layout_width="8dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentEnd="true"

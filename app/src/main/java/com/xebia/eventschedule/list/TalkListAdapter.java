@@ -28,7 +28,7 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
     private final TalkListClickListener mListener;
     private FilterMode mFilterMode = FilterMode.NO_FILTERING;
     private String mFilterTag;
-    private Talk mHighlightedTalk;
+    private Talk mSelectedTalk;
 
     public TalkListAdapter(final TalkListClickListener listener) {
         mListener = listener;
@@ -57,18 +57,20 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mFilteredData.get(position).setHighlighted(true);
+                final Talk clicked = mFilteredData.get(position);
+
+                clicked.setSelected(true);
                 notifyItemChanged(position);
 
-                if (null != mHighlightedTalk) {
-                    mHighlightedTalk.setHighlighted(false);
-                    if (mFilteredData.contains(mHighlightedTalk)) {
-                        notifyItemChanged(mFilteredData.indexOf(mHighlightedTalk));
+                if (null != mSelectedTalk) {
+                    mSelectedTalk.setSelected(false);
+                    if (mFilteredData.contains(mSelectedTalk)) {
+                        notifyItemChanged(mFilteredData.indexOf(mSelectedTalk));
                     }
                 }
-                mHighlightedTalk = mFilteredData.get(position);
+                mSelectedTalk = clicked;
 
-                mListener.onTalkClick(mFilteredData.get(position));
+                mListener.onTalkClick(clicked);
             }
         });
     }

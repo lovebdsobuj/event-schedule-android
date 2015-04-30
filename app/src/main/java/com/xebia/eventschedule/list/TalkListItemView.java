@@ -24,7 +24,7 @@ import com.xebia.eventschedule.util.LayoutUtils;
 
 /**
  * View group for talk list items. Lets me have my cake and eat it too.
- * <p/>
+ *
  * Created by steven on 21-4-14.
  */
 public class TalkListItemView extends RelativeLayout implements ScheduleListItemView {
@@ -35,7 +35,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     private View mTagView;
     private ParseImageView mSpeakerImage;
     private ImageView mFavoriteButton;
-    private View mHighlightMarker;
+    private View mSelectionIndicator;
 
     private int mPrimaryColor;
     private int mTextColor;
@@ -46,6 +46,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     private Talk mTalk;
     private Drawable mSpeakerPlaceholder;
     private TextView mSpeakersView;
+    private int mAccentColor;
 
     public TalkListItemView(final Context context) {
         super(context);
@@ -77,12 +78,13 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         mTagView = findViewById(R.id.tag);
         mSpeakerImage = (ParseImageView) findViewById(R.id.speakerimage);
         mFavoriteButton = (ImageView) findViewById(R.id.favorite);
-        mHighlightMarker = findViewById(R.id.highlight);
+        mSelectionIndicator = findViewById(R.id.selection_indicator);
 
         // load some context-related things
         mPrimaryColor = getResources().getColor(R.color.primary);
         mTextColor = getResources().getColor(R.color.text);
         mSecondaryColor = getResources().getColor(R.color.textSecondary);
+        mAccentColor = getResources().getColor(R.color.accent);
         mTimeFormat = DateFormat.getTimeFormat(getContext());
         mMasterDetailMode = LayoutUtils.isDualPane(getContext());
 
@@ -96,7 +98,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         updateTextViews(talk);
         updateFavoriteButton(talk);
         updateSpeakerImage(talk);
-        updateHighlight();
+        updateSelectionIndicator();
 
         if (null != talk.getTags() && talk.getTags().size() > 0) {
             mTagView.setVisibility(View.VISIBLE);
@@ -106,8 +108,15 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         }
     }
 
-    private void updateHighlight() {
-        mHighlightMarker.setVisibility(mMasterDetailMode && mTalk.isHighlighted() ? View.VISIBLE : View.GONE);
+    private void updateSelectionIndicator() {
+        if (mMasterDetailMode) {
+            mSelectionIndicator.setVisibility(mTalk.isSelected() ? View.VISIBLE : View.GONE);
+        }
+        if (null != mTalk.getTags() && mTalk.getTags().size() > 0) {
+            mSelectionIndicator.setBackgroundColor(Tags.get().getTagColor(mTalk.getTags().get(0)));
+        } else {
+            mSelectionIndicator.setBackgroundColor(mAccentColor);
+        }
     }
 
     private void updateSpeakerImage(final Talk talk) {

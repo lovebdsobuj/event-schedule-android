@@ -28,7 +28,7 @@ import java.util.Map;
 public class Talk extends ParseObject {
 
     private static final String TAG = "Talk";
-    private boolean mHighlighted;
+    private boolean mSelected;
 
     /**
      * Creates a query for talks with all the includes and cache policy set.
@@ -186,15 +186,15 @@ public class Talk extends ParseObject {
      *
      * @return <code>true</code> if the talk is currently selected
      */
-    public boolean isHighlighted() {
-        return mHighlighted;
+    public boolean isSelected() {
+        return mSelected;
     }
 
     /**
      * Marks the talk as currently selected in the list of talks. Only useful in tablets with master/detail layout.
      */
-    public void setHighlighted(boolean highlighted) {
-        mHighlighted = highlighted;
+    public void setSelected(boolean selected) {
+        mSelected = selected;
     }
 
     /**

@@ -76,18 +76,33 @@ public class SpeakerDetailsView extends FrameLayout {
         mPhotoView.setParseFile(speaker.getPhoto());
         mPhotoView.loadInBackground();
         mNameView.setText(speaker.getName());
-        mTitleView.setText(speaker.getTitle());
-        mCompanyView.setText(speaker.getCompany());
 
-        if (TextUtils.isEmpty(speaker.getTwitter())) {
-            mTwitterView.setVisibility(View.GONE);
+        final String title = speaker.getTitle();
+        if (TextUtils.isEmpty(title)) {
+            mTitleView.setVisibility(View.GONE);
         } else {
-            String twitter = getResources().getString(R.string.twitter_handle, speaker.getTwitter());
-            mTwitterView.setVisibility(View.VISIBLE);
-            mTwitterView.setText(twitter);
+            mTitleView.setVisibility(View.VISIBLE);
+            mTitleView.setText(title);
         }
 
-        String bio = speaker.getBio();
+        final String company = speaker.getCompany();
+        if (TextUtils.isEmpty(company)) {
+            mCompanyView.setVisibility(View.GONE);
+        } else {
+            mCompanyView.setVisibility(View.VISIBLE);
+            mCompanyView.setText(company);
+        }
+
+        final String twitter = speaker.getTwitter();
+        if (TextUtils.isEmpty(twitter)) {
+            mTwitterView.setVisibility(View.GONE);
+        } else {
+            mTwitterView.setVisibility(View.VISIBLE);
+            String twitterHandle = getResources().getString(R.string.twitter_handle, speaker.getTwitter());
+            mTwitterView.setText(twitterHandle);
+        }
+
+        final String bio = speaker.getBio();
         if (TextUtils.isEmpty(bio)) {
             mBioView.setVisibility(View.GONE);
         } else {

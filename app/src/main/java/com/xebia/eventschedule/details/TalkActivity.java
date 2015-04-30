@@ -48,7 +48,9 @@ public class TalkActivity extends CalligraphyActivity {
                 }
 
                 TalkDetailsFragment fragment = new TalkDetailsFragment();
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, fragment).commitAllowingStateLoss();
+                getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .commitAllowingStateLoss();
                 fragment.showTalk(talk);
             }
         });

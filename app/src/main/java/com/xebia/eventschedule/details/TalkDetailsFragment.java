@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
@@ -16,6 +20,7 @@ import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Speaker;
 import com.xebia.eventschedule.model.Talk;
+import com.xebia.eventschedule.util.LayoutUtils;
 
 import java.util.List;
 
@@ -27,11 +32,9 @@ public class TalkDetailsFragment extends Fragment {
     private TextView mTimeView;
     private TextView mRoomView;
     private TextView mAbstractView;
-    private ImageButton mFavoriteButton;
-    private LinearLayout mScrollView;
-    private View mHeaderView;
-    private View mLogisticsView;
+    private LinearLayout mContentView;
     private View mPlaceholderView;
+    private Toolbar mToolbar;
 
     public TalkDetailsFragment() {
         // Required empty public constructor
@@ -47,18 +50,33 @@ public class TalkDetailsFragment extends Fragment {
             mTimeView = (TextView) root.findViewById(R.id.time);
             mRoomView = (TextView) root.findViewById(R.id.room);
             mAbstractView = (TextView) root.findViewById(R.id.talk_abstract);
-            mFavoriteButton = (ImageButton) root.findViewById(R.id.favorite_button);
-            mScrollView = (LinearLayout) root.findViewById(R.id.scroll_view);
-            mHeaderView = root.findViewById(R.id.header);
-            mLogisticsView = root.findViewById(R.id.logistics);
+            mContentView = (LinearLayout) root.findViewById(R.id.content);
             mPlaceholderView = root.findViewById(R.id.placeholder);
 
-            mFavoriteButton.setOnClickListener(new View.OnClickListener() {
+            mToolbar = (Toolbar) root.findViewById(R.id.toolbar);
+            mToolbar.inflateMenu(R.menu.activity_details);
+            mToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
                 @Override
-                public void onClick(View v) {
-                    onFavoriteClick();
+                public boolean onMenuItemClick(MenuItem menuItem) {
+                    final int itemId = menuItem.getItemId();
+                    if (itemId == R.id.menu_add_favorite || itemId == R.id.menu_remove_favorite) {
+                        onFavoriteClick();
+                        return true;
+                    }
+                    return false;
                 }
             });
+
+            // enable back navigation on phone
+            if (!LayoutUtils.isDualPane(getActivity())) {
+                mToolbar.setNavigationIcon(R.drawable.abc_ic_ab_back_mtrl_am_alpha);
+                mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        NavUtils.navigateUpFromSameTask(getActivity());
+                    }
+                });
+            }
         }
 
         setRetainInstance(true);
@@ -70,15 +88,23 @@ public class TalkDetailsFragment extends Fragment {
         if (null == mTalk) {
             return;
         }
-
         if (Favorites.get().contains(mTalk)) {
             Favorites.get().remove(mTalk);
-            mFavoriteButton.setImageResource(R.drawable.ic_ab_favorite_unselected);
         } else {
             Favorites.get().add(mTalk);
-            mFavoriteButton.setImageResource(R.drawable.ic_ab_favorite_selected);
         }
         Favorites.get().save(getActivity());
+
+        updateFavoriteMenu(mTalk);
+    }
+
+    private void updateFavoriteMenu(final Talk talk) {
+        MenuItem addFavorite = mToolbar.getMenu().findItem(R.id.menu_add_favorite);
+        addFavorite.setVisible(!Favorites.get().contains(talk) && !talk.isBreak());
+        addFavorite.setEnabled(!talk.isAlwaysFavorite());
+        MenuItem removeFavorite = mToolbar.getMenu().findItem(R.id.menu_remove_favorite);
+        removeFavorite.setVisible(Favorites.get().contains(talk) && !talk.isBreak());
+        removeFavorite.setEnabled(!talk.isAlwaysFavorite());
     }
 
     @Override
@@ -92,9 +118,7 @@ public class TalkDetailsFragment extends Fragment {
     }
 
     private void showPlaceholder(boolean show) {
-        mHeaderView.setVisibility(show ? View.GONE : View.VISIBLE);
-        mLogisticsView.setVisibility(show ? View.GONE : View.VISIBLE);
-        mScrollView.setVisibility(show ? View.GONE : View.VISIBLE);
+        mContentView.setVisibility(show ? View.GONE : View.VISIBLE);
         mPlaceholderView.setVisibility(show ? View.VISIBLE : View.GONE);
     }
 
@@ -105,28 +129,21 @@ public class TalkDetailsFragment extends Fragment {
             return;
         }
         showPlaceholder(false);
+        mToolbar.setTitle(talk.getTitle());
         mTitleView.setText(talk.getTitle());
         mTimeView.setText(talk.getSlot().format(getActivity()));
         mRoomView.setText(null != talk.getRoom() ? talk.getRoom().getName() : null);
         mAbstractView.setText(talk.getAbstract());
 
-        if (Favorites.get().contains(talk)) {
-            mFavoriteButton.setImageResource(R.drawable.ic_ab_favorite_selected);
-        } else {
-            mFavoriteButton.setImageResource(R.drawable.ic_ab_favorite_unselected);
-        }
-        if (!talk.isAlwaysFavorite()) {
-            mFavoriteButton.setVisibility(View.VISIBLE);
-        }
-
+        updateFavoriteMenu(talk);
         showSpeakers(talk.getSpeakers());
     }
 
     private void showSpeakers(List<Speaker> speakers) {
 
         // remove any speaker views that are already displayed
-        for (int childIndex = mScrollView.getChildCount() - 1; childIndex > 0; childIndex--) {
-            mScrollView.removeViewAt(childIndex);
+        for (int childIndex = mContentView.getChildCount() - 1; childIndex > 2; childIndex--) {
+            mContentView.removeViewAt(childIndex);
         }
 
         if (null == speakers) {
@@ -137,7 +154,7 @@ public class TalkDetailsFragment extends Fragment {
         for (final Speaker speaker : speakers) {
             SpeakerDetailsView view = new SpeakerDetailsView(getActivity());
             view.showSpeaker(speaker);
-            mScrollView.addView(view);
+            mContentView.addView(view);
 
             if (!TextUtils.isEmpty(speaker.getTwitter())) {
                 view.setOnTwitterClickListener(new View.OnClickListener() {

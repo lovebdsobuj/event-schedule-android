@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.EventSchedule" >
         <activity android:name="com.xebia.eventschedule.MainActivity"
-            android:theme="@style/Theme.EventSchedule.NoActionBar">
+            android:theme="@style/Theme.EventSchedule.SideMenu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,6 +23,7 @@
         </activity>
         <activity
             android:name="com.xebia.eventschedule.details.TalkActivity"
+            android:theme="@style/Theme.EventSchedule.NoActionBar"
             android:parentActivityName="com.xebia.eventschedule.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

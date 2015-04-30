@@ -127,6 +127,13 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
         updateFilteredData();
     }
 
+    public void onTalkUpdated(final Talk talk) {
+        final int index = mFilteredData.indexOf(talk);
+        if (index > 0) {
+            notifyItemChanged(index);
+        }
+    }
+
     private void updateFilteredData() {
         mFilteredData.clear();
         if (mFilterMode == FilterMode.BY_TAG) {

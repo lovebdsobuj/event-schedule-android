@@ -120,16 +120,16 @@ public class TalkListFragment extends Fragment implements Favorites.Listener {
     }
 
     @Override
-    public void onFavoriteAdded(Talk talk) {
+    public void onFavoriteAdded(final Talk talk) {
         if (mAdapter != null) {
-            mAdapter.notifyDataSetChanged();
+            mAdapter.onTalkUpdated(talk);
         }
     }
 
     @Override
-    public void onFavoriteRemoved(Talk talk) {
+    public void onFavoriteRemoved(final Talk talk) {
         if (mAdapter != null) {
-            mAdapter.notifyDataSetChanged();
+            mAdapter.onTalkUpdated(talk);
         }
     }
 

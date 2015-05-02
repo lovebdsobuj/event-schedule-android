@@ -253,6 +253,9 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     public void onBackPressed() {
         if (isNavDrawerOpen()) {
             closeNavDrawer();
+        } else if (mFilterMenuSelectedId == R.id.menu_filter_item_favourites
+            || mFilterMenuSelectedId == R.id.menu_filter_item_any_tag) {
+            onOptionsItemSelected(mFilterItemSubMenu.findItem(R.id.menu_filter_item_everything));
         } else {
             super.onBackPressed();
         }

@@ -32,6 +32,9 @@ public class FavoritesNotificationReceiver extends BroadcastReceiver {
         if (!talk.isDataAvailable()) {
             throw new RuntimeException("Talk should have been fetched.");
         }
+        if (!FavoritesNotificationScheduler.isNotificationsEnabled(context)) {
+            return;
+        }
 
         // Set up an Intent to open the talk, with the back button going back to the schedule.
         Intent talkIntent = new Intent(context, TalkActivity.class);

@@ -20,11 +20,10 @@
     <string name="drawer_open">open navigation drawer</string>
     <string name="drawer_close">close navigation drawer</string>
     <string name="contentDescr_logo">logo</string>
-    <string-array name="nav_items">
-        <item>Schedule</item>
-        <item>Event Info</item>
-        <item>Legal</item>
-    </string-array>
+    <string name="nav_schedule">Schedule</string>
+    <string name="nav_event_info">Event Info</string>
+    <string name="nav_legal">Legal</string>
+    <string name="nav_notifications">Notifications</string>
     <string name="menu_filter">Filter</string>
     <string name="menu_filter_everything">All Tracks</string>
     <string name="menu_filter_favourites">Favourites</string>

@@ -20,11 +20,10 @@
     <string name="drawer_open">open navigatie menu</string>
     <string name="drawer_close">sluit navigatie menu</string>
     <string name="contentDescr_logo">logo</string>
-    <string-array name="nav_items">
-        <item>Programma</item>
-        <item>Event Informatie</item>
-        <item>Wettelijk</item>
-    </string-array>
+    <string name="nav_schedule">Programma</string>
+    <string name="nav_event_info">Event Informatie</string>
+    <string name="nav_legal">Wettelijk</string>
+    <string name="nav_notifications">Meldingen</string>
     <string name="menu_filter">Filter</string>
     <string name="menu_filter_everything">Alle Tracks</string>
     <string name="menu_filter_favourites">Favorieten</string>

@@ -57,6 +57,7 @@ public class FavoritesNotificationReceiver extends BroadcastReceiver {
             : "Starts in 5 minutes");
         builder.setContentIntent(talkPendingIntent);
         builder.setAutoCancel(true);
+        builder.setLocalOnly(false);
         builder.setVibrate(VIBRATION);
         String talkAbstract = null != talk.getAbstract() ? "\nAbstract: " + talk.getAbstract() : "";
         Notification notification = new NotificationCompat.BigTextStyle(builder)

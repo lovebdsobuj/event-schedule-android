@@ -28,4 +28,8 @@
     <string name="menu_filter">Filter</string>
     <string name="menu_filter_everything">All Tracks</string>
     <string name="menu_filter_favourites">Favourites</string>
+    <string name="notification_subtitle">In 5 minutes in %1$s</string>
+    <string name="notification_subtitle_no_room">In 5 minutes</string>
+    <string name="notification_big_text">In 5 minutes in %2$s — %1$s</string>
+    <string name="notification_big_text_no_room">In 5 minutes — %1$s</string>
 </resources>

@@ -18,6 +18,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -139,6 +140,24 @@ public class Talk extends ParseObject {
 
     public Room getRoom() {
         return (Room) get("room");
+    }
+
+    public boolean hasRoom() {
+        return getRoom() != null;
+    }
+
+    public String getRoomName() {
+        if (hasRoom()) {
+            return getRoom().getName();
+        }
+        return null;
+    }
+
+    public Date getStartTime() {
+        if (getSlot() != null) {
+            return getSlot().getStartTime();
+        }
+        return null;
     }
 
     public List<String> getTags() {

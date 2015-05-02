@@ -43,39 +43,54 @@ public class FavoritesNotificationReceiver extends BroadcastReceiver {
             PendingIntent.FLAG_UPDATE_CURRENT);
 
         // Build the UI for the notification.
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+        final Notification notification;
+        final NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+        final CharSequence contentText = talk.hasRoom()
+            ? context.getString(R.string.notification_subtitle, talk.getRoomName())
+            : context.getString(R.string.notification_subtitle_no_room);
+        builder
+            .setAutoCancel(true)
+            .setCategory(NotificationCompat.CATEGORY_EVENT)
+            .setColor(context.getResources().getColor(R.color.notificationIconBackground))
+            .setContentIntent(talkPendingIntent)
+            .setContentText(contentText)
+            .setContentTitle(talk.getTitle())
+            .setLocalOnly(false)
+            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setShowWhen(false)
+            .setSmallIcon(getIconResourceIdFromTheme(context))
+            .setVibrate(VIBRATION)
+            .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
+        if (talk.getSlot() != null) {
+            builder.setWhen(talk.getStartTime().getTime());
+        }
+        if (talk.getAbstract() != null) {
+            final CharSequence bigText = talk.hasRoom()
+                ? context.getString(R.string.notification_big_text, talk.getAbstract(), talk.getRoomName())
+                : context.getString(R.string.notification_big_text_no_room, talk.getAbstract());
+            notification = new NotificationCompat.BigTextStyle(builder)
+                .setBigContentTitle(talk.getTitle())
+                .bigText(bigText)
+                .build();
+        } else {
+            notification = builder.build();
+        }
 
-        TypedArray a = context.getTheme().obtainStyledAttributes(R.style.Theme_EventSchedule, new int[]{R.attr.notificationIconId});
-        int attributeResourceId = a.getResourceId(0, 0);
-        a.recycle();
+        // Display the notification. We use the label "start" to identify this kind of notification.
+        // That would be useful for cancelling the notification if we wanted.
+        NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        manager.notify(talk.getObjectId().hashCode(), notification);
+    }
 
-        builder.setSmallIcon(attributeResourceId);
-
-        builder.setColor(context.getResources().getColor(R.color.notificationIconBackground));
-        builder.setContentTitle(talk.getTitle());
-        builder.setContentText(null != talk.getRoom() ? "Starts in 5 minutes in " + talk.getRoom().getName()
-            : "Starts in 5 minutes");
-        builder.setContentIntent(talkPendingIntent);
-        builder.setAutoCancel(true);
-        builder.setLocalOnly(false);
-        builder.setVibrate(VIBRATION);
-        String talkAbstract = null != talk.getAbstract() ? "\nAbstract: " + talk.getAbstract() : "";
-        Notification notification = new NotificationCompat.BigTextStyle(builder)
-            .setBigContentTitle(talk.getTitle())
-            .bigText(null != talk.getRoom() ? "Starts in 5 minutes in " + talk.getRoom().getName() + talkAbstract
-                : "Starts in 5 minutes" + talkAbstract)
-
-            .build();
-
-
-
-    /*
-     * Display the notification. We use the label "start" to identify this kind of notification.
-     * That would be useful for cancelling the notification if we wanted.
-     */
-        NotificationManager manager = (NotificationManager) context
-            .getSystemService(Context.NOTIFICATION_SERVICE);
-        manager.notify("start", talk.getObjectId().hashCode(), notification);
+    private static int getIconResourceIdFromTheme(Context context) {
+        TypedArray a = context.getTheme().obtainStyledAttributes(R.style.Theme_EventSchedule,
+            new int[]{ R.attr.notificationIconId });
+        try {
+            int iconResourceId = a.getResourceId(0, 0);
+            return iconResourceId;
+        } finally {
+            a.recycle();
+        }
     }
 
     /**

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import com.xebia.eventschedule.model.Talk;
 public class BreakListItemView extends RelativeLayout implements ScheduleListItemView {
 
     private TextView mTitleView;
+    private TextView mTimeView;
 
     public BreakListItemView(Context context) {
         super(context);
@@ -46,10 +48,17 @@ public class BreakListItemView extends RelativeLayout implements ScheduleListIte
     protected void onFinishInflate() {
         super.onFinishInflate();
         mTitleView = (TextView) findViewById(R.id.title);
+        mTimeView = (TextView) findViewById(R.id.time);
     }
 
     @Override
     public void showTalk(Talk talk) {
         mTitleView.setText(talk.getTitle());
+        if (null != talk.getSlot()) {
+            mTimeView.setText(talk.getSlot().format(getContext()));
+            mTimeView.setVisibility(View.VISIBLE);
+        } else {
+            mTimeView.setVisibility(View.GONE);
+        }
     }
 }

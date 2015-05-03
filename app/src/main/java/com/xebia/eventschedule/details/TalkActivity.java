@@ -1,15 +1,19 @@
 package com.xebia.eventschedule.details;
 
 import android.os.Bundle;
+import android.support.v4.util.ArrayMap;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.parse.GetCallback;
+import com.parse.ParseAnalytics;
 import com.parse.ParseException;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Talk;
 import com.xebia.eventschedule.util.CalligraphyActivity;
+
+import java.util.Map;
 
 /**
  * An Activity to display information about a particular talk.
@@ -25,6 +29,9 @@ public class TalkActivity extends CalligraphyActivity {
 
         // Fetch the data about this talk from Parse.
         String talkId = Talk.getTalkId(getIntent().getData());
+        Map<String, String> dimens = new ArrayMap<>(1);
+        dimens.put("talkId", talkId);
+        ParseAnalytics.trackEventInBackground("OpenedTalkActivity", dimens);
         Talk.getInBackground(talkId, new GetCallback<Talk>() {
             @Override
             public void done(final Talk talk, ParseException e) {

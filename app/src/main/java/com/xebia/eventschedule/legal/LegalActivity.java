@@ -3,6 +3,7 @@ package com.xebia.eventschedule.legal;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.parse.ParseAnalytics;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.util.CalligraphyActivity;
 
@@ -12,6 +13,7 @@ public class LegalActivity extends CalligraphyActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_legal);
+        ParseAnalytics.trackEventInBackground("OpenedLegalActivity");
     }
 
     @Override

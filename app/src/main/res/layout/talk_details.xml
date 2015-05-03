@@ -19,10 +19,10 @@
         app:titleTextAppearance="@style/Theme.EventSchedule.Toolbar.Title"/>
 
     <ScrollView
-        android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/toolbar">
 
         <LinearLayout
             android:id="@+id/content"
@@ -34,12 +34,12 @@
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="8dp"
+                android:lineSpacingMultiplier="1.2"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
-                android:lineSpacingMultiplier="1.2"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 tools:text="Five Things You Did Not Know About Event Schedules"/>
 
@@ -47,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="4dp"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="8dp"
@@ -70,8 +70,8 @@
                         android:drawablePadding="4dp"
                         android:drawableStart="@drawable/ic_time"
                         android:gravity="center_vertical"
-                        android:paddingBottom="4dp"
-                        android:paddingTop="4dp"
+                        android:paddingBottom="2dp"
+                        android:paddingTop="2dp"
                         android:textAppearance="?android:attr/textAppearance"
                         android:textColor="@color/textSecondary"
                         tools:text="13:30 - 14:15"/>
@@ -84,8 +84,8 @@
                         android:drawablePadding="4dp"
                         android:drawableStart="@drawable/ic_room"
                         android:gravity="center_vertical"
-                        android:paddingBottom="4dp"
-                        android:paddingTop="4dp"
+                        android:paddingBottom="2dp"
+                        android:paddingTop="2dp"
                         android:textAppearance="?android:attr/textAppearance"
                         android:textColor="@color/textSecondary"
                         tools:text="Grote zaal"/>
@@ -98,15 +98,16 @@
                 fontPath="fonts/arial.ttf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="4dp"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="4dp"
                 android:lineSpacingExtra="2sp"
                 android:paddingLeft="8dp"
                 android:paddingRight="8dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/text"/>
+                android:textColor="@color/text"
+                tools:text="@android:string/untitled"/>
         </LinearLayout>
     </ScrollView>
 

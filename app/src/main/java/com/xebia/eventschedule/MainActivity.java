@@ -21,6 +21,7 @@ import android.view.SubMenu;
 import android.view.View;
 import android.widget.CompoundButton;
 
+import com.parse.ParseAnalytics;
 import com.xebia.eventschedule.details.TalkActivity;
 import com.xebia.eventschedule.details.TalkDetailsFragment;
 import com.xebia.eventschedule.eventdetails.EventDetailsActivity;
@@ -66,6 +67,7 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ParseAnalytics.trackAppOpenedInBackground(getIntent());
         setContentView(R.layout.activity_main);
 
         mDrawerActionHandler = new Handler();

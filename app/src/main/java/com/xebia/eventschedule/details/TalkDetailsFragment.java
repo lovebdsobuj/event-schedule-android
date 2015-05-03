@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NavUtils;
+import android.support.v4.util.ArrayMap;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.parse.ParseAnalytics;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Speaker;
@@ -21,6 +23,7 @@ import com.xebia.eventschedule.model.Talk;
 import com.xebia.eventschedule.util.LayoutUtils;
 
 import java.util.List;
+import java.util.Map;
 
 public class TalkDetailsFragment extends Fragment {
 
@@ -86,12 +89,17 @@ public class TalkDetailsFragment extends Fragment {
         if (null == mTalk) {
             return;
         }
+        Map<String, String> dimens = new ArrayMap<>(2);
+        dimens.put("talkId", mTalk.getObjectId());
         if (Favorites.get().contains(mTalk)) {
             Favorites.get().remove(mTalk);
+            dimens.put("action", "remove");
         } else {
             Favorites.get().add(mTalk);
+            dimens.put("action", "add");
         }
         Favorites.get().save(getActivity());
+        ParseAnalytics.trackEventInBackground("ToggleFavourite", dimens);
 
         updateFavoriteMenu(mTalk);
     }

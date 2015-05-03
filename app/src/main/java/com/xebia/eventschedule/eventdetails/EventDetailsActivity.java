@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.parse.GetCallback;
+import com.parse.ParseAnalytics;
 import com.parse.ParseException;
 import com.xebia.eventschedule.EventScheduleApplication;
 import com.xebia.eventschedule.R;
@@ -25,6 +26,7 @@ public class EventDetailsActivity extends CalligraphyActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
+        ParseAnalytics.trackEventInBackground("OpenedEventDetailsActivity");
 
         // Fetch the data about this talk from Parse.
         String eventId = ((EventScheduleApplication) getApplicationContext()).getParseEventId();

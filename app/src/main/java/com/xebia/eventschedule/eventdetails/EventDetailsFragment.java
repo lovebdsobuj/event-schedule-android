@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Event;
+import com.xebia.eventschedule.model.Location;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -20,6 +21,7 @@ import java.net.URLEncoder;
 public class EventDetailsFragment extends Fragment {
 
     private static final String MAPS_ACTION = "geo:%f,%f?q=%s";
+    private static final String GEO_URI = "http://maps.google.com/maps?q=loc:%f,%f (%s)";
     private static final String DIALER_ACTION = "tel:+31355381921";
     private static final String ARG_EVENT = "event";
     private Event mEvent;
@@ -47,8 +49,10 @@ public class EventDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.event_details, container, false);
         if (null != root) {
-            ((TextView) root.findViewById(R.id.location_name)).setText(mEvent.getLocation().getName());
-            ((TextView) root.findViewById(R.id.location_address)).setText(mEvent.getLocation().getAddress());
+            if (null != mEvent.getLocation()) {
+                ((TextView) root.findViewById(R.id.location_name)).setText(mEvent.getLocation().getName());
+                ((TextView) root.findViewById(R.id.location_address)).setText(mEvent.getLocation().getAddress());
+            }
             ((TextView) root.findViewById(R.id.location_url)).setText(mEvent.getLocation().getUrl());
             root.findViewById(R.id.location_icon).setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -80,25 +84,27 @@ public class EventDetailsFragment extends Fragment {
     }
 
     private void openMap() {
-        double lat = mEvent.getLocation().getCoords().getLatitude();
-        double lon = mEvent.getLocation().getCoords().getLatitude();
-        String query;
-        try {
-            query = URLEncoder.encode(mEvent.getLocation().getName(), "UTF-8");
-        } catch (UnsupportedEncodingException e) {
-            query = "";
-        }
-        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(String.format(MAPS_ACTION, lat, lon, query)));
-        try {
-            startActivity(intent);
-        } catch (ActivityNotFoundException e) {
+        final Location location = mEvent.getLocation();
+        if (null != location && null != location.getCoords()) {
+            double lat = location.getCoords().getLatitude();
+            double lon = location.getCoords().getLatitude();
+            String query;
             try {
-                String geoUri = "http://maps.google.com/maps?q=loc:" + lat + "," + lon + " (" + mEvent.getLocation().getName() + ")";
-                Intent webIntent = new Intent(Intent.ACTION_VIEW,
-                        Uri.parse(geoUri));
-                startActivity(webIntent);
-            }catch (ActivityNotFoundException e2){
-                Toast.makeText(getActivity(), getString(R.string.activity_not_found), Toast.LENGTH_LONG).show();
+                query = URLEncoder.encode(location.getName(), "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                query = "";
+            }
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(String.format(MAPS_ACTION, lat, lon, query)));
+            try {
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                try {
+                    String geoUri = String.format(GEO_URI, lat, lon, location.getName());
+                    Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
+                    startActivity(webIntent);
+                } catch (ActivityNotFoundException e2) {
+                    Toast.makeText(getActivity(), getString(R.string.activity_not_found), Toast.LENGTH_LONG).show();
+                }
             }
         }
     }

@@ -1,6 +1,8 @@
 package com.xebia.eventschedule.model;
 
 import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.parse.FindCallback;
@@ -10,6 +12,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQuery.CachePolicy;
+import com.xebia.eventschedule.BuildConfig;
 import com.xebia.eventschedule.util.LocaleUtils;
 
 import org.json.JSONArray;
@@ -18,7 +21,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -90,7 +92,7 @@ public class Talk extends ParseObject {
                     // Emulate the behavior of getFirstInBackground by using only the first result.
                     if (objects.size() < 1) {
                         callback.done(null, new ParseException(ParseException.OBJECT_NOT_FOUND,
-                                "No talk with id " + objectId + " was found."));
+                            "No talk with id " + objectId + " was found."));
                     } else {
                         callback.done(objects.get(0), e);
                     }
@@ -105,6 +107,7 @@ public class Talk extends ParseObject {
      * Returns a URI to use in Intents to represent this talk. The format is
      * parsedevday://talk/theObjectId
      */
+    @NonNull
     public Uri getUri() {
         Uri.Builder builder = new Uri.Builder();
         builder.scheme("parsedevday");
@@ -112,6 +115,7 @@ public class Talk extends ParseObject {
         return builder.build();
     }
 
+    @NonNull
     public String getTitle() {
         Map<String, String> titleMap = getMap("title");
         String localizedTitle = titleMap.get(LocaleUtils.getLocaleLabel(getEvent()));
@@ -121,6 +125,7 @@ public class Talk extends ParseObject {
         return localizedTitle;
     }
 
+    @NonNull
     public String getAbstract() {
         Map<String, String> abstractMap = getMap("abstract");
         String localizedAbstract = abstractMap.get(LocaleUtils.getLocaleLabel(getEvent()));
@@ -130,14 +135,17 @@ public class Talk extends ParseObject {
         return localizedAbstract;
     }
 
+    @Nullable
     public List<Speaker> getSpeakers() {
         return getList("speakers");
     }
 
+    @Nullable
     public Slot getSlot() {
         return (Slot) get("slot");
     }
 
+    @Nullable
     public Room getRoom() {
         return (Room) get("room");
     }
@@ -146,20 +154,15 @@ public class Talk extends ParseObject {
         return getRoom() != null;
     }
 
+    @Nullable
     public String getRoomName() {
-        if (hasRoom()) {
+        if (null != getRoom()) {
             return getRoom().getName();
         }
         return null;
     }
 
-    public Date getStartTime() {
-        if (getSlot() != null) {
-            return getSlot().getStartTime();
-        }
-        return null;
-    }
-
+    @NonNull
     public List<String> getTags() {
         List<String> results = new ArrayList<>();
         try {
@@ -171,11 +174,14 @@ public class Talk extends ParseObject {
                 }
             }
         } catch (JSONException e) {
-            Log.d(TAG, "Could not parse list of tags", e);
+            if (BuildConfig.DEBUG) {
+                Log.e(TAG, "Could not parse list of tags", e);
+            }
         }
         return results;
     }
 
+    @Nullable
     public Event getEvent() {
         return (Event) get("event");
     }

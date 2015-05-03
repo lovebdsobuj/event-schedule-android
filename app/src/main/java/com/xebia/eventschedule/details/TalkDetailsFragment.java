@@ -5,14 +5,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -131,9 +129,15 @@ public class TalkDetailsFragment extends Fragment {
         showPlaceholder(false);
         mToolbar.setTitle(talk.getTitle());
         mTitleView.setText(talk.getTitle());
-        mTimeView.setText(talk.getSlot().format(getActivity()));
         mRoomView.setText(null != talk.getRoom() ? talk.getRoom().getName() : null);
         mAbstractView.setText(talk.getAbstract());
+
+        if (null != talk.getSlot()) {
+            mTimeView.setText(talk.getSlot().format(getActivity()));
+            mTimeView.setVisibility(View.VISIBLE);
+        } else {
+            mTimeView.setVisibility(View.GONE);
+        }
 
         updateFavoriteMenu(talk);
         showSpeakers(talk.getSpeakers());

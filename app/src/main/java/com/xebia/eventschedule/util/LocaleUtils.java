@@ -23,6 +23,6 @@ public class LocaleUtils {
      * @return A label that can be used to get localised resources from the event data set
      */
     public static String getLocaleLabel(final Event event) {
-        return isDutch() && event.getLanguages().contains("nl") ? "nl" : "en";
+        return isDutch() && null != event && event.getLanguages().contains("nl") ? "nl" : "en";
     }
 }

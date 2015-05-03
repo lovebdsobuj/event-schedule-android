@@ -1,21 +1,20 @@
 package com.xebia.eventschedule.util;
 
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.xebia.eventschedule.BuildConfig;
 import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Talk;
+
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Listens for changes to the set of favorite talks and sets up alarms to send out notifications a
@@ -58,9 +57,11 @@ public class FavoritesNotificationScheduler implements Favorites.Listener {
     }
 
     // Figure out what time we need to set the alarm for.
-    Date talkStart = talk.getSlot().getStartTime();
-    Logger.getLogger(getClass().getName()).log(Level.INFO, "Registering alarm for " + talkStart);
-    long fiveMinutesBefore = talkStart.getTime() - (5000 * 60);
+    Date talkStart = null != talk.getSlot() ? talk.getSlot().getStartTime() : null;
+    if (BuildConfig.DEBUG) {
+      Logger.getLogger(getClass().getName()).log(Level.INFO, "Registering alarm for " + talkStart);
+    }
+    long fiveMinutesBefore = null != talkStart ? talkStart.getTime() - (5000 * 60) : Long.MAX_VALUE;
     if (fiveMinutesBefore < System.currentTimeMillis()) {
       return;
     }

@@ -1,6 +1,7 @@
 package com.xebia.eventschedule.model;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.text.format.DateFormat;
 
 import com.parse.ParseClassName;
@@ -13,19 +14,25 @@ import java.util.Date;
  */
 @ParseClassName("Slot")
 public class Slot extends ParseObject {
-  public Date getStartTime() {
-    return getDate("startTime");
-  }
 
-  public Date getEndTime() {
-    return getDate("endTime");
-  }
-  
-  /**
-   * Returns a string representation of the time slot suitable for use in the UI.
-   */
-  public String format(Context context) {
-    return DateFormat.getTimeFormat(context).format(getStartTime()) + " - "
-        + DateFormat.getTimeFormat(context).format(getEndTime());
-  }
+    @Nullable
+    public Date getStartTime() {
+        return getDate("startTime");
+    }
+
+    @Nullable
+    public Date getEndTime() {
+        return getDate("endTime");
+    }
+
+    /**
+     * Returns a string representation of the time slot suitable for use in the UI.
+     */
+    @Nullable
+    public String format(Context context) {
+        java.text.DateFormat timeFormat = DateFormat.getTimeFormat(context);
+        return null != getStartTime() && null != getEndTime()
+            ? timeFormat.format(getStartTime()) + " - " + timeFormat.format(getEndTime())
+            : null;
+    }
 }

@@ -1,7 +1,7 @@
 package com.xebia.eventschedule.details;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -15,7 +15,7 @@ import com.xebia.eventschedule.model.Speaker;
 
 /**
  * View group for speaker details.
- * <p/>
+ *
  * Created by steven on 4-5-14.
  */
 public class SpeakerDetailsView extends FrameLayout {
@@ -39,7 +39,6 @@ public class SpeakerDetailsView extends FrameLayout {
         init();
     }
 
-    @SuppressLint("NewApi")
     public SpeakerDetailsView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         init();
@@ -60,7 +59,7 @@ public class SpeakerDetailsView extends FrameLayout {
         mTwitterView = (TextView) findViewById(R.id.twitter);
         mBioView = (TextView) findViewById(R.id.bio);
 
-        mPhotoView.setPlaceholder(getResources().getDrawable(R.drawable.speaker_placeholder));
+        mPhotoView.setPlaceholder(ContextCompat.getDrawable(getContext(), R.drawable.speaker_placeholder));
 
         mTwitterView.setOnClickListener(new OnClickListener() {
             @Override

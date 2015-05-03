@@ -1,6 +1,8 @@
 package com.xebia.eventschedule.model;
 
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.parse.FindCallback;
@@ -9,6 +11,7 @@ import com.parse.ParseClassName;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.xebia.eventschedule.BuildConfig;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -89,26 +92,32 @@ public class Event extends ParseObject implements Serializable {
         });
     }
 
+    @Nullable
     public String getName() {
         return getString("name");
     }
 
+    @Nullable
     public Location getLocation() {
         return (Location) getParseObject("location");
     }
 
+    @Nullable
     public String getTintColor() {
         return getString("tintColor");
     }
 
+    @Nullable
     public String getBaseColor() {
         return getString("baseColor");
     }
 
+    @NonNull
     public String getId() {
         return getObjectId();
     }
 
+    @NonNull
     public List<String> getLanguages() {
         List<String> results = new ArrayList<>();
         try {
@@ -119,7 +128,9 @@ public class Event extends ParseObject implements Serializable {
                 }
             }
         } catch (JSONException e) {
-            Log.d("Event", "Could not parse list of languages", e);
+            if (BuildConfig.DEBUG) {
+                Log.e("Event", "Could not parse list of languages", e);
+            }
         }
         return results;
     }

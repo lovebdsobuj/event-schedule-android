@@ -101,7 +101,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         updateSelectionIndicator();
 
         Tags tags = Tags.get();
-        if (null != talk.getTags() && talk.getTags().size() > 0 && null != tags) {
+        if (talk.getTags().size() > 0 && null != tags) {
             mTagView.setVisibility(View.VISIBLE);
             mTagView.setBackgroundColor(tags.getTagColor(talk.getTags().get(0)));
         } else {
@@ -115,7 +115,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         }
 
         Tags tags = Tags.get();
-        if (null != mTalk.getTags() && mTalk.getTags().size() > 0 && null != tags) {
+        if (mTalk.getTags().size() > 0 && null != tags) {
             mSelectionIndicator.setBackgroundColor(tags.getTagColor(mTalk.getTags().get(0)));
         } else {
             mSelectionIndicator.setBackgroundColor(mAccentColor);
@@ -159,7 +159,9 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     private void updateTextViews(final Talk talk) {
         mTitleView.setText(talk.getTitle());
 
-        mStartDateView.setText(mTimeFormat.format(talk.getSlot().getStartTime()));
+        if (null != talk.getSlot() && null != talk.getSlot().getStartTime()) {
+            mStartDateView.setText(mTimeFormat.format(talk.getSlot().getStartTime()));
+        }
         mRoomView.setText(null != talk.getRoom() ? talk.getRoom().getName() : null);
 
         int textColor = talk.isKeynote() ? mPrimaryColor : mTextColor;

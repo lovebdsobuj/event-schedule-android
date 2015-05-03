@@ -1,5 +1,7 @@
 package com.xebia.eventschedule.model;
 
+import android.support.annotation.Nullable;
+
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 
@@ -8,7 +10,9 @@ import com.parse.ParseObject;
  */
 @ParseClassName("Room")
 public class Room extends ParseObject {
-  public String getName() {
-    return getString("name");
-  }
+
+    @Nullable
+    public String getName() {
+        return getString("name");
+    }
 }

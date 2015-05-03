@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.text.TextUtils;
 
 import com.parse.GetCallback;
 import com.parse.ParseException;
@@ -64,10 +65,10 @@ public class FavoritesNotificationReceiver extends BroadcastReceiver {
             .setSmallIcon(getIconResourceIdFromTheme(context))
             .setVibrate(VIBRATION)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC);
-        if (talk.getSlot() != null) {
-            builder.setWhen(talk.getStartTime().getTime());
+        if (talk.getSlot() != null && null != talk.getSlot().getStartTime()) {
+            builder.setWhen(talk.getSlot().getStartTime().getTime());
         }
-        if (talk.getAbstract() != null) {
+        if (!TextUtils.isEmpty(talk.getAbstract())) {
             final CharSequence bigText = talk.hasRoom()
                 ? context.getString(R.string.notification_big_text, talk.getAbstract(), talk.getRoomName())
                 : context.getString(R.string.notification_big_text_no_room, talk.getAbstract());
@@ -89,8 +90,7 @@ public class FavoritesNotificationReceiver extends BroadcastReceiver {
         TypedArray a = context.getTheme().obtainStyledAttributes(R.style.Theme_EventSchedule,
             new int[]{ R.attr.notificationIconId });
         try {
-            int iconResourceId = a.getResourceId(0, 0);
-            return iconResourceId;
+            return a.getResourceId(0, 0);
         } finally {
             a.recycle();
         }

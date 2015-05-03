@@ -31,6 +31,6 @@ public class AccentColorSpan implements LeadingMarginSpan {
     public void drawLeadingMargin(Canvas canvas, Paint paint, int x, int dir, int top,
                                   int baseline, int bottom, CharSequence text, int start,
                                   int end, boolean first, Layout layout) {
-        canvas.drawRect(top, 0, x + dir * colorBlipWidth, bottom, leadingMarginPaint);
+        canvas.drawRect(0, top, x + dir * colorBlipWidth, bottom, leadingMarginPaint);
     }
 }

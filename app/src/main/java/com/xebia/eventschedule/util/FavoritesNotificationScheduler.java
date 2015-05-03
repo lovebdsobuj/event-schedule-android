@@ -8,9 +8,12 @@ import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 import com.parse.GetCallback;
 import com.parse.ParseException;
+import com.xebia.eventschedule.BuildConfig;
 import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Talk;
 
@@ -19,7 +22,9 @@ import com.xebia.eventschedule.model.Talk;
  * few minutes before the talks start.
  */
 public class FavoritesNotificationScheduler implements Favorites.Listener {
-  private Context context;
+    private static final String NOTIFICATION_PREFS = "notifications_" + BuildConfig.FLAVOR;
+    private static final String NOTIFICATIONS_ENABLED = "notificationsEnabled";
+    private Context context;
 
   public FavoritesNotificationScheduler(Context context) {
     this.context = context;
@@ -84,4 +89,14 @@ public class FavoritesNotificationScheduler implements Favorites.Listener {
   public void onFavoriteRemoved(Talk talk) {
     unscheduleNotification(talk);
   }
+
+    public static void setNotificationsEnabled(final Context context, final boolean enabled) {
+        final SharedPreferences prefs = context.getSharedPreferences(NOTIFICATION_PREFS, 0);
+        prefs.edit().putBoolean(NOTIFICATIONS_ENABLED, enabled).apply();
+    }
+
+    public static boolean isNotificationsEnabled(final Context context) {
+        final SharedPreferences prefs = context.getSharedPreferences(NOTIFICATION_PREFS, 0);
+        return prefs.getBoolean(NOTIFICATIONS_ENABLED, true);
+    }
 }

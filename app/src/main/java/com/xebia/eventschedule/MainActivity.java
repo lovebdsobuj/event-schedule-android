@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -19,6 +20,7 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.CompoundButton;
 import android.widget.ListView;
 
 import com.xebia.eventschedule.details.TalkActivity;
@@ -32,6 +34,7 @@ import com.xebia.eventschedule.model.Talk;
 import com.xebia.eventschedule.util.AccentColorSpan;
 import com.xebia.eventschedule.util.BaseEventScheduleApp;
 import com.xebia.eventschedule.util.CalligraphyActivity;
+import com.xebia.eventschedule.util.FavoritesNotificationScheduler;
 import com.xebia.eventschedule.util.LayoutUtils;
 
 import java.util.List;
@@ -44,22 +47,23 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     private static final String INST_ST_FILTER_MENU_ID = "FilterMenuId";
     private static final String INST_ST_FILTER_MENU_TAG = "FilterMenuTag";
     private static final int DRAWER_CLOSE_DELAY_MS = 250;
-    public static final int NAV_ITEM_SCHEDULE = 0;
-    public static final int NAV_ITEM_EVENT_DETAILS = 1;
-    public static final int NAV_ITEM_LEGAL = 2;
 
     private ActionBarDrawerToggle mDrawerToggle;
     private TalkListFragment mTalkListFragment;
     private DrawerLayout mDrawerLayout;
     private Handler mDrawerActionHandler;
-    private int mNavPosition = NAV_ITEM_SCHEDULE;
-    private NavListAdapter<String> mNavListAdapter;
+    private int mNavPosition;
     private Toolbar mToolbar;
     private MenuItem mFilterItemMenu;
     private SubMenu mFilterItemSubMenu;
     private int mFilterMenuSelectedId;
     private String mFilterMenuSelectedTag;
     private View mLoadingIndicator;
+
+    private View mNavSchedule;
+    private View mNavEventInfo;
+    private View mNavLegal;
+    private CompoundButton mNavNotificationsToggle;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -85,7 +89,14 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             mFilterMenuSelectedId = savedInstanceState.getInt(INST_ST_FILTER_MENU_ID);
             mFilterMenuSelectedTag = savedInstanceState.getString(INST_ST_FILTER_MENU_TAG);
         }
-        navigate(NAV_ITEM_SCHEDULE);
+        mNavSchedule = findViewById(R.id.nav_schedule);
+        mNavEventInfo = findViewById(R.id.nav_event_info);
+        mNavLegal = findViewById(R.id.nav_legal);
+        mNavNotificationsToggle = (CompoundButton) findViewById(R.id.nav_notifications_switch);
+        navigate(R.id.nav_schedule);
+
+        // Can't define in XML because of file ordering
+        ViewCompat.setLabelFor(findViewById(R.id.nav_notifications_label), mNavNotificationsToggle.getId());
 
         mLoadingIndicator = findViewById(R.id.loading_indicator);
         setLoadingIndicatorVisibility(true);
@@ -105,26 +116,27 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     }
 
     private void setupNavDrawer() {
-        String[] navItems = getResources().getStringArray(R.array.nav_items);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ListView drawerList = (ListView) findViewById(R.id.nav_list);
-        mNavListAdapter = new NavListAdapter<>(this, navItems);
-        drawerList.setAdapter(mNavListAdapter);
-        drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        final View.OnClickListener navItemClickListener = new View.OnClickListener() {
             @Override
-            public void onItemClick(final AdapterView<?> parent, final View view,
-                                    final int position, final long id) {
+            public void onClick(final View v) {
                 mDrawerLayout.closeDrawer(Gravity.START);
-                if (position == mNavPosition) {
-                    return;
-                }
-                mNavListAdapter.setHighlight(position);
                 mDrawerActionHandler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        navigate(position);
+                        navigate(v.getId());
                     }
                 }, DRAWER_CLOSE_DELAY_MS);
+            }
+        };
+        mNavSchedule.setOnClickListener(navItemClickListener);
+        mNavEventInfo.setOnClickListener(navItemClickListener);
+        mNavLegal.setOnClickListener(navItemClickListener);
+        mNavNotificationsToggle.setChecked(FavoritesNotificationScheduler.isNotificationsEnabled(this));
+        mNavNotificationsToggle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FavoritesNotificationScheduler.setNotificationsEnabled(MainActivity.this, mNavNotificationsToggle.isChecked());
             }
         });
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar,
@@ -134,14 +146,21 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     }
 
     private void navigate(final int position) {
+        if (position == mNavPosition) {
+            return;
+        }
+        mNavPosition = position;
+        mNavSchedule.setActivated(position == mNavSchedule.getId());
+        mNavEventInfo.setActivated(position == mNavEventInfo.getId());
+        mNavLegal.setActivated(position == mNavLegal.getId());
         switch (position) {
-            case NAV_ITEM_SCHEDULE:
+            case R.id.nav_schedule:
                 // nothing to do
                 break;
-            case NAV_ITEM_EVENT_DETAILS:
+            case R.id.nav_event_info:
                 startActivity(new Intent(this, EventDetailsActivity.class));
                 break;
-            case NAV_ITEM_LEGAL:
+            case R.id.nav_legal:
                 startActivity(new Intent(this, LegalActivity.class));
                 break;
             default:
@@ -275,7 +294,7 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     @Override
     protected void onResume() {
         super.onResume();
-        mNavListAdapter.setHighlight(mNavPosition);
+        navigate(R.id.nav_schedule);
     }
 
     private void setLoadingIndicatorVisibility(boolean visible) {

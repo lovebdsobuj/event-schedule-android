@@ -23,7 +23,7 @@ import java.util.logging.Logger;
 public class FavoritesNotificationScheduler implements Favorites.Listener {
     private static final String NOTIFICATION_PREFS = "notifications_" + BuildConfig.FLAVOR;
     private static final String NOTIFICATIONS_ENABLED = "notificationsEnabled";
-    private Context context;
+    private final Context context;
 
   public FavoritesNotificationScheduler(Context context) {
     this.context = context;

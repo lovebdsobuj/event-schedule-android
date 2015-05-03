@@ -5,9 +5,7 @@ import android.app.Application;
 import com.parse.Parse;
 import com.parse.ParseCrashReporting;
 import com.parse.ParseObject;
-import com.parse.PushService;
 import com.xebia.eventschedule.BuildConfig;
-import com.xebia.eventschedule.MainActivity;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Event;
 import com.xebia.eventschedule.model.Favorites;
@@ -52,9 +50,6 @@ public abstract class BaseEventScheduleApp extends Application {
         // Initialize Parse with the application ID and client key.
         ParseCrashReporting.enable(this);
         Parse.initialize(this, getParseApplicationId(), getParseClientKey());
-
-        // Enable the Parse push notification service for remote pushes.
-        PushService.setDefaultPushCallback(this, MainActivity.class);
 
         // Setup the listener to handle local notifications for when talks start.
         Favorites.get().addListener(new FavoritesNotificationScheduler(this));

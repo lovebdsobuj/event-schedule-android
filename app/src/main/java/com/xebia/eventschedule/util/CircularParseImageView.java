@@ -11,6 +11,7 @@ import android.graphics.Paint;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 
 import com.parse.ParseImageView;
@@ -49,8 +50,8 @@ public class CircularParseImageView extends ParseImageView {
             paintBorder.setAntiAlias(true);
 
             // load the styled attributes and set their properties
-            TypedArray styledAttrs = context.obtainStyledAttributes(attrs,
-                    R.styleable.CircularParseImageView, defStyle, 0);
+            TypedArray styledAttrs = context
+                .obtainStyledAttributes(attrs, R.styleable.CircularParseImageView, defStyle, 0);
             if (null == styledAttrs) {
                 return;
             }
@@ -65,6 +66,8 @@ public class CircularParseImageView extends ParseImageView {
             if (styledAttrs.getBoolean(R.styleable.CircularParseImageView_shadow, false)) {
                 addShadow();
             }
+
+            styledAttrs.recycle();
         }
     }
 
@@ -88,7 +91,7 @@ public class CircularParseImageView extends ParseImageView {
     }
 
     @Override
-    public void onDraw(Canvas canvas) {
+    public void onDraw(@NonNull Canvas canvas) {
         if (!supportsCircularImages()) {
             super.onDraw(canvas);
             return;
@@ -137,7 +140,7 @@ public class CircularParseImageView extends ParseImageView {
     }
 
     private int measureWidth(int measureSpec) {
-        int result = 0;
+        int result;
         int specMode = MeasureSpec.getMode(measureSpec);
         int specSize = MeasureSpec.getSize(measureSpec);
 
@@ -156,7 +159,7 @@ public class CircularParseImageView extends ParseImageView {
     }
 
     private int measureHeight(int measureSpecHeight) {
-        int result = 0;
+        int result;
         int specMode = MeasureSpec.getMode(measureSpecHeight);
         int specSize = MeasureSpec.getSize(measureSpecHeight);
 

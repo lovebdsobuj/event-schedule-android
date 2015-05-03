@@ -1,7 +1,7 @@
 package com.xebia.eventschedule.util;
 
 import android.content.Context;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
@@ -10,7 +10,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  *
  * Created by steven on 19-4-14.
  */
-public abstract class CalligraphyActivity extends ActionBarActivity {
+public abstract class CalligraphyActivity extends AppCompatActivity {
 
     @Override
     protected void attachBaseContext(Context newBase) {

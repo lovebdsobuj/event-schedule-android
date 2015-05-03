@@ -2,7 +2,6 @@
 <resources>
 
     <string name="twitter_handle">\@%1$s</string>
-    <string name="copyright">Copyright &#169; 2015 Xebia Nederland B.V.</string>
     <string name="attribution_parse">&#8226; Parse Android SDK (Parse LLC)</string>
     <string name="attribution_calligraphy">&#8226; Android Calligraphy (Christopher Jenkins)</string>
     <string name="attribution_circular">&#8226; CircularImageView (Mikhael Lopez)</string>

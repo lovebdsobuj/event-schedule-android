@@ -1,75 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/left_drawer"
-    android:layout_width="240dp"
-    android:layout_height="match_parent"
-    android:layout_gravity="start"
-    android:background="@color/menu_background"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:contentDescription="@string/contentDescr_logo"
-        android:src="@drawable/logo_menu" />
+    <LinearLayout
+        android:id="@+id/left_drawer"
+        android:layout_width="240dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/menu_background"
+        android:fitsSystemWindows="true"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/app_name_med"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/menu_text" />
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="32dp"
-        android:layout_weight="1">
-
-        <LinearLayout
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_gravity="center"
+            android:contentDescription="@string/contentDescr_logo"
+            android:src="@drawable/logo_menu"/>
 
-            <TextView
-                android:id="@+id/nav_schedule"
-                style="@style/NavMenuItem"
-                android:text="@string/nav_schedule" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/app_name_med"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@color/menu_text"/>
 
-            <TextView
-                android:id="@+id/nav_event_info"
-                style="@style/NavMenuItem"
-                android:text="@string/nav_event_info" />
-
-            <TextView
-                android:id="@+id/nav_legal"
-                style="@style/NavMenuItem"
-                android:text="@string/nav_legal" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
+            android:layout_weight="1">
 
             <LinearLayout
-                style="@style/NavMenuItem"
-                android:orientation="horizontal">
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/nav_notifications_label"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="1"
-                    android:text="@string/nav_notifications"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/menu_text" />
+                    android:id="@+id/nav_schedule"
+                    style="@style/NavMenuItem"
+                    android:text="@string/nav_schedule"/>
 
-                <android.support.v7.widget.SwitchCompat
-                    android:id="@+id/nav_notifications_switch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:checked="true" />
+                <TextView
+                    android:id="@+id/nav_event_info"
+                    style="@style/NavMenuItem"
+                    android:text="@string/nav_event_info"/>
+
+                <TextView
+                    android:id="@+id/nav_legal"
+                    style="@style/NavMenuItem"
+                    android:text="@string/nav_legal"/>
+
+                <LinearLayout
+                    style="@style/NavMenuItem"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/nav_notifications_label"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:text="@string/nav_notifications"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/menu_text"/>
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/nav_notifications_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:checked="true"/>
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</merge>

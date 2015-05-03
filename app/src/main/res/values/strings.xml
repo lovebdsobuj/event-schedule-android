@@ -3,6 +3,7 @@
 
     <string name="photo">Photo</string>
     <string name="favorite">Favorite</string>
+    <string name="header_time_and_date">TIME &amp; DATE</string>
     <string name="header_location">LOCATION</string>
     <string name="header_contact">CONTACT</string>
     <string name="header_credits">CREDITS</string>

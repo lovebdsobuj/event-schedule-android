@@ -5,9 +5,11 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.graphics.drawable.DrawableCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,10 +36,6 @@ public class EventDetailsFragment extends Fragment {
         return fragment;
     }
 
-    public EventDetailsFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,14 +52,19 @@ public class EventDetailsFragment extends Fragment {
                 ((TextView) root.findViewById(R.id.location_address)).setText(mEvent.getLocation().getAddress());
             }
             ((TextView) root.findViewById(R.id.location_url)).setText(mEvent.getLocation().getUrl());
-            root.findViewById(R.id.location_icon).setOnClickListener(new View.OnClickListener() {
+
+            ImageButton locationIcon = (ImageButton) root.findViewById(R.id.location_icon);
+            DrawableCompat.setTint(locationIcon.getDrawable(), getResources().getColor(R.color.accent));
+            locationIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     openMap();
                 }
             });
 
-            root.findViewById(R.id.contact_icon).setOnClickListener(new View.OnClickListener() {
+            ImageButton contactIcon = (ImageButton) root.findViewById(R.id.contact_icon);
+            DrawableCompat.setTint(contactIcon.getDrawable(), getResources().getColor(R.color.accent));
+            contactIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     openDialer();

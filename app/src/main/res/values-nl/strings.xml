@@ -3,6 +3,7 @@
 
     <string name="photo">Foto</string>
     <string name="favorite">Favoriet</string>
+    <string name="header_time_and_date">TIJDSTIP</string>
     <string name="header_location">LOCATIE</string>
     <string name="header_contact">CONTACT</string>
     <string name="header_credits">MET DANK AAN</string>

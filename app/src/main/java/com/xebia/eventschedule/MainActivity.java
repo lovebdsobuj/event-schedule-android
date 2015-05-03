@@ -2,6 +2,7 @@ package com.xebia.eventschedule;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -9,6 +10,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
@@ -26,6 +29,7 @@ import com.xebia.eventschedule.list.TalkListClickListener;
 import com.xebia.eventschedule.list.TalkListFragment;
 import com.xebia.eventschedule.model.Tags;
 import com.xebia.eventschedule.model.Talk;
+import com.xebia.eventschedule.util.AccentColorSpan;
 import com.xebia.eventschedule.util.BaseEventScheduleApp;
 import com.xebia.eventschedule.util.CalligraphyActivity;
 import com.xebia.eventschedule.util.LayoutUtils;
@@ -200,16 +204,32 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             mFilterMenuSelectedId = 0;
             mFilterMenuSelectedTag = null;
         } else {
+            final int colorBlipMarginRight = getResources().getDimensionPixelSize(R.dimen.menu_colorbadge_marginRight);
+            final int colorBlipWidth = getResources().getDimensionPixelSize(R.dimen.menu_colorbadge_width);
+
             List<String> tagsOrdered = Tags.init(this, talks).getTagLabels();
-            final MenuItem selectAll = mFilterItemSubMenu.add(R.id.menu_filter_group,
-                    R.id.menu_filter_item_everything, 0, R.string.menu_filter_everything);
+
+            AccentColorSpan allColorBlip = new AccentColorSpan(Color.TRANSPARENT, colorBlipWidth, colorBlipMarginRight);
+            final SpannableString allTitle = new SpannableString(getString(R.string.menu_filter_everything));
+            allTitle.setSpan(allColorBlip, 0, allTitle.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            final MenuItem selectAll = mFilterItemSubMenu
+                    .add(R.id.menu_filter_group, R.id.menu_filter_item_everything, 0, allTitle);
             selectAll.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_everything
                     || mFilterMenuSelectedId == 0);
-            final MenuItem selectFavs = mFilterItemSubMenu.add(R.id.menu_filter_group,
-                    R.id.menu_filter_item_favourites, 0, R.string.menu_filter_favourites);
+
+            AccentColorSpan favColorBlip = new AccentColorSpan(Color.TRANSPARENT, colorBlipWidth, colorBlipMarginRight);
+            final SpannableString favTitle = new SpannableString(getString(R.string.menu_filter_favourites));
+            favTitle.setSpan(favColorBlip, 0, favTitle.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            final MenuItem selectFavs = mFilterItemSubMenu
+                    .add(R.id.menu_filter_group, R.id.menu_filter_item_favourites, 0, favTitle);
             selectFavs.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_favourites);
+
             for (String title : tagsOrdered) {
-                final MenuItem item = mFilterItemSubMenu.add(R.id.menu_filter_group, 0, 0, title);
+                final int color = Tags.get().getTagColor(title);
+                final AccentColorSpan colorBlip = new AccentColorSpan(color, colorBlipWidth, colorBlipMarginRight);
+                final SpannableString menuTitle = new SpannableString(title);
+                menuTitle.setSpan(colorBlip, 0, title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                final MenuItem item = mFilterItemSubMenu.add(R.id.menu_filter_group, 0, 0, menuTitle);
                 item.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_any_tag
                         && mFilterMenuSelectedTag != null && mFilterMenuSelectedTag.equals(title));
             }
@@ -244,6 +264,9 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     public void onBackPressed() {
         if (isNavDrawerOpen()) {
             closeNavDrawer();
+        } else if (mFilterMenuSelectedId == R.id.menu_filter_item_favourites
+            || mFilterMenuSelectedId == R.id.menu_filter_item_any_tag) {
+            onOptionsItemSelected(mFilterItemSubMenu.findItem(R.id.menu_filter_item_everything));
         } else {
             super.onBackPressed();
         }

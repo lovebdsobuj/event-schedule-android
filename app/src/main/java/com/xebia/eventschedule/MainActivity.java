@@ -2,6 +2,7 @@ package com.xebia.eventschedule;
 
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -203,16 +204,26 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             mFilterMenuSelectedId = 0;
             mFilterMenuSelectedTag = null;
         } else {
-            List<String> tagsOrdered = Tags.init(this, talks).getTagLabels();
-            final MenuItem selectAll = mFilterItemSubMenu.add(R.id.menu_filter_group,
-                    R.id.menu_filter_item_everything, 0, R.string.menu_filter_everything);
-            selectAll.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_everything
-                    || mFilterMenuSelectedId == 0);
-            final MenuItem selectFavs = mFilterItemSubMenu.add(R.id.menu_filter_group,
-                    R.id.menu_filter_item_favourites, 0, R.string.menu_filter_favourites);
-            selectFavs.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_favourites);
             final int colorBlipMarginRight = getResources().getDimensionPixelSize(R.dimen.menu_colorbadge_marginRight);
             final int colorBlipWidth = getResources().getDimensionPixelSize(R.dimen.menu_colorbadge_width);
+
+            List<String> tagsOrdered = Tags.init(this, talks).getTagLabels();
+
+            AccentColorSpan allColorBlip = new AccentColorSpan(Color.TRANSPARENT, colorBlipWidth, colorBlipMarginRight);
+            final SpannableString allTitle = new SpannableString(getString(R.string.menu_filter_everything));
+            allTitle.setSpan(allColorBlip, 0, allTitle.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            final MenuItem selectAll = mFilterItemSubMenu
+                    .add(R.id.menu_filter_group, R.id.menu_filter_item_everything, 0, allTitle);
+            selectAll.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_everything
+                    || mFilterMenuSelectedId == 0);
+
+            AccentColorSpan favColorBlip = new AccentColorSpan(Color.TRANSPARENT, colorBlipWidth, colorBlipMarginRight);
+            final SpannableString favTitle = new SpannableString(getString(R.string.menu_filter_favourites));
+            favTitle.setSpan(favColorBlip, 0, favTitle.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            final MenuItem selectFavs = mFilterItemSubMenu
+                    .add(R.id.menu_filter_group, R.id.menu_filter_item_favourites, 0, favTitle);
+            selectFavs.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_favourites);
+
             for (String title : tagsOrdered) {
                 final int color = Tags.get().getTagColor(title);
                 final AccentColorSpan colorBlip = new AccentColorSpan(color, colorBlipWidth, colorBlipMarginRight);
@@ -220,7 +231,7 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
                 menuTitle.setSpan(colorBlip, 0, title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 final MenuItem item = mFilterItemSubMenu.add(R.id.menu_filter_group, 0, 0, menuTitle);
                 item.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_any_tag
-                    && mFilterMenuSelectedTag != null && mFilterMenuSelectedTag.equals(title));
+                        && mFilterMenuSelectedTag != null && mFilterMenuSelectedTag.equals(title));
             }
             mFilterItemSubMenu.setGroupCheckable(R.id.menu_filter_group, true, true);
             mFilterItemMenu.setVisible(true);

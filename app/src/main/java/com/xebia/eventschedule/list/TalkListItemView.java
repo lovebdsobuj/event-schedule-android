@@ -100,9 +100,10 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         updateSpeakerImage(talk);
         updateSelectionIndicator();
 
-        if (null != talk.getTags() && talk.getTags().size() > 0) {
+        Tags tags = Tags.get();
+        if (null != talk.getTags() && talk.getTags().size() > 0 && null != tags) {
             mTagView.setVisibility(View.VISIBLE);
-            mTagView.setBackgroundColor(Tags.get().getTagColor(talk.getTags().get(0)));
+            mTagView.setBackgroundColor(tags.getTagColor(talk.getTags().get(0)));
         } else {
             mTagView.setVisibility(View.GONE);
         }
@@ -112,8 +113,10 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         if (mMasterDetailMode) {
             mSelectionIndicator.setVisibility(mTalk.isSelected() ? View.VISIBLE : View.GONE);
         }
-        if (null != mTalk.getTags() && mTalk.getTags().size() > 0) {
-            mSelectionIndicator.setBackgroundColor(Tags.get().getTagColor(mTalk.getTags().get(0)));
+
+        Tags tags = Tags.get();
+        if (null != mTalk.getTags() && mTalk.getTags().size() > 0 && null != tags) {
+            mSelectionIndicator.setBackgroundColor(tags.getTagColor(mTalk.getTags().get(0)));
         } else {
             mSelectionIndicator.setBackgroundColor(mAccentColor);
         }

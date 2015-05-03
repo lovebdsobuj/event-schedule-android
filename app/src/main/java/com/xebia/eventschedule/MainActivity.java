@@ -19,9 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.CompoundButton;
-import android.widget.ListView;
 
 import com.xebia.eventschedule.details.TalkActivity;
 import com.xebia.eventschedule.details.TalkDetailsFragment;
@@ -243,8 +241,9 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
                     .add(R.id.menu_filter_group, R.id.menu_filter_item_favourites, 0, favTitle);
             selectFavs.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_favourites);
 
+            Tags tags = Tags.init(this, talks);
             for (String title : tagsOrdered) {
-                final int color = Tags.get().getTagColor(title);
+                final int color = tags.getTagColor(title);
                 final AccentColorSpan colorBlip = new AccentColorSpan(color, colorBlipWidth, colorBlipMarginRight);
                 final SpannableString menuTitle = new SpannableString(title);
                 menuTitle.setSpan(colorBlip, 0, title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

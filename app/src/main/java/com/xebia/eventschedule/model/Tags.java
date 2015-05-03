@@ -2,8 +2,10 @@ package com.xebia.eventschedule.model;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.xebia.eventschedule.BuildConfig;
 import com.xebia.eventschedule.R;
 
 import java.text.Collator;
@@ -47,6 +49,7 @@ public class Tags {
         mTagColors.add(context.getResources().getColor(R.color.grey_500));
     }
 
+    @NonNull
     public static Tags init(final Context context, final List<Talk> talks) {
         if (null == sInstance) {
             sInstance = new Tags(context);
@@ -55,9 +58,10 @@ public class Tags {
         return sInstance;
     }
 
+    @Nullable
     public static Tags get() {
-        if (null == sInstance) {
-            throw new RuntimeException("Tags singleton not initialized yet");
+        if (null == sInstance && BuildConfig.DEBUG) {
+            Log.w("Tags", "get() called before init()");
         }
         return sInstance;
     }

@@ -8,13 +8,13 @@
     <string name="header_contact">CONTACT</string>
     <string name="header_credits">MET DANK AAN</string>
     <string name="credits_content">Met liefde gebouwd door Xebia.</string>
-    <string name="credits_android">Android: Steven Mulder, met hulp van Barend Garvelink en Jeroen Willemsen.</string>
-    <string name="credits_ios">iOS: Jeroen Leenarts, met hulp van Lammert Westerhoff.</string>
+    <string name="credits_android">Android: Steven Mulder, met hulp van Barend Garvelink, Jeroen Willemsen en Nanne Baars.</string>
+    <string name="credits_ios">iOS: Jeroen Leenarts en Lammert Westerhoff.</string>
     <string name="credits_misc">Tests en snedige opmerkingen door Joshua Appelman.</string>
     <string name="descr_maps">icoon kaart</string>
     <string name="descr_contact">icoon contact</string>
     <string name="activity_not_found">Bijbehorende app niet gevonden!</string>
-    <string name="attribution_header">TOEWIJZINGEN</string>
+    <string name="attribution_header">VERWIJZINGEN</string>
     <string name="attribution">Deze app is gebouwd met hulp van de volgende third party software:</string>
     <string name="terms_header">BEPALINGEN &amp; CONDITIES</string>
     <string name="details_placeholder">Kies een sessie uit de lijst om de details te bekijken</string>

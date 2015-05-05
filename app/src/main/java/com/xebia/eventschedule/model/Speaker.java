@@ -34,7 +34,11 @@ public class Speaker extends ParseObject {
 
     @Nullable
     public String getPhotoURL() {
-        return getString("photoURL");
+        ParseFile photoFile = getPhoto();
+        if (photoFile == null) {
+            return null;
+        }
+        return photoFile.getUrl();
     }
 
     @Nullable

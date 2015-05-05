@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <declare-styleable name="CircularParseImageView">
+    <!-- Includes content adapted from https://github.com/lopspower/CircularImageView/blob/35b3238030a6b794387ef9d7f51645ba03c4014e/CircularImageView/res/values/attrs.xml -->
+
+    <declare-styleable name="CircularImageView">
         <attr name="border" format="boolean"/>
-        <attr name="border_width" format="integer"/>
+        <attr name="border_width" format="dimension"/>
         <attr name="border_color" format="color"/>
         <attr name="shadow" format="boolean"/>
     </declare-styleable>
-    <declare-styleable name="Theme.Xcs">
-        <attr name="circularParseImageViewStyle" format="reference"/>
+
+    <declare-styleable name="Theme">
+        <attr name="circularImageViewStyle" format="reference"/>
     </declare-styleable>
 
 </resources>

@@ -119,6 +119,19 @@
                 android:layout_marginRight="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="4dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text"/>
+
+            <TextView
+                android:text="@string/attribution_picasso"
+                fontPath="fonts/arial.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="4dp"
                 android:paddingBottom="8dp"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/text"/>

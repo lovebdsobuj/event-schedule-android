@@ -19,6 +19,7 @@ import com.xebia.eventschedule.model.Location;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Locale;
 
 public class EventDetailsFragment extends Fragment {
 
@@ -97,12 +98,12 @@ public class EventDetailsFragment extends Fragment {
             } catch (UnsupportedEncodingException e) {
                 query = "";
             }
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(String.format(MAPS_ACTION, lat, lon, query)));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(String.format(Locale.US, MAPS_ACTION, lat, lon, query)));
             try {
                 startActivity(intent);
             } catch (ActivityNotFoundException e) {
                 try {
-                    String geoUri = String.format(GEO_URI, lat, lon, location.getName());
+                    String geoUri = String.format(Locale.US, GEO_URI, lat, lon, location.getName());
                     Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(geoUri));
                     startActivity(webIntent);
                 } catch (ActivityNotFoundException e2) {

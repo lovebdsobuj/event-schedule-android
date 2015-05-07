@@ -1,15 +1,18 @@
 package com.xebia.eventschedule.details;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.parse.ParseImageView;
+import com.squareup.picasso.Picasso;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Speaker;
 
@@ -20,7 +23,7 @@ import com.xebia.eventschedule.model.Speaker;
  */
 public class SpeakerDetailsView extends FrameLayout {
 
-    private ParseImageView mPhotoView;
+    private ImageView mPhotoView;
     private TextView mNameView;
     private TextView mTitleView;
     private TextView mCompanyView;
@@ -52,14 +55,12 @@ public class SpeakerDetailsView extends FrameLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        mPhotoView = (ParseImageView) findViewById(R.id.photo);
+        mPhotoView = (ImageView) findViewById(R.id.photo);
         mNameView = (TextView) findViewById(R.id.name);
         mTitleView = (TextView) findViewById(R.id.title);
         mCompanyView = (TextView) findViewById(R.id.company);
         mTwitterView = (TextView) findViewById(R.id.twitter);
         mBioView = (TextView) findViewById(R.id.bio);
-
-        mPhotoView.setPlaceholder(ContextCompat.getDrawable(getContext(), R.drawable.speaker_placeholder));
 
         mTwitterView.setOnClickListener(new OnClickListener() {
             @Override
@@ -72,8 +73,14 @@ public class SpeakerDetailsView extends FrameLayout {
     }
 
     public void showSpeaker(Speaker speaker) {
-        mPhotoView.setParseFile(speaker.getPhoto());
-        mPhotoView.loadInBackground();
+        Picasso
+            .with(getContext())
+            .load(speaker.getPhotoURL())
+            .config(Bitmap.Config.RGB_565)
+            .resizeDimen(R.dimen.schedule_speaker_photo_width, R.dimen.schedule_speaker_photo_height)
+            .centerCrop()
+            .placeholder(R.drawable.speaker_placeholder)
+            .into(mPhotoView);
         mNameView.setText(speaker.getName());
 
         final String title = speaker.getTitle();

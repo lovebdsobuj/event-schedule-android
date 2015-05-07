@@ -1,21 +1,17 @@
 package com.xebia.eventschedule.list;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.support.v4.content.res.ResourcesCompat;
+import android.graphics.Bitmap;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.parse.GetDataCallback;
-import com.parse.ParseException;
-import com.parse.ParseImageView;
+import com.squareup.picasso.Picasso;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Tags;
@@ -33,7 +29,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     private TextView mStartDateView;
     private TextView mRoomView;
     private View mTagView;
-    private ParseImageView mSpeakerImage;
+    private ImageView mSpeakerImage;
     private ImageView mFavoriteButton;
     private View mSelectionIndicator;
 
@@ -44,7 +40,6 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
     private java.text.DateFormat mTimeFormat;
     private boolean mMasterDetailMode;
     private Talk mTalk;
-    private Drawable mSpeakerPlaceholder;
     private TextView mSpeakersView;
     private int mAccentColor;
 
@@ -76,7 +71,7 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         mRoomView = (TextView) findViewById(R.id.room);
         mSpeakersView = (TextView) findViewById(R.id.speakers);
         mTagView = findViewById(R.id.tag);
-        mSpeakerImage = (ParseImageView) findViewById(R.id.speakerimage);
+        mSpeakerImage = (ImageView) findViewById(R.id.speakerimage);
         mFavoriteButton = (ImageView) findViewById(R.id.favorite);
         mSelectionIndicator = findViewById(R.id.selection_indicator);
 
@@ -87,9 +82,6 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         mAccentColor = getResources().getColor(R.color.accent);
         mTimeFormat = DateFormat.getTimeFormat(getContext());
         mMasterDetailMode = LayoutUtils.isDualPane(getContext());
-
-        mSpeakerPlaceholder = ResourcesCompat.getDrawable(getResources(), R.drawable.speaker_placeholder, null);
-        mSpeakerImage.setPlaceholder(mSpeakerPlaceholder);
     }
 
     @Override
@@ -126,25 +118,24 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         if (talk.getSpeakers() != null && !talk.getSpeakers().isEmpty()) {
             mSpeakersView.setText(TextUtils.join(", ", talk.getSpeakers()));
             mSpeakersView.setVisibility(View.VISIBLE);
-            if (talk.getSpeakers().get(0).getPhoto() != null) {
-                mSpeakerImage.setParseFile(talk.getSpeakers().get(0).getPhoto());
-                mSpeakerImage.loadInBackground(new GetDataCallback() {
-                    @Override
-                    public void done(byte[] data, ParseException e) {
-                        if (e != null && e.getMessage() != null) {
-                            mSpeakerImage.setImageDrawable(mSpeakerPlaceholder);
-                            Log.w(TalkListItemView.class.getSimpleName(),
-                                "Failed to load speaker image: " + e.getMessage());
-                        }
-                    }
-                });
-            } else {
-                mSpeakerImage.setImageDrawable(mSpeakerPlaceholder);
-            }
+            Picasso
+                .with(getContext())
+                .load(talk.getSpeakers().get(0).getPhotoURL())
+                .config(Bitmap.Config.RGB_565)
+                .resizeDimen(R.dimen.schedule_speaker_photo_width, R.dimen.schedule_speaker_photo_height)
+                .centerCrop()
+                .placeholder(R.drawable.speaker_placeholder)
+                .into(mSpeakerImage);
         } else {
             mSpeakersView.setText(null);
             mSpeakersView.setVisibility(View.GONE);
-            mSpeakerImage.setImageDrawable(mSpeakerPlaceholder);
+            Picasso
+                .with(getContext())
+                .load(R.drawable.speaker_placeholder)
+                .config(Bitmap.Config.RGB_565)
+                .resizeDimen(R.dimen.schedule_speaker_photo_width, R.dimen.schedule_speaker_photo_height)
+                .centerCrop()
+                .into(mSpeakerImage);
         }
     }
 

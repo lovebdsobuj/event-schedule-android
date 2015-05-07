@@ -4,4 +4,8 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="menu_colorbadge_width">8dp</dimen>
     <dimen name="menu_colorbadge_marginRight">8dp</dimen>
+    <dimen name="schedule_speaker_photo_height">96dp</dimen>
+    <dimen name="schedule_speaker_photo_width">96dp</dimen>
+    <dimen name="details_speaker_photo_height">96dp</dimen>
+    <dimen name="details_speaker_photo_width">96dp</dimen>
 </resources>

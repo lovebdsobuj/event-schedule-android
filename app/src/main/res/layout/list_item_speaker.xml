@@ -38,7 +38,7 @@
                         android:id="@+id/photo"
                         android:layout_width="@dimen/schedule_speaker_photo_width"
                         android:layout_height="@dimen/schedule_speaker_photo_height"
-                        android:contentDescription="@string/photo"
+                        android:contentDescription="@string/descr_speaker"
                         app:border="false"
                         tools:src="@drawable/speaker_placeholder"/>
 

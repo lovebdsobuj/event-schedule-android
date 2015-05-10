@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="photo">Foto</string>
     <string name="favorite">Favoriet</string>
     <string name="header_time_and_date">TIJDSTIP</string>
     <string name="header_location">LOCATIE</string>
@@ -13,6 +12,8 @@
     <string name="credits_misc">Tests en snedige opmerkingen door Joshua Appelman en Sannie Kwakman.</string>
     <string name="descr_maps">icoon kaart</string>
     <string name="descr_contact">icoon contact</string>
+    <string name="descr_speaker">Foto</string>
+    <string name="descr_logo">logo</string>
     <string name="activity_not_found">Bijbehorende app niet gevonden!</string>
     <string name="attribution_header">VERWIJZINGEN</string>
     <string name="attribution">Deze app is gebouwd met hulp van de volgende third party software:</string>
@@ -20,7 +21,6 @@
     <string name="details_placeholder">Kies een sessie uit de lijst om de details te bekijken</string>
     <string name="drawer_open">open navigatie menu</string>
     <string name="drawer_close">sluit navigatie menu</string>
-    <string name="contentDescr_logo">logo</string>
     <string name="nav_schedule">Programma</string>
     <string name="nav_event_info">Event Informatie</string>
     <string name="nav_legal">Wettelijk</string>
@@ -32,4 +32,5 @@
     <string name="notification_subtitle_no_room">Over 5 minuten</string>
     <string name="notification_big_text">Over 5 min. in %2$s — %1$s</string>
     <string name="notification_big_text_no_room">Over 5 minuten — %1$s</string>
+
 </resources>

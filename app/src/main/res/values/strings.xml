@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="photo">Photo</string>
     <string name="favorite">Favorite</string>
     <string name="header_time_and_date">TIME &amp; DATE</string>
     <string name="header_location">LOCATION</string>
@@ -13,6 +12,8 @@
     <string name="credits_misc">Testing and snarky remarks by Joshua Appelman and Sannie Kwakman.</string>
     <string name="descr_maps">maps icon</string>
     <string name="descr_contact">contact icon</string>
+    <string name="descr_speaker">Photo</string>
+    <string name="descr_logo">logo</string>
     <string name="activity_not_found">Could not open corresponding app!</string>
     <string name="attribution_header">ATTRIBUTIONS</string>
     <string name="attribution">This app is built using the following third party software:</string>
@@ -20,7 +21,6 @@
     <string name="details_placeholder">Select a session from the list to view the details</string>
     <string name="drawer_open">open navigation drawer</string>
     <string name="drawer_close">close navigation drawer</string>
-    <string name="contentDescr_logo">logo</string>
     <string name="nav_schedule">Schedule</string>
     <string name="nav_event_info">Event Info</string>
     <string name="nav_legal">Legal</string>

@@ -19,8 +19,4 @@
 #   public *;
 #}
 
-# Special config for for Parse SDK Facebook integration
--dontwarn com.facebook.**
--dontwarn com.parse.**
--keep class com.facebook.** { *; }
--keep class com.parse.** { *; }
+-dontwarn com.squareup.okhttp.**

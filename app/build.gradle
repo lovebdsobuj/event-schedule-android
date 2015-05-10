@@ -6,7 +6,6 @@ android {
     buildToolsVersion '22.0.1'
 
     defaultConfig {
-        applicationId 'com.xebia.eventschedule'
         minSdkVersion 14
         targetSdkVersion 22
     }
@@ -32,8 +31,8 @@ android {
         }
         xebicon2015 {
             applicationId 'com.xebia.xebicon2015'
-            versionCode 1505031416
-            versionName '1.0.4'
+            versionCode 1505101734
+            versionName '1.0.5'
         }
     }
 
@@ -41,10 +40,6 @@ android {
         debug {
             storeFile file("${project.projectDir}/config/sign/debug.keystore")
         }
-    }
-
-    lintOptions {
-        abortOnError false
     }
 }
 

@@ -20,7 +20,7 @@
             android:layout_alignParentTop="true"
             android:background="?attr/colorPrimary"
             android:minHeight="?attr/actionBarSize"
-            app:theme="@style/Theme.EventSchedule.Toolbar"
+            android:theme="@style/Theme.EventSchedule.Toolbar"
             app:titleTextAppearance="@style/Theme.EventSchedule.Toolbar.Title"/>
 
         <FrameLayout

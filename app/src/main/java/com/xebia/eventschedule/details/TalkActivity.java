@@ -9,6 +9,7 @@ import android.widget.Toast;
 import com.parse.GetCallback;
 import com.parse.ParseAnalytics;
 import com.parse.ParseException;
+import com.xebia.eventschedule.EventScheduleApplication;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Talk;
 import com.xebia.eventschedule.util.CalligraphyActivity;
@@ -27,11 +28,12 @@ public class TalkActivity extends CalligraphyActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
-        // Fetch the data about this talk from Parse.
         String talkId = Talk.getTalkId(getIntent().getData());
-        Map<String, String> dimens = new ArrayMap<>(1);
+        Map<String, String> dimens = new ArrayMap<>(2);
         dimens.put("talkId", talkId);
+        dimens.put("eventId", ((EventScheduleApplication) getApplication()).getParseEventId());
         ParseAnalytics.trackEventInBackground("OpenedTalkActivity", dimens);
+
         Talk.getInBackground(talkId, new GetCallback<Talk>() {
             @Override
             public void done(final Talk talk, ParseException e) {

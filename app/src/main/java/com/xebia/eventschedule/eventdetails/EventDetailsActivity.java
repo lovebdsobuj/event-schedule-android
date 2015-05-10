@@ -1,6 +1,7 @@
 package com.xebia.eventschedule.eventdetails;
 
 import android.os.Bundle;
+import android.support.v4.util.ArrayMap;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -12,6 +13,8 @@ import com.xebia.eventschedule.EventScheduleApplication;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Event;
 import com.xebia.eventschedule.util.CalligraphyActivity;
+
+import java.util.Map;
 
 /**
  * Displays static information about XebiCon. What? When? Where?
@@ -26,7 +29,10 @@ public class EventDetailsActivity extends CalligraphyActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
-        ParseAnalytics.trackEventInBackground("OpenedEventDetailsActivity");
+
+        Map<String, String> dimens = new ArrayMap<>(1);
+        dimens.put("eventId", ((EventScheduleApplication) getApplication()).getParseEventId());
+        ParseAnalytics.trackEventInBackground("OpenedEventDetailsActivity", dimens);
 
         // Fetch the data about this talk from Parse.
         String eventId = ((EventScheduleApplication) getApplicationContext()).getParseEventId();

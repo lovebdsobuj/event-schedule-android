@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.parse.ParseAnalytics;
+import com.xebia.eventschedule.EventScheduleApplication;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Speaker;
@@ -85,7 +86,8 @@ public class TalkDetailsFragment extends Fragment {
         if (null == mTalk) {
             return;
         }
-        Map<String, String> dimens = new ArrayMap<>(2);
+        Map<String, String> dimens = new ArrayMap<>(3);
+        dimens.put("eventId", ((EventScheduleApplication) getActivity().getApplication()).getParseEventId());
         dimens.put("talkId", mTalk.getObjectId());
         if (Favorites.get().contains(mTalk)) {
             Favorites.get().remove(mTalk);

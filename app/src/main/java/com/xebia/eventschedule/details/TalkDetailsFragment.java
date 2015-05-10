@@ -37,10 +37,6 @@ public class TalkDetailsFragment extends Fragment {
     private View mPlaceholderView;
     private Toolbar mToolbar;
 
-    public TalkDetailsFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -106,10 +102,10 @@ public class TalkDetailsFragment extends Fragment {
 
     private void updateFavoriteMenu(final Talk talk) {
         MenuItem addFavorite = mToolbar.getMenu().findItem(R.id.menu_add_favorite);
-        addFavorite.setVisible(!Favorites.get().contains(talk) && !talk.isBreak());
+        addFavorite.setVisible(!(Favorites.get().contains(talk) || talk.isAlwaysFavorite()) && !talk.isBreak());
         addFavorite.setEnabled(!talk.isAlwaysFavorite());
         MenuItem removeFavorite = mToolbar.getMenu().findItem(R.id.menu_remove_favorite);
-        removeFavorite.setVisible(Favorites.get().contains(talk) && !talk.isBreak());
+        removeFavorite.setVisible((Favorites.get().contains(talk) || talk.isAlwaysFavorite()) && !talk.isBreak());
         removeFavorite.setEnabled(!talk.isAlwaysFavorite());
     }
 

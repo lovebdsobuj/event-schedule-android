@@ -2,16 +2,16 @@ package com.xebia.eventschedule.details;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
+import android.text.util.Linkify;
 import android.util.AttributeSet;
+import android.util.Patterns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.parse.ParseImageView;
 import com.squareup.picasso.Picasso;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Speaker;
@@ -23,6 +23,22 @@ import com.xebia.eventschedule.model.Speaker;
  */
 public class SpeakerDetailsView extends FrameLayout {
 
+    /**
+     * Bug #28: Weird stuff gets linkified. Turns out this is because of &lt;nbsp&gt; characters in
+     * the input. This filter rejects matched URLs that contain a non-breaking space.
+     */
+    private static final Linkify.MatchFilter REJECT_NBSP = new Linkify.MatchFilter() {
+        private static final char NBSP = (char) 0xa0;
+        @Override
+        public boolean acceptMatch(CharSequence s, int start, int end) {
+            for (int i = start; i < end; i++) {
+                if (s.charAt(i) == NBSP) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    };
     private ImageView mPhotoView;
     private TextView mNameView;
     private TextView mTitleView;
@@ -114,6 +130,7 @@ public class SpeakerDetailsView extends FrameLayout {
         } else {
             mBioView.setVisibility(View.VISIBLE);
             mBioView.setText(speaker.getBio());
+            Linkify.addLinks(mBioView, Patterns.WEB_URL, "http://", REJECT_NBSP, null);
         }
     }
 

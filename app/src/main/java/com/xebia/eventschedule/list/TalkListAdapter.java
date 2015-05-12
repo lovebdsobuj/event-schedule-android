@@ -129,10 +129,12 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
         updateFilteredData();
     }
 
-    public void onTalkUpdated(final Talk talk) {
-        final int index = mFilteredData.indexOf(talk);
-        if (index > 0) {
-            notifyItemChanged(index);
+    public void onTalkUpdated(@NonNull final Talk talk) {
+        for (int i = 0; i < mFilteredData.size(); i++) {
+            if (mFilteredData.get(i).getObjectId().equals(talk.getObjectId())) {
+                notifyItemChanged(i);
+                break;
+            }
         }
     }
 

@@ -12,7 +12,7 @@ indent_style = space
 
 [*.{java,gradle}]
 indent_size = 4
-continuation_indent_size = 4
+continuation_indent_size = 8
 max_line_length = 120
 
 [*.xml]

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -71,6 +72,18 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
                 mSelectedTalk = clicked;
 
                 mListener.onTalkClick(clicked);
+            }
+        });
+        holder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                final Talk clicked = mFilteredData.get(position);
+                if (mListener.onTalkLongClick(clicked)) {
+                    notifyItemChanged(position);
+                    v.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS);
+                    return true;
+                }
+                return false;
             }
         });
     }

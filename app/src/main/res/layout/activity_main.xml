@@ -37,7 +37,15 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"/>
     </RelativeLayout>
-    <!-- The navigation drawer -->
-    <include layout="@layout/navdrawer"/>
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/menu_background"
+        app:headerLayout="@layout/drawer_header"
+        app:itemTextColor="@color/nav_item_text"
+        app:menu="@menu/drawer"/>
 
 </android.support.v4.widget.DrawerLayout>

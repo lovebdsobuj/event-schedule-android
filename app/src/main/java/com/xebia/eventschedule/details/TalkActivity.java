@@ -2,7 +2,6 @@ package com.xebia.eventschedule.details;
 
 import android.os.Bundle;
 import android.support.v4.util.ArrayMap;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -63,17 +62,6 @@ public class TalkActivity extends CalligraphyActivity {
                 fragment.showTalk(talk);
             }
         });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            // By interpreting the home tab as a back press, we get the platform-specific "previous
-            // activity" transition instead of the "next activity" one.
-            onBackPressed();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

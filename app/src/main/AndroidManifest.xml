@@ -13,8 +13,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.EventSchedule" >
-        <activity android:name="com.xebia.eventschedule.MainActivity"
-            android:theme="@style/Theme.EventSchedule.SideMenu">
+        <activity
+            android:name="com.xebia.eventschedule.MainActivity"
+            android:theme="@style/Theme.EventSchedule.SideMenu"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

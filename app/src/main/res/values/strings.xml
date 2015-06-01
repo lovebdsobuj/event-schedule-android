@@ -32,4 +32,6 @@
     <string name="notification_subtitle_no_room">In 5 minutes</string>
     <string name="notification_big_text">In 5 minutes in %2$s — %1$s</string>
     <string name="notification_big_text_no_room">In 5 minutes — %1$s</string>
+    <string name="favorite_added">Added to favorites</string>
+    <string name="favorite_removed">Removed from favorites</string>
 </resources>

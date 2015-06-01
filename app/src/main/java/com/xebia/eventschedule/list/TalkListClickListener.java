@@ -12,4 +12,5 @@ import java.util.List;
 public interface TalkListClickListener {
     void onTalksLoaded(@NonNull List<Talk> talks);
     void onTalkClick(Talk talk);
+    boolean onTalkLongClick(Talk talk);
 }

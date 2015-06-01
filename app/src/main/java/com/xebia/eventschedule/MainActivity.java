@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 
 import com.parse.ParseAnalytics;
 import com.xebia.eventschedule.details.TalkActivity;
@@ -28,6 +29,7 @@ import com.xebia.eventschedule.eventdetails.EventDetailsActivity;
 import com.xebia.eventschedule.legal.LegalActivity;
 import com.xebia.eventschedule.list.TalkListClickListener;
 import com.xebia.eventschedule.list.TalkListFragment;
+import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Tags;
 import com.xebia.eventschedule.model.Talk;
 import com.xebia.eventschedule.util.AccentColorSpan;
@@ -69,7 +71,6 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
         super.onCreate(savedInstanceState);
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
         setContentView(R.layout.activity_main);
-
         mDrawerActionHandler = new Handler();
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
@@ -268,6 +269,23 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             intent.setData(talk.getUri());
             startActivity(intent);
         }
+    }
+
+    @Override
+    public boolean onTalkLongClick(Talk talk) {
+        if (talk.isAlwaysFavorite() || LayoutUtils.isDualPane(this)) {
+            return false;
+        }
+        final Favorites favorites = Favorites.get();
+        if (favorites.contains(talk)) {
+            favorites.remove(talk);
+            Toast.makeText(this, R.string.favorite_removed, Toast.LENGTH_SHORT).show();
+        } else {
+            favorites.add(talk);
+            Toast.makeText(this, R.string.favorite_added, Toast.LENGTH_SHORT).show();
+        }
+        favorites.save(this);
+        return true;
     }
 
     private boolean isNavDrawerOpen() {

@@ -20,6 +20,7 @@ import android.view.MenuItem;
 import android.view.SubMenu;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 
 import com.parse.ParseAnalytics;
 import com.xebia.eventschedule.details.TalkActivity;
@@ -278,8 +279,10 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
         final Favorites favorites = Favorites.get();
         if (favorites.contains(talk)) {
             favorites.remove(talk);
+            Toast.makeText(this, R.string.favorite_removed, Toast.LENGTH_SHORT).show();
         } else {
             favorites.add(talk);
+            Toast.makeText(this, R.string.favorite_added, Toast.LENGTH_SHORT).show();
         }
         favorites.save(this);
         return true;

@@ -53,6 +53,7 @@ public abstract class BaseEventScheduleApp extends Application {
 
         // Setup the listener to handle local notifications for when talks start.
         Favorites.get().addListener(new FavoritesNotificationScheduler(this));
+        Favorites.get().addListener(new AnalyticsHelper(getParseEventId()));
 
         // Read in the favorites from the local disk on this device.
         Favorites.get().findLocally(this);

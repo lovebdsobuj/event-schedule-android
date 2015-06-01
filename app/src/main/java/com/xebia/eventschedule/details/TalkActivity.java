@@ -1,26 +1,23 @@
 package com.xebia.eventschedule.details;
 
 import android.os.Bundle;
-import android.support.v4.util.ArrayMap;
 import android.view.View;
 import android.widget.Toast;
 
 import com.parse.GetCallback;
-import com.parse.ParseAnalytics;
 import com.parse.ParseException;
 import com.xebia.eventschedule.EventScheduleApplication;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Talk;
+import com.xebia.eventschedule.util.AnalyticsHelper;
 import com.xebia.eventschedule.util.CalligraphyActivity;
-
-import java.util.Map;
 
 /**
  * An Activity to display information about a particular talk.
  */
 public class TalkActivity extends CalligraphyActivity {
 
-    private boolean destroyed = false;
+    private boolean mDestroyed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +25,15 @@ public class TalkActivity extends CalligraphyActivity {
         setContentView(R.layout.activity_loading);
 
         String talkId = Talk.getTalkId(getIntent().getData());
-        Map<String, String> dimens = new ArrayMap<>(2);
-        dimens.put("talkId", talkId);
-        dimens.put("eventId", ((EventScheduleApplication) getApplication()).getParseEventId());
-        ParseAnalytics.trackEventInBackground("OpenedTalkActivity", dimens);
+
+        AnalyticsHelper
+                .openedTalkDetailsActivity(((EventScheduleApplication) getApplication()).getParseEventId(), talkId);
 
         Talk.getInBackground(talkId, new GetCallback<Talk>() {
             @Override
             public void done(final Talk talk, ParseException e) {
 
-                if (destroyed) {
+                if (mDestroyed) {
                     // do not perform fragment transaction on destroyed activity
                     return;
                 }
@@ -67,6 +63,6 @@ public class TalkActivity extends CalligraphyActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        destroyed = true;
+        mDestroyed = true;
     }
 }

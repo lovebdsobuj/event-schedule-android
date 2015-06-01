@@ -1,15 +1,12 @@
 package com.xebia.eventschedule.legal;
 
 import android.os.Bundle;
-import android.support.v4.util.ArrayMap;
 import android.view.MenuItem;
 
-import com.parse.ParseAnalytics;
 import com.xebia.eventschedule.EventScheduleApplication;
 import com.xebia.eventschedule.R;
+import com.xebia.eventschedule.util.AnalyticsHelper;
 import com.xebia.eventschedule.util.CalligraphyActivity;
-
-import java.util.Map;
 
 public class LegalActivity extends CalligraphyActivity {
 
@@ -18,9 +15,7 @@ public class LegalActivity extends CalligraphyActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_legal);
 
-        Map<String, String> dimens = new ArrayMap<>(1);
-        dimens.put("eventId", ((EventScheduleApplication) getApplication()).getParseEventId());
-        ParseAnalytics.trackEventInBackground("OpenedLegalActivity", dimens);
+        AnalyticsHelper.openedLegalActivity(((EventScheduleApplication) getApplication()).getParseEventId());
     }
 
     @Override

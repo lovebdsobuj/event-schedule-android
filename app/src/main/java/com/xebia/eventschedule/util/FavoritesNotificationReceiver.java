@@ -9,17 +9,14 @@ import android.content.Intent;
 import android.content.res.TypedArray;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
-import android.support.v4.util.ArrayMap;
 import android.text.TextUtils;
 
 import com.parse.GetCallback;
-import com.parse.ParseAnalytics;
 import com.parse.ParseException;
+import com.xebia.eventschedule.EventScheduleApplication;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.details.TalkActivity;
 import com.xebia.eventschedule.model.Talk;
-
-import java.util.Map;
 
 /**
  * A BroadcastReceiver to handle Intents sent by the AlarmManager for local notifications.
@@ -38,10 +35,10 @@ public class FavoritesNotificationReceiver extends BroadcastReceiver {
             throw new RuntimeException("Talk should have been fetched.");
         }
         final boolean notificationsEnabled = FavoritesNotificationScheduler.isNotificationsEnabled(context);
-        final Map<String, String> dimens = new ArrayMap<>(2);
-        dimens.put("talkId", talk.getObjectId());
-        dimens.put("notificationsEnabled", Boolean.toString(notificationsEnabled));
-        ParseAnalytics.trackEventInBackground("FavTalkNotification", dimens);
+
+        final EventScheduleApplication app = (EventScheduleApplication) context.getApplicationContext();
+        AnalyticsHelper.notification(app.getParseEventId(), talk.getObjectId(), notificationsEnabled);
+
         if (!notificationsEnabled) {
             return;
         }

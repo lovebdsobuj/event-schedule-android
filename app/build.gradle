@@ -31,8 +31,8 @@ android {
         }
         xebicon2015 {
             applicationId 'com.xebia.xebicon2015'
-            versionCode 1505131904
-            versionName '1.0.6'
+            versionCode 1506010755
+            versionName '1.0.7'
         }
     }
 

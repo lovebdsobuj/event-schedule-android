@@ -37,6 +37,7 @@ import com.xebia.eventschedule.util.BaseEventScheduleApp;
 import com.xebia.eventschedule.util.CalligraphyActivity;
 import com.xebia.eventschedule.util.FavoritesNotificationScheduler;
 import com.xebia.eventschedule.util.LayoutUtils;
+import com.xebia.eventschedule.util.ParsePushManager;
 
 import java.util.List;
 
@@ -138,6 +139,7 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             @Override
             public void onClick(View v) {
                 FavoritesNotificationScheduler.setNotificationsEnabled(MainActivity.this, mNavNotificationsToggle.isChecked());
+                ParsePushManager.registerForPushNotifications(mNavNotificationsToggle.isChecked());
             }
         });
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar,

@@ -1,27 +1,15 @@
 package com.xebia.eventschedule;
 
-import android.util.Log;
-
-import com.parse.ParseException;
-import com.parse.ParsePush;
-import com.parse.SaveCallback;
 import com.xebia.eventschedule.util.BaseEventScheduleApp;
+import com.xebia.eventschedule.util.FavoritesNotificationScheduler;
+import com.xebia.eventschedule.util.ParsePushManager;
 
 public class EventScheduleApplication extends BaseEventScheduleApp {
 
     @Override
     public void onCreate() {
         super.onCreate();
-        ParsePush.subscribeInBackground("", new SaveCallback() {
-            @Override
-            public void done(ParseException e) {
-                if (e == null) {
-                    Log.d("com.parse.push", "successfully subscribed to the broadcast channel.");
-                } else {
-                    Log.e("com.parse.push", "failed to subscribe for push", e);
-                }
-            }
-        });
+        ParsePushManager.registerForPushNotifications(FavoritesNotificationScheduler.isNotificationsEnabled(this));
     }
 
     @Override
@@ -40,4 +28,6 @@ public class EventScheduleApplication extends BaseEventScheduleApp {
     public String getParseEventId() {
         return "SykH4MNwTw";
     }
+
+
 }

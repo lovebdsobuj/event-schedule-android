@@ -73,12 +73,6 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
-        // Now retrieve the DrawerLayout so that we can set the status bar color.
-        // This only takes effect on Lollipop, or when using translucentStatusBar
-        // on KitKat.
-        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawerLayout.setStatusBarBackgroundColor(getResources().getColor(R.color.primary));
-
         if (savedInstanceState == null) {
             final BaseEventScheduleApp app = (BaseEventScheduleApp) getApplicationContext();
             mTalkListFragment = TalkListFragment.newInstance(app.getParseEventId());
@@ -277,20 +271,10 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
         return true;
     }
 
-    private boolean isNavDrawerOpen() {
-        return mDrawerLayout != null && mDrawerLayout.isDrawerOpen(GravityCompat.START);
-    }
-
-    private void closeNavDrawer() {
-        if (mDrawerLayout != null) {
-            mDrawerLayout.closeDrawer(GravityCompat.START);
-        }
-    }
-
     @Override
     public void onBackPressed() {
-        if (isNavDrawerOpen()) {
-            closeNavDrawer();
+        if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
+            mDrawerLayout.closeDrawers();
         } else if (mFilterMenuSelectedId == R.id.menu_filter_item_favourites
             || mFilterMenuSelectedId == R.id.menu_filter_item_any_tag) {
             onOptionsItemSelected(mFilterItemSubMenu.findItem(R.id.menu_filter_item_everything));

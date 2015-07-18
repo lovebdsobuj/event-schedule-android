@@ -62,12 +62,14 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     private int mFilterMenuSelectedId;
     private String mFilterMenuSelectedTag;
     private CompoundButton mNavNotificationsToggle;
+    private View mLoadingIndicator;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
         setContentView(R.layout.activity_main);
+        mLoadingIndicator = findViewById(R.id.loading_indicator);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -278,6 +280,6 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     }
 
     private void setLoadingIndicatorVisibility(boolean visible) {
-        findViewById(R.id.loading_indicator).setVisibility(visible ? View.VISIBLE : View.GONE);
+        mLoadingIndicator.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 }

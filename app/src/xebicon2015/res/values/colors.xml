@@ -14,9 +14,9 @@
     <color name="primaryDark">@color/xebicon_purple</color>
     <color name="accent">@color/xebicon_yellow</color>
 
-    <color name="menu_background">@color/primary</color>
-    <color name="menu_text">@android:color/white</color>
-    <color name="menu_text_selected">@color/xebicon_yellow</color>
+    <color name="drawer_menu_background">@color/primary</color>
+    <color name="drawer_menu_text">@android:color/white</color>
+    <color name="drawer_menu_text_selected">@color/xebicon_yellow</color>
     <color name="notificationIconBackground">@color/primary</color>
 
 </resources>

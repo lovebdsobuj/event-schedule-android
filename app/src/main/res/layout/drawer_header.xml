@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/primaryDark"
+    android:background="@color/drawer_header_background"
     android:orientation="vertical"
     android:paddingTop="32dp">
 
@@ -21,7 +21,7 @@
         android:paddingBottom="8dp"
         android:text="@string/app_name_med"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/menu_text"/>
+        android:textColor="@color/drawer_menu_text"/>
 
     <LinearLayout
         style="@style/NavMenuItem"
@@ -36,7 +36,7 @@
             android:text="@string/nav_notifications"
             android:textAppearance="?android:attr/textAppearance"
             android:textSize="16sp"
-            android:textColor="@color/menu_text"/>
+            android:textColor="@color/drawer_menu_text"/>
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/nav_notifications_switch"

@@ -19,6 +19,7 @@ android {
     }
 
     productFlavors {
+        /*
         xebicon2014 {
             applicationId 'com.xebia.xebicon2014'
             versionCode 1405181340 // yyMMddhhmm
@@ -29,10 +30,16 @@ android {
             versionCode 1501261020 // yyMMddhhmm
             versionName '1.0.0'
         }
+        */
         xebicon2015 {
             applicationId 'com.xebia.xebicon2015'
             versionCode 1506010755
             versionName '1.0.7'
+        }
+        applyscala {
+            applicationId 'com.xebia.applyscala'
+            versionCode 1
+            versionName '1.0.0'
         }
     }
 

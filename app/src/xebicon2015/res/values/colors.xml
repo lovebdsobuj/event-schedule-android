@@ -16,6 +16,7 @@
 
     <color name="menu_background">@color/primary</color>
     <color name="menu_text">@android:color/white</color>
+    <color name="menu_text_selected">@color/xebicon_yellow</color>
     <color name="notificationIconBackground">@color/primary</color>
 
 </resources>

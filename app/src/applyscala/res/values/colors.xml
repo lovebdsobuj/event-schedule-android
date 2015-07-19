@@ -4,8 +4,6 @@
     <!-- apply(Scala) colors -->
     <color name="apply_red">#d8232a</color>
     <color name="apply_darkRed">#98010a</color>
-    <color name="apply_blue">#337ab7</color>
-    <color name="apply_grey">#232323</color>
 
     <!-- Material Theme colors -->
     <color name="primary">@color/apply_red</color>
@@ -14,8 +12,8 @@
 
     <color name="drawer_header_background">@android:color/white</color>
     <color name="drawer_menu_background">@color/apply_red</color>
-    <color name="drawer_menu_text">@color/text</color>
+    <color name="drawer_menu_text">#cfcfcf</color>
     <color name="drawer_menu_text_selected">@android:color/white</color>
-    <color name="notificationIconBackground">@color/apply_grey</color>
+    <color name="notificationIconBackground">@color/apply_red</color>
 
 </resources>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.xebia.eventschedule" >
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.xebia.eventschedule">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -12,7 +14,9 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/Theme.EventSchedule" >
+        android:supportsRtl="false"
+        android:theme="@style/Theme.EventSchedule"
+        tools:ignore="UnusedAttribute">
         <activity
             android:name="com.xebia.eventschedule.MainActivity"
             android:theme="@style/Theme.EventSchedule.SideMenu"
@@ -25,25 +29,28 @@
         </activity>
         <activity
             android:name="com.xebia.eventschedule.details.TalkActivity"
+            android:parentActivityName="com.xebia.eventschedule.MainActivity"
             android:theme="@style/Theme.EventSchedule.NoActionBar"
-            android:parentActivityName="com.xebia.eventschedule.MainActivity" >
+            tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.xebia.eventschedule.MainActivity" />
+                android:value="com.xebia.eventschedule.MainActivity"/>
         </activity>
         <activity
             android:name="com.xebia.eventschedule.legal.LegalActivity"
-            android:parentActivityName="com.xebia.eventschedule.MainActivity" >
+            android:parentActivityName="com.xebia.eventschedule.MainActivity"
+            tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.xebia.eventschedule.MainActivity" />
+                android:value="com.xebia.eventschedule.MainActivity"/>
         </activity>
         <activity
             android:name=".eventdetails.EventDetailsActivity"
-            android:parentActivityName="com.xebia.eventschedule.MainActivity" >
+            android:parentActivityName="com.xebia.eventschedule.MainActivity"
+            tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.xebia.eventschedule.MainActivity" />
+                android:value="com.xebia.eventschedule.MainActivity"/>
         </activity>
 
         <service android:name="com.parse.PushService" />

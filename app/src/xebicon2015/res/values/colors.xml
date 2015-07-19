@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- XebiCon colors -->
     <color name="xebicon_yellow">#ffe3b008</color>
     <color name="xebicon_purple">#ff611c4b</color>
     <color name="xebicon_purpleLight">#ff752c5e</color>
-    <color name="xebicon_blue">#ff15a89c</color>
-    <color name="xebicon_grey">#ff3b3b3a</color>
-    <color name="xebicon_greyLight">#ffa6a7a6</color>
+    <color tools:ignore="UnusedResources" name="xebicon_blue">#ff15a89c</color>
+    <color tools:ignore="UnusedResources" name="xebicon_grey">#ff3b3b3a</color>
+    <color tools:ignore="UnusedResources" name="xebicon_greyLight">#ffa6a7a6</color>
 
     <!-- Material Theme colors -->
     <color name="primary">@color/xebicon_purpleLight</color>

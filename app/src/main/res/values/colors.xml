@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <color name="text">#dd000000</color>
     <color name="textSecondary">#8a000000</color>
@@ -16,7 +16,7 @@
     <color name="blue_500">#FF2196F3</color>
     <color name="light_blue_500">#FF03A9F4</color>
     <color name="cyan_500">#FF00BCD4</color>
-    <color name="teal_500">#FF009688</color>
+    <color tools:ignore="UnusedResources" name="teal_500">#FF009688</color>
     <color name="green_500">#FF4CAF50</color>
     <color name="light_green_500">#FF8BC34A</color>
     <color name="lime_500">#FFCDDC39</color>

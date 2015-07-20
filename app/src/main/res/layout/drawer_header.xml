@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/primaryDark"
+    android:background="@color/drawer_header_background"
     android:orientation="vertical"
     android:paddingTop="32dp"
     tools:ignore="Overdraw">
@@ -23,7 +23,7 @@
         android:paddingBottom="8dp"
         android:text="@string/app_name_med"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@color/menu_text"/>
+        android:textColor="@color/drawer_menu_text"/>
 
     <LinearLayout
         style="@style/NavMenuItem"
@@ -32,13 +32,15 @@
         <TextView
             android:id="@+id/nav_notifications_label"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_notifications"
+            android:drawablePadding="@dimen/navigation_icon_padding"
+            android:drawableStart="@drawable/ic_notifications"
+            android:gravity="center_vertical|start"
             android:text="@string/nav_notifications"
-            android:textAppearance="?android:attr/textAppearance"
-            android:textSize="16sp"
-            android:textColor="@color/menu_text"/>
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textColor="@color/drawer_header_text"/>
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/nav_notifications_switch"

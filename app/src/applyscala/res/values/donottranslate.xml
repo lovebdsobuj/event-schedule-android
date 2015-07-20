@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="contact_name">Apply Conference Organization</string>
+    <string name="contact_email">applyconf@xebia.com</string>
+    <string name="contact_phone" tools:ignore="TypographyDashes">+31-35-5381921</string>
+
+</resources>

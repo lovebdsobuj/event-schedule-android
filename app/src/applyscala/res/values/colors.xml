@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- apply(Scala) colors -->
+    <color name="apply_red">#d8232a</color>
+    <color name="apply_darkRed">#98010a</color>
+
+    <!-- Material Theme colors -->
+    <color name="primary">@color/apply_red</color>
+    <color name="primaryDark">@color/apply_darkRed</color>
+    <color name="accent">@color/apply_red</color>
+
+    <color name="drawer_header_background">@android:color/white</color>
+    <color name="drawer_menu_background">@color/apply_red</color>
+    <color name="drawer_menu_text">#cfcfcf</color>
+    <color name="drawer_menu_text_selected">@android:color/white</color>
+    <color name="notificationIconBackground">@color/apply_red</color>
+
+</resources>

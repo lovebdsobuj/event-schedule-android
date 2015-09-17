@@ -35,7 +35,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawableLeft="@drawable/ic_notifications"
-            android:drawablePadding="@dimen/navigation_icon_padding"
+            android:drawablePadding="@dimen/design_navigation_icon_padding"
             android:drawableStart="@drawable/ic_notifications"
             android:gravity="center_vertical|start"
             android:text="@string/nav_notifications"

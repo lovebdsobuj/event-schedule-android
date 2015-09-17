@@ -25,6 +25,7 @@ public abstract class BaseEventScheduleApp extends Application {
 
     @Override
     public void onCreate() {
+        super.onCreate();
         initParse();
         initCalligraphy();
 

@@ -20,3 +20,4 @@
 #}
 
 -dontwarn com.squareup.okhttp.**
+-dontwarn com.parse.**

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TestWorks Conf</string>
+    <string name="app_name_med">TestWorks Conf</string>
+    <string name="app_date">2 oktober, 2015</string>
+    <string name="event_time">9:00 – 18:00</string>
+
+</resources>

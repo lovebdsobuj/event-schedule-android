@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- apply(Scala) colors -->
+    <color name="testworks_purple">#6d296b</color>
+    <color name="testworks_darkPurple">#61255f</color>
+    <color name="testworks_green">#76B72A</color>
+
+    <!-- Material Theme colors -->
+    <color name="primary">@color/testworks_purple</color>
+    <color name="primaryDark">@color/testworks_darkPurple</color>
+    <color name="accent">@color/testworks_green</color>
+
+    <color name="drawer_header_background">@android:color/white</color>
+    <color name="drawer_menu_background">@color/testworks_green</color>
+    <color name="drawer_menu_text">@color/testworks_purple</color>
+    <color name="drawer_menu_text_selected">@android:color/white</color>
+    <color name="notificationIconBackground">@color/testworks_purple</color>
+
+</resources>

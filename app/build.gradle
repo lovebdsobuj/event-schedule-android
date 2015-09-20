@@ -30,7 +30,6 @@ android {
             versionCode 1501261020 // yyMMddhhmm
             versionName '1.0.0'
         }
-        */
         xebicon2015 {
             applicationId 'com.xebia.xebicon2015'
             versionCode 1506010755
@@ -38,6 +37,12 @@ android {
         }
         applyscala {
             applicationId 'com.xebia.applyscala'
+            versionCode 1
+            versionName '1.0.0'
+        }
+        */
+        tstworks {
+            applicationId 'com.xebia.testworks'
             versionCode 1
             versionName '1.0.0'
         }

@@ -43,7 +43,7 @@ android {
         */
         tstworks {
             applicationId 'com.xebia.testworks'
-            versionCode 1
+            versionCode 1509230849
             versionName '1.0.0'
         }
     }

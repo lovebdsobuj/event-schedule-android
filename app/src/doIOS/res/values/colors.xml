@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- apply(Scala) colors -->
+    <color name="doios_blue">#008de2</color>
+    <color name="doios_darkBlue">#006bad</color>
+    <color name="doios_black">#000</color>
+
+    <!-- Material Theme colors -->
+    <color name="primary">@color/doios_blue</color>
+    <color name="primaryDark">@color/doios_darkBlue</color>
+    <color name="accent">@color/doios_black</color>
+
+    <color name="drawer_header_background">@color/doios_blue</color>
+    <color name="drawer_menu_background">@android:color/white</color>
+    <color name="drawer_menu_text">@color/doios_black</color>
+    <color name="drawer_menu_text_selected">@color/doios_blue</color>
+    <color name="notificationIconBackground">@color/doios_blue</color>
+
+</resources>

@@ -40,11 +40,16 @@ android {
             versionCode 1
             versionName '1.0.0'
         }
-        */
         tstworks {
             applicationId 'com.xebia.testworks'
             versionCode 1509242214
             versionName '1.0.1'
+        }
+        */
+        doIOS {
+            applicationId 'com.xebia.doios'
+            versionCode 1
+            versionName '1.0.0'
         }
     }
 

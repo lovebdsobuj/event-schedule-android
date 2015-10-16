@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">do{iOS}</string>
+    <string name="app_name_med"/>
+    <string name="app_date">9 november, 2015</string>
+    <string name="event_time">9:00 – 18:00</string>
+
+</resources>

@@ -2,11 +2,9 @@ package com.xebia.eventschedule;
 
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -14,12 +12,7 @@ import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.text.SpannableString;
-import android.text.Spanned;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.Toast;
@@ -32,15 +25,11 @@ import com.xebia.eventschedule.legal.LegalActivity;
 import com.xebia.eventschedule.list.TalkListClickListener;
 import com.xebia.eventschedule.list.TalkListFragment;
 import com.xebia.eventschedule.model.Favorites;
-import com.xebia.eventschedule.model.Tags;
 import com.xebia.eventschedule.model.Talk;
-import com.xebia.eventschedule.util.AccentColorSpan;
 import com.xebia.eventschedule.util.BaseEventScheduleApp;
 import com.xebia.eventschedule.util.CalligraphyActivity;
 import com.xebia.eventschedule.util.FavoritesNotificationScheduler;
 import com.xebia.eventschedule.util.LayoutUtils;
-
-import java.util.List;
 
 /**
  * The main activity shows the list of talks, and gives access to the supplementary activities of
@@ -57,19 +46,15 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private TalkListFragment mTalkListFragment;
-    private MenuItem mFilterItemMenu;
-    private SubMenu mFilterItemSubMenu;
     private int mFilterMenuSelectedId;
     private String mFilterMenuSelectedTag;
     private CompoundButton mNavNotificationsToggle;
-    private View mLoadingIndicator;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ParseAnalytics.trackAppOpenedInBackground(getIntent());
         setContentView(R.layout.activity_main);
-        mLoadingIndicator = findViewById(R.id.loading_indicator);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -116,6 +101,14 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
         outState.putString(INST_ST_FILTER_MENU_TAG, mFilterMenuSelectedTag);
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.support.v7.appcompat.R.id.home) {
+            return mDrawerToggle.onOptionsItemSelected(item);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     /**
      * Handles clicks on the navigation menu.
      */
@@ -152,90 +145,6 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
         mDrawerToggle.onConfigurationChanged(newConfig);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.activity_main, menu);
-        mFilterItemMenu = menu.findItem(R.id.menu_filter);
-        mFilterItemSubMenu = mFilterItemMenu.getSubMenu();
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.support.v7.appcompat.R.id.home) {
-            return mDrawerToggle.onOptionsItemSelected(item);
-        }
-        if (item.getGroupId() == R.id.menu_filter_group) {
-            mFilterMenuSelectedId = item.getItemId();
-            mFilterMenuSelectedTag = null;
-            item.setChecked(true);
-            if (item.getItemId() == R.id.menu_filter_item_everything) {
-                mTalkListFragment.setFilteringDisabled();
-            } else if (item.getItemId() == R.id.menu_filter_item_favourites) {
-                mTalkListFragment.setFilterFavourites();
-            } else {
-                final String chosenTag = String.valueOf(item.getTitle());
-                mTalkListFragment.setFilterByTag(chosenTag);
-                mFilterMenuSelectedId = R.id.menu_filter_item_any_tag;
-                mFilterMenuSelectedTag = chosenTag;
-            }
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onTalksLoaded(@NonNull List<Talk> talks) {
-        setLoadingIndicatorVisibility(false);
-
-        if (mFilterItemSubMenu == null) {
-            // TODO aargh! We can NPE here when you rotate the screen. That's really awkward and we should fix it.
-            if (BuildConfig.DEBUG) {
-                Log.w("MainActivity", "onTalksLoaded() called before onCreateOptionsMenu()");
-            }
-            return;
-        }
-        mFilterItemSubMenu.clear();
-        if (talks.isEmpty()) {
-            mFilterItemMenu.setVisible(false);
-            mFilterMenuSelectedId = 0;
-            mFilterMenuSelectedTag = null;
-        } else {
-            final int colorBlipMarginRight = getResources().getDimensionPixelSize(R.dimen.menu_colorbadge_marginRight);
-            final int colorBlipWidth = getResources().getDimensionPixelSize(R.dimen.menu_colorbadge_width);
-
-            List<String> tagsOrdered = Tags.init(this, talks).getTagLabels();
-
-            AccentColorSpan allColorBlip = new AccentColorSpan(Color.TRANSPARENT, colorBlipWidth, colorBlipMarginRight);
-            final SpannableString allTitle = new SpannableString(getString(R.string.menu_filter_everything));
-            allTitle.setSpan(allColorBlip, 0, allTitle.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            final MenuItem selectAll = mFilterItemSubMenu
-                    .add(R.id.menu_filter_group, R.id.menu_filter_item_everything, 0, allTitle);
-            selectAll.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_everything
-                    || mFilterMenuSelectedId == 0);
-
-            AccentColorSpan favColorBlip = new AccentColorSpan(Color.TRANSPARENT, colorBlipWidth, colorBlipMarginRight);
-            final SpannableString favTitle = new SpannableString(getString(R.string.menu_filter_favourites));
-            favTitle.setSpan(favColorBlip, 0, favTitle.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-            final MenuItem selectFavs = mFilterItemSubMenu
-                    .add(R.id.menu_filter_group, R.id.menu_filter_item_favourites, 0, favTitle);
-            selectFavs.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_favourites);
-
-            Tags tags = Tags.init(this, talks);
-            for (String title : tagsOrdered) {
-                final int color = tags.getTagColor(title);
-                final AccentColorSpan colorBlip = new AccentColorSpan(color, colorBlipWidth, colorBlipMarginRight);
-                final SpannableString menuTitle = new SpannableString(title);
-                menuTitle.setSpan(colorBlip, 0, title.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                final MenuItem item = mFilterItemSubMenu.add(R.id.menu_filter_group, 0, 0, menuTitle);
-                item.setChecked(mFilterMenuSelectedId == R.id.menu_filter_item_any_tag
-                        && mFilterMenuSelectedTag != null && mFilterMenuSelectedTag.equals(title));
-            }
-            mFilterItemSubMenu.setGroupCheckable(R.id.menu_filter_group, true, true);
-            mFilterItemMenu.setVisible(true);
-        }
     }
 
     @Override
@@ -277,9 +186,5 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
         } else {
             super.onBackPressed();
         }
-    }
-
-    private void setLoadingIndicatorVisibility(boolean visible) {
-        mLoadingIndicator.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 }

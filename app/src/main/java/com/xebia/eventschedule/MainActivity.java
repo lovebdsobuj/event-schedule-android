@@ -20,8 +20,8 @@ import android.widget.Toast;
 import com.parse.ParseAnalytics;
 import com.xebia.eventschedule.details.TalkActivity;
 import com.xebia.eventschedule.details.TalkDetailsFragment;
-import com.xebia.eventschedule.eventdetails.EventDetailsActivity;
-import com.xebia.eventschedule.legal.LegalActivity;
+import com.xebia.eventschedule.eventdetails.EventDetailsFragment;
+import com.xebia.eventschedule.legal.LegalFragment;
 import com.xebia.eventschedule.list.TalkListClickListener;
 import com.xebia.eventschedule.list.TalkListFragment;
 import com.xebia.eventschedule.model.Favorites;
@@ -46,9 +46,13 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private TalkListFragment mTalkListFragment;
+    private EventDetailsFragment mEventDetailsFragment;
+    private LegalFragment mLegalFragment;
+    private boolean mScheduleVisible;
     private int mFilterMenuSelectedId;
     private String mFilterMenuSelectedTag;
     private CompoundButton mNavNotificationsToggle;
+    private NavigationView mNavigationView;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -59,11 +63,7 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        if (savedInstanceState == null) {
-            final BaseEventScheduleApp app = (BaseEventScheduleApp) getApplicationContext();
-            mTalkListFragment = TalkListFragment.newInstance(app.getParseEventId());
-            getSupportFragmentManager().beginTransaction().add(R.id.schedule_container, mTalkListFragment).commit();
-        } else {
+        if (savedInstanceState != null) {
             mTalkListFragment = (TalkListFragment) getSupportFragmentManager().findFragmentById(R.id.schedule_container);
             mFilterMenuSelectedId = savedInstanceState.getInt(INST_ST_FILTER_MENU_ID);
             mFilterMenuSelectedTag = savedInstanceState.getString(INST_ST_FILTER_MENU_TAG);
@@ -82,8 +82,8 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
         ViewCompat.setLabelFor(findViewById(R.id.nav_notifications_label), mNavNotificationsToggle.getId());
 
         // listen for navigation events
-        NavigationView navigationView = (NavigationView) findViewById(R.id.navigation);
-        navigationView.setNavigationItemSelectedListener(this);
+        mNavigationView = (NavigationView) findViewById(R.id.navigation);
+        mNavigationView.setNavigationItemSelectedListener(this);
 
         // set up the hamburger icon to open and close the drawer
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, toolbar, R.string.drawer_open,
@@ -114,6 +114,7 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
      */
     @Override
     public boolean onNavigationItemSelected(final MenuItem menuItem) {
+        menuItem.setChecked(true);
         mDrawerLayout.closeDrawer(GravityCompat.START);
         mDrawerActionHandler.postDelayed(new Runnable() {
             @Override
@@ -125,20 +126,69 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     }
 
     private void navigate(@IdRes final int itemId) {
+        mNavigationView.setCheckedItem(itemId);
         switch (itemId) {
             case R.id.nav_schedule:
-                // nothing to do
+                showSchedule();
                 break;
             case R.id.nav_event_info:
-                startActivity(new Intent(this, EventDetailsActivity.class));
+                showEventDetails();
                 break;
             case R.id.nav_legal:
-                startActivity(new Intent(this, LegalActivity.class));
+                showLegal();
                 break;
             default:
                 // ignore
                 break;
         }
+    }
+
+    private void showSchedule() {
+        if (LayoutUtils.isDualPane(this)) {
+            findViewById(R.id.talk_details).setVisibility(View.VISIBLE);
+        }
+        if (null == mTalkListFragment) {
+            final BaseEventScheduleApp app = (BaseEventScheduleApp) getApplicationContext();
+            mTalkListFragment = TalkListFragment.newInstance(app.getParseEventId());
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.schedule_container, mTalkListFragment, "talkList")
+                    .addToBackStack("talkList")
+                    .commit();
+        }
+
+        getSupportFragmentManager()
+                .popBackStackImmediate("talkList", 0);
+        mScheduleVisible = true;
+    }
+
+    private void showEventDetails() {
+        if (LayoutUtils.isDualPane(this)) {
+            findViewById(R.id.talk_details).setVisibility(View.GONE);
+        }
+        if (null == mEventDetailsFragment) {
+            final BaseEventScheduleApp app = (BaseEventScheduleApp) getApplicationContext();
+            mEventDetailsFragment = EventDetailsFragment.newInstance(app.getParseEventId());
+        }
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.schedule_container, mEventDetailsFragment, "eventDetails")
+                .addToBackStack("eventDetails")
+                .commit();
+        mScheduleVisible = false;
+    }
+
+    private void showLegal() {
+        if (LayoutUtils.isDualPane(this)) {
+            findViewById(R.id.talk_details).setVisibility(View.GONE);
+        }
+        if (null == mLegalFragment) {
+            final BaseEventScheduleApp app = (BaseEventScheduleApp) getApplicationContext();
+            mLegalFragment = LegalFragment.newInstance(app.getParseEventId());
+        }
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.schedule_container, mLegalFragment, "legal")
+                .addToBackStack("legal")
+                .commit();
+        mScheduleVisible = false;
     }
 
     @Override
@@ -180,11 +230,12 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
     public void onBackPressed() {
         if (mDrawerLayout.isDrawerOpen(GravityCompat.START)) {
             mDrawerLayout.closeDrawers();
-        } else if (mFilterMenuSelectedId == R.id.menu_filter_item_favourites
-            || mFilterMenuSelectedId == R.id.menu_filter_item_any_tag) {
-            onOptionsItemSelected(mFilterItemSubMenu.findItem(R.id.menu_filter_item_everything));
+        } else if (mScheduleVisible && mTalkListFragment.isFiltered()) {
+            mTalkListFragment.setFilteringDisabled();
+        } else if (!mScheduleVisible) {
+            navigate(R.id.nav_schedule);
         } else {
-            super.onBackPressed();
+            finish();
         }
     }
 }

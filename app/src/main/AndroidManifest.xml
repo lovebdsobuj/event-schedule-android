@@ -36,22 +36,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.xebia.eventschedule.MainActivity"/>
         </activity>
-        <activity
-            android:name="com.xebia.eventschedule.legal.LegalActivity"
-            android:parentActivityName="com.xebia.eventschedule.MainActivity"
-            tools:ignore="UnusedAttribute">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.xebia.eventschedule.MainActivity"/>
-        </activity>
-        <activity
-            android:name=".eventdetails.EventDetailsActivity"
-            android:parentActivityName="com.xebia.eventschedule.MainActivity"
-            tools:ignore="UnusedAttribute">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.xebia.eventschedule.MainActivity"/>
-        </activity>
 
         <service android:name="com.parse.PushService" />
 

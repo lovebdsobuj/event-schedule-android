@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,9 +14,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.parse.GetCallback;
+import com.parse.ParseException;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Event;
 import com.xebia.eventschedule.model.Location;
+import com.xebia.eventschedule.util.AnalyticsHelper;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -26,13 +30,19 @@ public class EventDetailsFragment extends Fragment {
     private static final String MAPS_ACTION = "geo:%f,%f?q=%s";
     private static final String GEO_URI = "http://maps.google.com/maps?q=loc:%f,%f (%s)";
     private static final String DIALER_ACTION = "tel:+31355381921";
-    private static final String ARG_EVENT = "event";
+    private static final String ARG_EVENT_ID = "eventId";
+
+    private TextView mLocationName;
+    private TextView mLocationAddress;
+    private TextView mLocationUrl;
+
+    private String mEventId;
     private Event mEvent;
 
-    public static EventDetailsFragment newInstance(final Event event) {
+    public static EventDetailsFragment newInstance(final String eventId) {
         EventDetailsFragment fragment = new EventDetailsFragment();
         Bundle args = new Bundle();
-        args.putSerializable(ARG_EVENT, event);
+        args.putSerializable(ARG_EVENT_ID, eventId);
         fragment.setArguments(args);
         return fragment;
     }
@@ -40,7 +50,45 @@ public class EventDetailsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mEvent = (Event) getArguments().getSerializable(ARG_EVENT);
+        mEventId = getArguments().getString(ARG_EVENT_ID);
+        AnalyticsHelper.openedEventDetailsActivity(mEventId);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Fetch the data about this event from Parse
+        Event.getInBackground(mEventId, new GetCallback<Event>() {
+            @Override
+            public void done(final Event event, ParseException e) {
+
+                if (null == getActivity()) {
+                    return;
+                }
+
+                // if we cannot get the data right now, the best we can do is show a toast.
+                if (e != null) {
+                    Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+                    return;
+                }
+
+                if (event == null) {
+                    throw new RuntimeException("Somehow the event was null.");
+                }
+
+                onEventLoaded(event);
+            }
+        });
+    }
+
+    private void onEventLoaded(final Event event) {
+        mEvent = event;
+        if (null != event.getLocation()) {
+            mLocationName.setText(event.getLocation().getName());
+            mLocationAddress.setText(event.getLocation().getAddress());
+            mLocationUrl.setText(event.getLocation().getUrl());
+        }
     }
 
     @Override
@@ -48,14 +96,12 @@ public class EventDetailsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.event_details, container, false);
         if (null != root) {
-            if (null != mEvent.getLocation()) {
-                ((TextView) root.findViewById(R.id.location_name)).setText(mEvent.getLocation().getName());
-                ((TextView) root.findViewById(R.id.location_address)).setText(mEvent.getLocation().getAddress());
-            }
-            ((TextView) root.findViewById(R.id.location_url)).setText(mEvent.getLocation().getUrl());
+            mLocationName = ((TextView) root.findViewById(R.id.location_name));
+            mLocationAddress = ((TextView) root.findViewById(R.id.location_address));
+            mLocationUrl = ((TextView) root.findViewById(R.id.location_url));
 
             ImageButton locationIcon = (ImageButton) root.findViewById(R.id.location_icon);
-            DrawableCompat.setTint(locationIcon.getDrawable(), getResources().getColor(R.color.accent));
+            DrawableCompat.setTint(locationIcon.getDrawable(), ContextCompat.getColor(getContext(), R.color.accent));
             locationIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -64,7 +110,7 @@ public class EventDetailsFragment extends Fragment {
             });
 
             ImageButton contactIcon = (ImageButton) root.findViewById(R.id.contact_icon);
-            DrawableCompat.setTint(contactIcon.getDrawable(), getResources().getColor(R.color.accent));
+            DrawableCompat.setTint(contactIcon.getDrawable(), ContextCompat.getColor(getContext(), R.color.accent));
             contactIcon.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -94,7 +140,7 @@ public class EventDetailsFragment extends Fragment {
             double lon = location.getCoords().getLatitude();
             String query;
             try {
-                query = URLEncoder.encode(location.getName(), "UTF-8");
+                query = URLEncoder.encode(location.getName() != null ? location.getName() : "", "UTF-8");
             } catch (UnsupportedEncodingException e) {
                 query = "";
             }

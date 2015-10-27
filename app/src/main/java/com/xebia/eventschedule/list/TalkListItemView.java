@@ -2,6 +2,7 @@ package com.xebia.eventschedule.list;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.AttributeSet;
@@ -76,10 +77,10 @@ public class TalkListItemView extends RelativeLayout implements ScheduleListItem
         mSelectionIndicator = findViewById(R.id.selection_indicator);
 
         // load some context-related things
-        mPrimaryColor = getResources().getColor(R.color.primary);
-        mTextColor = getResources().getColor(R.color.text);
-        mSecondaryColor = getResources().getColor(R.color.textSecondary);
-        mAccentColor = getResources().getColor(R.color.accent);
+        mPrimaryColor = ContextCompat.getColor(getContext(), R.color.primary);
+        mTextColor = ContextCompat.getColor(getContext(), R.color.text);
+        mSecondaryColor = ContextCompat.getColor(getContext(), R.color.textSecondary);
+        mAccentColor = ContextCompat.getColor(getContext(), R.color.accent);
         mTimeFormat = DateFormat.getTimeFormat(getContext());
         mMasterDetailMode = LayoutUtils.isDualPane(getContext());
     }

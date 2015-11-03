@@ -48,7 +48,7 @@ android {
         */
         doIOS {
             applicationId 'com.xebia.doios'
-            versionCode 1
+            versionCode 1511031308
             versionName '1.0.0'
         }
     }

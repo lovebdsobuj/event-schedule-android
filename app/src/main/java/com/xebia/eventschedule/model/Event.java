@@ -3,7 +3,6 @@ package com.xebia.eventschedule.model;
 
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
@@ -11,7 +10,6 @@ import com.parse.ParseClassName;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import com.xebia.eventschedule.BuildConfig;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -19,6 +17,8 @@ import org.json.JSONException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import timber.log.Timber;
 
 /**
  * Model for a conference event.
@@ -128,9 +128,7 @@ public class Event extends ParseObject implements Serializable {
                 }
             }
         } catch (JSONException e) {
-            if (BuildConfig.DEBUG) {
-                Log.e("Event", "Could not parse list of languages", e);
-            }
+            Timber.e(e, "Could not parse list of languages");
         }
         return results;
     }

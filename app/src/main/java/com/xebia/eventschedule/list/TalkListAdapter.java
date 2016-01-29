@@ -3,7 +3,6 @@ package com.xebia.eventschedule.list;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.HapticFeedbackConstants;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,8 @@ import com.xebia.eventschedule.model.Talk;
 import java.util.ArrayList;
 import java.util.List;
 
+import timber.log.Timber;
+
 /**
  * An ArrayAdapter to handle a list of Talks.
  */
@@ -21,7 +22,6 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
 
     private static final int BREAK_TYPE = 1;
     private static final int TALK_TYPE = 2;
-    private static final String TAG = "TalkListAdapter";
     private static final String INST_ST_FILTER_MODE = "FilterMode";
     private static final String INST_ST_FILTER_TAG = "FilterTag";
     private final List<Talk> mAllData;
@@ -47,7 +47,7 @@ public class TalkListAdapter extends RecyclerView.Adapter<TalkViewHolder> {
                 TalkListItemView talkView = new TalkListItemView(parent.getContext());
                 return new TalkViewHolder(talkView);
             default:
-                Log.d(TAG, "Could not create view holder");
+                Timber.d("Could not create view holder");
                 return null;
         }
     }

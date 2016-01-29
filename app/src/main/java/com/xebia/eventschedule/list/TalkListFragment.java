@@ -9,7 +9,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.Spanned;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -21,7 +20,6 @@ import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
-import com.xebia.eventschedule.BuildConfig;
 import com.xebia.eventschedule.R;
 import com.xebia.eventschedule.model.Favorites;
 import com.xebia.eventschedule.model.Tags;
@@ -29,6 +27,8 @@ import com.xebia.eventschedule.model.Talk;
 import com.xebia.eventschedule.util.AccentColorSpan;
 
 import java.util.List;
+
+import timber.log.Timber;
 
 /**
  * A fragment that just contains a list of talks.
@@ -167,9 +167,7 @@ public class TalkListFragment extends Fragment implements Favorites.Listener {
 
         if (mFilterItemSubMenu == null) {
             // TODO aargh! We can NPE here when you rotate the screen. That's really awkward and we should fix it.
-            if (BuildConfig.DEBUG) {
-                Log.w("MainActivity", "onTalksLoaded() called before onCreateOptionsMenu()");
-            }
+            Timber.w("onTalksLoaded() called before onCreateOptionsMenu()");
             return;
         }
         mFilterItemSubMenu.clear();

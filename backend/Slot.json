@@ -1,0 +1,812 @@
+{ "results": [
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T19:59:56.084Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T15:00:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "AMA T5"
+        },
+        "objectId": "0WK1yHpi5m",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T14:50:00.000Z"
+        },
+        "updatedAt": "2016-01-28T19:59:56.084Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T19:58:54.010Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T14:25:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Talk 5"
+        },
+        "objectId": "3Al83KkX8r",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T14:00:00.000Z"
+        },
+        "updatedAt": "2016-01-28T19:58:54.010Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T15:12:34.784Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T13:25:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "AMA K2"
+        },
+        "objectId": "6L4u3jwHwF",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T13:15:00.000Z"
+        },
+        "updatedAt": "2016-01-28T15:12:34.784Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T14:41:47.022Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T10:10:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "AMA T1"
+        },
+        "objectId": "9cWkHQzvaQ",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T10:00:00.000Z"
+        },
+        "updatedAt": "2016-01-28T14:41:47.022Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T20:03:26.126Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T18:00:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Bites and Drinks"
+        },
+        "objectId": "EKcKYFdl1p",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T16:30:00.000Z"
+        },
+        "updatedAt": "2016-01-28T20:03:26.126Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T19:59:22.174Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T14:50:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Talk 6"
+        },
+        "objectId": "FdgFyvrPqQ",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T14:25:00.000Z"
+        },
+        "updatedAt": "2016-01-28T19:59:22.174Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T15:04:57.277Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T13:15:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Keynote 2"
+        },
+        "objectId": "G1FPGyF9LZ",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T12:30:00.000Z"
+        },
+        "updatedAt": "2016-01-28T15:04:57.277Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T13:29:33.600Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T10:00:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Talk 1"
+        },
+        "objectId": "I5TQ7YACNY",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T09:35:00.000Z"
+        },
+        "updatedAt": "2016-01-28T13:29:33.600Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T13:55:23.438Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T10:45:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "AMA T2"
+        },
+        "objectId": "KEoYcIOuwN",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T10:35:00.000Z"
+        },
+        "updatedAt": "2016-01-28T13:55:23.438Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T14:59:21.758Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T12:30:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Lunch break"
+        },
+        "objectId": "O0c5tBwqWe",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T11:30:00.000Z"
+        },
+        "updatedAt": "2016-01-28T14:59:21.758Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T20:01:21.642Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-11T15:35:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "AMA T7"
+        },
+        "objectId": "OMCRwMOeiF",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T15:25:00.000Z"
+        },
+        "updatedAt": "2016-01-28T20:01:21.642Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T20:00:13.881Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T15:00:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "AMA T6"
+        },
+        "objectId": "Q7nUIjOJNl",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T14:50:00.000Z"
+        },
+        "updatedAt": "2016-01-28T20:00:13.881Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T13:35:45.011Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T09:35:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "AMA K1"
+        },
+        "objectId": "RDZhpPC1r8",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T09:25:00.000Z"
+        },
+        "updatedAt": "2016-01-28T13:35:45.011Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T14:40:27.381Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T08:40:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Opening"
+        },
+        "objectId": "TCAiHKnvNt",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T08:30:00.000Z"
+        },
+        "updatedAt": "2016-01-28T14:40:27.381Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T13:11:32.984Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T09:25:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Keynote 1"
+        },
+        "objectId": "UjaZApJJkx",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T08:40:00.000Z"
+        },
+        "updatedAt": "2016-01-28T13:11:32.984Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T15:00:20.016Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T11:40:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "AMA T3"
+        },
+        "objectId": "VmkExS44Hw",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T11:30:00.000Z"
+        },
+        "updatedAt": "2016-01-28T15:00:20.016Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T20:00:48.875Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T15:25:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Talk 7"
+        },
+        "objectId": "XE0p7QOZG8",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T15:00:00.000Z"
+        },
+        "updatedAt": "2016-01-28T20:00:48.875Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T13:50:25.495Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T11:00:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Workshop 1"
+        },
+        "objectId": "cTeKxrsB5i",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T10:00:00.000Z"
+        },
+        "updatedAt": "2016-01-28T13:50:25.495Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T20:02:55.397Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T16:40:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "AMA K3"
+        },
+        "objectId": "dvO9lMG6Rd",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T16:30:00.000Z"
+        },
+        "updatedAt": "2016-01-28T20:02:55.397Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T20:01:55.861Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T16:20:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "K3"
+        },
+        "objectId": "eLw37hK7cq",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T15:35:00.000Z"
+        },
+        "updatedAt": "2016-01-28T20:01:55.861Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T19:45:20.454Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T13:50:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Talk 4"
+        },
+        "objectId": "f8epZkpBdH",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T13:25:00.000Z"
+        },
+        "updatedAt": "2016-01-28T19:45:20.454Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T20:39:33.004Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T15:00:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Workshop 2"
+        },
+        "objectId": "fYGiglnJwt",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T14:00:00.000Z"
+        },
+        "updatedAt": "2016-01-28T20:39:33.004Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T20:02:31.914Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T16:30:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Closing"
+        },
+        "objectId": "gf088U9Kb5",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T16:20:00.000Z"
+        },
+        "updatedAt": "2016-01-28T20:02:31.914Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T14:51:09.031Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T11:30:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Talk 3"
+        },
+        "objectId": "hRn73zjWvg",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T10:45:00.000Z"
+        },
+        "updatedAt": "2016-01-28T14:51:09.031Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T13:41:56.835Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T08:30:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Registration"
+        },
+        "objectId": "ruohlotV4a",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T07:30:00.000Z"
+        },
+        "updatedAt": "2016-01-28T13:41:56.835Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T19:54:42.202Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T14:00:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "AMA T4"
+        },
+        "objectId": "sft9T7PR59",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T13:50:00.000Z"
+        },
+        "updatedAt": "2016-01-28T19:54:42.202Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "createdAt": "2016-01-28T13:23:14.527Z",
+        "endTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T10:35:00.000Z"
+        },
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "nickname": {
+            "en": "Talk 2"
+        },
+        "objectId": "yf8wzeTRNm",
+        "startTime": {
+            "__type": "Date",
+            "iso": "2016-02-18T10:10:00.000Z"
+        },
+        "updatedAt": "2016-01-28T13:23:14.527Z"
+    }
+] }

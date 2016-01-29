@@ -1,0 +1,570 @@
+{ "results": [
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Gerard is a Computer Science Engineer specialised in Web. He is an AngularJS fanboy and a community activist fighting for the JavaScript revolution. He has lived and worked for all sorts of companies in Germany, Brazil, UK and Spain and is always up for a good challenge. He enjoys running AngularJS Labs London, mentoring AngularJS students, participating in the community, giving talks and writing technical articles at Medium.",
+        "createdAt": "2016-01-28T19:31:54.974Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Gerard Sans",
+        "objectId": "1HLj1UyCUb",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-84c3581e-0929-40e4-9ec8-2764112d7e3a-1HLj1UyCUb_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-84c3581e-0929-40e4-9ec8-2764112d7e3a-1HLj1UyCUb_photo.jpg"
+        },
+        "title": "Computer Science Engineer",
+        "twitter": "gerardsans",
+        "updatedAt": "2016-01-29T08:59:32.835Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Shai is founder of HiRez.io, funny online courses about Angular and front end development in general.\nHe is an experienced client side consultant, developer and worldwide speaker who had the pleasure of delivering the ng-wat talk at ng-conf 2015.\nBesides that all, he is an organizer of the largest JavaScript group in Israel and a professional Improv performer.",
+        "company": "HiRez.io",
+        "createdAt": "2016-01-28T20:05:44.617Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Shai Reznik",
+        "objectId": "5jD228GpVc",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-c0c6aee1-58fc-4c88-b9ba-6d4b8a901c53-undefined_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-c0c6aee1-58fc-4c88-b9ba-6d4b8a901c53-undefined_photo.jpg"
+        },
+        "title": "Founder, Front-end Specialist",
+        "twitter": "shai_reznik",
+        "updatedAt": "2016-01-28T20:05:52.316Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL Admin": {
+                "write": true
+            }
+        },
+        "bio": "Oliver is a self-learning web developer, he loves everything front-end related and especially Javascript \u0026 CSS. He has been working with Angular for the last 3 years and is using Angular 2 since the alpha. He firmly believes in open-source and has been contributing to many projects on his free time, such as ocLazyLoad and ng2-translate. Oliver is also a panelist for Angular Air.",
+        "createdAt": "2015-01-09T13:36:03.551Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Olivier Combe",
+        "objectId": "6qwAH9mKcG",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-230d8ff5-1f67-49c5-9b45-1b2b15e07561-undefined_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-230d8ff5-1f67-49c5-9b45-1b2b15e07561-undefined_photo.jpg"
+        },
+        "title": "Web Developer",
+        "twitter": "ocombe",
+        "updatedAt": "2016-01-28T14:01:51.804Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Jeroen is a Full-Stack Developer at Xebia with a passion for security and risk management. He has developed multiple web-applications and loves to spend time on security experiments.",
+        "company": "Xebia",
+        "createdAt": "2016-01-28T20:44:06.821Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Jeroen Willemsen",
+        "objectId": "CUdyXmP0mI",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-3cd17a93-9c64-448c-94f7-e5fbaa85d622-undefined_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-3cd17a93-9c64-448c-94f7-e5fbaa85d622-undefined_photo.jpg"
+        },
+        "title": "Full-Stack Developer",
+        "updatedAt": "2016-01-28T20:46:02.743Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Ciro is a Google Developer Expert in Angular who contrubutes with Angular, Angular CLI and Karma. He attended more than 20 conferences in the last two years talking about Angular.",
+        "createdAt": "2016-01-28T20:07:28.441Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Ciro Alves Nunes",
+        "objectId": "G0fwMgHo28",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-9f7a522a-2fdb-48da-999d-38ab9b5a4210-undefined_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-9f7a522a-2fdb-48da-999d-38ab9b5a4210-undefined_photo.jpg"
+        },
+        "title": "Google Developer Expert",
+        "twitter": "cironunesdev",
+        "updatedAt": "2016-01-28T20:07:33.308Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Previously, Leonardo was a software engineer at Twitter and has contributed to Angular by benchmarking with Benchpress. He also taught the \"AngularJS Essentials\" and \"AngularJS Evolved\" classes for Twitter University where he helped Twitter engineers to learn and improve skills with Angular. Currently Leonardo is the lead web engineer at Plan, a startup in the productivity space changing/shaping the way people go about their days.\n\nIn his free time he is creating and improving a tasty table component for Angular, name: ngTasty, like grandma used to make.\nLeo uses Angular on daily basis, he most enjoys traveling and taking lots and lots of filter-less pictures.",
+        "company": "Plan",
+        "createdAt": "2016-01-28T20:13:25.968Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Leonardo Zizzamia",
+        "objectId": "GTLbaXqX8c",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-b2a394ba-c9f3-4dba-95f7-a499ba913de7-undefined_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-b2a394ba-c9f3-4dba-95f7-a499ba913de7-undefined_photo.jpg"
+        },
+        "title": "Lead Web Engineer",
+        "twitter": "zizzamia",
+        "updatedAt": "2016-01-28T20:13:31.556Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Sebastian got hooked on the startup scene. He has currently been working as a full stack developer and is team lead at Small Improvements. In his spare time he organises the Angular Meetup in Berlin.",
+        "company": "Small Improvements",
+        "createdAt": "2016-01-28T13:20:50.570Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Sebastian Fröstl",
+        "objectId": "HqARWRoXUA",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-d7481d79-0e57-41c7-a745-c71afdc961f7-undefined_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-d7481d79-0e57-41c7-a745-c71afdc961f7-undefined_photo.jpg"
+        },
+        "title": "Full Stack Developer",
+        "twitter": "sfroestl",
+        "updatedAt": "2016-01-28T13:20:53.484Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Rob Wormald is part of the Angular core team, a Google Developer Expert and JavaScript guru.",
+        "company": "InnitApps",
+        "createdAt": "2016-01-28T15:07:51.787Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Rob Wormald",
+        "objectId": "JG9POYOfpw",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-b9a07151-de06-4bf2-a168-643302395e16-JG9POYOfpw_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-b9a07151-de06-4bf2-a168-643302395e16-JG9POYOfpw_photo.jpg"
+        },
+        "title": "Core Team Angular",
+        "twitter": "robwormald",
+        "updatedAt": "2016-01-29T08:42:48.845Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Nanne is a Full-Stack Developer at Xebia with a focus on Java in general and web-security. He is involved in multiple security projects (WebGoat, hacking-labs) and likes to do pentests",
+        "company": "Xebia",
+        "createdAt": "2016-01-28T20:45:41.134Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Nanne Baars",
+        "objectId": "KIzSf75l0q",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-2ebd6f16-f7c8-41f2-86da-c930a5373c84-undefined_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-2ebd6f16-f7c8-41f2-86da-c930a5373c84-undefined_photo.jpg"
+        },
+        "title": "Full-Stack Developer",
+        "updatedAt": "2016-01-28T20:45:41.134Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Todd Motto is an expert on JavaScript, Angular and React. He is a Google Developer Expert, an experienced conference speaker and open source evangelist.",
+        "company": "Mozio",
+        "createdAt": "2016-01-28T20:16:10.993Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Todd Motto",
+        "objectId": "OFYa2p7Zli",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-5d5b612a-f7b0-49a6-8671-cb8e5b8d5a0c-undefined_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-5d5b612a-f7b0-49a6-8671-cb8e5b8d5a0c-undefined_photo.jpg"
+        },
+        "title": "Front-end Engineer",
+        "twitter": "toddmotto",
+        "updatedAt": "2016-01-28T20:16:15.295Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Martin recently joined the Angular team full time and works on developer tooling, with a particular focus on TypeScript. Before Google, Martin worked on database systems, query languages, and storage optimisation.",
+        "company": "Google",
+        "createdAt": "2016-01-28T13:05:25.725Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Martin Probst",
+        "objectId": "QoUcbIyqTg",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-e2308aff-aef9-4e2a-8b6f-b922ba0abdd5-undefined_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-e2308aff-aef9-4e2a-8b6f-b922ba0abdd5-undefined_photo.jpg"
+        },
+        "title": "Software Engineer",
+        "twitter": "martin_probst",
+        "updatedAt": "2016-01-28T13:09:17.168Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Jimi is a developer at ING NL. For the past one and a half years, he has worked on applications for the internet banking environment “MijnING\". His main activities vary from the design of databases and (Java) APIs, to the implementation of (Angular) front-end pages. Jimi is also one of the owners of the open source JavaScript mutation testing framework called \"grunt-mutation-testing.",
+        "company": "ING",
+        "createdAt": "2016-01-28T19:21:05.262Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Jimi van der Woning",
+        "objectId": "SaZuv8pLJQ",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-3ca34723-1539-4f89-b8f4-01d17712a7d9-SaZuv8pLJQ_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-3ca34723-1539-4f89-b8f4-01d17712a7d9-SaZuv8pLJQ_photo.jpg"
+        },
+        "title": "Associate IT Specialist",
+        "twitter": "jimivdw",
+        "updatedAt": "2016-01-28T19:41:59.962Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Richard is a Full-Stack Developer at Wehkamp with extensive experience in the e-commerce world. He is well experienced in the Microsoft stack (C#, ASP.NET MVC, ASP.NET. Entity Framework, MS-SQL) and recently shifted towards the Scala world. Currently his focus is on creating back-end API's with Scala/Akka/Spray/Cassandra and frontend Single Page Applications using JavaScript ,React, Redux, AngularJS and NodeJS.",
+        "company": "Wehkamp",
+        "createdAt": "2016-01-29T16:44:26.045Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Richard Meijer",
+        "objectId": "UZQqD8x5xj",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-6fd09c28-037d-4bcd-8715-e2f2ebc2dcbb-undefined_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-6fd09c28-037d-4bcd-8715-e2f2ebc2dcbb-undefined_photo.jpg"
+        },
+        "title": "Full-Stack Developer",
+        "twitter": "MeijerYeah",
+        "updatedAt": "2016-01-29T16:44:28.794Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Thomas Burleson is the Team Lead for Google's Angular Material focused on delivery UX components for the Angular JS frameworks (v1.x and v2). He previously worked at SiriusXM as a UX and Principal Architect for the SiriusXM Internet Radio web apps.",
+        "company": "Google",
+        "createdAt": "2016-01-28T13:52:16.856Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Thomas Burleson",
+        "objectId": "WRIOZCqipc",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-a965a7fa-9711-4f8c-99bb-0a09a23ee024-undefined_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-a965a7fa-9711-4f8c-99bb-0a09a23ee024-undefined_photo.jpg"
+        },
+        "title": "Team Lead",
+        "twitter": "thomasburleson",
+        "updatedAt": "2016-01-28T13:52:20.136Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Mart started working as a Full Stack Developer but shifted his focus on front-end development.\nAt KPN digital he works with Angular on a daily basis.",
+        "company": "KPN Digital",
+        "createdAt": "2016-01-28T19:39:13.924Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Mart Molenaar",
+        "objectId": "dVxUu0vB00",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-a1ad524b-6dc5-4044-8787-1e98076ed295-dVxUu0vB00_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-a1ad524b-6dc5-4044-8787-1e98076ed295-dVxUu0vB00_photo.jpg"
+        },
+        "title": "Developer",
+        "updatedAt": "2016-01-29T08:54:55.697Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Manfred Steyer is a trainer, consultant and author with focus on modern Web- and Service-Architectures. He writes for O'Reilly, Hanser Presss, windows.developer as well as Heise Developer. Furthermore, he regularly speaks at conferences.",
+        "createdAt": "2016-01-28T20:09:01.291Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Manfred Steyer",
+        "objectId": "giS6Scg6th",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-64d6f404-4dff-4933-972f-71adfc485626-undefined_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-64d6f404-4dff-4933-972f-71adfc485626-undefined_photo.jpg"
+        },
+        "title": "Author, trainer, consultant",
+        "twitter": "ManfredSteyer",
+        "updatedAt": "2016-01-28T20:09:06.065Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL Admin": {
+                "write": true
+            }
+        },
+        "bio": "Tero Parviainen is an independent software developer and writer from Helsinki, Finland. He’s been wrangling frontend code exclusively for a couple of years now, and has in the process written a book called “Build Your Own AngularJS” and many articles in his blog.",
+        "createdAt": "2015-01-09T15:08:14.359Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Tero Parviainen",
+        "objectId": "nUkmEXUQzQ",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-92bf53bd-0b14-4323-b2a0-6392de89aeed-nUkmEXUQzQ_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-92bf53bd-0b14-4323-b2a0-6392de89aeed-nUkmEXUQzQ_photo.jpg"
+        },
+        "title": "Independent Consultant",
+        "twitter": "teropa",
+        "updatedAt": "2016-01-28T13:27:51.306Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Pascal is a front-end engineer with a love for semantic markup and evolving technologies in the open web. He loves contributing to open source and is the creator of the popular angular-translate module. Pascal loves to travel the world and speaks at conferences and meetups. When he's not busy preparing the next workshop or conference talk, you might find him outside with his skateboard.",
+        "company": "thoughtram",
+        "createdAt": "2016-01-28T14:56:43.059Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Pascal Precht",
+        "objectId": "nqLqwphlST",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-a258b70c-7fc4-452d-bfb6-c38f8365bb4d-undefined_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-a258b70c-7fc4-452d-bfb6-c38f8365bb4d-undefined_photo.jpg"
+        },
+        "title": "Front-end engineer and trainer at thoughtram",
+        "twitter": "PascalPrecht",
+        "updatedAt": "2016-01-28T14:56:54.577Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Laurens van Diest is an experienced front-end developer. He has been working with Angular at the ING bank for over two and a half years.",
+        "company": "ING",
+        "createdAt": "2016-01-28T19:25:53.093Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Laurens van Diest",
+        "objectId": "uYpXAlvDLk",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-c7db27c7-01fd-4889-b311-6e68a11c5894-uYpXAlvDLk_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-c7db27c7-01fd-4889-b311-6e68a11c5894-uYpXAlvDLk_photo.jpg"
+        },
+        "title": "Front-end Developer",
+        "updatedAt": "2016-01-28T19:43:11.062Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "bio": "Andreas is currently working as a Developer \u0026 Architect at Small Improvements. He still loves coding after being over ten years in the industry. Nowadays his main languages are Java and Javascript but he has never lost passion for new technologies. Having a background in both music and computer science.",
+        "company": "Small Improvements",
+        "createdAt": "2016-01-28T13:18:46.919Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "name": "Andreas Marek",
+        "objectId": "yPqQS5w4ad",
+        "photo": {
+            "__type": "File",
+            "name": "tfss-797884cf-7b76-42f9-8b6e-d7c374a04147-undefined_photo.jpg",
+            "url": "http://files.parsetfss.com/42682bfa-9601-4367-b8a6-a08bb36bb7b2/tfss-797884cf-7b76-42f9-8b6e-d7c374a04147-undefined_photo.jpg"
+        },
+        "title": "Developer",
+        "updatedAt": "2016-01-28T13:18:53.080Z"
+    }
+] }

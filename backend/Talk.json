@@ -1,0 +1,1690 @@
+{ "results": [
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Timetraveling Angular is about sharing the issues we have encountered during development and the solutions we have found. At the end of the session we have an interactive discussion were we can discuss the issues and our solutions."
+        },
+        "createdAt": "2016-01-28T19:45:47.687Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "0NgXWVxPfn",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "6P7NorFiHs"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "f8epZkpBdH"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "dVxUu0vB00"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Talk"
+            ]
+        },
+        "title": {
+            "en": "Timetraveling Angular"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:39:16.531Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "In this short session you can ask Pascal anything"
+        },
+        "createdAt": "2016-01-28T15:01:48.916Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "1YQ85yifhl",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "6DUCAaPiNP"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "VmkExS44Hw"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "nqLqwphlST"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Ask me anything"
+            ]
+        },
+        "title": {
+            "en": "Ask me Anything with Pascal Precht"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:01.148Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "After his talk, Ciro will answer any question during this short session."
+        },
+        "createdAt": "2016-01-28T20:24:03.388Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "2quq7qcebL",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "jYMfO5jgJv"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "0WK1yHpi5m"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "G0fwMgHo28"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Ask me anything"
+            ]
+        },
+        "title": {
+            "en": "Ask me Anything with Ciro Alves Nunes"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:36.543Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Learn how Angular Material can be easily used to quickly build ES6 web applications. See how features like Layouts, Containers, and ngMaterial components can be combined to radically accelerate your app UX development. See how JSPM and ES6 can be used to simplify your development and bring the fun back to web app debugging."
+        },
+        "createdAt": "2016-01-28T13:53:06.335Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "5VitWsfHkK",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "F6akjXDFeW"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "cTeKxrsB5i"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "WRIOZCqipc"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Workshop"
+            ]
+        },
+        "title": {
+            "en": "Workshop: QuickStart to Angular Material and ES6"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:48.539Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "After his talk, Mart will answer any question during this short session"
+        },
+        "createdAt": "2016-01-28T19:57:11.400Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "94f5YxahXi",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "XQnlEzUlgs"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "sft9T7PR59"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "dVxUu0vB00"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Ask me anything"
+            ]
+        },
+        "title": {
+            "en": "Ask me Anything with Mart Molenaar"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:32.865Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Short recap of the day and thanks!"
+        },
+        "createdAt": "2016-01-28T20:35:40.571Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "D07bVmUTpU",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "61R3txkY4G"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "gf088U9Kb5"
+        },
+        "speakers": [],
+        "title": {
+            "en": "Closing"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-28T20:35:40.571Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "After his talk, Leonardo will answer any question during this short session."
+        },
+        "createdAt": "2016-01-28T20:28:22.755Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "GLTr7pENV1",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "tTSApc9tmA"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "OMCRwMOeiF"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "GTLbaXqX8c"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Ask me anything"
+            ]
+        },
+        "title": {
+            "en": "Ask me Anything with Leonardo Zizzamia"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:38.024Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "After his talk, Gerard will answer any question during this short session"
+        },
+        "createdAt": "2016-01-28T19:56:08.463Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "H7i2Tj2qbN",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "x6EFdwjNmv"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "sft9T7PR59"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "1HLj1UyCUb"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Ask me anything"
+            ]
+        },
+        "title": {
+            "en": "Ask me Anything with Gerard Sans"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:06.065Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "You`ve probably heard of Observables by now, but they`re more than just a basic Javascript primitive - they open the door to a whole new way of building applications. Learn how to use Angular 2 and RxJS to make your apps easier to reason about, fun to test, and ridiculously fast by embracing reactive principles from Components to Services to Server. Everything is a stream."
+        },
+        "createdAt": "2016-01-28T15:10:22.009Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "Ij8ACPS0sb",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "61R3txkY4G"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "G1FPGyF9LZ"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "JG9POYOfpw"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Keynote"
+            ]
+        },
+        "title": {
+            "en": "Keynote: Reactive Angular 2"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:16.094Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Let go Party! And enjoy the good company, bites and drinks"
+        },
+        "createdAt": "2016-01-28T20:36:46.059Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "J3OtpXeoyN",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "Jf4SM173Ta"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "EKcKYFdl1p"
+        },
+        "speakers": [],
+        "title": {
+            "en": "After Party, Drinks and Bites"
+        },
+        "type": "drinks",
+        "updatedAt": "2016-01-29T08:40:49.626Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "After his talk, Shai will answer any question during this short session"
+        },
+        "createdAt": "2016-01-28T20:21:24.468Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "JnWwacrzJt",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "tTSApc9tmA"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "0WK1yHpi5m"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "5jD228GpVc"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Ask me anything"
+            ]
+        },
+        "title": {
+            "en": "Ask me Anything with Shai Reznik"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:34.008Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Angular 2 will provide support for custom renderers and platforms. With custom renderers we can have our component/application code render itself differently for a browser, a desktop-level application, a mobile phone or on a watch. We can also leverage native-level code or package our application into a webview. I will present real-life examples from our Mac and Web App implementations at Plan ( https://getplan.co ) that demonstrate how to make use of custom renderers to create reusable components that work in various different environments. We will also explore what Angular platforms are and what will be possible down the road when it comes to rendering Angular 2 applications."
+        },
+        "createdAt": "2016-01-28T20:26:46.929Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "KXdltwJg4w",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "61R3txkY4G"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "XE0p7QOZG8"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "GTLbaXqX8c"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Talk"
+            ]
+        },
+        "title": {
+            "en": "Rendering in Angular 2"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:40:09.864Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "In this short session, you can ask Martin Probst anything."
+        },
+        "createdAt": "2016-01-28T13:38:43.579Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "LtEQfS8ZnR",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "jYMfO5jgJv"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "RDZhpPC1r8"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "QoUcbIyqTg"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Ask me anything"
+            ]
+        },
+        "title": {
+            "en": "Ask me Anything with Martin Probst"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-28T15:15:30.853Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "In this short session you can ask Olivier Combe anything"
+        },
+        "createdAt": "2016-01-28T14:49:46.223Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "Tplc50iWTQ",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "x6EFdwjNmv"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "KEoYcIOuwN"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "HqARWRoXUA"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "yPqQS5w4ad"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Ask me anything"
+            ]
+        },
+        "title": {
+            "en": "Ask me Anything with Andreas Marek and Sebastian Fröstl"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:39:10.248Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "In large projects where many people work on the same code base over time, it is very important to write proper (unit) tests for your code. In order to assess the adequacy of a test set, an often looked-at metric is the code coverage. Code coverage, however, does not tell the complete story. Instead, one should look at the mutation coverage. In this talk, we will introduce the concept of mutation testing and how it has helped us to improve our code base."
+        },
+        "createdAt": "2016-01-28T19:27:04.633Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "UEOzzfDbub",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "61R3txkY4G"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "hRn73zjWvg"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "SaZuv8pLJQ"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "uYpXAlvDLk"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Talk"
+            ]
+        },
+        "title": {
+            "en": "Testing your tests: mutation testing for JavaScript"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:39:14.862Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Check-in with your ticket and pick up your badge."
+        },
+        "createdAt": "2016-01-28T13:42:50.986Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "W2AKsi7PJ5",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "yQV7T1w5T0"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "ruohlotV4a"
+        },
+        "speakers": [],
+        "title": {
+            "en": "Registration"
+        },
+        "type": "registration",
+        "updatedAt": "2016-01-28T13:59:25.355Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Building a Single Page Application (SPA) for the largest online retailer in The Netherlands has its challenges. The website should be crawlable by search engines and initial page load performance is critical. Any website where visitors browse through many pages should be a SPA to provide a smooth user experience. Classic server-side rendered pages will cause full page loads, which will interrupt that experience. This is especially true for retail sites. When we started building the new Blaze platform at wehkamp, AngularJS was the obvious choice for our front-end stack. In this talk we will share our experiences with AngularJS in a big online retail platform. We will cover server-side rendering, bundling and the migration to ES2015."
+        },
+        "createdAt": "2016-01-29T16:45:14.265Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "WNAqf08gcU",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "6P7NorFiHs"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "XE0p7QOZG8"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "UZQqD8x5xj"
+            }
+        ],
+        "title": {
+            "en": "AngularJS in a big online retail platform"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T16:45:14.265Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Enjoy the good food!"
+        },
+        "createdAt": "2016-01-28T20:38:30.330Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "YCgvbnMjin",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "Jf4SM173Ta"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "O0c5tBwqWe"
+        },
+        "speakers": [],
+        "title": {
+            "en": "Lunch time"
+        },
+        "type": "lunch",
+        "updatedAt": "2016-01-29T08:40:45.169Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "What is Change Detection? What causes change? And what is a \"change\" anyway? In this talk we want to take a look at one of the most important parts of the Angular 2 framework. We`re going to explore how Angular combines the power of \"Zones\" and its different implementations of Change Detection, to make your apps fast and responsive."
+        },
+        "createdAt": "2016-01-28T14:57:48.140Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "YUrP0azPIK",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "6P7NorFiHs"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "hRn73zjWvg"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "nqLqwphlST"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Talk"
+            ]
+        },
+        "title": {
+            "en": "Angular 2 Change Detection Explained"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:39:11.730Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Welcome at the second edition of NG-NL!"
+        },
+        "createdAt": "2016-01-28T20:48:49.084Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "hLtgLPkDvl",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "61R3txkY4G"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "TCAiHKnvNt"
+        },
+        "speakers": [],
+        "title": {
+            "en": "Opening NG-NL2016"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-28T20:48:49.084Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "After Todd's talk, you can catch up during the \"bites \u0026 drinks\" and ask Todd any question."
+        },
+        "createdAt": "2016-01-28T20:32:26.981Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "hPbEVXhpjD",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "0B3c3aqsCx"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "dvO9lMG6Rd"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "OFYa2p7Zli"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Ask me anything"
+            ]
+        },
+        "title": {
+            "en": "Ask me Anything with Todd Motto"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:39.874Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "The new component router is the new official routing solution both for Angular 2 and AngularJS 1.x offering component orientation as well as some new interesting concepts such as Lifecycle Events and Auxiliary Routes. Using examples, you will discover in this session what lies behind it all and how you can benefit from the new component router in your new projects."
+        },
+        "createdAt": "2016-01-28T20:19:08.402Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "iaYcCT1FCo",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "61R3txkY4G"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "FdgFyvrPqQ"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "giS6Scg6th"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Talk"
+            ]
+        },
+        "title": {
+            "en": "The new Component Router for Angular 2 and 1.x"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:39:20.505Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Scan your AngularJS application with OWASP ZAP and start learning about your front-end and back-end vulnerabilities. Use BDD security tools to build an automated regression test suite. In this workshop you will learn about web application security and how to use \u0026 incorporate security tooling into your development environment. We will provide you with a Linux image with all the necessary tools."
+        },
+        "createdAt": "2016-01-28T20:47:22.659Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "kIaJacvw2y",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "F6akjXDFeW"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "fYGiglnJwt"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "CUdyXmP0mI"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "KIzSf75l0q"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Workshop"
+            ]
+        },
+        "title": {
+            "en": "Workshop: Validating the security of your Angular application"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:50.658Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Relay and GraphQL are new technologies for client-server communication. Originally from the React universe, Relay is a declarative way of defining all the data a component needs. Relay retrieves, caches and keeps your data consistent. Based on real life experiences, we will give an introduction into Relay and show how to use it with Angular."
+        },
+        "createdAt": "2016-01-28T13:24:06.099Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "nRNLYFevYh",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "6P7NorFiHs"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "yf8wzeTRNm"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "yPqQS5w4ad"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "HqARWRoXUA"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Talk"
+            ]
+        },
+        "title": {
+            "en": "Angular and Relay: Declare it and be Happy"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-28T13:47:02.910Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Learn how Angular 2 takes the ease of use from Angular 1, but fixes many gotchas and complexities. Well go over what changed and why, show how to set up an awesomely productive development environment with Angular 2 and TypeScript, and give an outlook on Angular 2 in 2016."
+        },
+        "createdAt": "2016-01-28T13:13:47.084Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "nuRUbgD56P",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "61R3txkY4G"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "UjaZApJJkx"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "QoUcbIyqTg"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Keynote"
+            ]
+        },
+        "title": {
+            "en": "Keynote: Awesome Productivity with Angular 2"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:14.294Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Writing a library for Angular 2 appears to be more complex at first than writing a library for Angular 1. We will see how to trans pile your TypeScript sources and generate the typings, how to test your code, how to export your modules and how to publish your library on npm so that anyone can consume it easily, whatever their setup is."
+        },
+        "createdAt": "2016-01-28T13:31:45.253Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "oXrlY8e64a",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "61R3txkY4G"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "yf8wzeTRNm"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "6qwAH9mKcG"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Talk"
+            ]
+        },
+        "title": {
+            "en": "How to Write a Library for Angular 2"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-28T13:46:50.529Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "In this short session, you can ask Tero Parviaien anything."
+        },
+        "createdAt": "2016-01-28T14:44:38.686Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "rXWFgGj1su",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "jYMfO5jgJv"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "9cWkHQzvaQ"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "nUkmEXUQzQ"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Ask me anything"
+            ]
+        },
+        "title": {
+            "en": "Ask me Anything with Tero Parviainen"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:37:56.288Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Lessons learned on the road to conquering Angular and being a JavaScript engineer. Venture into the current state of the JavaScript boom. Thoughts and feelings on impostor syndrome, feeling overwhelmed, putting focus into your everyday work, becoming a better engineer, hitting your goals, learning new technology and sharing your knowledge."
+        },
+        "createdAt": "2016-01-28T20:30:34.644Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "rgW2fWEeSl",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "61R3txkY4G"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "eLw37hK7cq"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "OFYa2p7Zli"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Keynote"
+            ]
+        },
+        "title": {
+            "en": "Keynote: Which Way Is Up?"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:29.398Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "After Rob Wormald's talk, you can ask him anything during this short session"
+        },
+        "createdAt": "2016-01-28T15:14:13.336Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "s7QNiaypqv",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "jYMfO5jgJv"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "6L4u3jwHwF"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "JG9POYOfpw"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Ask me anything"
+            ]
+        },
+        "title": {
+            "en": "Ask me Anything with Rob Wormald"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:02.543Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Building seems daunting. How does one even begin? The ngUpgrade module that comes with Angular 2 is the key to making this easier. It won’t do the work for us, but it makes it a lot more pleasant. It does this by running apps that mix both Angular 1 and Angular 2 components together, making incremental migrations possible. In this talk we’ll take an Angular 1 app and bring it to the brave new world of Angular 2 piece by piece. In the process we’ll learn what ngUpgrade is all about and how we can use it."
+        },
+        "createdAt": "2016-01-28T13:28:43.824Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "ssuf2mA39r",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "61R3txkY4G"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "I5TQ7YACNY"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "nUkmEXUQzQ"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Talk"
+            ]
+        },
+        "title": {
+            "en": "ngUpgrade Your App to Angular 2"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-28T13:46:53.076Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "In this day and age, with buzz word happiness of Redux, flux, angulax, reflux, RxJS, plux, and other things which sounds like toothpastes, we are flooded with data about how data should be flooded in our apps. How to structure and componentize (if that`s even a word) large scale applications is a big challenge, and In this talk Shai will debate the current state of affairs regarding data flow, and suggest some of his own experience in toothpaste magic!"
+        },
+        "createdAt": "2016-01-28T20:17:22.502Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "tFcl4Bivv7",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "61R3txkY4G"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "3Al83KkX8r"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "5jD228GpVc"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Talk"
+            ]
+        },
+        "title": {
+            "en": "Smart and Dumb Components in Angular"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:39:17.683Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "After Olivier Combe's talk, you can ask him anything in this short session."
+        },
+        "createdAt": "2016-01-28T13:56:27.986Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "tb0EG5ARkm",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "tTSApc9tmA"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "KEoYcIOuwN"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "6qwAH9mKcG"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Ask me anything"
+            ]
+        },
+        "title": {
+            "en": "Ask me anything with Olivier Combe"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:37:54.722Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "After his talk, Manfred will answer any question during this short session."
+        },
+        "createdAt": "2016-01-28T20:22:44.509Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "vnpVmLF9t7",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "XQnlEzUlgs"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "Q7nUIjOJNl"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "giS6Scg6th"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Ask me anything"
+            ]
+        },
+        "title": {
+            "en": "Ask me Anything with Manfred Steyer"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:35.140Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "Angular 2 introduces a new Data Architecture based on Reactive Programming. RxJS 5 is a rewrite of Reactive Extensions focused on performance and usability. We are really excited to see the new approach using streams. We will cover a basic introduction to streams and RxJS 5 covering HTTP and Async Pipes."
+        },
+        "createdAt": "2016-01-29T11:13:28.177Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "x9FDUGOXft",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "61R3txkY4G"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "f8epZkpBdH"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "1HLj1UyCUb"
+            }
+        ],
+        "title": {
+            "en": "Introduction to RxJS 5"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T16:36:02.560Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "In this talk I`ll show how to make it easy for modeling application state and track changes on it using Redux and Observables."
+        },
+        "createdAt": "2016-01-28T20:18:23.529Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "xTSsUtJMAP",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "6P7NorFiHs"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "3Al83KkX8r"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "G0fwMgHo28"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Talk"
+            ]
+        },
+        "title": {
+            "en": "Angular 2 and the Single Immutable State Tree"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:39:18.792Z"
+    },
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "abstract": {
+            "en": "After their talk, Jimi and Laurens will answer all your questions during this short session at the ING area."
+        },
+        "createdAt": "2016-01-28T19:28:55.039Z",
+        "event": {
+            "__type": "Pointer",
+            "className": "Event",
+            "objectId": "Q3JcQkt3hy"
+        },
+        "objectId": "xV8QZ5BR2Q",
+        "room": {
+            "__type": "Pointer",
+            "className": "Room",
+            "objectId": "tTSApc9tmA"
+        },
+        "slot": {
+            "__type": "Pointer",
+            "className": "Slot",
+            "objectId": "VmkExS44Hw"
+        },
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "uYpXAlvDLk"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "SaZuv8pLJQ"
+            }
+        ],
+        "tags": {
+            "en": [
+                "Ask me anything"
+            ]
+        },
+        "title": {
+            "en": "Ask me Anything with Jimi van der Woning and Laurens van Diest (ING)"
+        },
+        "type": "talk",
+        "updatedAt": "2016-01-29T08:38:04.057Z"
+    }
+] }

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NG-NL</string>
+    <string name="app_name_med">NG-NL 2016</string>
+    <string name="app_date">18 februari, 2015</string>
+    <string name="event_time">9:00 – 17:00</string>
+
+</resources>

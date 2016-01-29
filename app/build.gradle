@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '23.0.1'
+    buildToolsVersion '23.0.2'
 
     defaultConfig {
         minSdkVersion 14
@@ -25,11 +25,6 @@ android {
             versionCode 1405181340 // yyMMddhhmm
             versionName '1.0.4'
         }
-        ngNl2015 {
-            applicationId 'com.xebia.ngnl'
-            versionCode 1501261020 // yyMMddhhmm
-            versionName '1.0.0'
-        }
         xebicon2015 {
             applicationId 'com.xebia.xebicon2015'
             versionCode 1506010755
@@ -46,6 +41,11 @@ android {
             versionName '1.0.1'
         }
         */
+        ngNl {
+            applicationId 'com.xebia.ngnl'
+            versionCode 1501261020
+            versionName '1.0.0'
+        }
         doIOS {
             applicationId 'com.xebia.doios'
             versionCode 1511031308

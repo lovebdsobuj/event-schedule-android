@@ -69,7 +69,9 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             mFilterMenuSelectedTag = savedInstanceState.getString(INST_ST_FILTER_MENU_TAG);
         }
 
-        mNavNotificationsToggle = (CompoundButton) findViewById(R.id.nav_notifications_switch);
+        mNavigationView = (NavigationView) findViewById(R.id.navigation);
+        final View drawerHeader = mNavigationView.getHeaderView(0);
+        mNavNotificationsToggle = (CompoundButton) drawerHeader.findViewById(R.id.nav_notifications_switch);
         mNavNotificationsToggle.setChecked(FavoritesNotificationScheduler.isNotificationsEnabled(this));
         mNavNotificationsToggle.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,10 +81,9 @@ public class MainActivity extends CalligraphyActivity implements TalkListClickLi
             }
         });
         // Can't define in XML because of file ordering
-        ViewCompat.setLabelFor(findViewById(R.id.nav_notifications_label), mNavNotificationsToggle.getId());
+        ViewCompat.setLabelFor(drawerHeader.findViewById(R.id.nav_notifications_label), mNavNotificationsToggle.getId());
 
         // listen for navigation events
-        mNavigationView = (NavigationView) findViewById(R.id.navigation);
         mNavigationView.setNavigationItemSelectedListener(this);
 
         // set up the hamburger icon to open and close the drawer

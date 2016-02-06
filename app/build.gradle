@@ -40,16 +40,16 @@ android {
             versionCode 1509242214
             versionName '1.0.1'
         }
-        */
-        ngNl {
-            applicationId 'com.xebia.ngnl'
-            versionCode 1501261020
-            versionName '1.0.0'
-        }
         doIOS {
             applicationId 'com.xebia.doios'
             versionCode 1511031308
             versionName '1.0.0'
+        }
+        */
+        ngNl {
+            applicationId 'com.xebia.ngnl'
+            versionCode 1602061614
+            versionName '2.0.0'
         }
     }
 

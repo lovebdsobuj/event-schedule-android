@@ -13,7 +13,7 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            proguardFile "${project.projectDir}/config/proguard-project.txt"
+            proguardFile 'proguard-rules.pro'
             proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
         }
     }

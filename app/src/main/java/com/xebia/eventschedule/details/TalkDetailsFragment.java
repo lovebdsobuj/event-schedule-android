@@ -1,5 +1,6 @@
 package com.xebia.eventschedule.details;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -34,6 +35,8 @@ public class TalkDetailsFragment extends Fragment {
     private View mPlaceholderView;
     private Toolbar mToolbar;
 
+    /* Suppress Lint warning about using the 'back arrow' from the AppCompat library resources */
+    @SuppressLint("PrivateResource")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

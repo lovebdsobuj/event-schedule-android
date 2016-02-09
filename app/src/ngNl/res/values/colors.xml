@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- NG-NL logo colors -->
+    <color name="logo_blue">#0A4093</color>
+    <color name="logo_blueDark">#093b85</color>
+    <color name="logo_red">#e2272a</color>
+
+    <!-- Material Theme colors -->
+    <color name="primary">@color/logo_blue</color>
+    <color name="primaryDark">@color/logo_blueDark</color>
+    <color name="accent">@color/logo_red</color>
+
+    <color name="drawer_header_background">@android:color/white</color>
+    <color name="drawer_header_text">@color/text</color>
+    <color name="drawer_menu_background">@color/primaryDark</color>
+    <color name="drawer_menu_text">@android:color/darker_gray</color>
+    <color name="drawer_menu_text_selected">@android:color/white</color>
+
+</resources>

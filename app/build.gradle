@@ -3,17 +3,17 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '23.0.1'
+    buildToolsVersion '23.0.2'
 
     defaultConfig {
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 23
     }
 
     buildTypes {
         release {
             minifyEnabled true
-            proguardFile "${project.projectDir}/config/proguard-project.txt"
+            proguardFile 'proguard-rules.pro'
             proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
         }
     }
@@ -24,11 +24,6 @@ android {
             applicationId 'com.xebia.xebicon2014'
             versionCode 1405181340 // yyMMddhhmm
             versionName '1.0.4'
-        }
-        ngNl2015 {
-            applicationId 'com.xebia.ngnl'
-            versionCode 1501261020 // yyMMddhhmm
-            versionName '1.0.0'
         }
         xebicon2015 {
             applicationId 'com.xebia.xebicon2015'
@@ -45,11 +40,16 @@ android {
             versionCode 1509242214
             versionName '1.0.1'
         }
-        */
         doIOS {
             applicationId 'com.xebia.doios'
             versionCode 1511031308
             versionName '1.0.0'
+        }
+        */
+        ngNl {
+            applicationId 'com.xebia.ngnl'
+            versionCode 1602061614
+            versionName '2.0.0'
         }
     }
 
@@ -60,7 +60,7 @@ android {
     }
 }
 
-ext.supportVersion = '23.0.1'
+ext.supportVersion = '23.1.1'
 
 dependencies {
     compile "com.android.support:appcompat-v7:${project.ext.supportVersion}"
@@ -68,10 +68,11 @@ dependencies {
     compile "com.android.support:recyclerview-v7:${project.ext.supportVersion}"
     compile "com.android.support:cardview-v7:${project.ext.supportVersion}"
     compile "com.android.support:design:${project.ext.supportVersion}"
-    compile 'uk.co.chrisjenx:calligraphy:2.1.0'
+    compile 'com.jakewharton.timber:timber:4.1.0'
     compile 'com.parse.bolts:bolts-android:1.2.1'
-    compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.parse:parse-android:1.10.2'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'uk.co.chrisjenx:calligraphy:2.1.0'
     compile fileTree(dir: 'libs', include: 'ParseCrashReporting-1.10.2.jar')
 }
 

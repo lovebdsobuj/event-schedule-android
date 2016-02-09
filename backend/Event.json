@@ -1,0 +1,159 @@
+{ "results": [
+	{
+        "ACL": {
+            "*": {
+                "read": true
+            },
+            "role:NG-NL 2016 Admin": {
+                "read": true,
+                "write": true
+            }
+        },
+        "baseColor": "#07306e",
+        "createdAt": "2015-12-22T15:37:04.934Z",
+        "createdBy": {
+            "__type": "Pointer",
+            "className": "_User",
+            "objectId": "nRbvwjnI4o"
+        },
+        "languages": [
+            "en"
+        ],
+        "location": {
+            "__type": "Pointer",
+            "className": "Location",
+            "objectId": "GrU5vaqtZ0"
+        },
+        "name": "NG-NL 2016",
+        "objectId": "Q3JcQkt3hy",
+        "socialMediaLinks": [
+            {
+                "__type": "Pointer",
+                "className": "Link",
+                "objectId": "PSBErRRNpI"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Link",
+                "objectId": "DKnhHlN92u"
+            }
+        ],
+        "speakers": [
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "QoUcbIyqTg"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "yPqQS5w4ad"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "HqARWRoXUA"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "nUkmEXUQzQ"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "WRIOZCqipc"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "6qwAH9mKcG"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "nqLqwphlST"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "JG9POYOfpw"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "SaZuv8pLJQ"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "uYpXAlvDLk"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "1HLj1UyCUb"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "dVxUu0vB00"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "5jD228GpVc"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "G0fwMgHo28"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "giS6Scg6th"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "GTLbaXqX8c"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "OFYa2p7Zli"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "CUdyXmP0mI"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "KIzSf75l0q"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Speaker",
+                "objectId": "UZQqD8x5xj"
+            }
+        ],
+        "ticketLinks": [
+            {
+                "__type": "Pointer",
+                "className": "Link",
+                "objectId": "e7a79Ul7XI"
+            },
+            {
+                "__type": "Pointer",
+                "className": "Link",
+                "objectId": "hYCPMlXOXY"
+            }
+        ],
+        "tintColor": "#0c4fb3",
+        "type": "CONFERENCE",
+        "updatedAt": "2016-01-29T16:44:26.289Z"
+    }
+] }

@@ -3,9 +3,7 @@ package com.xebia.eventschedule.model;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
-import com.xebia.eventschedule.BuildConfig;
 import com.xebia.eventschedule.R;
 
 import java.text.Collator;
@@ -14,6 +12,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import timber.log.Timber;
 
 /**
  * Helper class for managing Talk tags. Maintains a sorted list of tag labels and corresponding colors.
@@ -60,8 +60,8 @@ public class Tags {
 
     @Nullable
     public static Tags get() {
-        if (null == sInstance && BuildConfig.DEBUG) {
-            Log.w("Tags", "get() called before init()");
+        if (null == sInstance) {
+            Timber.w("get() called before init()");
         }
         return sInstance;
     }
@@ -79,7 +79,7 @@ public class Tags {
             tagsUnique.addAll(talk.getTags());
         }
         if (tagsUnique.isEmpty()) {
-            Log.d("Tags", "There were no tags on any talk");
+            Timber.d("There were no tags on any talk");
             return Collections.emptyList();
         }
         final List<String> tagsOrdered = new ArrayList<>(tagsUnique);

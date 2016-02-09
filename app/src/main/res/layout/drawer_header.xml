@@ -40,7 +40,9 @@
             android:gravity="center_vertical|start"
             android:text="@string/nav_notifications"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-            android:textColor="@color/drawer_header_text"/>
+            android:textColor="@color/drawer_header_text"
+            tools:drawableTint="@color/drawer_header_text"
+            tools:ignore="PrivateResource"/>
 
         <android.support.v7.widget.SwitchCompat
             android:id="@+id/nav_notifications_switch"

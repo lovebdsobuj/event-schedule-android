@@ -3,7 +3,6 @@ package com.xebia.eventschedule.model;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
@@ -12,7 +11,6 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseQuery.CachePolicy;
-import com.xebia.eventschedule.BuildConfig;
 import com.xebia.eventschedule.util.LocaleUtils;
 
 import org.json.JSONArray;
@@ -24,13 +22,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import timber.log.Timber;
+
 /**
  * A talk being given at Parse Developer Day.
  */
 @ParseClassName("Talk")
 public class Talk extends ParseObject {
 
-    private static final String TAG = "Talk";
     private boolean mSelected;
 
     /**
@@ -174,9 +173,7 @@ public class Talk extends ParseObject {
                 }
             }
         } catch (JSONException e) {
-            if (BuildConfig.DEBUG) {
-                Log.e(TAG, "Could not parse list of tags", e);
-            }
+            Timber.e(e, "Could not parse list of tags");
         }
         return results;
     }

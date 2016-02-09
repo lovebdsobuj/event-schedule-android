@@ -15,6 +15,7 @@ import com.xebia.eventschedule.model.Slot;
 import com.xebia.eventschedule.model.Speaker;
 import com.xebia.eventschedule.model.Talk;
 
+import timber.log.Timber;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
@@ -26,10 +27,17 @@ public abstract class BaseEventScheduleApp extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        initLogging();
         initParse();
         initCalligraphy();
 
         if (!BuildConfig.DEBUG) Parse.setLogLevel(Parse.LOG_LEVEL_NONE);
+    }
+
+    private void initLogging() {
+        if (BuildConfig.DEBUG) {
+            Timber.plant(new Timber.DebugTree());
+        }
     }
 
     private void initCalligraphy() {
